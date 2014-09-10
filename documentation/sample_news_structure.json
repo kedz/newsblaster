@@ -1,0 +1,20 @@
+{
+  'Title': "Some Title",
+  'Source_Type': "news/videos",
+  'source_link': "link here",
+  'time_of_crawl': 'date here ',
+  'html_content': "Raw html here",
+  'text_content': "Extracted text from html/Optional for now ",
+  'meta_information': {
+    'location': 'middleeast',
+    'topics': [
+      'cat',
+      'dog',
+      'animals'
+    ],
+    'date_published': "",
+    'author': "name here",
+    'images_url':[optional list of imaages associated with articles]
+  }
+
+}
