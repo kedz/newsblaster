@@ -1,0 +1,12 @@
+To install,
+
+$ cp env.sh.example env.sh
+
+Uncomment the first line in env.sh and set CU_HOME to the directory in which you would like to install newsblaster.
+
+Then run the following commands:
+
+$ source env.sh
+$ bash install.sh
+
+Now go get a coffee -- this will take a while.
