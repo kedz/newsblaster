@@ -16,7 +16,7 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
     #TODO put list of all RSS feeds here
     start_urls = ('http://rss.nytimes.com/services/xml/rss/nyt/Arts.xml',) #'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml' 'http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Africa.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Americas.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Europe.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Education.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/US.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml')
     itertag = 'item'
-    rules = (Rule(LxmlLinkExtractor(deny=('myaccount.nytimes.com', ))))
+    rules = (Rule(LxmlLinkExtractor(deny_domains=('myaccount.nytimes.com', ))))
     
     def parse_node(self, response, node):
         # Clean up namespace to allow for tags to be accessed
@@ -28,11 +28,11 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         #Fetch article
         #Example
         #url = 'http://www.nytimes.com/2014/09/21/movies/a-survey-celebrates-georgias-rich-film-tradition.html?partner=rss&emc=rss'
-        
+        url = 'https://myaccount.nytimes.com/auth/login'
         #Fetch actual article
-        if len(mylist) > 0:
-           yield scrapy.Request(mylist[0],callback=self.parse_article)
-        #yield scrapy.Request(url,callback=self.parse_article)
+        #if len(mylist) > 0:
+           #yield scrapy.Request(mylist[0],callback=self.parse_article)
+        yield scrapy.Request(url,callback=self.parse_article)
 
     def parse_article(self,response):
         print '*************Parsing article'
