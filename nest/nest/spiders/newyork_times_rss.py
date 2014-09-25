@@ -23,7 +23,6 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         node.remove_namespaces()
         
         mylist = node.xpath('//link[@rel="standout"]/@href').extract()
-        #print mylist
         #Extract all relevant meta information
         #Extract url from each item in the rss feed
         #Fetch article
@@ -48,6 +47,7 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         article_item['time_of_crawl'] = response.headers['Date']       
         article_item['html_content'] = response.body      
         article_item['text_content'] = response.xpath('//p[re:test(@class, "story-body-text")]/text()').extract()
+        print article_item['text_content']
         article_item['source_type'] = 'news_article'
         
         article_title = response.xpath('//meta[@property=\"og:title\"]/@content').extract()
