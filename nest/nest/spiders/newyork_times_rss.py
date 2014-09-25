@@ -14,9 +14,10 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
     allowed_domains = ["nytimes.com"]
 
     #TODO put list of all RSS feeds here
-    start_urls = ('http://rss.nytimes.com/services/xml/rss/nyt/Arts.xml','http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml' 'http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Africa.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Americas.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Europe.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Education.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/US.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml')
+    start_urls = ('http://rss.nytimes.com/services/xml/rss/nyt/Arts.xml',) #'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml' 'http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Africa.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Americas.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Europe.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Education.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/US.xml', 'http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml')
     itertag = 'item'
-
+    rules = (Rule(LxmlLinkExtractor(deny=('myaccount.nytimes.com', ))))
+    
     def parse_node(self, response, node):
         # Clean up namespace to allow for tags to be accessed
         node.remove_namespaces()
@@ -42,7 +43,8 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         article_meta_information = ArticleMetaInformation()
         
         #Fill in Article Information
-        article_item['source_link'] = response.url        
+        article_item['source_link'] = response.url      
+        print article_item['source_link']
         article_item['time_of_crawl'] = response.headers['Date']       
         article_item['html_content'] = response.body      
         article_item['text_content'] = response.xpath('//p[re:test(@class, "story-body-text")]/text()').extract()
