@@ -37,9 +37,9 @@ class al_jazeera_rss(XMLFeedSpider):
         print article_item['source_link']
         article_item['time_of_crawl'] = response.headers['Date']
         article_item['html_content'] = response.body
-        article_item['text_content'] = response.xpath('//p[re:test(@class, \
-        "story-body-text")]/text()').extract()
-        # print article_item['text_content']
+        article_item['text_content'] = response.xpath('//div\
+        [@class=\"text section\"]').extract()
+        print article_item['text_content']
         article_item['source_type'] = 'news_article'
         article_title = response.xpath('//meta[@name=\"twitter:title\"]\
         /@content').extract()
