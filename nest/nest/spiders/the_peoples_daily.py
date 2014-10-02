@@ -8,7 +8,6 @@ from scrapy.contrib.linkextractors.lxmlhtml import LxmlLinkExtractor
 from scrapy.contrib.spiders import XMLFeedSpider
 from nest.items import ArticleItem, ArticleMetaInformation
 from scrapy.selector import Selector
-<<<<<<< HEAD
 # TODO implement throttle
 
 
@@ -105,7 +104,6 @@ class PeopleDailySpider(XMLFeedSpider):
         def get_authors(self, raw_authors):
                 return [raw_author for raw_author in raw_authors]
                 # TODO Encoding for raw author
-=======
 
 #TODO implement throttle
 
@@ -167,4 +165,3 @@ class PeopleDailySpider(CrawlSpider):
 
 	def get_authors(self,raw_authors):
 		return  [raw_author for raw_author in raw_authors]  #TODO Encoding for raw author
->>>>>>> master
