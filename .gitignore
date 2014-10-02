@@ -36,3 +36,4 @@ Temporary Items
 *.jar
 *.war
 *.ear
+configs/settings.yaml

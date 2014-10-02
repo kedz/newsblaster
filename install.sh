@@ -49,5 +49,8 @@ virtualenv venv
 source venv/bin/activate
 pip install -U setuptools
 pip install -U cython
+pip install service_identity
 pip install scrapy
+pip install pyyaml
+pip install pika 
 

@@ -13,5 +13,13 @@ BOT_NAME = 'nest'
 SPIDER_MODULES = ['nest.spiders']
 NEWSPIDER_MODULE = 'nest.spiders'
 
+LOG_LEVEL = 'INFO'
+
+ITEM_PIPELINES = {
+	'nest.pipelines.ArticleEnrichmentPipeLine': 1,
+	'nest.pipelines.ArticleTextExtractionPipeline': 2,
+	'nest.pipelines.SendToBrokerPipeline': 3,
+								 }
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'nest (+http://www.yourdomain.com)'
