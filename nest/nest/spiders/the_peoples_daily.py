@@ -56,6 +56,7 @@ class PeopleDailySpider(CrawlSpider):
 		article_meta_information['topics'] = self.get_topics(keywords)
 		article_meta_information['language'] = 'zh' #http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 		article_item['meta_information'] = article_meta_information
+		return article_item
 	
 	def get_topics(self,keywords):
 		
