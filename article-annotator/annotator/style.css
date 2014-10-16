@@ -1,0 +1,10 @@
+.mouseOn{
+	background-color: #bcd5eb !important;
+	outline: 2px solid #5166bb !important;
+}
+
+.toolbar{
+	positon: fixed;
+	top: 10px;
+	left: 0px;
+}
