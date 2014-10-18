@@ -43,6 +43,11 @@ if [ ! -f ${NB_HOME}/lib/libxslt.a ]; then
     make install
 fi
 
+if [ ! -f ${NB_HOME}/bin/mongodb-linux-x86_64-2.6.4 ]; then
+    curl -O http://downloads.mongodb.org/linux/mongodb-linux-x86_64-2.6.4.tgz
+    tar -zxvf mongodb-linux-x86_64-2.6.4.tgz
+    cp -R -n mongodb-linux-x86_64-2.6.4/ ${NB_HOME}/bin/
+fi
 
 cd $NB_HOME
 virtualenv venv
@@ -53,4 +58,4 @@ pip install service_identity
 pip install scrapy
 pip install pyyaml
 pip install pika 
-
+pip install pymongo
