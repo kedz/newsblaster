@@ -73,6 +73,7 @@ class al_jazeera_rss(XMLFeedSpider):
                 errorFile.write(response.url + "\r\n")
             errorFile.close()
             # print "Writing to file"
+	return article_item
 
     def get_topics(self, keywords):
         # data always present in 0 of array
