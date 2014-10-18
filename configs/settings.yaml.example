@@ -2,3 +2,8 @@ rabbitmq:
  host: 'example.com'
  username: 'columbia'
  password: 'nlp'
+mongodb:
+ host: "localhost"
+ port: 27017
+ database_name: "archive"
+ article_collection_name: "articles"
