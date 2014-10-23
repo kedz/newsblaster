@@ -59,3 +59,4 @@ pip install scrapy
 pip install pyyaml
 pip install pika 
 pip install pymongo
+pip install scrapyd
