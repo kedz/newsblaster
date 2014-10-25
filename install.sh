@@ -60,3 +60,5 @@ pip install pyyaml
 pip install pika 
 pip install pymongo
 pip install scrapyd
+pip install Celery
+pip install requests

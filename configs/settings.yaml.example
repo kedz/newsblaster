@@ -2,6 +2,7 @@ rabbitmq:
  host: 'example.com'
  username: 'columbia'
  password: 'nlp'
+ port: '5672'
 mongodb:
  host: "localhost"
  port: 27017
