@@ -13,6 +13,7 @@ from scrapy.selector import Selector
 class PeopleDailySpiderWeb(CrawlSpider):
 
 	name = "the_peoples_daily_web"
+	download_delay = 2
 	allowed_domains = ["english.people.com.cn"]
 
 	start_urls = (

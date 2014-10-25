@@ -14,6 +14,7 @@ from scrapy.selector import Selector
 
 class PeopleDailySpiderRSS(XMLFeedSpider):
         name = "the_peoples_daily_rss"
+        download_delay = 2
         # allowed_domains = ["english.people.com.cn",
         # "english.peopledaily.com.cn"]
 

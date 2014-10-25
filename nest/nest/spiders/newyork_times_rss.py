@@ -14,6 +14,7 @@ from scrapy.selector import Selector
 class NewyorkTimesRssSpider(XMLFeedSpider):
     name = "newyork_times_rss"
     allowed_domains = ["nytimes.com"]
+    download_delay = 2
 
     # TODO put list of all RSS feeds here
     start_urls = (

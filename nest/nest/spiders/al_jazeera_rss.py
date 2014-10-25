@@ -15,6 +15,8 @@ class al_jazeera_rss(XMLFeedSpider):
     name = "al_jazeera_rss"
     allowed_domains = ["america.aljazeera.com"]
 
+    download_delay = 2
+
     # TODO put list of all RSS feeds here
     start_urls = ("http://america.aljazeera.com/content/ajam/articles.rss",)
     itertag = 'item'
