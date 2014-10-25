@@ -1,5 +1,6 @@
 import scrapy
 import re
+from datetime import datetime
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
 from scrapy.selector import XmlXPathSelector
@@ -56,7 +57,7 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         # Fill in Article Information
         article_item['source_link'] = response.url
         print article_item['source_link']
-        article_item['time_of_crawl'] = response.headers['Date']
+        article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
         article_item['html_content'] = response.body
         article_item['text_content'] = response.xpath('//p[re:test(@class, \
         "story-body-text")]/text()').extract()
@@ -75,6 +76,10 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
             :published_time\"]/@content').extract()
             if len(date_published) > 0:
                 article_meta_information['date_published'] = date_published[0]
+        
+	if 'date_published' in article_meta_information:
+		article_meta_information['date_published'] = \
+		 int(datetime.strptime(article_meta_information['date_published'],"%Y-%m-%d").strftime("%s"))*1000 
         location = response.xpath('//meta[@name=\"geo\"]/@content').extract()
         if len(location) > 0:
             article_meta_information['location'] = location[0]

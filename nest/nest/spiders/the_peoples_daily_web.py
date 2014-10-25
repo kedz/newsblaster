@@ -1,5 +1,6 @@
 import scrapy
 import re
+from datetime import datetime
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
 from scrapy.selector import HtmlXPathSelector
@@ -31,13 +32,14 @@ class PeopleDailySpiderWeb(CrawlSpider):
 		article_meta_information = ArticleMetaInformation()
 
 		article_item['source_link'] = response.url
-		article_item['time_of_crawl'] = response.headers['Date']
+		article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
 		article_item['html_content'] = response.body
 		article_item['source_type'] = 'news_article' #TODO  should be enum
 		
 		article_item['title'] = response.xpath('//title/text()').extract()
 
-		article_meta_information['date_published'] = response.xpath('//meta[@name=\'publishdate\']/@content').extract()
+		published_date = response.xpath('//meta[@name=\'publishdate\']/@content').extract()
+		article_meta_information['date_published'] = int(datetime.strptime(published_date[0],"%Y-%m-%d").strftime("%s"))*1000
 		article_meta_information['location'] = 'china' #TODO should be enum
 
 		if response.xpath('//div[contains(@class, "wb_4 clear")]/text()').re(r'Editor:\s*(.*)'):

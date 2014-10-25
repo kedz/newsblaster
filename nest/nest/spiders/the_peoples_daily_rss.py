@@ -1,5 +1,6 @@
 import scrapy
 import re
+from datetime import datetime
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
 from scrapy.selector import XmlXPathSelector
@@ -48,7 +49,7 @@ class PeopleDailySpiderRSS(XMLFeedSpider):
                 article_meta_information = ArticleMetaInformation()
 
                 article_item['source_link'] = response.url
-                article_item['time_of_crawl'] = response.headers['Date']
+                article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
                 article_item['html_content'] = response.body_as_unicode()
                 article_item['source_type'] = 'news_article'
                 # TODO should be enum
@@ -61,7 +62,7 @@ class PeopleDailySpiderRSS(XMLFeedSpider):
                         ('//meta[@name=\'publishdate\']/@content').extract()
                 if len(date_published) > 0:
                         article_meta_information['date_published'] \
-                            = date_published
+                            = int(datetime.strptime(date_published[0],"%Y-%m-%d").strftime("%s"))*1000
                 article_meta_information['location'] = 'china'
                 # TODO should be enum
                 # Author parsing didn't work
@@ -83,6 +84,7 @@ class PeopleDailySpiderRSS(XMLFeedSpider):
                 article_meta_information['language'] = 'zh'
                 # http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
                 article_item['meta_information'] = article_meta_information
+		print article_meta_information
 
                 if "title" not in article_item.keys():
                         errorFile = open("MissedArticles.txt", 'a')

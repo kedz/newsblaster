@@ -1,6 +1,8 @@
 import os
 import sys
+from bson import json_util
 import json
+from datetime import datetime
 import yaml
 import pymongo
 
@@ -24,15 +26,25 @@ class MongoDBWorker(object):
 		self.db = self.client[self.config_data['mongodb']['database_name']] 
 		self.collection = self.db[self.config_data['mongodb']['article_collection_name']]
 
+	def convert_to_datetime(self,timestamp):
+		print timestamp
+		date = datetime.fromtimestamp(timestamp/1000)
+		print date
+		return date
+
 	def handle_delivery(self,channel, method, header, body):
 
-	
-		article = json.loads(body) 
-		#TODO correctly deserialize _id and all date fields to the correct Python class	
-	
-		self.collection.update({'_id':article['_id']},
-													article,
-													True )
+		article = json.loads(body)
+		article_id = json_util.loads(article['_id']) 
+		article['_id'] = article_id
+
+		article['time_of_crawl'] = self.convert_to_datetime(article['time_of_crawl'])
+		if 'date_published' in article['meta_information']:
+			article['meta_information']['date_published'] = self.convert_to_datetime(article['meta_information']['date_published'])
+
+		self.collection.update({'_id':article_id},
+													  article,
+												    True )
     
 		channel.basic_ack(delivery_tag = method.delivery_tag)
 		print '--Done Inserting To MongoDB--'
