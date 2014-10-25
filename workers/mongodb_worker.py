@@ -27,9 +27,7 @@ class MongoDBWorker(object):
 		self.collection = self.db[self.config_data['mongodb']['article_collection_name']]
 
 	def convert_to_datetime(self,timestamp):
-		print timestamp
 		date = datetime.fromtimestamp(timestamp/1000)
-		print date
 		return date
 
 	def handle_delivery(self,channel, method, header, body):
