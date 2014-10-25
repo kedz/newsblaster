@@ -34,7 +34,7 @@ app.conf.update(CELERYBEAT_SCHEDULE = {
                                         },
                         'every-hour-all-spiders': {
                         'task': 'scheduler.tasks.schedule_all_spiders',
-			                  'schedule': timedelta(minutes=2),
+			                  'schedule': timedelta(hours=3),
                         'args': (job_dir,)
                                         },
                     },
