@@ -46,6 +46,7 @@ document.getElementById("htmlContent").addEventListener('mousemove',
 document.getElementById("htmlContent").addEventListener('click',
 	function(e){
         var elem = e.target || e.srcElement;
+        elem.className = ""
         elem.setAttribute("annotation", selectedBrush);
         elem.classList.add("annotated_" + selectedBrush)
         console.log("Element", elem);
