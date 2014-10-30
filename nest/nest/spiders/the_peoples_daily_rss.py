@@ -1,5 +1,6 @@
 import scrapy
 import re
+from datetime import datetime
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
 from scrapy.selector import XmlXPathSelector
@@ -11,8 +12,9 @@ from scrapy.selector import Selector
 # TODO implement throttle
 
 
-class PeopleDailySpider(XMLFeedSpider):
-        name = "the_peoples_daily"
+class PeopleDailySpiderRSS(XMLFeedSpider):
+        name = "the_peoples_daily_rss"
+        download_delay = 2
         # allowed_domains = ["english.people.com.cn",
         # "english.peopledaily.com.cn"]
 
@@ -48,22 +50,20 @@ class PeopleDailySpider(XMLFeedSpider):
                 article_meta_information = ArticleMetaInformation()
 
                 article_item['source_link'] = response.url
-                print response.url
-                article_item['time_of_crawl'] = response.headers['Date']
-                article_item['html_content'] = response.body
+                article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
+                article_item['html_content'] = response.body_as_unicode()
                 article_item['source_type'] = 'news_article'
                 # TODO should be enum
 
                 title = response.xpath('//title/text()').extract()
                 if len(title) > 0:
                         article_item['title'] = title[0]
-                print article_item['title']
 
                 date_published = response.xpath\
                         ('//meta[@name=\'publishdate\']/@content').extract()
                 if len(date_published) > 0:
                         article_meta_information['date_published'] \
-                            = date_published
+                            = int(datetime.strptime(date_published[0],"%Y-%m-%d").strftime("%s"))*1000
                 article_meta_information['location'] = 'china'
                 # TODO should be enum
                 # Author parsing didn't work
@@ -72,12 +72,12 @@ class PeopleDailySpider(XMLFeedSpider):
                         raw_authors = response.xpath('//div[contains(@class,\
                                 "wb_4 clear")]/text()').re(r'Editor:\s*(.*)')
                         article_meta_information['author'] = \
-                            self.get_authors(raw_authors)
+                            raw_authors
                 else:
                         raw_authors = response.xpath('//div[contains(@class, \
                                 "wb_13 clear")]/text()').re(r'Editor:\s*(.*)')
                         article_meta_information['author'] = \
-                            self.get_authors(raw_authors)
+                            raw_authors
 
                 keywords = response.xpath('//meta[@name=\'keywords\']\
                                                 /@content').extract()
@@ -85,7 +85,7 @@ class PeopleDailySpider(XMLFeedSpider):
                 article_meta_information['language'] = 'zh'
                 # http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
                 article_item['meta_information'] = article_meta_information
-                print article_item['meta_information']
+		print article_meta_information
 
                 if "title" not in article_item.keys():
                         errorFile = open("MissedArticles.txt", 'a')
@@ -96,6 +96,8 @@ class PeopleDailySpider(XMLFeedSpider):
                                 errorFile.write(response.url + "\r\n")
                         errorFile.close()
 
+		return article_item
+
         def get_topics(self, keywords):
                 # data always present in 0 of array
                 for keyword_list in keywords:
@@ -105,63 +107,4 @@ class PeopleDailySpider(XMLFeedSpider):
                 return [raw_author for raw_author in raw_authors]
                 # TODO Encoding for raw author
 
-#TODO implement throttle
 
-class PeopleDailySpider(CrawlSpider):
-
-	name = "the_peoples_daily"
-	allowed_domains = ["english.people.com.cn"]
-
-	start_urls = (
-			'http://english.people.com.cn/',
-		     )		
-
-	#URL Patterns For English Articles http://english.people.com.cn
-	#http://english.people.com.cn/n/2014/0912/c90882-8782115.html
-	#http://english.people.com.cn/n/2014/0912/c98649-8781550.html
-	#http://english.people.com.cn/n/2014/0912/c98649-8781657.html
-
-	#Follow only these specific links
-	article_link_format = re.compile('http://english.people.com.cn/n/\d+/\d+')
-
-	#Rules to handle following urls
-	rules = (Rule(LxmlLinkExtractor(allow=(article_link_format), allow_domains=('english.people.com.cn', )),callback='parse_follow',follow=True), )
-
-	def parse_follow(self, response):
-
-		article_item = ArticleItem()
-		article_meta_information = ArticleMetaInformation()
-
-		article_item['source_link'] = response.url
-		article_item['time_of_crawl'] = response.headers['Date']
-		article_item['html_content'] = response.body
-		article_item['source_type'] = 'news_article' #TODO  should be enum
-		
-		article_item['title'] = response.xpath('//title/text()').extract()
-
-		article_meta_information['date_published'] = response.xpath('//meta[@name=\'publishdate\']/@content').extract()
-		article_meta_information['location'] = 'china' #TODO should be enum
-
-		if response.xpath('//div[contains(@class, "wb_4 clear")]/text()').re(r'Editor:\s*(.*)'):
-			raw_authors = response.xpath('//div[contains(@class, "wb_4 clear")]/text()').re(r'Editor:\s*(.*)')
-			article_meta_information['author'] = self.get_authors(raw_authors)
-		else:
-			raw_authors = response.xpath('//div[contains(@class, "wb_13 clear")]/text()').re(r'Editor:\s*(.*)')
-			article_meta_information['author'] = self.get_authors(raw_authors)
-
-
-		keywords = response.xpath('//meta[@name=\'keywords\']/@content').extract()
-		article_meta_information['topics'] = self.get_topics(keywords)
-		article_meta_information['language'] = 'zh' #http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-		article_item['meta_information'] = article_meta_information
-		return article_item
-	
-	def get_topics(self,keywords):
-		
-		#data always present in 0 of array
-		for keyword_list in keywords:
-			return keyword_list.split(',')
-
-
-	def get_authors(self,raw_authors):
-		return  [raw_author for raw_author in raw_authors]  #TODO Encoding for raw author
