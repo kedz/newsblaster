@@ -61,13 +61,57 @@ document.getElementById("palatte").addEventListener('click',
         $('#selectedBrushText').html("Selected Brush: " + selectedBrush);
     },true);
 
+function sanitizeHTML(data){
+    var bodySI = data.indexOf('<body>') + '<body>'.length,
+        bodyEI = data.indexOf('</body>'),
+        body = data.substr(bodySI, bodyEI - bodySI),
+        $body;
+
+    body = body.replace(/<script[^>]*>/gi, ' <!-- ');
+    body = body.replace(/<\/script>/gi, ' --> ');
+
+    // Change all a's to a-disabled. 
+    body = body.replace()
+
+    return body;
+}
+
+function stripScripts(s) {
+    console.log("Strippin' dem scripts");
+
+    var div = document.createElement('div');
+    div.innerHTML = s;
+    var scripts = div.getElementsByTagName('script');
+    var i = scripts.length;
+    while (i--) {
+        console.log(scripts[i]);
+        scripts[i].parentNode.removeChild(scripts[i]);
+    }
+    return div.innerHTML;
+  }
+
+function stripCSS(s) {
+    console.log("Strippin' dat CSS");
+
+    var div = document.createElement('div');
+    div.innerHTML = s;
+    var css = div.getElementsByTagName('links');
+    var i = css.length;
+    while (i--) {
+        console.log(scripts[i]);
+        css[i].parentNode.removeChild(css[i]);
+    }
+    return div.innerHTML;
+}
+
 // Save Resulting HTML
 function saveHTML(){
 	var html = $('html').clone();
 	var htmlString = html.html();
 
-	var datauri = "data:text/html;charset=utf-8;base64," + Base64.encode(htmlString);
-	$("#toolbar").append("<a href='" + datauri + "'>Save</a>");
+    var cleanHTML = stripScripts(htmlString);
+	var datauri = "data:text/html;charset=utf-8;base64," + Base64.encode(cleanHTML);
+	$("#download").append("<a href='" + datauri + "' target='_blank' download='annotated.html'>Save</a>");
 }
 
 function removeStylesheets(){
@@ -78,5 +122,7 @@ function removeStylesheets(){
 
 $.get('http://localhost:8000/testEbola.html')
  .success(function(data) {
-     $('#htmlContent').html(data);
+    var htmlToRender = sanitizeHTML(data);
+    //htmlToRender = stripScripts(htmlToRender);
+    $('#htmlContent').html(htmlToRender);
  });
