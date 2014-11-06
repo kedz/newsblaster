@@ -71,7 +71,8 @@ function sanitizeHTML(data){
     body = body.replace(/<\/script>/gi, ' --> ');
 
     // Change all a's to a-disabled. 
-    body = body.replace()
+    body = body.replace(/<a[^>]*>/gi, '<a-disabled> ');
+    body = body.replace(/<\/a>/gi, '</a-disabled>');
 
     return body;
 }
@@ -114,6 +115,7 @@ function saveHTML(){
 	$("#download").append("<a href='" + datauri + "' target='_blank' download='annotated.html'>Save</a>");
 }
 
+// Manually remove all stylesheets
 function removeStylesheets(){
     var css_links = $('#htmlContent link[rel=stylesheet]');
     console.log("CSS Links", css_links);
