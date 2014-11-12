@@ -225,5 +225,5 @@ X = v.fit_transform(dictList)
 
 # Output X = [feature vectors], Y = [labels]
 print X
-#print v.inverse_transform(X)
+print v.inverse_transform(X)
 #print v.get_feature_names()
