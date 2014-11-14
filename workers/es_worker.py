@@ -33,8 +33,6 @@ class ElasticSearchWorker(object):
 	def handle_delivery(self,channel, method, header, body):
 
 		article = json.loads(body)
-		if( 'title' in  article):
-			print article['title']
 		article['time_of_crawl'] = self.convert_to_datetime(article['time_of_crawl'])
 		if 'date_published' in article['meta_information']:
 			article['meta_information']['date_published'] = self.convert_to_datetime(article['meta_information']['date_published'])
