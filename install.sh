@@ -58,7 +58,7 @@ pip install service_identity
 pip install scrapy
 pip install pyyaml
 pip install pika 
-pip install pymongo
 pip install scrapyd
 pip install Celery
 pip install requests
+pip install elasticsearch
