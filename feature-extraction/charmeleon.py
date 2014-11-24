@@ -1,7 +1,12 @@
 from bs4 import BeautifulSoup
+
 from sklearn.feature_extraction import DictVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report
+
 import copy
 from collections import defaultdict
+import os
 
 #emptyFeatureDict = {
 #    'len': 0,
@@ -61,27 +66,44 @@ from collections import defaultdict
 
 # Build Y = [labels]
 Y = list()
+Y_text = list()
 # Should I break it up into Y = [labels] and Y_text = [string]?
 
 # Load Annotated HTML (*.annotation)
-annotated_html = BeautifulSoup(open("test.annotation"))
+soups = []
 
-text_nodes = annotated_html.find_all(text=True)
+for filename in os.listdir("annotated_articles"):
+    path = os.path.join("annotated_articles", filename)
+    soups.append(BeautifulSoup(open(path)))
 
-for node in text_nodes:
-    name = getattr(node, "name", None)
-    if name is not None:
-        print name
-    elif not node.isspace(): # leaf node, don't print spaces
-        print node
+print len(soups)
+
+for soup in soups:
+    text_nodes = soup.find_all(text=True)
+    for node in text_nodes:
+        name = getattr(node, "name", None)
+        if name is not None:
+            if node.has_attr('annotation'):
+                Y.append(node['annotation'])
+            else:
+                Y.append("None")
+            Y_text.append(node.getText)
+
+print Y
+print Y_text
 
 # Choose nodes with annotation
 def has_annotation(tag):
     return tag.has_attr('annotation')
 
 # Iterate through nodes and save labels in list Y = [labels]
-for node in annotated_html.find_all(has_annotation):
-    Y.append([node['annotation'], node.getText()])
+#text_nodes = []
+#print len(soups)
+
+#for i in range(0, len(soups)):
+ #   for node in soups[i].find_all(has_annotation):
+  #      Y.append(node['annotation'])
+   #     Y_text.append(node.getText())
 
 def increment_feature(dict, key):
     dict[key] = dict.get(key, 0) + 1
@@ -217,12 +239,12 @@ def traverse_annotated_nodes(nodes):
     nodeMatrix = list()
     for node in nodes:
         # node = [label, text]
-        features = compute_features(node[1])
+        features = compute_features(node)
         nodeMatrix.append(features)
     return nodeMatrix
 
 # Build list of feature vectors to build Matrix X
-dictList = traverse_annotated_nodes(Y)
+dictList = traverse_annotated_nodes(Y_text)
 
 # Use SciKit to store feature vectors for each annotated node
 v = DictVectorizer(sparse=False)
@@ -230,5 +252,13 @@ X = v.fit_transform(dictList)
 
 # Output X = [feature vectors], Y = [labels]
 print X
-print v.inverse_transform(X)
+
+clf = MultinomialNB()
+clf.fit(X, Y)
+
+Y_pred = clf.predict(X) 
+
+print classification_report(Y, Y_pred)
+
+#print v.inverse_transform(X)
 #print v.get_feature_names()

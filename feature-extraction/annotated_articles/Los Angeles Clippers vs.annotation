@@ -1,0 +1,653 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Article Annotator</title>
+
+	<link rel="stylesheet" href="style.css">
+
+
+
+
+<div class="nav sticky">
+    <div id="palatte">
+        <ul>
+            <li class="">Title</li>
+            <li class="">Subtitle</li>
+            <li class="">SectionTitle</li>
+            <li class="">Author</li>
+            <li class="">Date</li>
+            <li class="">Location</li>
+            <li class="">Image</li>
+            <li class="">ImageCaption</li>
+            <li class="annotated_Body">Body</li>
+        </ul>
+    </div>
+    <input type="file" id="files" name="files[]" multiple="">
+    <output id="list"><ul><li><strong>Los%20Angeles%20Clippers%20vs.%20Memphis%20Grizzlies%20-%20Recap%20-%20November%2023%2C%202014%20-%20ESPN.html</strong> (text/html) - 73103 bytes, last modified: 11/24/2014</li></ul></output>
+    <h3 id="selectedBrushText">Selected Brush: Body</h3>
+    <button onclick="removeStylesheets()">Remove Stylesheets</button>
+    <br>
+    <div id="download">
+        <button onclick="saveHTML()">Download Annotated HTML</button>
+    </div>
+    <br>
+    <button onclick="undo()">Undo</button>
+</div>
+
+<div id="htmlContent" class="">TYPE html&gt;
+
+ <!--  --> <meta charset="iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ <!--     
+    if(true && navigator && navigator.userAgent.toLowerCase().indexOf("teamstream") >= 0) {
+        window.location = 'http://a.m.espn.go.com/mobilecache/general/apps/sc';
+    }
+ -->  <!-- 
+var espn=window.espn||{};espn.beta=(function(f,i,b){var c="http://beta.espn.go.com",j=f.location.href,l=i.location.pathname;function a(n){var r,m,o,q,s,v,w,p,t;if(n!==b){j=n;r=n.match(/http:\/\/([^\/]*)([^?]*).*/);if(r&&r.length===3){l=r[2];}}if(l.match(/\/story$/i)||l.match(/\/story\//i)){q=k("storyId",n)||k("id",n);s=k("storyPage",n)||k("page",n);if(q!==""){return c+l+"/_/id/"+q;}else{if(s!==""){return c+l+"/_/page/"+s;}else{return c+l;}}}if(l.match(/\/blogpostindex$/i)){m=k("blogname",n);if(f.espn&&espn.GLOBALS&&espn.GLOBALS.isCEBlog===true){return;}if(m!==""){return c+"/blog/"+m;}}if(l.match(/\/blogpost$/i)){m=k("blogname",n);o=k("id",n);if(f.espn&&espn.GLOBALS&&espn.GLOBALS.isCEBlog===true){return;}if(m!==""&&o!==""){return c+"/blog/"+m+"/post/_/id/"+o;}}if(l.match(/^\/blog\//i)){m=k("blogName",n);o=k("id",n);if(l.match(/\/blog\/[^\/]*?\/post$/i)){if(o!==""){return c+l+"/_/id/"+o;}}else{if(m!==""&&o!==""){return c+"/blog/"+m+"/post/_/id/"+o;}else{if(m!==""){return c+"/blog/"+m;}else{return c+l;}}}}if((l===""||l==="/")&&!j.match(/^https?:\/\/insider\.espn\.go\.com/i)){return c;}var u=l.match(/^\/.*?\/(?:index)?$/i);if(u){v={"/frontpage/":true,"/wireless/":true,"/general/":true,"/extra/":true,"/mobile/":true,"/nfl/":true,"/nba/":true,"/mlb/":true,"/nhl/":true,"/ncf/":true,"/college-football/":true,"/ncb/":true,"/mens-college-basketball/":true,"/ncw/":true,"/womenbb/":true,"/womens-basketball/":true,"/wnba/":true,"/golf/":true,"/tennis/":true,"/general/tennis/":true,"/mma/":true,"/extra/mma/":true,"/racing/":true,"/rpm/":true,"/racing/nascar/":true,"/rpm/nascar/":true,"/boxing/":true,"/extra/boxing/":true,"/college-sports/":true,"/ncaa/":true,"/extra/ncaa/":true,"/olympics/":true,"/extra/olympics/":true,"/horse-racing/":true,"/horse/":true,"/general/horse/":true,"/poker/":true,"/general/poker/":true,"/sports/endurance/":true,"/extra/endurance/":true};if(l.match(/\/index$/i)){l=l.substring(0,l.length-5);}if(v[l]===true){return c+l;}}if(l.match(/\/nflpreview$/i)||l.match(/\/preview$/i)){w=k("gameId",n);if(w!==""){if(l.match(/\/nflpreview$/i)){return c+"/nfl/preview?gameId="+w;}else{return c+l+"?gameId="+w;}}}if(l.match(/\/recap$/i)){w=k("gameId",n);if(w!==""){return c+l+"?gameId="+w;}}if(l==="/general/video"){p=k("cid",n);t=k("vid",n);if(p!==""){return c+"/video/clip?id="+p;}else{if(t!==""){return c+"/video/clip?id="+t;}}}if(l.match(/^\/(?:videohub\/video|video)\/clip$/i)){p=k("id",n);if(p!==""){return c+l+"?id="+p;}}}function h(o){var n=a(o);var m=j.match(/^https?:\/\/insider\.espn\.go\.com/i)||(o&&o.match(/^https?:\/\/insider\.espn\.go\.com/i))||(espn&&espn.GLOBALS&&espn.GLOBALS.isPremium);if(n){n=n.replace("/wireless/","/");n=n.replace("/general/","/");n=n.replace("/extra/","/");n=n.replace("/mobile/","/");n=n.replace("/frontpage/","/");n=n.replace("/videohub/","/");n=n.replace("/ncf/","/college-football/");n=n.replace("/rpm/","/racing/");n=n.replace("/ncb/","/mens-college-basketball/");n=n.replace("/ncw/","/womens-basketball/");n=n.replace("/wnba/","/womens-basketball/");n=n.replace("/ncaa/","/college-sports/");if(m){n=n.replace("/story/","/insider/story/");n=n.replace("/post/","/insider/post/");if(n.match(/\/blog\/[^_]*$/i)){if(n.charAt(n.length-1)==="/"){n=n+"insider/";}else{n=n+"/insider/";}}}}return n;}function k(o,q){var m=location.search;if(q!==b){var n=q.indexOf("?");if(n>-1){m=q.substr(n);}}o=o.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var r=new RegExp("[\\?&]"+o+"=([^&#]*)"),p=r.exec(m);return p===null?"":decodeURIComponent(p[1].replace(/\+/g," "));}function d(){var n=e("betauser");var m=e("betacohort")||"";if(n!==null&&m.indexOf("cohort-")===0){var p=m.split("-");if(p&&p.length===2){if(parseInt(p[1],10)===999){return;}}var o=h();if(o){f.location=o;}}}function e(n){var p=n+"=";var m=i.cookie.split(";");for(var o=0;o<m.length;o++){var q=m[o];while(q.charAt(0)===" "){q=q.substring(1,q.length);}if(q.indexOf(p)===0){return q.substring(p.length,q.length);}}return null;}function g(){if(k("rand")==="beta"){espn.beta.recheck=true;}else{d();}}return{init:function(){g();}};})(this,this.document);espn.beta.init();
+ --> 
+	 <!-- (function(){function r(a){a=a.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var c=new RegExp("[\\?&]"+a+"=([^&#]*)"),b=c.exec(location.search);return b==null?"":decodeURIComponent(b[1].replace(/\+/g," "));}var p=navigator.userAgent,o=window.location,l=document.cookie,f=document.referrer,n=(f===""||f.indexOf(".go.com")!==-1),d=(n)?"http://espn.go.com/nba/gamecast?gameId=400578485&version=mobile&src=desktop":"http://espn.go.com/nba/gamecast?gameId=400578485&version=mobile&src=desktop&rand=ref~%7B%22ref%22%3A%22"+encodeURIComponent(f)+"%22%7D",i=(p.match(/iPad/i)||(p.match(/Android/i)&&!p.match(/Mobile/i))||p.match(/RIM Tablet/i)||p.match(/Silk/i)),k=(p.match(/Mobile/i)||p.match(/Mini/i)),g=o.href.match(/src=mobile/i),q=l.indexOf("iphone_redirect=false")>-1,e=l.indexOf("iphone_redirect=true")>-1,j=r("addata"),h=r("ex_cid"),m=r("rand");if(j!=""){d+="&addata="+j;}if(h!=""){d+="&ex_cid="+h;}if(m==="beta"){d+="&rand=beta";}if(i){document.documentElement.className+=" tablet ";if((!p.match(/iPad/i)||e)&&!q){o.href=d;}}else{if(k&&!q&&!g){o.href=d;}}})(); --> 
+	<title>Los Angeles Clippers vs. Memphis Grizzlies - Recap - November 23, 2014 - ESPN</title>
+<meta name="google-site-verification" content="xuj1ODRluWa0frM-BjIr_aSHoUC7HB5C1MgmYAM_GkA">
+<meta name="msvalidate.01" content="B1FEB7C682C46C8FCDA3130F3D18AC28">
+<meta name="googlebot" content="noodp">
+<meta name="robots" content="index, follow">
+<meta name="description" content="NBA Basketball Recap: Final statistics from the Los Angeles Clippers vs. Memphis Grizzlies game played on November 23, 2014">
+<meta name="keywords" content="nba basketball Recap, Los Angeles stats, Memphis stats">
+<meta property="fb:app_id" content="116656161708917">
+<meta property="og:site_name" content="ESPN.com">
+<meta property="og:title" content="Sharp-shooting Gasol leads Grizzlies by Clips ">
+<meta property="og:type" content="article">
+<meta property="og:description" content="NBA Basketball Recap: Final statistics from the Los Angeles Clippers vs. Memphis Grizzlies game played on November 23, 2014">
+<meta property="og:image" content="http://a.espncdn.com/media/motion/2014/1123/dm_141123_nba_lac_mem/dm_141123_nba_lac_mem.jpg">
+<meta property="og:url" content="http://scores.espn.go.com/nba/recap?gameId=400578485">
+<meta name="twitter:site" content="espn">
+<meta name="twitter:title" content="Sharp-shooting Gasol leads Grizzlies by Clips ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="NBA Basketball Recap: Final statistics from the Los Angeles Clippers vs. Memphis Grizzlies game played on November 23, 2014">
+<meta name="twitter:image" content="http://a.espncdn.com/media/motion/2014/1123/dm_141123_nba_lac_mem/dm_141123_nba_lac_mem.jpg">
+<meta name="twitter:url" content="http://scores.espn.go.com/nba/recap?gameId=400578485">
+<meta name="twitter:app:name:iphone" content="SportsCenter">
+<meta name="twitter:app:id:iphone" content="317469184">
+<meta name="twitter:app:name:googleplay" content="SportsCenter">
+<meta name="twitter:app:id:googleplay" content="com.espn.score_center">
+<link rel="canonical" href="http://scores.espn.go.com/nba/recap?gameId=400578485">
+
+		 <!-- var _sf_startpt=(new Date()).getTime(); --> 
+<link rel="search" type="application/opensearchdescription+xml" href="http://a.espncdn.com/search/opensearch.xml" title="ESPN Search">
+
+
+
+
+
+
+ <!-- 
+var _vrq = _vrq || [];
+ _vrq.push(['id', 489]);
+ _vrq.push(['automate', false]);
+ _vrq.push(['track', function(){}]);
+ (function(d, a){var s = d.createElement(a),x = d.getElementsByTagName(a)[0];
+s.async = true;
+s.src = 'http://a.visualrevenue.com/vrs.js';
+ x.parentNode.insertBefore(s, x);})(document, 'script');  --> 
+ <!--  --> 
+ <!--  --> 
+ <!-- 
+ESPN.include([
+	'http://widgets.outbrain.com/outbrain.js'
+]);
+ --> 
+ <!-- espn.core.navVersion = 'a'; --> 
+ <!-- var ad_site="espn.us.com.nba",ad_zone="nbarecap",ad_kvps="pgtyp=nbarecap;sp=nba;",ad_swid="",ad_counter=1,ad_ord=Math.floor(9999999999*Math.random()),ad_seg="",ad_mnr=-1<document.cookie.indexOf("grif=1")?"t":"f",ad_ref="other",ref=document.referrer,refsMap={"facebook.com":"facebook","twitter.com|t.co":"twitter","plus.url.google.com|plus.google.com":"googleplus","google.com":"google","bing.com":"bing","yahoo.com":"yahoo","espn.go.com":"espn"},refKey;for(refKey in refsMap)ref.match(refKey)&&(ad_ref=refsMap[refKey]);
+ad_kvps=ad_kvps+"ref="+ad_ref+";mnr="+ad_mnr+";";ad_swid=jQuery.cookie("SWID");"function"===typeof espn.core.ad_segments&&(ad_seg=espn.core.ad_segments(),null!=ad_seg&&""!=ad_seg&&(ad_kvps+=ad_seg));var ad_u="";null!=ad_swid&&""!=ad_swid&&(ad_u="swid="+ad_swid+";"); --> 
+
+
+<div class="mboxDefault"></div> <!-- mboxCreate('ESPN_global'); --> <!--[if IE 5]><div class="ie5"><![endif]-->
+<!--[if IE 6]><div class="ie ie6"><![endif]-->
+<!--[if IE 7]><div class="ie ie7"><![endif]-->
+<!--[if IE 8]><div class="ie ie8"><![endif]-->
+<!--[if IE 9]><div class="ie9"><![endif]-->
+<!-- begin bg-elements -->
+<div class="bg-elements">
+<!-- begin header -->
+<div id="header" class="container">
+<!-- begin top-bar -->
+<div class="top-bar">
+<!-- begin uni login -->
+ <!-- 
+var returnURL = document.location.href;
+var anCV = "";
+var myEspnText = {'welcometext':'Welcome','register':'Register','signin':'Sign In','signout':'Sign Out','heliumdown':'Login Temporarily Unavailable','connectedfacebook':'Connected to Facebook','connectfacebook':'Connect with Facebook','activateinsider':'Activate Insider'};
+ --> 
+<form id="form-memberarea">
+<input type="hidden" name="language" id="language" value="en">
+<input type="hidden" name="affiliateName" id="memberAreaAffiliateName" value="espn">
+<input type="hidden" name="regFormId" id="regFormId" value="espn">
+</form>
+<div class="signin" id="signin"></div>
+ <!-- espn.memberservices.welcome(); --> 
+<div class="nav-edition editions">
+<label>EDITIONS:</label>
+<ul class="main">
+	<li class="e-usa active"><a-disabled> USA</a-disabled></li>
+	<li class="e-deportes"><a-disabled> DEPORTES</a-disabled></li>
+	<li class="last dropdown">
+	<ul class="">
+	<li class="selected">More</li>
+        <li><a-disabled> Argentina</a-disabled></li>
+	<li><a-disabled> Australia</a-disabled></li>
+	<li><a-disabled> Brazil</a-disabled></li>
+        <li><a-disabled> Colombia</a-disabled></li>
+        <li><a-disabled> Mexico</a-disabled></li>
+	<li><a-disabled> United Kingdom</a-disabled></li>
+        <li><a-disabled> Venezuela</a-disabled></li>
+	</ul>
+	</li>
+</ul>
+</div>
+
+<div class="nav-edition">
+<label>CITIES:</label>
+<ul class="main">
+	<li class="e-boston"><a-disabled> BOSTON</a-disabled></li>
+	<li class="e-chicago"><a-disabled> CHICAGO</a-disabled></li>
+	<li class="e-dallas"><a-disabled> DALLAS</a-disabled></li>
+	<li class="e-losangeles"><a-disabled> LOS ANGELES</a-disabled></li>
+	<li class="last e-newyork"><a-disabled> NEW YORK</a-disabled></li>
+</ul>
+</div>
+</div>
+<!-- end top-bar -->
+<!-- begin espn-logo -->
+<div class="espn-logo">
+<h1 class="">
+<a-disabled> ESPN</a-disabled> <a-disabled> NBA</a-disabled></h1>
+</div>
+<!-- end espn-logo -->
+<!-- begin ad -->
+<span class="presby"><!--espn.us.com.nba sitezone-->
+ <!-- if("undefined"!=typeof ad_kvps&&"undefined"!=typeof ad_u&&"undefined"!=typeof ad_counter&&"undefined"!=typeof ad_ord){if("undefined"==typeof ad_site||"undefined"==typeof ad_zone)var ad_site="espn.us.com.nba",ad_zone="nbarecap";var ad_finalString="http://ad.Doubleclick.net/adj/"+ad_site+"/"+ad_zone+";"+ad_kvps+"pos=SponsoredByLogoHeader;"+ad_u+"sz=150x45,1x1;tile="+ad_counter+";ord="+ad_ord;document.write('<div data-cb-ad-id="SponsoredByLogoHeader" data-cb-dfp-id="'+ad_kvps+'sz=150x45,1x1"> <!-- \x3c/script></div>');ad_counter++}; --> 
+<noscript>&amp;lt;a-disabled&amp;gt; &amp;lt;img src="http://ad.Doubleclick.net/ad/espn.us.com.nba/nbarecap;pgtyp=nbarecap;sp=nba;sz=150x45,1x1;" border="0" alt=""&amp;gt;&amp;lt;/a-disabled&amp;gt;</noscript>
+</span>
+<!-- end ad -->
+<div class="header-right">
+<style>.ie6 #searchBox, .ie6 #searchBox div { display: inline; } </style><!-- begin search -->
+<div id="nav-main-search">
+<form id="searchBox" name="searchBox" action="http://search.espn.go.com/results" method="get" accept-charset="utf-8" style="color: #999999;">
+<div class="clearfix">
+<input autocomplete="off" class="text" type="text" placeholder="Search" name="searchString" id="searchString">
+<input type="hidden" name="page" id="page" value="null">
+<input type="hidden" name="fromForm" value="true">
+<input class="submit" type="submit" value="">
+</div>
+</form>
+</div>
+<!-- end search -->
+<div id="shop" class=""><a-disabled> Shop</a-disabled></div></div>
+</div>
+<!-- end header -->
+<!--espn.us.com.nba sitezone-->
+ <!-- if("undefined"!=typeof ad_kvps&&"undefined"!=typeof ad_u&&"undefined"!=typeof ad_counter&&"undefined"!=typeof ad_ord){if("undefined"==typeof ad_site||"undefined"==typeof ad_zone)var ad_site="espn.us.com.nba",ad_zone="nbarecap";var ad_finalString="http://ad.Doubleclick.net/adj/"+ad_site+"/"+ad_zone+";"+ad_kvps+"pos=Background_Skin;"+ad_u+"sz=1280x946,200x800,1x1;tile="+ad_counter+";ord="+ad_ord;document.write('<div data-cb-ad-id="Background_Skin" data-cb-dfp-id="'+ad_kvps+'sz=1280x946,200x800,1x1"> <!-- \x3c/script></div>');ad_counter++}; --> 
+<noscript>&amp;lt;a-disabled&amp;gt; &amp;lt;img src="http://ad.Doubleclick.net/ad/espn.us.com.nba/nbarecap;pgtyp=nbarecap;sp=nba;sz=1280x946,200x800,1x1;" border="0" alt=""&amp;gt;&amp;lt;/a-disabled&amp;gt;</noscript>
+<!-- begin subheader -->
+<div id="subheader">
+<!-- begin content -->
+<div id="content-wrapper" class="">
+<div id="ad-top" class="container">
+<!-- begin Banner ad -->
+<div class="span-6 ad banner top"><div class="ad-center"><div class="ad-wrapper"><!--espn.us.com.nba sitezone-->
+ <!-- if("undefined"!=typeof ad_kvps&&"undefined"!=typeof ad_u&&"undefined"!=typeof ad_counter&&"undefined"!=typeof ad_ord){if("undefined"==typeof ad_site||"undefined"==typeof ad_zone)var ad_site="espn.us.com.nba",ad_zone="nbarecap";var ad_finalString="http://ad.Doubleclick.net/adj/"+ad_site+"/"+ad_zone+";"+ad_kvps+"pos=Banner;"+ad_u+"sz=728x90,970x66,924x50,1x1;tile="+ad_counter+";ord="+ad_ord;document.write('<div data-cb-ad-id="Banner" data-cb-dfp-id="'+ad_kvps+'sz=728x90,970x66,924x50,1x1"> <!-- \x3c/script></div>');ad_counter++}; --> 
+<noscript>&amp;lt;a-disabled&amp;gt; &amp;lt;img src="http://ad.Doubleclick.net/ad/espn.us.com.nba/nbarecap;pgtyp=nbarecap;sp=nba;sz=728x90,970x66,924x50,1x1;" border="0" alt=""&amp;gt;&amp;lt;/a-disabled&amp;gt;</noscript>
+</div></div></div>
+<!-- end Banner ad -->
+</div>
+<div id="content" class="container">
+<div id="fb-root"></div><!--[if lte IE 7]><link rel="stylesheet" charset="utf-8" media="screen" href="http://a.espncdn.com/combiner/c?css=modules/browser-alert.r7.css" type="text/css" /><div class="span-6" id="browser-alert-wrapper" style="display:none;"><div class="mod-container mod-no-header-footer browser-alert"><div class="mod-content"><div class="gradient-container"><h1><span>Your Web Browser</span> is no longer supported</h1><p>To experience everything that ESPN.com has to offer, we recommend that you upgrade to a newer version of your web browser. Click the upgrade button to the right or <a-disabled> learn more</a-disabled>.</p><ul><li><a-disabled> Upgrade</a-disabled></li><li><a-disabled> FAQs</a-disabled></li></ul></div></div></div></div> <!-- (function(b){setTimeout(function(){var a=b("#browser-alert-wrapper");if(espn.cookie.get("browseralert")!="true"){b('<a-disabled> Close</a-disabled>').bind("click",function(){a.hide();espn.cookie.set("browseralert","true",30);return false}).appendTo(a.find(".gradient-container"));a.show();espn.cookie.set("browseralert","true")}},100)})(jQuery); --> <!--[endif]---->
+
+<div class="scoreboard-strip-wrapper" style="height:61px; width:916px;">
+	<div class="scoreboard-strip oot-wide" id="ootScoreboard">
+		<div id="ootShadow"></div>
+
+		<div class="scoreboard-title-hq">
+			
+
+				<div class="subhead">
+
+					<span>
+						<a-disabled class=""> Scores for Nov 23, 2014</a-disabled>
+					</span>
+
+				</div>
+
+			
+		</div>
+
+		<div class="scoreboard-container" id="scoreboard2" style="width:auto !important;  margin-left: 210px !important">
+			<div class="container">
+				<div style="display: block;" class="jcarousel-prev jcarousel-next-horizontal oot-prev"></div>
+				<div style="display: block;" class="jcarousel-next jcarousel-next-horizontal oot-next"></div>
+				<div class="mod-content  mod-content-hq">
+					<div id="nba-scores" class="scores-carousel {note:'THERE ARE NO NBA GAMES TODAY'} ui-tabs-panel ui-widget-content ui-corner-bottom">
+						<ul>
+							<li id="nba-400578485"><!-- url: http://scores.espn.go.com/nba/recap --><a-disabled> <div class="game final"><div class="game-status final "><div class="game-left"><span class="status">Final</span><span class="hidden-clock"></span></div><div class="game-right"><span class="clock"></span></div>&nbsp;</div><div class="clear"></div><div class="game-left"><div class="info home-winner"></div><div class="teams"><span class="away">LAC</span><br><span class="home">MEM</span></div><div class="hidden-scores"><span class="away">91</span><br><span class="home">107</span></div><div class="scores"><span class="away">91</span><br><span class="home">107</span></div></div><div class="clear"></div><span class="sort">0</span></div></a-disabled></li><li id="nba-400578486"><!-- url: http://scores.espn.go.com/nba/recap --><a-disabled> <div class="game final"><div class="game-status final "><div class="game-left"><span class="status">Final</span><span class="hidden-clock"></span></div><div class="game-right"><span class="clock"></span></div>&nbsp;</div><div class="clear"></div><div class="game-left"><div class="info away-winner"></div><div class="teams"><span class="away">POR</span><br><span class="home">BOS</span></div><div class="hidden-scores"><span class="away">94</span><br><span class="home">88</span></div><div class="scores"><span class="away">94</span><br><span class="home">88</span></div></div><div class="clear"></div><span class="sort">1</span></div></a-disabled></li><li id="nba-400578487"><!-- url: http://scores.espn.go.com/nba/recap --><a-disabled> <div class="game final"><div class="game-status final "><div class="game-left"><span class="status">Final</span><span class="hidden-clock"></span></div><div class="game-right"><span class="clock"></span></div>&nbsp;</div><div class="clear"></div><div class="game-left"><div class="info home-winner"></div><div class="teams"><span class="away">CHA</span><br><span class="home">MIA</span></div><div class="hidden-scores"><span class="away">93</span><br><span class="home">94</span></div><div class="scores"><span class="away">93</span><br><span class="home">94</span></div></div><div class="clear"></div><span class="sort">2</span></div></a-disabled></li><li id="nba-400578488"><!-- url: http://scores.espn.go.com/nba/recap --><a-disabled> <div class="game final"><div class="game-status final "><div class="game-left"><span class="status">Final</span><span class="hidden-clock"></span></div><div class="game-right"><span class="clock"></span></div>&nbsp;</div><div class="clear"></div><div class="game-left"><div class="info away-winner"></div><div class="teams"><span class="away">GS</span><br><span class="home">OKC</span></div><div class="hidden-scores"><span class="away">91</span><br><span class="home">86</span></div><div class="scores"><span class="away">91</span><br><span class="home">86</span></div></div><div class="clear"></div><span class="sort">3</span></div></a-disabled></li><li id="nba-400578489"><!-- url: http://scores.espn.go.com/nba/recap --><a-disabled> <div class="game final"><div class="game-status final "><div class="game-left"><span class="status">Final</span><span class="hidden-clock">OT</span></div><div class="game-right"><span class="clock">OT</span></div>&nbsp;</div><div class="clear"></div><div class="game-left"><div class="info away-winner"></div><div class="teams"><span class="away">DEN</span><br><span class="home">LAL</span></div><div class="hidden-scores"><span class="away">101</span><br><span class="home">94</span></div><div class="scores"><span class="away">101</span><br><span class="home">94</span></div></div><div class="clear"></div><span class="sort">4</span></div></a-disabled></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+ <!-- 
+
+	var ESPNootScoreboard = {};
+
+	ESPNootScoreboard.activeSport = 'nba';
+
+	ESPNootScoreboard.myTeams = {'46-29': ['nba-400578485'], 
+'46-30': ['nba-400578487'], 
+'46-2': ['nba-400578486'], 
+'46-22': ['nba-400578486'], 
+'46-7': ['nba-400578489'], 
+'46-14': ['nba-400578487'], 
+'46-13': ['nba-400578489'], 
+'46-9': ['nba-400578488'], 
+'46-25': ['nba-400578488'], 
+'46-12': ['nba-400578485']};
+
+	(function($){
+		//checking insider access for pickcenter module on preview page
+		var insiderAccess = false;
+	    if(espn.core.loggedIn == true){
+	        szprem = espn.storage.getItem('szpremToken');
+	        insiderDirect = espn.storage.getItem('insiderDirectToken');
+	        if(szprem == true || insiderDirect == true){
+	            insiderAccess = true;
+	        }
+	    }
+	    $(document).ready(function(){
+		    if(insiderAccess){
+		    	$("div#insiderTrue").show();
+		    }
+		    if(!insiderAccess){
+		    	$("div#insiderFalse").show();
+		    	$("div#insiderTrue").html('');
+		    }
+		});
+    }(jQuery));
+
+ --> 
+
+
+ <!--  --> <!-- left column --><div class="gamehq-wrapper"><div class="summary-tabs-container"><div class="span-4" id="gamepackageTop"><div class="status-bar status-final"><p class="game-state">Final </p><!-- Series at a Glance -->
+
+			 <!-- 
+				jQuery(function($){
+					$("#series-dd-arrow").click(function(){
+						if($('#series-dd').is(":hidden")){
+							$('#series-dd').show();
+						}else{
+							$('#series-dd').hide();
+						}
+						return false;
+					});
+					$("#dd-close").click(function(){
+						$('#series-dd').hide();
+						return false;
+					});
+				});
+			 --> 
+
+
+			<div class="series-status"><p class="">Regular Season Series (Game 1 of 4)</p><a-disabled> </a-disabled></div><div class="series-dropdown" id="series-dd"><p class="close-link"><a-disabled> Close</a-disabled></p><p class="dd-series-status">Series starts 11/23</p><table cellspacing="0" class="dd-game"><tbody><tr><th colspan="3"><span>Game 1:</span> Sunday, November 23rd</th></tr><tr><td class="team"><a-disabled> Clippers</a-disabled></td><td class="score">91</td><td class="dd-game-status" rowspan="2">Final<br></td></tr><tr><td class="team"><a-disabled> Grizzlies</a-disabled></td><td class="score">107</td></tr><tr><td colspan="3" class="footer-links"><a-disabled> Recap »</a-disabled><a-disabled> Boxscore »</a-disabled></td></tr></tbody></table><table cellspacing="0" class="dd-game"><tbody><tr><th colspan="3"><span>Game 2:</span> Monday, February 23rd</th></tr><tr><td class="team"><a-disabled> Grizzlies</a-disabled></td><td class="score"></td><td class="dd-game-status" rowspan="2">10:30<br>PM ET</td></tr><tr><td class="team"><a-disabled> Clippers</a-disabled></td><td class="score"></td></tr><tr><td colspan="3" class="footer-links"><a-disabled> Preview »</a-disabled></td></tr></tbody></table><table cellspacing="0" class="dd-game"><tbody><tr><th colspan="3"><span>Game 3:</span> Friday, February 27th</th></tr><tr><td class="team"><a-disabled> Clippers</a-disabled></td><td class="score"></td><td class="dd-game-status" rowspan="2">8:00<br>PM ET</td></tr><tr><td class="team"><a-disabled> Grizzlies</a-disabled></td><td class="score"></td></tr><tr><td colspan="3" class="footer-links"><a-disabled> Preview »</a-disabled></td></tr></tbody></table><table cellspacing="0" class="dd-game"><tbody><tr><th colspan="3"><span>Game 4:</span> Saturday, April 11th</th></tr><tr><td class="team"><a-disabled> Grizzlies</a-disabled></td><td class="score"></td><td class="dd-game-status" rowspan="2">10:00<br>PM ET</td></tr><tr><td class="team"><a-disabled> Clippers</a-disabled></td><td class="score"></td></tr><tr><td colspan="3" class="footer-links"><a-disabled> Preview »</a-disabled></td></tr></tbody></table></div><!-- end Series at a Glance -->
+</div><div class="matchup" id="matchup-nba-400578485"><div class="team away"><div class="logo-medium" style="background:#FA0028;"><img src="http://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500-dark/lac.png&amp;w=40&amp;h=40&amp;transparent=true" alt="" class=""></div><div class="team-info"><h3 abbr="false"><a-disabled> Clippers</a-disabled> <span>91</span></h3><p class="">(7-5, 3-2 away)</p></div></div><div class="team home"><div class="logo-medium" style="background:#5D76A8;"><img src="http://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500-dark/mem.png&amp;w=40&amp;h=40&amp;transparent=true" alt=""></div><div class="team-info"><h3 class=""><a-disabled> Grizzlies</a-disabled> <span>107</span></h3><p class="">(12-2, 8-0 home)</p></div></div></div><div class="game-actions"><ul class=""><li><a-disabled> <span class="outer"><span class="title">Watch Highlights</span></span></a-disabled></li></ul></div><div class="game-vitals"><p style="padding: 8px 0px 0px; float: right; font-size: 11px;">Coverage: <strong>TSOH</strong></p><div class="game-time-location"><p class="">6:00 PM ET, November 23, 2014</p><p>FedExForum, Memphis, TN</p></div></div>
+
+	<!-- begin line score -->
+	<div class="line-score clear">
+		<div class="line-score-container">
+			<table cellspacing="0" class="linescore">
+				<tbody><tr class="periods">
+					<td class="team"></td>
+
+					<td class="period" style="text-align:center"> 1</td><td class="period" style="text-align:center"> 2</td><td class="period" style="text-align:center"> 3</td><td class="period" style="text-align:center"> 4</td>
+					<td class="total" style="text-align:center">T</td>
+
+				</tr>
+
+				<tr><td class="team"><a-disabled> LAC</a-disabled></td><td style="text-align:center"> 21</td><td style="text-align:center"> 19</td><td style="text-align:center"> 32</td><td style="text-align:center"> 19</td><td class="ts" style="text-align:center">91</td></tr><tr><td class="team"><a-disabled> MEM</a-disabled></td><td style="text-align:center"> 26</td><td style="text-align:center"> 27</td><td style="text-align:center"> 35</td><td style="text-align:center"> 19</td><td class="ts" style="text-align:center">107</td></tr>
+			</tbody></table>
+
+		</div>
+
+		<!-- end line score -->
+
+		<div class="game-notes">
+		<p class="heading"><span>Top Performers</span></p><p><span>LAC: </span><a-disabled> C. Paul</a-disabled> 22 Pts, 5 Reb, 5 Ast, 4 Stl</p><p class=""><span>Mem: </span><a-disabled> M. Gasol</a-disabled> 30 Pts, 12 Reb, 1 Ast, 2 Blk</p>
+		</div>
+	</div>
+</div><div class="span-2 last" id="gp-adwrap"><div class="ad-box" style="padding:2px 0px; height:250px;"><!--espn.us.com.nba sitezone-->
+ <!-- if("undefined"!=typeof ad_kvps&&"undefined"!=typeof ad_u&&"undefined"!=typeof ad_counter&&"undefined"!=typeof ad_ord){if("undefined"==typeof ad_site||"undefined"==typeof ad_zone)var ad_site="espn.us.com.nba",ad_zone="nbarecap";var ad_finalString="http://ad.Doubleclick.net/adj/"+ad_site+"/"+ad_zone+";"+ad_kvps+"pos=InContent;"+ad_u+"dcopt=ist;sz=300x600,300x250,1x1;tile="+ad_counter+";ord="+ad_ord;document.write('<div data-cb-ad-id="InContent" data-cb-dfp-id="'+ad_kvps+'sz=300x600,300x250,1x1"> <!-- \x3c/script></div>');ad_counter++}; --> 
+<noscript>&amp;lt;a-disabled&amp;gt; &amp;lt;img src="http://ad.Doubleclick.net/ad/espn.us.com.nba/nbarecap;pgtyp=nbarecap;sp=nba;sz=300x600,300x250,1x1;" border="0" alt=""&amp;gt;&amp;lt;/a-disabled&amp;gt;</noscript>
+</div></div>
+	<div class="tabs clear">
+		<ul>
+
+	<li class="active"><a-disabled> <span class="title">Recap</span>
+</a-disabled>
+</li><li class=""><a-disabled> <span class="title">Box Score</span>
+</a-disabled>
+</li><li class=""><a-disabled> <span class="title">Play-By-Play</span>
+</a-disabled>
+</li><li class=""><a-disabled> <span class="title">Shot Chart</span>
+</a-disabled>
+</li><li class=""><a-disabled> <span class="title">Conversation</span>
+<span class="fb-comments-long quantity"><span class="count"></span></span></a-disabled>
+</li></ul></div> <!-- jQuery.getScriptCache("http://a.espncdn.com/combiner/c/70?js=jquery.sharetools.r15-u4.js", function() {jQuery(".tabs").sharetools("http://scores.espn.go.com/nba/conversation?gameId=400578485");}); --> </div><div class="story-container"><div style="background:#fff;overflow:hidden;" class=""><div class="span-4"><div class="bg-opaque pad-16 article"><div class="mod-article-title"><div class="headline"><!--espn.us.com.nba sitezone-->
+ <!-- if("undefined"!=typeof ad_kvps&&"undefined"!=typeof ad_u&&"undefined"!=typeof ad_counter&&"undefined"!=typeof ad_ord){if("undefined"==typeof ad_site||"undefined"==typeof ad_zone)var ad_site="espn.us.com.nba",ad_zone="nbarecap";var ad_finalString="http://ad.Doubleclick.net/adj/"+ad_site+"/"+ad_zone+";"+ad_kvps+"pos=PresentedByLogoGameHQ;"+ad_u+"sz=884x40,1x1;tile="+ad_counter+";ord="+ad_ord;document.write('<div data-cb-ad-id="PresentedByLogoGameHQ" data-cb-dfp-id="'+ad_kvps+'sz=884x40,1x1"> <!-- \x3c/script></div>');ad_counter++}; --> 
+<noscript>&amp;lt;a-disabled&amp;gt; &amp;lt;img src="http://ad.Doubleclick.net/ad/espn.us.com.nba/nbarecap;pgtyp=nbarecap;sp=nba;gmid=400578485;sz=884x40,1x1;" border="0" alt=""&amp;gt;&amp;lt;/a-disabled&amp;gt;</noscript>
+<h2 class="annotated_Title" annotation="Title">Marc Gasol's 30 points, 12 rebounds lead Grizzlies in rout of Clippers&nbsp;</h2></div><div class="subhead"><div class="date"><span class="page-actions"><!--gameUrl:http://scores.espn.go.com/nba/recap?gameId=400578485--><!--shareUrl:http://es.pn/1vg0jYa--><div id="page-actions-top"><ul class="mod-page-actions"><li class="social facebook-recommend"><a-disabled> <span class="sprite-page-actions facebook"></span><span class="label">Recommend</span></a-disabled><a-disabled> 0</a-disabled></li>
+<li class="social twitter-tweet"><a-disabled> <span class="sprite-page-actions twitter"></span><span class="label">Tweet</span></a-disabled><a-disabled> 0</a-disabled></li>
+</ul> <!-- jQuery.getScriptCache('http://a.espncdn.com/combiner/c/70?js=jquery.sharetools.r15-u4.js', function() {jQuery('.mod-page-actions').sharetools('http://scores.espn.go.com/nba/recap?gameId=400578485');}); --> </div></span></div><cite class="source">Associated Press</cite></div></div><div class="mod-inline video-player full-box with-playlist"><div class="videoplayer videoplayer-story09" style="margin-top:0px !important;"><img src="http://a.espncdn.com/media/motion/2014/1123/dm_141123_nba_lac_mem/dm_141123_nba_lac_mem.jpg" class="annotated_Image" annotation="Image"></div><div id="videoInfo" class=""><h5 class="">Grizzlies Top Clippers</h5><div class="mod-video-tags"><span class="annotated_ImageCaption" annotation="ImageCaption">Marc Gasol had 30 points and 12 rebounds to lead the Grizzlies to a 107-91 win over the Clippers.</span><div class="mod-video-tags"><strong>Tags:</strong> <a-disabled> NBA</a-disabled>, <a-disabled class="">  Los Angeles Clippers</a-disabled>, <a-disabled class="">  Memphis Grizzlies</a-disabled>, <a-disabled>  Marc Gasol</a-disabled></div></div></div><a-disabled> Grizzlies Top Clippers</a-disabled><div class="mod-video-playlist"><h6 class="">VIDEO PLAYLIST <img width="15" height="8" alt="video" src="http://a.espncdn.com/icons/video2.png"></h6><ul class="bulletlinks"><li class=" first active"><a-disabled> Grizzlies Top Clippers</a-disabled><span style="display:none;"><h5>Grizzlies Top Clippers</h5><div class="mod-video-tags"><span>Marc Gasol had 30 points and 12 rebounds to lead the Grizzlies to a 107-91 win over the Clippers.</span><div class="mod-video-tags"><strong>Tags:</strong> <a-disabled> NBA</a-disabled>, <a-disabled>  Los Angeles Clippers</a-disabled>, <a-disabled>  Memphis Grizzlies</a-disabled>, <a-disabled>  Marc Gasol</a-disabled></div></div></span></li><li class=" next"><a-disabled> Blake, CP3 Power Clippers</a-disabled><span style="display:none;"><h5>Blake, CP3 Power Clippers</h5><div class="mod-video-tags"><span>Blake Griffin and Chris Paul each score 26 points in the Clippers' 110-93 win over the Heat.</span><div class="mod-video-tags"><strong>Tags:</strong> <a-disabled> NBA</a-disabled>, <a-disabled>  Los Angeles Clippers</a-disabled>, <a-disabled>  Miami Heat</a-disabled>, <a-disabled>  Blake Griffin</a-disabled>, <a-disabled>  Chris Paul</a-disabled>, <a-disabled>  DeAndre Jordan</a-disabled></div></div></span></li><li class=""><a-disabled> Clippers Cruise Past Magic</a-disabled><span style="display:none;"><h5>Clippers Cruise Past Magic</h5><div class="mod-video-tags"><span>Blake Griffin scored 20 points in the Clippers' 114-90 win over the Magic.</span><div class="mod-video-tags"><strong>Tags:</strong> <a-disabled> NBA</a-disabled>, <a-disabled>  Los Angeles Clippers</a-disabled>, <a-disabled>  Orlando Magic</a-disabled>, <a-disabled>  Blake Griffin</a-disabled>, <a-disabled>  Chris Paul</a-disabled></div></div></span></li><li class=" last"><a-disabled> NBA Top 3 Plays Of The Night</a-disabled><span style="display:none;"><h5>NBA Top 3 Plays Of The Night</h5><div class="mod-video-tags"><span>Check out the top three plays from the nightin the NBA, including a reverse dunk by DeAndre Jordan.</span><div class="mod-video-tags"><strong>Tags:</strong> <a-disabled> NBA</a-disabled>, <a-disabled>  Blake Griffin</a-disabled>, <a-disabled>  Los Angeles Clippers</a-disabled>, <a-disabled>  DeAndre Jordan</a-disabled></div></div></span></li></ul></div></div>
+		 <!-- 
+		var ESPN_GLOBALS = {
+			"videoPlayers":{
+				"story09":{
+					"height":324,
+					"width":576,
+					
+					"autostart":"true",
+					"trackingName":"story09"
+				}
+			}
+		};
+
+		espn.video.embeded.play();
+		 --> 
+	<p></p><p class="annotated_Location" annotation="Location">MEMPHIS, Tenn. -- <a-disabled class=""> Marc Gasol</a-disabled>'s dominance is making one of the NBA's best frontcourts even better.</p>
+<p class="annotated_Body" annotation="Body">Gasol had 30 points and 12 rebounds to lead the <a-disabled class=""> Memphis Grizzlies</a-disabled> to a 107-91 victory over the <a-disabled> Los Angeles Clippers</a-disabled> on Sunday night. It marked the second straight game Gasol has recorded at least 30 points.</p>
+<p class="annotated_Body" annotation="Body">The victory left Memphis with the league's best record (12-2) behind a more aggressive Gasol, who is complementing his jumper with moves to the basket this season.</p>
+<p class="annotated_Body" annotation="Body">"There was no doubt in my mind that Marc would be aggressive," point guard <a-disabled> Mike Conley</a-disabled> said, adding: "Once you see the 12-2 start, we're going to tell him to go get 30 every night."</p>
+<p class="annotated_Body" annotation="Body">Gasol opened the game with a pair of jumpers, then began taking the ball to the basket. The result was 12 first-quarter points as Memphis erased the Clippers' only lead of the game and built the advantage to 25 by the fourth.</p>
+<p class="annotated_Body" annotation="Body">"When you make jumpers, it forces the defense to come out," Gasol said. "It creates shots for other people, and I'm happy with that."</p>
+<p class="annotated_Body" annotation="Body">Six Grizzlies reached double figures. <a-disabled> Courtney Lee</a-disabled> added 13 points for Memphis. <a-disabled> Tony Allen</a-disabled> had 12 points, while <a-disabled> Beno Udrih</a-disabled> and <a-disabled> Quincy Pondexter</a-disabled> had 11 points apiece off the Memphis bench. <a-disabled> Zach Randolph</a-disabled> had 10 points.</p>
+<p class="annotated_Body" annotation="Body">The Clippers, who won their first two on a seven-game road swing, didn't execute early, and didn't have an answer for Gasol.</p>
+<p class="annotated_Body" annotation="Body">"We really have to come out executing and aggressive and hit first," said <a-disabled> Chris Paul</a-disabled>, who led the Clippers with 22 points, five assists and four steals. "We really have to do a better job of doing it consistently."</p>
+<p class="annotated_Body" annotation="Body"><a-disabled> Jamal Crawford</a-disabled> scored 19, and <a-disabled> J.J. Redick</a-disabled> finished with 15, going 3-of-6 from outside the arc.</p>
+<p class="annotated_Body" annotation="Body"><a-disabled> Blake Griffin</a-disabled> scored 12 points, but was 5-of-17 from the field.</p>
+<p class="annotated_Body" annotation="Body">Los Angeles, which was averaging 103.5 points, had its nine-game streak of scoring at least 100 points on the road end.</p>
+<p class="annotated_Body" annotation="Body">"Once they got the lead, it was hard to get back into the tempo of the game," Clippers coach Doc Rivers said. "I thought the second half we lost our way a little bit."</p>
+<p class="annotated_Body mouseOn" annotation="Body">Paul tried to guide the Clippers back into the game after halftime, scoring 13 points in the third, and Los Angeles got within eight points. But Memphis rebuilt the lead to 25 points in the fourth as Rivers relied on his reserves to try and erase the deficit. The Los Angeles bench made a run to get within 15, but Memphis never let them get any closer.</p>
+<p class="annotated_Body" annotation="Body">Rivers recognized that a different Gasol has made the Grizzlies more dangerous.</p>
+<p class="annotated_Body" annotation="Body">"I don't know if he has been on a good diet, but he looks great and is playing great," Rivers said. "The Grizzlies seem to have that edge. They aren't messing around."</p>
+<p class="">---</p>
+<p class="">TIP-INS:</p>
+<p class="">Clippers: Los Angeles' seven-game road trip will cover 7,231 miles before the Clippers return home on Dec. 1 to face Minnesota. ... The Clippers' 25-point deficit in the second half was not their largest of the season. They trailed by 29 Nov. 5 against Golden State.</p>
+<p class="">Grizzlies: Reserve G <a-disabled> Nick Calathes</a-disabled> played for the first time this season after completing a 20-game suspension handed down at the start of the first round postseason series against Oklahoma City last spring for violating the league's banned substance policy. ... The victory gave the Grizzlies a 37-36 advantage in the overall series.</p>
+<p class="">VIRUS VANQUISHED: Memphis had its full complement of players for the first time in the last three games. Five players caught a stomach virus before last Wednesday's game in Toronto, and two more caught the bug before Friday's game against Boston.</p>
+<p class="">HE SAID IT: "The first two games (of the road trip), I think our defense was a little bit better. (Sunday) we didn't move the ball as well. We really didn't push the pace." -- Crawford, on the Clippers' struggles.</p>
+<p class="">UP NEXT</p>
+<p class="">Clippers: Visit Charlotte on Monday.</p>
+<p class="">Grizzlies: Visit Lakers on Wednesday.</p><p></p><p></p><p></p><p></p>
+<p></p>
+
+<div style="margin:5px 0px; font-size:10px;" class="">Copyright by STATS LLC and The Associated Press</div></div><div class="bg-opaque mod-outbrain mod-no-border">
+<div class="mod-content">
+<div class="col-full">
+<h4 class="first">SPONSORED HEADLINES</h4>
+<div class="OUTBRAIN" data-src="http://scores.espn.go.com/nba/recap" data-widget-id="AR_6" data-ob-template="espn"></div></div>
+</div>
+</div>
+</div><div class="span-2 last" style="padding-top:10px;"><div class="mod-container mod-no-footer mod-open mod-open-gamepack"><div style="text-align: right; height: 19px;" class=""><span style="padding-left: 5px;"><a-disabled> <img height="19" width="93" alt="ESPNLosAngeles.com" src="http://a.espncdn.com/prod/assets/previewRecapLosAngelesLogo.gif"></a-disabled>&nbsp;</span></div></div><div style="height:12px;" class=""></div><div class="mod-container mod-no-footer mod-open mod-open-gamepack"><div class="mod-header"><h4 class="">Next 5 Games</h4></div><div class="mod-content"><table class="mod-data"><thead><tr class="team-color-strip"><th style="border-bottom-color: #FA0028; text-align: left;" width="30%">Los Angeles</th><th style="border-bottom-color: #5D76A8; text-align: left;" width="30%" class="">Memphis</th></tr></thead><tbody><tr valign="top">
+<td style="text-align:left;">11/24 @CHA 7:00pm<br>11/26 @DET 7:30pm<br>11/28 @HOU 8:00pm<br>11/29 @UTAH 9:00pm<br>12/01 MIN 10:30pm<br></td>
+<td style="text-align:left;" class="">11/26 @LAL 10:30pm<br>11/28 @POR 10:00pm<br>11/30 @SAC 6:00pm<br>12/03 @HOU 8:00pm<br>12/05 SA 8:00pm<br></td>
+</tr>
+<tr class="last footer"><td colspan="2">Complete Schedule: <a-disabled> Los Angeles</a-disabled> | <a-disabled> Memphis</a-disabled></td></tr></tbody></table></div></div></div></div></div><div class="clear"></div></div></div>
+<div id="nav-wrapper" class="container">
+<div id="nav-wrapper-container" class="">
+<div id="nav-main">
+<!-- begin site nav -->
+<ul class="top">
+<!-- begin site nav -->
+<p><!-- begin site nav --></p>
+<ul class="top" id="nav-main-list"><!-- start: Menuitem :: MyTAB -->
+<li class="last myespn" id="menu-myespn"><a-disabled> MyESPN</a-disabled></li>
+<!-- start: Menuitem :: NFL -->
+<li class="sport-menu default t-nfl" data-sportid="28" id="menu-nfl"><a-disabled> NFL</a-disabled></li>
+<!-- start: Menuitem :: MLB -->
+<li class="sport-menu default t-mlb" data-sportid="10" id="menu-mlb"><a-disabled> MLB</a-disabled></li>
+<!-- start: Menuitem :: NBA -->
+<li class="sport-menu default t-nba selected" data-sportid="46" id="menu-nba"><a-disabled> NBA</a-disabled></li>
+<!-- start: Menuitem :: NHL -->
+<li class="sport-menu default t-nhl" data-sportid="90" id="menu-nhl"><a-disabled> NHL</a-disabled></li>
+<!-- start: Menuitem :: NCAA FB -->
+<li class="sport-menu default t-ncf" data-sportid="23" id="menu-ncf"><a-disabled> NCAAF</a-disabled></li>
+<!-- start: Menuitem :: NCAA BB -->
+<li class="sport-menu default t-ncb" data-sportid="41" id="menu-ncb"><a-disabled> NCAAM</a-disabled></li>
+<!-- start: Menuitem :: NASCAR -->
+<li class="sport-menu default t-nascar" data-sportid="2020" id="menu-nascar"><a-disabled> NASCAR</a-disabled></li>
+<!-- start: Menuitem :: SOCCER -->
+<li class="sport-menu default t-soccer" data-sportid="600" id="menu-soccer"><a-disabled> SOCCER</a-disabled></li>
+<!-- start: Menuitem :: GOLF -->
+<li class="sport-menu t-golf" data-sportid="1106" id="menu-golf" style="display: none;"><a-disabled> GOLF</a-disabled></li>
+<!-- start: Menuitem :: TENNIS -->
+<li class="sport-menu t-tennis" data-sportid="850" id="menu-tennis" style="display: none;"><a-disabled> TENNIS</a-disabled></li>
+<!-- start: Menuitem :: BOXING-->
+<li class="sport-menu t-boxing" data-sportid="1000" id="menu-boxing" style="display: none;"><a-disabled> BOXING</a-disabled></li>
+<!-- start: Menuitem :: MMA -->
+<li class="sport-menu t-mma" data-sportid="3301" id="menu-mma" style="display: none;"><a-disabled> MMA</a-disabled></li>
+<!-- start: Menuitem :: ALL SPORTS -->
+<li class="nav-allsports t-allsports" id="menu-allsports"><a-disabled> MORE SPORTS</a-disabled></li>
+<!-- start: Menuitem :: INSIDER -->
+<li class="sport-menu t-insider" id="menu-insider" style="display: none;"><a-disabled> INSIDER</a-disabled></li>
+<!-- start: Menuitem :: SPORTSNATION -->
+<li class="sport-menu t-sportsnation" id="menu-sportsnation" style="display: none;"><a-disabled> SN</a-disabled></li>
+<!-- start: Menuitem :: RADIO & MORE -->
+<li class="right-menu two-line last t-radio" id="menu-radio"><a-disabled> RADIO<span>&amp; MORE</span></a-disabled></li>
+<!-- start: Menuitem :: espnW & PLAYBOOK -->
+<li class="right-menu two-line t-page2" id="menu-page2"><a-disabled> espnW<span>&amp; X GAMES</span></a-disabled></li>
+<!-- start: Menuitem :: FANTASY & GAMES -->
+<li class="right-menu two-line t-fantasy" id="menu-fantasy"><a-disabled> FANTASY<span>&amp; GAMES</span></a-disabled></li>
+<!-- start: Menuitem :: WATCH -->
+<li class="right-menu t-watch" id="menu-watch"><a-disabled> WATCH</a-disabled></li>
+</ul>
+<!-- end site nav -->
+<!-- end site nav -->
+</ul>
+<!-- end site nav -->
+</div>
+<div class="nav-main-secondary">
+<!--/nba/recap--><ul class="">
+<li class=""><a-disabled> NBA Home</a-disabled></li><li><a-disabled> Scores</a-disabled></li><li class=""><a-disabled> Schedule</a-disabled></li><li class=""><a-disabled> Stats</a-disabled></li><li class=""><a-disabled> Standings</a-disabled></li><li><a-disabled> Players</a-disabled></li><li class="expandable"><a-disabled> <span>Teams</span></a-disabled><div><dl><dt class="first">Atlantic</dt><dd><a-disabled> Boston Celtics</a-disabled></dd><dd><a-disabled> Brooklyn Nets</a-disabled></dd><dd class=""><a-disabled> New York Knicks</a-disabled></dd><dd class=""><a-disabled> Philadelphia 76ers</a-disabled></dd><dd><a-disabled> Toronto Raptors</a-disabled></dd><dt class="first">Central</dt><dd><a-disabled> Chicago Bulls</a-disabled></dd><dd><a-disabled> Cleveland Cavaliers</a-disabled></dd><dd class=""><a-disabled> Detroit Pistons</a-disabled></dd><dd class=""><a-disabled> Indiana Pacers</a-disabled></dd><dd class=""><a-disabled> Milwaukee Bucks</a-disabled></dd><dt class="first">Southeast</dt><dd><a-disabled> Atlanta Hawks</a-disabled></dd><dd><a-disabled> Charlotte Hornets</a-disabled></dd><dd><a-disabled> Miami Heat</a-disabled></dd><dd><a-disabled> Orlando Magic</a-disabled></dd><dd class=""><a-disabled> Washington Wizards</a-disabled></dd></dl><dl class="last"><dt class="first">Pacific</dt><dd><a-disabled> Golden State Warriors</a-disabled></dd><dd><a-disabled> Los Angeles Clippers</a-disabled></dd><dd><a-disabled> Los Angeles Lakers</a-disabled></dd><dd class=""><a-disabled> Phoenix Suns</a-disabled></dd><dd><a-disabled> Sacramento Kings</a-disabled></dd><dt class="first">Southwest</dt><dd><a-disabled> Dallas Mavericks</a-disabled></dd><dd><a-disabled> Houston Rockets</a-disabled></dd><dd class=""><a-disabled> Memphis Grizzlies</a-disabled></dd><dd class=""><a-disabled> New Orleans Pelicans</a-disabled></dd><dd class=""><a-disabled> San Antonio Spurs</a-disabled></dd><dt class="first">Northwest</dt><dd><a-disabled> Denver Nuggets</a-disabled></dd><dd><a-disabled> Minnesota Timberwolves</a-disabled></dd><dd><a-disabled> Oklahoma City Thunder</a-disabled></dd><dd class=""><a-disabled> Portland Trail Blazers</a-disabled></dd><dd><a-disabled> Utah Jazz</a-disabled></dd></dl></div></li><li><a-disabled> Draft</a-disabled></li><li><a-disabled> The Ten</a-disabled></li><li class="expandable"><a-disabled> <span>TrueHoop</span></a-disabled><div><dl class="last"><dd class=""><a-disabled> TrueHoop</a-disabled></dd><dd><a-disabled> TrueHoop TV</a-disabled></dd><dd><a-disabled> TrueCities</a-disabled></dd><dd class=""><a-disabled> HoopIdea</a-disabled></dd></dl></div></li><li class="expandable"><a-disabled> <span>Team Blogs</span></a-disabled><div><dl class="last"><dd><a-disabled> Boston Celtics</a-disabled></dd><dd class=""><a-disabled> Brooklyn Nets</a-disabled></dd><dd class=""><a-disabled> Chicago Bulls</a-disabled></dd><dd><a-disabled> Cleveland Cavaliers</a-disabled></dd><dd><a-disabled> Dallas Mavericks</a-disabled></dd><dd><a-disabled> Golden State Warriors</a-disabled></dd><dd><a-disabled> Los Angeles Clippers</a-disabled></dd><dd><a-disabled> Los Angeles Lakers</a-disabled></dd><dd><a-disabled> Miami Heat</a-disabled></dd><dd class=""><a-disabled> New York Knicks</a-disabled></dd><dd><a-disabled> Oklahoma City Thunder</a-disabled></dd></dl></div></li><li class=""><a-disabled> Rumors</a-disabled></li><li class="expandable"><a-disabled> <span>More</span></a-disabled><div><dl><dt class="first">Blogs</dt><dd class=""><a-disabled> Stein Line Live</a-disabled></dd><dd><a-disabled> TrueHoop</a-disabled></dd><dt class="first">Events</dt><dd class=""><a-disabled> 2014-15 Preview</a-disabled></dd><dd class=""><a-disabled> 2014 NBA Playoffs</a-disabled></dd><dd><a-disabled> 2014 NBA Draft</a-disabled></dd><dd><a-disabled> 2014 All-Star Game</a-disabled></dd><dd><a-disabled> Basketball HOF</a-disabled></dd></dl><dl class="last"><dt class="first">Resources</dt><dd><a-disabled> All-time Leaders</a-disabled></dd><dd><a-disabled> Awards History</a-disabled></dd><dd><a-disabled> Coaches</a-disabled></dd><dd><a-disabled> Depth Charts</a-disabled></dd><dd><a-disabled> Draft History</a-disabled></dd><dd><a-disabled> Free Agents</a-disabled></dd><dd><a-disabled> Salaries</a-disabled></dd><dd><a-disabled> Transactions</a-disabled></dd></dl></div></li><li><a-disabled> Odds</a-disabled></li><li><a-disabled> Tickets</a-disabled></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- end content -->
+</div>
+<!-- end subheader -->
+
+ <!-- 
+espn.core.init.nav();
+espn.insider.checkUserForPromo();
+ --> 
+<!-- begin footer -->
+<div id="footer" class="container">
+ <!-- 
+//<![CDATA[
+var link = window.location;
+var bugText = '<a-disabled> Report a Bug</a-disabled> | ';
+//]]>
+ --> 
+<span style="font-weight:bold;">ESPN.com:</span> <a-disabled> Help</a-disabled> | <a-disabled> Press</a-disabled> | <a-disabled> Advertise on ESPN.com</a-disabled> | <a-disabled> Sales Media Kit</a-disabled> | <a-disabled> Interest-Based Ads</a-disabled> |  <!-- document.write(bugText); --> <a-disabled> Corrections</a-disabled> | <a-disabled> Contact Us</a-disabled> | <a-disabled> Site Map</a-disabled> | <a-disabled> Jobs at ESPN</a-disabled> | <!--a href="http://corporate.disney.go.com/corporate/sourcing.html" rel="nofollow"><span style="font-weight:bold;">Supplier Information</span></a--><a-disabled> Go.com</a-disabled><br>© 2014  ESPN Internet Ventures. <a-disabled> Terms of Use</a-disabled>, <a-disabled> Privacy Policy</a-disabled>, <a-disabled> Your California Privacy Rights</a-disabled>,  <a-disabled> Children's Online Privacy Policy</a-disabled> and <a-disabled> Interest-Based Ads</a-disabled> are applicable to you.  All rights reserved.
+
+<!--
+<a-disabled> Shop</a-disabled>
+--></div>
+<!-- end footer -->
+<!--[if lte IE 9]></div><![endif]-->
+</div>
+<!-- end bg-elements -->
+
+
+<!-- SiteCatalyst code version: H.21.3 Copyright 1997-2010 Omniture, Inc. http://www.omniture.com -->
+ <!-- 
+	var undef = 'undefined'
+	,s_account="wdgespcom"
+	,omniPageName = "espn:nba:game:recap:400578485+-+lac+at+mem"
+	
+	,insiderStatus = ""
+	,anGen = ""
+	,anYear = ""
+	,anDateString = ""
+	,anLoginStatus = ""
+	,callOmniture = function(){
+		/*-- core story s_omni properties --*/
+		if (typeof anCV != "undefined"){anParseLoginBarInfo(anCV);}
+		s_omni.pageName="nba:game:recap:400578485+-+lac+at+mem";
+		s_omni.server = window.location.host; // Server from the Host
+		s_omni.channel = "nba";
+		s_omni.prop1 = "espn";
+		s_omni.prop4 = "nbarecap";
+		s_omni.prop5 = "nba:game:recap";
+		s_omni.prop11 = (insiderStatus !== null) ? insiderStatus + ":premium-no" : "premium-no";
+		s_omni.prop17 = "en";
+		s_omni.prop21 = anDateString;
+		s_omni.prop22 = anGen;
+		s_omni.prop25 = "basketball";
+		s_omni.prop26 = "nba";
+		s_omni.prop29 = anLoginStatus;
+		s_omni.prop30 = "n";
+		s_omni.hier1 = "nba:game:recap:400578485+-+lac+at+mem";
+		s_omni.eVar7 = anYear + ":" + anGen + ":" + anLoginStatus + ":" + s_omni.prop11 + ":";
+		s_omni.eVar9 = "en";
+		s_omni.eVar13 = "nba:game:recap:400578485+-+lac+at+mem";
+		s_omni.eVar19 = "basketball";
+		s_omni.eVar21 = "nba";
+		
+		if (s_omni.prop11=="anonymous:premium-yes" || s_omni.prop11=="insider-no:premium-yes" && typeof s_omni.prop4!="undefined" &&
+			(s_omni.prop4=="story" || s_omni.prop4=="blog")) {
+			if (typeof s_omni.events != "undefined" && s_omni.events!="") {
+				s_omni.events = s_omni.events+",event8" }
+			else { s_omni.events="event8" }
+		}
+		
+		
+		anVersion = "_11apr14_v2_0_r5_";
+		
+		/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+		
+		var s_code = s_omni.t();
+		if(s_code) {
+			var sci = new Image(1,1);
+			sci.onload = function() {console.log("loaded no append")};
+			sci.src = s_code;
+		}
+		
+	};	
+ --> 
+
+
+
+ <!-- 
+	if (typeof(s_omni) === 'undefined') {
+		jQuery(function($) {
+			// we want to load the analytics files from the cache if possible - so, let's use full $.ajax() calls
+			$.ajax({
+				type:'GET',
+				url: 'http://a.espncdn.com/combiner/c?js=analytics/sOmni.js,analytics/analytics.js,analytics/externalnielsen.js&v=7',
+				dataType: 'script',
+				cache: true,
+				success: function() {
+					var lgSrc;
+					if(typeof anCV !== undef && anCV === '' && document.getElementById('form-memberarea') != null) {
+						lgSrc = 'https://r.espn.go.com/members/util/getUserInfo?cb=runOmnitureIndependently';
+						$.getScript(lgSrc); // we don't want this to be cached - so we'll use the $.getScript() method
+					} else {
+						callOmniture();
+					}
+				}
+			});
+		});
+	}
+ --> 
+
+<!-- End SiteCatalyst code version: H.21. -->
+
+
+<!-- Begin comScore Tag -->
+ <!-- 
+	if (typeof(jQuery) !== 'undefined') {
+		jQuery(function($) {
+			if(typeof window._comscore === 'undefined') {
+				window._comscore = window._comscore || [];
+				window._comscore.push({ c1: "2", c2: "3000005" });
+				jQuery.getScript((document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js");
+			}
+		});
+	}
+ --> 
+<!-- End comScore Tag -->
+		 <!-- 
+		var _sf_async_config={
+			"uid":22222,
+			"domain":"espn.go.com",
+			"pingServer":"pespn.chartbeat.net",
+			"useCanonical":true,
+			"useSubDomains":false,
+			"sections":"nba:gamehq:recap,recap,game",
+			"authors":"gamehq"
+		};
+		if (typeof(ad_site) !== 'undefined') { _sf_async_config.zone = ad_site; }
+
+		// load both chartbeat_pub and chartbeat_video
+		(function () {
+			function a() {
+				window._sf_endpt = (new Date()).getTime();
+
+				var cbDomain = (("https:"==document.location.protocol)?"https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/":"http://static.chartbeat.com/");
+
+				var c = document.createElement("script");
+				c.setAttribute("language","javascript");
+				c.setAttribute("type","text/javascript");
+				c.setAttribute("src", cbDomain+"js/chartbeat_pub.js");
+				document.body.appendChild(c);
+
+				if(typeof StrategyInterface !== 'undefined' && (typeof espn !== 'undefined' && typeof espn.video !== 'undefined')){
+					var e = document.createElement("script");
+					e.setAttribute("language",	"javascript");
+					e.setAttribute("type", "text/javascript");
+					e.setAttribute("src", cbDomain+"js/chartbeat_video.js");
+					document.body.appendChild(e);
+				}
+			}
+			var b = window.onload;
+			window.onload = (typeof window.onload != "function") ? a : function () { b(); a() }
+		})();
+		//(function(){function a(){window._sf_endpt=(new Date()).getTime();var c=document.createElement("script");c.setAttribute("language","javascript");c.setAttribute("type","text/javascript");c.setAttribute("src",(("https:"==document.location.protocol)?"https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/":"http://static.chartbeat.com/")+"js/chartbeat_pub.js");document.body.appendChild(c)}var b=window.onload;window.onload=(typeof window.onload!="function")?a:function(){b();a()}})();
+		 --> 
+	
+<!-- dynamic logic: safecount -->
+ <!--  --> 
+
+ <!-- buildOutHeadlinesForPinnedSite(); --> 
+ <!-- 
+   var isInIFrame = (window.location != window.parent.location) ? true : false;
+   if(isInIFrame){ if(document.referrer){ if(document.referrer.indexOf(".go.com")==-1){ top.location.href=self.location.href; } } }
+ --> 
+
+ <!-- 
+  //<![CDATA[
+    (function(){
+    window.gravityInsightsParams = {
+      'type': 'content',
+      'action': '',
+      'site_guid': '9a41401e9b7c945344e001ee7f23031e'
+    };
+    var b,c;b="https:"===document.location.protocol?"https://b-ssl.grvcdn.com/moth-min.js":"http://b.grvcdn.com/moth-min.js";window.grvMakeScript=function(d){var a;a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=d;return a};c=document.getElementsByTagName("script")[0];b&&c.parentNode.insertBefore(window.grvMakeScript(b),c);})();
+  //]]>
+ --> </div>
+
+
+
+
+
