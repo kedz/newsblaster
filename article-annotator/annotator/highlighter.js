@@ -60,7 +60,7 @@ $(document).ready(function() {
     var stickyNavTop = $('.nav').offset().top;  
       
     var stickyNav = function(){                 
-        $('.nav').addClass('sticky'); 
+        $('.nav').addClass('stickyToolbar'); 
     };  
       
     stickyNav();  
