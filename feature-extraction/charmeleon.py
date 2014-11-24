@@ -19,8 +19,8 @@ import os
 #    'punct': 0,
 #    'newline': 0,
 #    'backticks': 0,
-#    'backticks' : 0,    # `    
-#    'brackets' : 0,        # [        
+#    'backticks' : 0,    # `
+#    'brackets' : 0,        # [
 #    'crackets' : 0,        # ]
 #    'percents' : 0,        # %    24
 #    'slashes' : 0,        # /
@@ -34,7 +34,7 @@ import os
 #    'solons' : 0,        # ,
 #    'parens' : 0,        # (    28
 #    'qarens' : 0,        # )    29
-#    'commas' : 0,        # ,    
+#    'commas' : 0,        # ,
 #    'pounds' : 0,        # #    22
 #    'ampers' : 0,        # &    26
 #    'pluses' : 0,        # +    33
@@ -80,17 +80,17 @@ print len(soups)
 
 for soup in soups:
     text_nodes = soup.find_all(text=True)
-    for node in text_nodes:
-        name = getattr(node, "name", None)
-        if name is not None:
+    for text in text_nodes:
+        if text.parent is not None:
+            node = text.parent
             if node.has_attr('annotation'):
                 Y.append(node['annotation'])
             else:
                 Y.append("None")
-            Y_text.append(node.getText)
+            Y_text.append(text)
 
-print Y
-print Y_text
+#print Y
+#print Y_text
 
 # Choose nodes with annotation
 def has_annotation(tag):
@@ -112,11 +112,11 @@ def increment_feature(dict, key):
 def compute_features(text):
     # Setup dict for counts
     # featureDict = copy.deepcopy(emptyFeatureDict)
-    
+
     featureDict = defaultdict(int)
     featureDict['len'] = len(text)
     decodedText = text.encode('ascii','replace')
-    
+
     for c in decodedText:
         if not c.isspace():
             # Non-whitespace
@@ -135,95 +135,95 @@ def compute_features(text):
                     featureDict[c.lower()] += 1
 
             # Punctuation
-            elif c == '!': 
+            elif c == '!':
                 featureDict['punct'] += 1
                 featureDict['exclams'] += 1
-            elif c == '@': 
+            elif c == '@':
                 featureDict['punct'] += 1
                 featureDict['ats'] += 1
-            elif c == '#': 
+            elif c == '#':
                 featureDict['punct'] += 1
                 featureDict['pounds'] += 1
-            elif c == '$': 
+            elif c == '$':
                 featureDict['punct'] += 1
                 featureDict['dollars'] += 1
-            elif c == '%': 
+            elif c == '%':
                 featureDict['punct'] += 1
                 featureDict['percents'] += 1
-            elif c == '^': 
+            elif c == '^':
                 featureDict['punct'] += 1
                 featureDict['carrots'] += 1
-            elif c == '&': 
+            elif c == '&':
                 featureDict['punct'] += 1
                 featureDict['ampers'] += 1
-            elif c == '*': 
-                featureDict['punct'] += 1 
+            elif c == '*':
+                featureDict['punct'] += 1
                 featureDict['stars'] += 1
-            elif c == '(': 
-                featureDict['punct'] += 1 
+            elif c == '(':
+                featureDict['punct'] += 1
                 featureDict['parens'] += 1
-            elif c == ')': 
-                featureDict['punct'] += 1 
+            elif c == ')':
+                featureDict['punct'] += 1
                 featureDict['qarens'] += 1
-            elif c == '-': 
-                featureDict['punct'] += 1 
+            elif c == '-':
+                featureDict['punct'] += 1
                 featureDict['dashes'] += 1
-            elif c == '_': 
-                featureDict['punct'] += 1 
+            elif c == '_':
+                featureDict['punct'] += 1
                 featureDict['unders'] += 1
-            elif c == '=': 
-                featureDict['punct'] += 1 
+            elif c == '=':
+                featureDict['punct'] += 1
                 featureDict['equals'] += 1
-            elif c == '+': 
-                featureDict['punct'] += 1 
+            elif c == '+':
+                featureDict['punct'] += 1
                 featureDict['pluses'] += 1
-            elif c == '{': 
-                featureDict['punct'] += 1 
+            elif c == '{':
+                featureDict['punct'] += 1
                 featureDict['curlys'] += 1
-            elif c == '}': 
-                featureDict['punct'] += 1 
+            elif c == '}':
+                featureDict['punct'] += 1
                 featureDict['durlys'] += 1
-            elif c == '[': 
-                featureDict['punct'] += 1 
+            elif c == '[':
+                featureDict['punct'] += 1
                 featureDict['brackets'] += 1
-            elif c == ']': 
-                featureDict['punct'] += 1 
+            elif c == ']':
+                featureDict['punct'] += 1
                 featureDict['crackets'] += 1
-            elif c == '\\': 
-                featureDict['punct'] += 1 
+            elif c == '\\':
+                featureDict['punct'] += 1
                 featureDict['blashes'] += 1
-            elif c == '|': 
-                featureDict['punct'] += 1 
+            elif c == '|':
+                featureDict['punct'] += 1
                 featureDict['bars'] += 1
-            elif c == ':': 
-                featureDict['punct'] += 1 
+            elif c == ':':
+                featureDict['punct'] += 1
                 featureDict['colons'] += 1
-            elif c == ';': 
-                featureDict['punct'] += 1 
+            elif c == ';':
+                featureDict['punct'] += 1
                 featureDict['solons'] += 1
-            elif c == '\'': 
+            elif c == '\'':
                 featureDict['punct'] += 1
                 featureDict['quots'] += 1
-            elif c == '"': 
-                featureDict['punct'] += 1 
+            elif c == '"':
+                featureDict['punct'] += 1
                 featureDict['duots'] += 1
-            elif c == ',': 
-                featureDict['punct'] += 1 
+            elif c == ',':
+                featureDict['punct'] += 1
                 featureDict['commas'] += 1
-            elif c == '.': 
-                featureDict['punct'] += 1 
+            elif c == '.':
+                featureDict['punct'] += 1
                 featureDict['periods'] += 1
-            elif c == '<': 
-                featureDict['punct'] += 1 
+            elif c == '<':
+                featureDict['punct'] += 1
                 featureDict['lesses'] += 1
-            elif c == '>': 
-                featureDict['punct'] += 1 
+            elif c == '>':
+                featureDict['punct'] += 1
                 featureDict['greats'] += 1
-            elif c == '/': 
-                featureDict['punct'] += 1 
+            elif c == '/':
+                featureDict['punct'] += 1
                 featureDict['slashes'] += 1
-            elif c == '?': 
-                featureDict['punct'] += 1 
+            elif c == '?':
+                featureDict['punct'] += 1
                 featureDict['quests'] += 1
             # Whitespace
             else:
@@ -256,7 +256,7 @@ print X
 clf = MultinomialNB()
 clf.fit(X, Y)
 
-Y_pred = clf.predict(X) 
+Y_pred = clf.predict(X)
 
 print classification_report(Y, Y_pred)
 
