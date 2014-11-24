@@ -3,7 +3,6 @@
 class HTMLVectorizer(object):
 	def __init__(self):
 
-
 	def fit(self):
 		pass
 
