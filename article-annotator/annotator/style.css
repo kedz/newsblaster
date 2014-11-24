@@ -3,8 +3,61 @@
 	outline: 2px solid #5166bb !important;
 }
 
-.toolbar{
-	positon: fixed;
-	top: 10px;
-	left: 0px;
+#htmlContent{
+	z-index: -100;
+}
+
+.stickyToolbar {  
+    position: fixed;  
+    width: 100%;  
+    left: 80%;  
+    top: 0;  
+    z-index: 100;  
+    border-top: 0;  
+    background: #FFFFF;
+} 
+
+.annotated_Title{
+	background-color: #accbe8 !important;
+	outline: 2px solid #44515c !important;
+}
+
+.annotated_Subtitle{
+	background-color: #9295ca !important;
+	outline: 2px solid #3a3b50 !important;
+}
+
+.annotated_SectionTitle{
+	background-color: #9eceb4 !important;
+	outline: 2px solid #3f5248 !important;
+}
+
+.annotated_Author{
+	background-color: #a9b2b1 !important;
+	outline: 2px solid #434746 !important;
+}
+
+.annotated_Date{
+	background-color: #cdb48c !important;
+	outline: 2px solid #524838 !important;
+}
+
+.annotated_Location{
+	background-color: #ffd602 !important;
+	outline: 2px solid #665500 !important;
+}
+
+.annotated_Image{
+	background-color: #e66665 !important;
+	outline: 2px solid #5c2828 !important;
+}
+
+.annotated_ImageCaption{
+	background-color: #f47d43 !important;
+	outline: 2px solid #61321a !important;
+}
+
+.annotated_Body{
+	background-color: #ae70af !important;
+	outline: 2px solid #452c46 !important;
 }

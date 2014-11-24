@@ -2,6 +2,8 @@ import os
 import sys
 from twisted.internet.threads import deferToThread
 from scrapy.utils.serialize import ScrapyJSONEncoder
+from bson.objectid import ObjectId
+from bson.json_util import dumps
 
 # Import local modules
 module_path = os.path.dirname(os.path.realpath(__file__))
@@ -26,7 +28,10 @@ class SendToBrokerPipeline(object):
 		return deferToThread(self._process_item, item, spider)
 
 	def _process_item(self, item, spider):
-		data = self.encoder.encode(dict(item))
+
+		item_dict = dict(item)
+
+		data = self.encoder.encode(item_dict)
 		self.publisher.send_message(data,'articles')
 		return item
 

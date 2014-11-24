@@ -1,5 +1,6 @@
 import scrapy
 import re
+from datetime import datetime
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
 from scrapy.selector import XmlXPathSelector
@@ -13,6 +14,8 @@ from scrapy.selector import Selector
 class al_jazeera_rss(XMLFeedSpider):
     name = "al_jazeera_rss"
     allowed_domains = ["america.aljazeera.com"]
+
+    download_delay = 2
 
     # TODO put list of all RSS feeds here
     start_urls = ("http://america.aljazeera.com/content/ajam/articles.rss",)
@@ -35,7 +38,7 @@ class al_jazeera_rss(XMLFeedSpider):
         # Fill in Article Information
         article_item['source_link'] = response.url
         print article_item['source_link']
-        article_item['time_of_crawl'] = response.headers['Date']
+        article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
         article_item['html_content'] = response.body
         article_item['text_content'] = response.xpath('//div\
         [@class=\"text section\"]').extract()
@@ -47,8 +50,11 @@ class al_jazeera_rss(XMLFeedSpider):
             article_item['title'] = article_title[0]
         date_published = response.xpath('//span\
         [@class=\"date\"]/@content').extract()
+        #TODO fix xpath
         if len(date_published) > 0:
             article_meta_information['date_published'] = date_published[0]
+        
+
         location = response.xpath('//meta[@name=\"geo\"]/@content').extract()
         article_meta_information['location'] = 'USA'
         # No Author for Al Jazeera
@@ -73,6 +79,7 @@ class al_jazeera_rss(XMLFeedSpider):
                 errorFile.write(response.url + "\r\n")
             errorFile.close()
             # print "Writing to file"
+	return article_item
 
     def get_topics(self, keywords):
         # data always present in 0 of array
