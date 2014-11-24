@@ -1,7 +1,7 @@
 var prevElement = null;
 var prevBrush = null;
+var previouslyAnnotatedElements = [];
 var selectedBrush = "";
-var selectedBrushElement = "";
 var brushes = []
 var fileName = ""
 
@@ -20,7 +20,7 @@ function handleFileSelect(evt) {
     // files is a FileList of File objects. List some properties.
     var output = [];
     for (var i = 0, f; f = files[i]; i++) {
-      fileName = f.name;
+      fileName = f.name.substring(0, f.name.indexOf('.'));
       output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
                   f.size, ' bytes, last modified: ',
                   f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
@@ -32,6 +32,15 @@ function handleFileSelect(evt) {
 
     reader.onload = (function(theFile) {
         return function(e) {
+          // Reset Annotator
+          $('#htmlContent').html("");
+
+          if(!(typeof $("#downloader") === 'undefined')){
+            $("#downloader").remove();
+          };
+
+          selectedBrush = ""
+
           // Render HTML
 
           var htmlToRender = sanitizeHTML(e.target.result);
@@ -68,9 +77,11 @@ document.getElementById("palatte").addEventListener('mousemove',
         if (prevBrush!= null) {
             prevBrush.classList.remove("annotated_" + prevBrush.innerHTML);
         }
-        var brush = elem.innerHTML;
-        elem.classList.add("annotated_" + brush)
-        prevBrush = elem;
+        if (elem.innerHTML.indexOf('\n') < 1){
+          var brush = elem.innerHTML;
+          elem.classList.add("annotated_" + brush)
+          prevBrush = elem;
+        }
     },true);
 
 // When mousing over elements in the htmlContent, highlight them
@@ -86,16 +97,12 @@ document.getElementById("htmlContent").addEventListener('mousemove',
 document.getElementById("htmlContent").addEventListener('click',
 	function(e){
         var elem = e.target || e.srcElement;
-        // If annotated already, remove annotation
-        if(elem.className == "annotated_" + selectedBrush){
-            elem.className = ""
-            elem.setAttribute("annotation", "");
-        // Else annotate 
-        } else {
-            elem.className = ""
-            elem.setAttribute("annotation", selectedBrush);
-            elem.classList.add("annotated_" + selectedBrush)
-        }
+        elem.className = ""
+        elem.setAttribute("annotation", selectedBrush);
+        elem.classList.add("annotated_" + selectedBrush)
+        
+        previouslyAnnotatedElements.push(elem);
+
         console.log("Element", elem);
     },true);
 
@@ -108,6 +115,7 @@ document.getElementById("palatte").addEventListener('click',
         $('#selectedBrushText').html("Selected Brush: " + selectedBrush);
     },true);
 
+// Remove scripts + disable links
 function sanitizeHTML(data){
     var bodySI = data.indexOf('<body>') + '<body>'.length,
         bodyEI = data.indexOf('</body>'),
@@ -124,8 +132,16 @@ function sanitizeHTML(data){
     return body;
 }
 
+function undo(){
+  if(!(typeof previouslyAnnotatedElements[previouslyAnnotatedElements.length - 1] === 'undefined')){
+    element = previouslyAnnotatedElements.pop();
+    element.className="";
+    element("annotation", "")
+  };
+}
+
 function stripScripts(s) {
-    console.log("Strippin' dem scripts");
+    console.log("Stripping javascript");
 
     var div = document.createElement('div');
     div.innerHTML = s;
@@ -139,7 +155,7 @@ function stripScripts(s) {
   }
 
 function stripCSS(s) {
-    console.log("Strippin' dat CSS");
+    console.log("Stripping CSS");
 
     var div = document.createElement('div');
     div.innerHTML = s;
@@ -159,7 +175,12 @@ function saveHTML(){
 
     var cleanHTML = stripScripts(htmlString);
 	var datauri = "data:text/html;charset=utf-8;base64," + Base64.encode(cleanHTML);
-	$("#download").append("<a href='" + datauri + "' target='_blank' download='" + fileName + ".annotation'>Save</a>");
+
+    if(!(typeof $("#downloader") === 'undefined')){
+        $("#downloader").remove();
+    };
+
+	$("#download").append("<a id='downloader' href='" + datauri + "' target='_blank' download='" + fileName + ".annotation'>Save</a>");
 }
 
 // Manually remove all stylesheets
