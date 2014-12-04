@@ -35,17 +35,16 @@ X = list()
 Y = list()
 
 # Get Matrix of Vectors for all files
-for annotation in an_files:
-	hv_result = hv.fit_transform(annotation)
-	X.append(hv_result[0])
-	Y.append(hv_result[1])
+hv_result = hv.fit_transform(an_files)
+X = hv_result[0]
+Y = hv_result[1]
 
 #############
 ## TESTING ##
 #############
 
-print "X", X
-#print "Y", Y
+#print "X", X
+print "Y", Y
 
 # Run SciKit Naive Bayes Classifier
 clf = MultinomialNB()

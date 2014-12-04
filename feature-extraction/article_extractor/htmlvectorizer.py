@@ -8,27 +8,31 @@ class HTMLVectorizer():
     
     v = DictVectorizer(sparse=False)
 
-    def html_iter(self, filename):
+    def html_iter(self, files):
         # Build Y = [labels]
         Y = list()
         Y_text = list()
 
-        soup = BeautifulSoup(open(filename))
+        soups = list()
 
-        # Find all text nodes
-        text_nodes = soup.find_all(text=True)
+        for f in files:
+            soups.append(BeautifulSoup(open(f)))
 
-        # Iterate through text nodes and find annotation labels or label "None"
-        for text in text_nodes:
-            if text.parent is not None:
-                node = text.parent
-                
-                if node.has_attr('annotation'):
-                    Y.append(node['annotation'])
-                else:
-                    Y.append("None")
-               
-                Y_text.append(text)
+        for soup in soups:
+            # Find all text nodes
+            text_nodes = soup.find_all(text=True)
+
+            # Iterate through text nodes and find annotation labels or label "None"
+            for text in text_nodes:
+                if text.parent is not None:
+                    node = text.parent
+                    
+                    if node.has_attr('annotation'):
+                        Y.append(node['annotation'])
+                    else:
+                        Y.append("None")
+                   
+                    Y_text.append(text)
 
         # Calculate character features for each text node
         charm = Charmeleon()
@@ -42,23 +46,23 @@ class HTMLVectorizer():
         # Return list of character feature vectors + labels
         return [nodeMatrix, Y]
 
-    def fit(filename):
-        result = html_iter(filename)
+    def fit(self, files):
+        result = html_iter(files)
         X = self.v.fit(result[0])
         Y = result[1]
         return [X, Y]
 
-    def fit_transform(self, filename):
-        result = self.html_iter(filename)
+    def fit_transform(self, files):
+        result = self.html_iter(files)
         X = self.v.fit_transform(result[0])
         Y = result[1]
         return [X, Y]
 
-    def inverse_transform(X):
+    def inverse_transform(self, X):
         return self.v.inverse_transform(X)
 
-    def transform(filename):
-        result = html_iter(filename)
+    def transform(self, files):
+        result = html_iter(files)
         X = self.v.transform(result[0])
         Y = result[1]
         return [X, Y]
