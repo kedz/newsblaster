@@ -1,4 +1,6 @@
+from bs4 import BeautifulSoup
 
+from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report
 
@@ -91,8 +93,8 @@ for soup in soups:
 #print Y_text
 
 # Choose nodes with annotation
-#def has_annotation(tag):
-#    return tag.has_attr('annotation')
+def has_annotation(tag):
+    return tag.has_attr('annotation')
 
 # Iterate through nodes and save labels in list Y = [labels]
 #text_nodes = []
