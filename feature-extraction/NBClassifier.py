@@ -44,7 +44,7 @@ Y = hv_result[1]
 #############
 
 #print "X", X
-print "Y", Y
+#print "Y", Y
 
 # Run SciKit Naive Bayes Classifier
 clf = MultinomialNB()
