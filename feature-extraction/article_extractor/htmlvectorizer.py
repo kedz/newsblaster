@@ -48,9 +48,7 @@ class HTMLVectorizer():
 
     def fit(self, files):
         result = html_iter(files)
-        X = self.v.fit(result[0])
-        Y = result[1]
-        return [X, Y]
+        return self.v.fit(result[0])
 
     def fit_transform(self, files):
         result = self.html_iter(files)
