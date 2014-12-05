@@ -155,8 +155,8 @@ def merge_clust(list_of_clusts, clust1, clust2, docs_dist, clust_dist):
             clust = clust1
             break
     list_of_clusts = delete_clust(list_of_clusts, clust2)
-    clust_dist = np.delete(clust_dist, clust2.clust_id, 0)
-    clust_dist = np.delete(clust_dist, clust2.clust_id, 1)
+    #clust_dist = np.delete(clust_dist, clust2.clust_id, 0)
+    #clust_dist = np.delete(clust_dist, clust2.clust_id, 1)
     return clust1, list_of_clusts, clust_dist
 
 def merged_clust_dis(dist_to_clust1, num_docs_clust1, dist_to_clust2, num_docs_clust2):
