@@ -13,7 +13,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 } else {
   alert('The File APIs are not fully supported in this browser.');
 }
- 
+
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
@@ -56,19 +56,19 @@ function handleFileSelect(evt) {
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
 // Initialize toolbar
-$(document).ready(function() {  
-    var stickyNavTop = $('.nav').offset().top;  
-      
-    var stickyNav = function(){                 
-        $('.nav').addClass('stickyToolbar'); 
-    };  
-      
-    stickyNav();  
-      
-    $(window).scroll(function() {  
-        stickyNav();  
-    });  
-});  
+$(document).ready(function() {
+    var stickyNavTop = $('.nav').offset().top;
+
+    var stickyNav = function(){
+        $('.nav').addClass('stickyToolbar');
+    };
+
+    stickyNav();
+
+    $(window).scroll(function() {
+        stickyNav();
+    });
+});
 
 // When mousing over elements in the toolbar, highlight them with their respective colors
 document.getElementById("palatte").addEventListener('mousemove',
@@ -100,7 +100,7 @@ document.getElementById("htmlContent").addEventListener('click',
         elem.className = ""
         elem.setAttribute("annotation", selectedBrush);
         elem.classList.add("annotated_" + selectedBrush)
-        
+
         previouslyAnnotatedElements.push(elem);
 
         console.log("Element", elem);
@@ -125,7 +125,7 @@ function sanitizeHTML(data){
     body = body.replace(/<script[^>]*>/gi, ' <!-- ');
     body = body.replace(/<\/script>/gi, ' --> ');
 
-    // Change all a's to a-disabled. 
+    // Change all a's to a-disabled.
     body = body.replace(/<a[^>]*>/gi, '<a-disabled> ');
     body = body.replace(/<\/a>/gi, '</a-disabled>');
 
@@ -170,17 +170,26 @@ function stripCSS(s) {
 
 // Save Resulting HTML
 function saveHTML(){
-	var html = $('html').clone();
+	var html = $('#htmlContent').clone();
 	var htmlString = html.html();
 
-    var cleanHTML = stripScripts(htmlString);
-	var datauri = "data:text/html;charset=utf-8;base64," + Base64.encode(cleanHTML);
+  var cleanHTML = stripScripts(htmlString);
+	var datauri = "data:application/octet-stream;charset=utf-8;base64," + Base64.encode(cleanHTML);
 
-    if(!(typeof $("#downloader") === 'undefined')){
-        $("#downloader").remove();
-    };
+  if(!(typeof $("#downloader") === 'undefined')){
+      $("#downloader").remove();
+  };
 
-	$("#download").append("<a id='downloader' href='" + datauri + "' target='_blank' download='" + fileName + ".annotation'>Save</a>");
+  // Remove spaces
+  fileName = fileName.replace(/\s+/g, '');
+
+  // Encode filename
+  var uri = encodeURI(fileName)
+
+  // Remove single quotea
+  uri = uri.replace(/\'/g, "");
+
+	$("#download").append("<a id='downloader' href='" + datauri + "' target='_blank' download='" + uri + ".annotation'>Save</a>");
 }
 
 // Manually remove all stylesheets
