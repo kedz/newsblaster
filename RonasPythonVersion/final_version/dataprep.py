@@ -13,7 +13,7 @@ class dataprep(object):
 
     def data_prep(self):
         # stop_words
-        stop_words_path = '/proj/nlp/users/Rona/stim2/dataprep/stopwordlist'
+        stop_words_path = 'stopwordlist'
         stop_words_file = open(stop_words_path, 'r')
         stop_words_list = stop_words_file.read().splitlines()
 
@@ -21,9 +21,7 @@ class dataprep(object):
         list_of_docs = []
         list_doc_ids = []
         root_path = self.root_path
-        documents_folder = 'documents'
-        documents_path = os.path.join(root_path, documents_folder)
-        documents_in_folder = os.listdir(documents_path)
+        documents_in_folder = os.listdir(root_path)
         documents_in_folder = sorted(documents_in_folder)
         doc_id = 0
         for document in documents_in_folder:
