@@ -28,25 +28,23 @@ then
         exit 1
 fi
 
-echo "Completed check"
-exit 1
+export PATH=$NB_HOME:$PATH
 
 # depending on parameter -- startup, shutdown, restart 
 # of the instance and listener or usage display 
-
 case "$1" in
     start)
         echo -n "Starting NewsBlaster: "
-        su - $NB_OWNR -c "$NB_HOME/bin/elasticsearch"
-        su - $NB_OWNR -c "$NB_HOME/bin/rabbitmq-server"
-        
-				#su - $ORA_OWNR -c $ORA_HOME/bin/dbstart
-        #touch /var/lock/subsys/oracle
+        $NB_HOME/bin/elasticsearch > /dev/null &
+        $NB_HOME/bin/rabbitmq-server > /dev/null &
         echo "OK"
+				echo "Now check article search query here "
         ;;
     stop)
-        echo -n "Shutdown Oracle: "
-        su - $NB_OWNR -c "$NB_HOME/bin/rabbitmqctl stop"
+        echo -n "Shutdown NewsBlaster: "
+        $NB_HOME/bin/rabbitmqctl stop
+				curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
+
         echo "OK"
         ;;
     reload|restart)
