@@ -1,0 +1,5 @@
+rabbitmq:
+ host: 'localhost.com'
+ username: 'nlp'
+ password: 'columbia'
+ port: '5672'
