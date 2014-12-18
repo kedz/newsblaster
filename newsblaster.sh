@@ -45,11 +45,8 @@ case "$1" in
         echo "OK"
         ;;
     stop)
- 	# Oracle listener and instance shutdown
         echo -n "Shutdown Oracle: "
-        su - $ORA_OWNR -c "$ORA_HOME/bin/lsnrctl stop"
-        su - $ORA_OWNR -c $ORA_HOME/bin/dbshut
-        rm -f /var/lock/subsys/oracle
+        su - $NB_OWNR -c "$NB_HOME/bin/rabbitmqctl stop"
         echo "OK"
         ;;
     reload|restart)
