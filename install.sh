@@ -59,10 +59,16 @@ if [ ! -f "$BIN_DIR/rabbitmq-server" ]; then
 		ln -s "$rmq_temp/sbin/rabbitmqctl" "$BIN_DIR/rabbitmqctl"
 		
 		# Create default broker username and pass
+		$BIN_DIR/rabbitmq-server > /dev/null & 
+		sleep 10
 		$BIN_DIR/rabbitmqctl add_user nlp columbia
 		$BIN_DIR/rabbitmqctl set_user_tags nlp administrator
 		$BIN_DIR/rabbitmqctl set_permissions -p / nlp ".*" ".*" ".*"
-			
+		$BIN_DIR/rabbitmq-plugins enable rabbitmq_management	
+
+		#Stop RabbitMQ
+		$BIN_DIR/rabbitmqctl stop
+
 fi
 
 
