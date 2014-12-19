@@ -36,10 +36,10 @@ case "$1" in
         echo -n "Starting NewsBlaster: "
         $NB_HOME/bin/elasticsearch > /dev/null &
         $NB_HOME/bin/rabbitmq-server > /dev/null &
-				sleep  5	
+				sleep  10	
 
 				python $DIR/setup/broker_setup.py
-	
+        sleep 5	
 				#Scrapyd	
 				scrapyd > /dev/null &
 				
@@ -57,7 +57,7 @@ case "$1" in
         echo -n "Shutdown NewsBlaster: "
 				curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
 
-				scrapy_pid=`ps aux | grep scrapyd | awk '{print $2}' | head -1`
+				scrapy_pid=`ps aux | grep scrapyd | awk '{print $2}' `
 				kill $scrapy_pid
 
 				celery_pid=`ps aux | grep 'celery worker' | awk '{print $2}'`
@@ -67,6 +67,7 @@ case "$1" in
 				kill -9 $es_pid	
 				
 				$NB_HOME/bin/rabbitmqctl stop
+        sleep 5
 
         echo "OK"
         ;;
