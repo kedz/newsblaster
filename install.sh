@@ -14,6 +14,7 @@ fi
 
 BIN_DIR="$NB_HOME/bin"
 SRC_DIR="$NB_HOME/src"
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 # Create bin directory to be used by NewsBlaster
 if [ ! -d $BIN_DIR ]; then
@@ -102,6 +103,13 @@ if [ ! -f $BIN_DIR/elasticsearch ]; then
 
 		ln -s "$es_temp/bin/elasticsearch" "$BIN_DIR/elasticsearch"
 		ln -s "$es_temp/bin/elasticsearch.in.sh" "$BIN_DIR/elasticsearch.in.sh"
+		
+		#Set Indices
+		$NB_HOME/bin/elasticsearch > /dev/null &
+		sleep 4
+		bash $DIR/setup/es_setup.sh 
+		sleep 3
+		curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
 fi
 
 if [ ! -f $BIN_DIR/java ]; then
@@ -115,19 +123,21 @@ if [ ! -f $BIN_DIR/java ]; then
 		ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
 fi
 
-
 #Exports
-
 export LD_LIBRARY_PATH=$NB_HOME/lib
+set LD_LIBRARY_PATH
 export LIBRARY_PATH=$NB_HOME/lib
-export C_INCLUDE_PATH=$NB_HOME/include:$NB_HOME/include/libxml2/
-export CPLUS_INCLUDE_PATH=$NB_HOME/include
+export C_INCLUDE_PATH=$NB_HOME/include:$NB_HOME/include/libxml2
+export CPLUS_INCLUDE_PATH=$NB_HOME/include/libxslt/:$NB_HOME/include/libexslt
 
 cd $NB_HOME
-pip install virtualenv
-virtualenv venv
+if [ ! -d $NB_HOME/venv ]; then
+		pip install virtualenv
+		virtualenv venv
+fi
 
 source venv/bin/activate
+pip install lxml
 pip install -U setuptools
 pip install -U cython
 pip install service_identity
@@ -140,4 +150,4 @@ pip install requests
 pip install elasticsearch
 pip install -U numpy scipy scikit-learn
 pip install BeautifulSoup
-pip install git+http://github.com/scipy/scipy/
+pip install scipy

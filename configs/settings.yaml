@@ -1,5 +1,5 @@
 rabbitmq:
- host: 'localhost.com'
+ host: 'localhost'
  username: 'nlp'
  password: 'columbia'
- port: '5672'
+ port: 5672
