@@ -1,8 +1,5 @@
 if [ -z "$NB_HOME" ]; then
-		cd ~
-		PWD_PATH=`pwd`
-		echo "The pat is $PWD"
-    NB_HOME="$PWD_PATH/newsblaster_home"
+    NB_HOME="$HOME/newsblaster_home"
 		mkdir -p "$NB_HOME"
 		set NB_HOME
     echo "Setting NB_HOME to $NB_HOME."
@@ -60,6 +57,7 @@ if [ ! -f "$BIN_DIR/rabbitmq-server" ]; then
 		ln -s "$rmq_temp/sbin/rabbitmqctl" "$BIN_DIR/rabbitmqctl"
 		
 		# Create default broker username and pass
+    echo "Add nlp user to RabbitMQ"
 		$BIN_DIR/rabbitmq-server > /dev/null & 
 		sleep 10
 		$BIN_DIR/rabbitmqctl add_user nlp columbia
@@ -106,23 +104,34 @@ if [ ! -f $BIN_DIR/elasticsearch ]; then
 		
 		#Set Indices
 		$NB_HOME/bin/elasticsearch > /dev/null &
-		sleep 4
+		sleep 15
 		bash $DIR/setup/es_setup.sh 
-		sleep 3
+		sleep 5
 		curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
 fi
 
 if [ ! -f $BIN_DIR/java ]; then
-		cd "$SRC_DIR"
-		curl -O -v -j -k -L -H  "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
-    tar -zxvf jdk-7u67-linux-x64.tar.gz
+		OS_TYPE=`uname`
+    cd "$SRC_DIR"
 
-		cd jdk1.7.0_67
-		jdk_temp=`pwd`
-
-		ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
+    if [ "$OS_TYPE" != "Darwin" ]; then
+        echo "Installing Java for Linux"
+		    curl -O -v -j -k -L -H  "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
+        tar -zxvf jdk-7u67-linux-x64.tar.gz
+		    cd jdk1.7.0_67
+		    jdk_temp=`pwd`
+		    ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
+    else
+        echo "Installing Java for OSX"
+		    curl -O -v -j -k -L -H  "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jre-7u72-macosx-x64.tar.gz
+        tar -zxvf jre-7u72-macosx-x64.tar.gz
+        cd jre1.7.0_72.jre/Contents/Home	    
+        jdk_temp=`pwd`
+		    ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
+    fi
 fi
 
+exit 1
 #Exports
 export LD_LIBRARY_PATH=$NB_HOME/lib
 set LD_LIBRARY_PATH

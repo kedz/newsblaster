@@ -5,12 +5,9 @@
 
 # if NB_HOME not set -- display error
 if [ -z "$NB_HOME" ]; then
-    cd ~
-    PWD_PATH=`pwd`
-    echo "The path is $PWD"
-    NB_HOME="$PWD_PATH/newsblaster_home"
+    NB_HOME="$HOME/newsblaster_home"
     mkdir -p "$NB_HOME"
-    set NB_HOME
+    export NB_HOME
     echo "Setting NB_HOME to $NB_HOME"
 else
     echo "Override default NB_HOME with user variable $NB_HOME"
