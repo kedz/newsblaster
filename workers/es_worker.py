@@ -46,7 +46,7 @@ class ElasticSearchWorker(object):
 
 	def run(self):
 		self.consumer = Consumer('data_distributor',
-			      'elasticsearch_worker',
+			      'database_queue',
 			      'articles',
 			       handle_message=self.handle_delivery)
 
