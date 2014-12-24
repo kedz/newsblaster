@@ -5,20 +5,20 @@ from collections import defaultdict
 from charmeleon import Charmeleon
 
 class HTMLVectorizer():
-    
+
     v = DictVectorizer(sparse=False)
 
     def html_iter(self, files):
-        # Build Y = [labels]
+        # Build Y = [labels], X = feature matrix
         Y = list()
-        Y_text = list()
+        X = list()
 
-        soups = list()
+        # Calculate character features for each text node
+        charm = Charmeleon()
 
         for f in files:
-            soups.append(BeautifulSoup(open(f)))
+            soup = BeautifulSoup(open(f))
 
-        for soup in soups:
             # Find all text nodes
             text_nodes = soup.find_all(text=True)
 
@@ -26,29 +26,25 @@ class HTMLVectorizer():
             for text in text_nodes:
                 if text.parent is not None:
                     node = text.parent
-                    
+
                     if node.has_attr('annotation'):
                         Y.append(node['annotation'])
                     else:
                         Y.append("None")
-                   
-                    Y_text.append(text)
 
-        # Calculate character features for each text node
-        charm = Charmeleon()
+                    features = charm.compute_features(text)
+                    features['tag_name'] = node.name
 
-        nodeMatrix = list()
-
-        for node in Y_text:
-            features = charm.compute_features(node)
-            nodeMatrix.append(features)
+                    X.append(features)
 
         # Return list of character feature vectors + labels
-        return [nodeMatrix, Y]
+        return [X, Y]
 
     def fit(self, files):
-        result = html_iter(files)
-        return self.v.fit(result[0])
+        result = self.html_iter(files)
+        X = self.v.fit(result[0])
+        Y = result[1]
+        return [X,Y]
 
     def fit_transform(self, files):
         result = self.html_iter(files)

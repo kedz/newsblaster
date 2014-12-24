@@ -1,0 +1,511 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Article Annotator</title>
+
+	<link rel="stylesheet" href="style.css">
+
+
+
+
+<div class="nav stickyToolbar">
+    <div id="palatte">
+        <ul>
+            <li class="">Title</li>
+            <li class="">Subtitle</li>
+            <li class="">SectionTitle</li>
+            <li class="">Author</li>
+            <li class="">Date</li>
+            <li class="">Location</li>
+            <li class="">Image</li>
+            <li class="">ImageCaption</li>
+            <li class="">Body</li>
+        </ul>
+    </div>
+    <input type="file" id="files" name="files[]" multiple="">
+    <output id="list"><ul><li><strong>Chinese%20President%20addresses%20meeting%20of%20PLA%20armament%20work%20-%20People%27s%20Daily%20Online.html</strong> (text/html) - 37764 bytes, last modified: 12/4/2014</li></ul></output>
+    <h3 id="selectedBrushText">Selected Brush: Date</h3>
+    <button onclick="removeStylesheets()">Remove Stylesheets</button>
+    <br>
+    <div id="download">
+        <button onclick="saveHTML()">Download Annotated HTML</button>
+    </div>
+    <br>
+    <button onclick="undo()">Undo</button>
+</div>
+
+<div id="htmlContent" class="annotated_" annotation="">
+
+<!--head-->
+
+<div class="header oh clear">
+
+  	<!--head-->
+
+    <div class="w980 clear">
+
+    	<div class="head_1 fl"><a-disabled> <img src="/img/2013enpd/images/logo.png" alt="人民网"></a-disabled></div>
+
+        <div class="head_2 fl">
+
+        	<span class="annotated_Date" annotation="Date">Thu,Dec 4,2014</span>
+
+            <div id="share">
+
+                <!-- Baidu Button BEGIN -->
+
+              <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+
+                <a-disabled> </a-disabled>
+
+                <a-disabled> </a-disabled>
+
+                <a-disabled> </a-disabled>
+
+                <a-disabled> </a-disabled>
+
+                </div>
+
+                 <!--  --> 
+
+                 <!--  --> 
+
+                 <!-- 
+
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+
+                 --> 
+
+                <!-- Baidu Button END -->
+
+			</div>
+
+   	  	</div>
+
+        <div class="head_3 fl"><form action="http://search.people.com.cn/language/search.do" name="searchForm" method="post" target="_blank" class="">
+
+<input type="hidden" name="dateFlag" value="false">
+
+<input type="hidden" name="siteName" value="english">
+
+<input type="hidden" name="pageNum" value="1"><input type="text" name="keyword" id="keyword" class="on" value=""><input type="image" name="button" id="button" value="search" src="/img/2013enpd/images/icon1.jpg"></form></div>
+
+        <div class="head_4 fr">
+
+        	<form name="dateform" method="post" onsubmit="return false" class="">
+
+          	<select onchange="window.location.href=this.value" class=""><option>Languages</option>
+<option value="http://www.people.com.cn/">Chinese</option>
+<option value="http://j.peopledaily.com.cn/">Japanese</option> 
+<option value="http://french.people.com.cn/">French</option> 
+<option value="http://spanish.people.com.cn/">Spanish</option>
+<option value="http://russian.people.com.cn/">Russian</option>
+<option value="http://arabic.people.com.cn/">Arabic</option>
+<option value="http://kr.people.com.cn/">Korean</option>
+<option value="http://german.people.com.cn/">German</option></select>
+
+            <input type="image" value="go" onclick="go()" src="/img/2013enpd/images/icon2.jpg" class="">
+
+          	<select name="sday" class="">
+
+              <option value="01">1</option>
+
+              <option value="02">2</option>
+
+              <option value="03">3</option>
+
+              <option value="04">4</option>
+
+              <option value="05">5</option>
+
+              <option value="06">6</option>
+
+              <option value="07">7</option>
+
+              <option value="08">8</option>
+
+              <option value="09">9</option>
+
+              <option value="10">10</option>
+
+              <option value="11">11</option>
+
+              <option value="12">12</option>
+
+              <option value="13">13</option>
+
+              <option value="14">14</option>
+
+              <option value="15">15</option>
+
+              <option value="16">16</option>
+
+              <option value="17">17</option>
+
+              <option value="18">18</option>
+
+              <option value="19">19</option>
+
+              <option value="20">20</option>
+
+              <option value="21">21</option>
+
+              <option value="22">22</option>
+
+              <option value="23">23</option>
+
+              <option value="24">24</option>
+
+              <option value="25">25</option>
+
+              <option value="26">26</option>
+
+              <option value="27">27</option>
+
+              <option value="28">28</option>
+
+              <option value="29">29</option>
+
+              <option value="30">30</option>
+
+              <option value="31">31</option>
+
+          	</select> <select name="smonth">
+
+              <option value="01">Jan</option>
+
+              <option value="02">Feb</option>
+
+              <option value="03">Mar</option>
+
+              <option value="04">Apr</option>
+
+              <option value="05">May</option>
+
+              <option value="06">Jun</option>
+
+              <option value="07">Jul</option>
+
+              <option value="08">Aug</option>
+
+              <option value="09">Sep</option>
+
+              <option value="10">Oct</option>
+
+              <option value="11">Nov</option>
+
+              <option value="12">Dec</option>
+
+            </select> <select name="syear">
+
+              <option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+
+            </select>
+
+           	 <!-- 
+
+  			{resetselect()}
+
+    		 --> 
+
+          	</form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--nav-->
+
+<div class="nav clear stickyToolbar"><a-disabled> Home</a-disabled>|<a-disabled class=""> Politics</a-disabled>|<a-disabled> Business</a-disabled>|<a-disabled> Military</a-disabled>|<a-disabled> World</a-disabled>|<a-disabled> Society</a-disabled>|<a-disabled> Culture</a-disabled>|<a-disabled> Travel</a-disabled>|<a-disabled> Science</a-disabled>|<a-disabled> Education</a-disabled>|<a-disabled> Sports</a-disabled>|<a-disabled> Opinions</a-disabled>|<a-disabled> Special Coverage</a-disabled>|<a-disabled> Photo</a-disabled>|<a-disabled> Video</a-disabled></div>
+
+<!--wb nav-->
+
+<div class="w980 wbnav wbnav2 clear"><a-disabled> English</a-disabled>&gt;&gt;<a-disabled class=""> China Politics</a-disabled></div>
+
+<!--wb tu-->
+
+<div class="w980 p2_11 p2_14 clear"><h3><a-disabled> Editor's Pick</a-disabled></h3></div>
+<div class="w980 clear">
+    <div class="rollBox clear">
+     	<div class="LeftBotton"></div>
+      	<div class="ScrCont">
+       		<ul><li class=""><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031633477420429093016.jpg" width="89" height="88" alt="Close-up view of August Aerobatic Team"></a-disabled><a-disabled> Close-up view of August Aerobatic Team</a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031633476270030466126.jpg" width="89" height="88" alt="Goddesses married in 2014"></a-disabled><a-disabled> Goddesses married in 2014</a-disabled>
+</li><li><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031633475335140956894.jpg" width="89" height="88" alt="Polar region photos raise worldwide awareness of global warming"></a-disabled><a-disabled class=""> Polar region photos raise worldwide awareness of global warming</a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1127/FOREIGN201411271412476383591837921.jpg" width="89" height="88" alt="Get off at the last stop — Beijing Subway in vision"></a-disabled><a-disabled class=""> Get off at the last stop — Beijing Subway in vision</a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1106/FOREIGN201411060851373832838734451.jpg" width="89" height="88" alt="Top 100 beauties in the world! "></a-disabled><a-disabled> Top 100 beauties in the world! </a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1106/FOREIGN201411060833160002830543496.jpg" width="89" height="88" alt="Gallery: Who is the most beautiful one?"></a-disabled><a-disabled> Gallery: Who is the most beautiful one?</a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1030/FOREIGN201410301333398427669999837.jpg" width="89" height="88" alt="If you like autumn, put your hands in the air!"></a-disabled><a-disabled> If you like autumn, put your hands in the air!</a-disabled>
+</li><li><a-disabled> <img src="/NMediaFile/2014/1020/FOREIGN201410201332514941055975651.jpg" width="89" height="88" alt="Fan Bingbing's &quot;Queen style&quot; in new play"></a-disabled><a-disabled class=""> Fan Bingbing's "Queen style" in new play</a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1010/FOREIGN201410101416426784959606100.jpg" width="89" height="88" alt="Lingerie show at 2014 Miss China"></a-disabled><a-disabled class=""> Lingerie show at 2014 Miss China</a-disabled>
+</li><li class=""><a-disabled> <img src="/NMediaFile/2014/1014/FOREIGN201410141455540464523176195.jpg" width="89" height="88" alt="J-10 fighters show aerobatic stunts in smog-free sky"></a-disabled><a-disabled class=""> J-10 fighters show aerobatic stunts in smog-free sky</a-disabled>
+</li></ul>
+     	</div>
+     	<div class="RightBotton"></div>
+    </div>
+</div>
+
+<!--d2 p7-->
+
+<div class="w980 d2p6_content d2p7_content oh clear">
+
+  <div class="d2p3_left wb_left fl">
+
+    	<h2 class=""><span id="p_title" class="annotated_Title" annotation="Title">Chinese President addresses meeting of PLA armament work</span></h2>
+
+ 		<div class="annotated_Date" annotation="Date"> (<a-disabled> Xinhua</a-disabled>)&nbsp;&nbsp;&nbsp;&nbsp;20:08, December 04, 2014</div>
+
+        <div class="wb_2 clear"><span><a-disabled> Email</a-disabled>|<a-disabled> Print</a-disabled>|<a-disabled> Comments</a-disabled></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon21.gif" alt=""> <a-disabled> twitter</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon22.gif" alt=""> <a-disabled> facebook</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon20.gif" alt="" class=""> <a-disabled class=""> Sina Microblog</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon30.gif" alt=""> <a-disabled class=""> reddit</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/share.jpg" onclick="AXzhz('AX')" style="cursor:pointer;" class=""></div>
+
+        <div class="wbbox clear">
+
+            <div class="wb_3 clear" id="AX" style="display:none;">
+
+                <h3>Increases the bookmark</h3>
+
+                <ul>
+
+                    <li><img src="/img/2013enpd/images/icon23.gif" alt=""> <a-disabled> digg</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon24.gif" alt=""> <a-disabled> Google</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon25.gif" alt=""> <a-disabled> Delicious</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon26.gif" alt=""> <a-disabled> buzz</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon27.gif" alt=""> <a-disabled> friendfeed</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon28.gif" alt=""> <a-disabled> Linkedin</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon29.gif" alt=""> <a-disabled> diigo</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon31.gif" alt=""> <a-disabled> stumbleupon</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon32.gif" alt=""> <a-disabled> Qzone</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon32.gif" alt=""> <a-disabled> QQ Microblog</a-disabled></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="wb_12 wb_12b clear" id="p_content">
+
+        <p class="">
+	<img src="http://www.people.com.cn/mediafile/pic/20141204/83/7517729065170382195.jpg"></p>
+<p class="annotated_Body mouseOn" annotation="Body">
+	Chinese President Xi Jinping, also general secretary of the Communist Party of China (CPC) Central Committee and chairman of the Central Military Commission (CMC), addresses a meeting of the armament work of the People's Liberation Army, which is held in Beijing, China, from Dec. 3 to 4, 2014. (Xinhua/Li Gang)</p>
+<p class="">
+	(For the latest China news, please follow @PDChina on Twitter at http://www.twitter.com/PDChina and @PeoplesDaily on Facebook at http://www.facebook.com/PeoplesDaily)</p>
+
+
+        </div>
+
+        
+
+        <div class="annotated_Author" annotation="Author">(Editor:Wang&nbsp;Ao,Gao&nbsp;Yinan)</div>
+        
+        <div class="wb_2 clear"><span><a-disabled> Email</a-disabled>|<a-disabled> Print</a-disabled>|<a-disabled> Comments</a-disabled></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon21.gif" alt=""> <a-disabled> twitter</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon22.gif" alt=""> <a-disabled> facebook</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon20.gif" alt=""> <a-disabled class=""> Sina Microblog</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/icon30.gif" alt="" class=""> <a-disabled> reddit</a-disabled>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/2013enpd/images/share.jpg" onclick="AXzhz2('AX2')" style="cursor:pointer;" class=""></div>
+
+        <div class="wbbox clear">
+
+            <div class="wb_3 clear" id="AX2" style="display:none;">
+
+                <h3>Increases the bookmark</h3>
+
+                <ul>
+
+                    <li><img src="/img/2013enpd/images/icon23.gif" alt=""> <a-disabled> digg</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon24.gif" alt=""> <a-disabled> Google</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon25.gif" alt=""> <a-disabled> Delicious</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon26.gif" alt=""> <a-disabled> buzz</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon27.gif" alt=""> <a-disabled> friendfeed</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon28.gif" alt=""> <a-disabled> Linkedin</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon29.gif" alt=""> <a-disabled> diigo</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon31.gif" alt=""> <a-disabled> stumbleupon</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon32.gif" alt=""> <a-disabled> Qzone</a-disabled></li>
+
+                    <li><img src="/img/2013enpd/images/icon32.gif" alt=""> <a-disabled> QQ Microblog</a-disabled></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="p2_11 clear"><h3 class="">Related reading</h3></div>
+        <ul class="wb_5 clear"><li class=""><a-disabled> Xi highlights top-level, grassroot interplay in deepening reforms </a-disabled></li><li class=""><a-disabled> Chinese President &amp; Premier call for expanded cooperation with Russia</a-disabled></li><li><a-disabled> Xi meets Indian parliament speaker</a-disabled></li><li><a-disabled> President Xi meets with PM of Antigua and Barbuda</a-disabled></li></ul>
+
+        
+
+        <h2 class="p2_4 clear"><a-disabled> We Recommend</a-disabled></h2>
+        <ul class="d2_6 wb_6 oh clear"><li><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031600028832896628072.jpg" width="201" height="136" alt="Representative beauties of each province in China"></a-disabled><a-disabled> Representative beauties of each province in China</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031600027776145403679.jpg" width="201" height="136" alt="Chestnut girl goes viral online"></a-disabled><a-disabled> Chestnut girl goes viral online</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031600026463901797676.jpg" width="201" height="136" alt="In photos: Bright and brave female soldier of PLA"></a-disabled><a-disabled> In photos: Bright and brave female soldier of PLA</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031533224835521219954.jpg" width="201" height="136" alt="Victoria's Secret Fashion Show"></a-disabled><a-disabled> Victoria's Secret Fashion Show</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1127/FOREIGN201411271406108946166398642.jpg" width="201" height="136" alt="China's charming first lady"></a-disabled><a-disabled> China's charming first lady</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1203/FOREIGN201412031600025378471971649.jpg" width="201" height="136" alt="Excellent photos of Zhuhai Air Show"></a-disabled><a-disabled> Excellent photos of Zhuhai Air Show</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1127/FOREIGN201411271358087573605185027.jpg" width="201" height="136" alt="China's heavyweight aircraft"></a-disabled><a-disabled> China's heavyweight aircraft</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1121/FOREIGN201411211417016719241604888.jpg" width="201" height="136" alt="Female soldiers"></a-disabled><a-disabled> Female soldiers</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1122/FOREIGN201411221352526170762020167.jpg" width="201" height="136" alt="Celebrity goddesses "></a-disabled><a-disabled> Celebrity goddesses </a-disabled></li>
+</ul>
+
+   		
+
+        <form name="form1" method="post" action="http://posts.people.com.cn/bbs_new/app/src/main/?action=parse_publish&amp;op=ins&amp;bid=5490180&amp;channel_id=90785&amp;id=8818363&amp;lang=english" target="_blank">
+
+    	<input type="hidden" name="pid" value="0">
+
+      	<ul class="wb_7 clear" id="liuyan">
+
+       	  	<li>Name: <input type="text" name="yonghuming" id="yonghuming" class="on1"></li>
+
+          	<li><textarea name="content" id="content" cols="45" rows="5"></textarea></li>
+
+            <li class="on2"><a-disabled> Submit</a-disabled><a-disabled> View</a-disabled></li>
+
+      	</ul>
+
+        </form>
+
+    </div>
+
+    <div class="d2p3_right fr">
+
+      	<div class="p2_11 clear"><h3><a-disabled> Hot News</a-disabled></h3></div>
+
+        
+
+        <ul class="wb_8 clear"><li><a-disabled> China stands with world against Ebola</a-disabled></li>
+<li><a-disabled> Is China more nationalistic than its neighbors?</a-disabled></li>
+<li><a-disabled> New Delhi-Beijing cooperation key to building an ‘Indo-Pacific Era’</a-disabled></li>
+<li><a-disabled> US protesters demand the right to live</a-disabled></li>
+<li><a-disabled> India plans high-speed rail project with China</a-disabled></li>
+<li><a-disabled> Chinese Internet pop song wins at American Music Awards gala</a-disabled></li>
+<li><a-disabled> Chinese weapons winning battle for int'l market</a-disabled></li>
+</ul>
+
+        
+
+        
+
+        
+
+        
+
+        <div class="p2_11 clear"><h3><a-disabled> Top 10</a-disabled></h3></div>
+        <ul class="d2_20 oh clear"><li><a-disabled> <img src="/NMediaFile/2014/1202/FOREIGN201412021739253615876702188.jpg" width="150" height="90" alt="Top 10 couples in 2014 Korean dramas"></a-disabled><a-disabled> Top 10 couples in 2014 Korean dramas</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1202/FOREIGN201412021739252501004060589.jpg" width="150" height="90" alt="Top 10 favorite gift brands of rich Chinese men"></a-disabled><a-disabled> Top 10 favorite gift brands of rich Chinese men</a-disabled></li>
+</ul>
+        
+        <div class="p2_11 clear"><h3><a-disabled> Popular on Global Times</a-disabled></h3></div>
+        <ul class="d2_20 oh clear"><li><a-disabled> <img src="/NMediaFile/2014/1201/FOREIGN201412011539523618299693228.jpg" width="150" height="90" alt="Court ruling needed to push Constitution"></a-disabled><a-disabled> Court ruling needed to push Constitution</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1204/FOREIGN201412041650533972805804659.jpg" width="150" height="90" alt="Hong Kong protest leaders surrender"></a-disabled><a-disabled> Hong Kong protest leaders surrender</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1204/FOREIGN201412041651239781843978553.jpg" width="150" height="90" alt="Not so Forbidden City"></a-disabled><a-disabled> Not so Forbidden City</a-disabled></li>
+<li><a-disabled> <img src="/NMediaFile/2014/1204/FOREIGN201412041651240791667811170.jpg" width="150" height="90" alt="Lawyers provide free legal help to exonerate wrongfully convicted individuals"></a-disabled><a-disabled> Lawyers provide free legal help to exonerate wrongfully convicted individuals</a-disabled></li>
+</ul>
+
+        <div class="p2_11 clear"><h3>Most Viewed</h3><p><span class="on">Day</span>|<span>Week</span>|<span>Month</span></p></div>
+
+        <div class="p2_12 d2_4 clear">
+
+            <ul style="display:block;"><li><span>1</span><a-disabled> 22-year-old girl sells roasted sweet potatoes to save broth…</a-disabled></li><li><span>2</span><a-disabled> Combine top-level design with local innovations, Xi says</a-disabled></li><li><span>3</span><a-disabled> China high-speed trains on fast track to overseas market</a-disabled></li><li><span>4</span><a-disabled> China plays a more vital role in world economic development</a-disabled></li><li><span>5</span><a-disabled> HK hunger strike new extreme for protest</a-disabled></li></ul>
+
+            <ul><li><span>1</span><a-disabled> Britain and Hong Kong – What say we start with an apology?</a-disabled></li><li><span>2</span><a-disabled> China, US targeting terror online</a-disabled></li><li><span>3</span><a-disabled> Success of Sino-Indian rail pact to set stage for more deals</a-disabled></li><li><span>4</span><a-disabled> Xinjiang hires ex-soldiers to protect residents</a-disabled></li><li><span>5</span><a-disabled> Excellent photos of Zhuhai Air Show released by Ministry of…</a-disabled></li></ul>
+
+            <ul><li><span>1</span><a-disabled> Japan's new flying robot can open doors to enter buildings</a-disabled></li><li><span>2</span><a-disabled> China ushers in 'robot age'</a-disabled></li><li><span>3</span><a-disabled> Top 100 beauties in the world! </a-disabled></li><li><span>4</span><a-disabled> Why 'Made in China' is able to 'fly' into the US?</a-disabled></li><li><span>5</span><a-disabled> Photos: Xi Jinping in Fujian</a-disabled></li></ul>
+
+        </div>
+
+        <div class="p2_11 clear"><h3>Key Words</h3></div>
+        <div class="wb_9 clear"><a-disabled> China&nbsp;Africa</a-disabled><a-disabled> Anti-terrorism</a-disabled><a-disabled> S.&nbsp;Korean&nbsp;ferry</a-disabled><a-disabled> South&nbsp;China&nbsp;Sea</a-disabled><a-disabled> missing&nbsp;plane</a-disabled><a-disabled> GSK</a-disabled></div>
+
+        <div class="p2_11 clear"><h3><a-disabled> Top&nbsp;10</a-disabled></h3></div>
+
+        <ul class="p2_15 p2_19 d2_2 clear"><li><a-disabled> <img src="/NMediaFile/2014/1202/FOREIGN201412021656561613242433263.jpg" width="150" height="91" alt="Top 10 favorite gift brands of rich Chinese men"></a-disabled><a-disabled> Top 10 favorite gift brands of rich Chinese men</a-disabled></li>
+</ul>
+
+        
+
+      	
+
+    </div>
+
+</div>
+
+<!--link-->
+
+<div class="w980 p2_11 p2_14 clear"><h3>Links</h3></div>
+<div class="w980 link clear"><a-disabled> Global Times</a-disabled><a-disabled> Chinadaily.com.cn</a-disabled> <a-disabled> Ecns.cn</a-disabled> <a-disabled> Show China</a-disabled><a-disabled> China Human Rights</a-disabled><a-disabled> China Xinjiang</a-disabled><a-disabled> Tibet Online</a-disabled>
+ <a-disabled> CCTV</a-disabled> <a-disabled> Beijing Review</a-disabled> <a-disabled> GMW.cn
+</a-disabled>      <a-disabled> China Economic Net</a-disabled>
+<a-disabled> China Tibet Online</a-disabled>
+ <a-disabled> Women of China</a-disabled> 
+</div>
+
+<!--copyright-->
+
+<div id="copyright"><a-disabled> About People's Daily Online</a-disabled>| <a-disabled> Contact Us</a-disabled>
+<br>Copyright by People's Daily Online, All Rights Reserved </div>
+
+ <!-- 
+
+function wzlun(){
+
+var container=document.getElementById("lun");
+
+container.appendChild(container.firstChild);
+
+}
+
+setInterval("wzlun()",2000);
+
+ --> 
+
+ <!--  --> 
+
+<img src="http://58.68.146.44:8000/d.gif?id=8818363" width="0" height="0">
+
+ <!--  --> 
+
+ <!-- 
+
+BingCW.Init({
+
+   AppID:"http://english.peopledaily.com.cn/",
+
+   ContentArea:"p_content,p_title",
+
+   MachineTranslation:true,
+
+   WebDefinition:true
+
+}) --> 
+
+</div>
+
+
+
+
+
+<iframe id="rdbIndicator" width="100%" height="270" border="0" src="chrome-extension://oknpjjbmpnndlpmnhmekjpocelpnlfdi/indicator.html" style="display: none; border: 0; position: fixed; left: 0; top: 0; z-index: 2147483647"></iframe>
