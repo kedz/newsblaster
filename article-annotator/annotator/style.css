@@ -7,7 +7,7 @@
 	z-index: -100;
 }
 
-.sticky {  
+.stickyToolbar {  
     position: fixed;  
     width: 100%;  
     left: 80%;  

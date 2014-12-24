@@ -2,8 +2,6 @@ import os
 import sys
 from twisted.internet.threads import deferToThread
 from scrapy.utils.serialize import ScrapyJSONEncoder
-from bson.objectid import ObjectId
-from bson.json_util import dumps
 
 # Import local modules
 module_path = os.path.dirname(os.path.realpath(__file__))
@@ -30,9 +28,6 @@ class SendToBrokerPipeline(object):
 	def _process_item(self, item, spider):
 
 		item_dict = dict(item)
-		#Done in advance since messages will be sent to both the database and annotator.
-    #Id will be used to update the documents when sent back from annotator
-		item_dict['_id'] = dumps(ObjectId())
 
 		data = self.encoder.encode(item_dict)
 		self.publisher.send_message(data,'articles')

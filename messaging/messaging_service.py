@@ -93,7 +93,7 @@ class Consumer(MessageService):
 			self.connection.ioloop.start()
 		except KeyboardInterrupt:
 		# Gracefully close the connection
-			selfconnection.close()
+			self.connection.close()
 			# Loop until we're fully closed, will stop on its own
 			self.connection.ioloop.start()
 
