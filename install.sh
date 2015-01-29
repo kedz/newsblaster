@@ -59,7 +59,7 @@ if [ ! -f "$BIN_DIR/rabbitmq-server" ]; then
 		# Create default broker username and pass
     echo "Add nlp user to RabbitMQ"
 		$BIN_DIR/rabbitmq-server > /dev/null & 
-		sleep 10
+		sleep 30
 		$BIN_DIR/rabbitmqctl add_user nlp columbia
 		$BIN_DIR/rabbitmqctl set_user_tags nlp administrator
 		$BIN_DIR/rabbitmqctl set_permissions -p / nlp ".*" ".*" ".*"
@@ -131,7 +131,7 @@ if [ ! -f $BIN_DIR/java ]; then
     fi
 fi
 
-exit 1
+#exit 1
 #Exports
 export LD_LIBRARY_PATH=$NB_HOME/lib
 set LD_LIBRARY_PATH
