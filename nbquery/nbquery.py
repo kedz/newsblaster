@@ -1,6 +1,8 @@
 import elasticsearch
 import json
+from collections import defaultdict
 from pprint import pprint
+import sys
 
 class NBQuery(object):
 
@@ -21,8 +23,53 @@ class NBQuery(object):
     """
     self.es = elasticsearch.Elasticsearch([hostname + ':' + str(port)], sniff_on_start=True)
 
+
+  def _generate_match_sub_query(self,
+                                content_query,
+                                title_query
+                                exact=False):
+    query_body = {}
+    fields = []
+    sub_query = 1
+    #query_body["multi_match"] = {}
+    #query_body["multi_match"]["type"] = "most_fields"
+    #                                        {
+    #                                      "multi_match" : {
+    #                                      "query":      "sandy",
+    #                                      "type":       "most_fields",
+    #                                     "fields":     [ "title", "html_content" ]
+    #                                      }},
+
+    if content_query is not None:
+      pass
+      #content_query = "match:{" + "html_content:" +  content_query + "*}"  
+      #content_dict = {"match":{ "html_content": content_query + "*" }}
+      #pprint(list(content_dict))
+      #d.setdefault("match",[]).append({ "html_content": content_query + "*" })
+      #content_dict = dict()
+      #content_dict['match'] = {'html_content': content_query + "*"}
+      #content_dict['match']['html_content'] = content_query + "*"
+      #sub_query.append(content_dict)
+
+    if title_query is not None:
+      pass
+      #title_dict = {"match":{ "title": title_query + "*" }}
+      #'match'['title'] = title_query + "*"  
+      #title_query = "match:{" +  "title" +  title_query + "*}"  
+      #d.setdefault("match",[]).append({ "title": title_query + "*" })
+      #title_dict = defaultdict(dict)
+      #title_dict['match']['title'] = content_query + "*"
+      #sub_query.append(title_dict)
+
+    print "********"
+    #pprint(json.dumps(d))
+    print "********"
+                                   
+    return sub_query
+ 
   def _generate_query(self,
-                      term,
+                      content_query,
+                      title_query=None,
                       limit=None,
                       topics=None,
                       author=None,
@@ -32,6 +79,10 @@ class NBQuery(object):
                       end_date=None,
                       projections=None):
 
+
+    #pprint(_generate_match_sub_query(content_query,title_query)
+
+
     #Automatically check title and html_content for match terms by default
     #TODO index should be a list read from config
     #TODO dynamically generate list here 
@@ -40,6 +91,8 @@ class NBQuery(object):
     #TODO split projections into array of strings
     #TODO convert dates
     #TODO split
+
+    
 
     #res_raw = self.es.search(index="news", body={
     #                                    "size": 60,
@@ -55,13 +108,26 @@ class NBQuery(object):
     #                                    }
     #              )
 
+    pprint(self._generate_match_sub_query(content_query,title_query))
+    #sys.exit(1) 
+    #tt = { "html_content": content_query + "*" }
 
     res_raw = self.es.search(index="news", body={
                                         "size": 60,
                                         "_source": ["title","source_link","meta_information.topics"],
                                             "query": {
                                               "filtered": {
-                                                "query": {  "match":{ "html_content": "snow"}  },
+                                                "query": { "bool" : {
+                "must" : [
+                    {
+                        "match" : {"title" : "snow"}
+                    },
+                    {
+                        "match" : {"html_content" : "storm"}
+                    }
+                ]
+            }
+ },
                                                 "filter": {
                                                   "nested": {
                                                     "path": "meta_information",
@@ -79,8 +145,13 @@ class NBQuery(object):
                                                   }
                                                 }
                                               }
-                                            }
+                                            },
 
+                                         #"query":{"multi_match" : {
+                                         # "query":      "snow storm",
+                                         # "type":       "most_fields",
+                                         #"fields":     [ "title", "html_content" ]
+                                         # }},
 
                                         }
                   )
@@ -102,7 +173,7 @@ class NBQuery(object):
 
     *Consider template query in future 
     """
-    self._generate_query(query)
+    self._generate_query(query,query)
     #es.search(index="my_app", body={"query": {"match": {"title": "elasticsearch"}}})
 
   def save_files(self,path):
@@ -116,4 +187,4 @@ class NBQuery(object):
 
 if __name__ == "__main__":
   nb_query = NBQuery('island2.cs.columbia.edu')
-  nb_query.search('snow')
+  nb_query.search('snow storm')
