@@ -159,4 +159,4 @@ pip install requests
 pip install elasticsearch
 pip install -U numpy scipy scikit-learn
 pip install BeautifulSoup
-pip install scipy
+pip install elasticsearch
