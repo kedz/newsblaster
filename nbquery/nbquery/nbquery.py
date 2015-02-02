@@ -166,8 +166,9 @@ class NBQuery(object):
     pass
 
 if __name__ == "__main__":
-  nb_query = NBQuery('island2.cs.columbia.edu')
+  pass
+  #nb_query = NBQuery('island2.cs.columbia.edu')
   #["title","source_link","meta_information.topics","time_of_crawl" ,"meta_information.published_date"],
   #nb_query.search('snow storm',projections=["title","time_of_crawl"])
-  results = nb_query.search(source="www.nytimes.com*",projections=["title","source_link"],limit=100)
-  pprint(results)
+  #results = nb_query.search(source="www.nytimes.com*",projections=["title","source_link"],limit=100)
+  #pprint(results)

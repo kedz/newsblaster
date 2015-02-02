@@ -1,2 +1,2 @@
-from nbquery.nbquery import NBQuery
-from nbquery.nbquery_cli import NBQueryCLI
+from nbquery import NBQuery
+from nbquery_cli import NBQueryCLI

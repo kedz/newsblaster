@@ -31,7 +31,8 @@ class NBQueryCLI(NBQuery):
     self._save_files(results,path)
 
 if __name__ == "__main__":
-  nb_cli = NBQueryCLI("island2.cs.columbia.edu")
-  nb_cli.get_html_source("www.nytimes.com*","/tmp/",100)
+  pass
+  #nb_cli = NBQueryCLI("island2.cs.columbia.edu")
+  #nb_cli.get_html_source("www.nytimes.com*","/tmp/",100)
 
 
