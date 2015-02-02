@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Article Annotator</title>
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="nav">
+    <div id="palatte">
+        <ul>
+            <li>Title</li>
+            <li>Subtitle</li>
+            <li>SectionTitle</li>
+            <li>Author</li>
+            <li>Date</li>
+            <li>Location</li>
+            <li>Image</li>
+            <li>ImageCaption</li>
+            <li>Body</li>
+        </ul>
+    </div>
+    <input type="file" id="files" name="files[]" multiple />
+    <output id="list"></output>
+    <h3 id="selectedBrushText">Selected brush: None</h3>
+    <button onclick="removeStylesheets()">Remove Stylesheets</button>
+    <br>
+    <div id="download">
+        <button onclick="saveHTML()">Download Annotated HTML</button>
+    </div>
+    <br>
+    <button onclick="undo()">Undo</button>
+</div>
+
+<div id="htmlContent">NO CONTENT LOADED</div>
+
+<script src="jquery-2.1.1.js"></script>
+<script src="highlighter.js"></script>
+
+</body>
+</html>

@@ -1,6 +1,5 @@
 import os
 import sys
-from bson import json_util
 import json
 from datetime import datetime
 import yaml
@@ -47,7 +46,7 @@ class ElasticSearchWorker(object):
 
 	def run(self):
 		self.consumer = Consumer('data_distributor',
-			      'elasticsearch_worker',
+			      'database_queue',
 			      'articles',
 			       handle_message=self.handle_delivery)
 

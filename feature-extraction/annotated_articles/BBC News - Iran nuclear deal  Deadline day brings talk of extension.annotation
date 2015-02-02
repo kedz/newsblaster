@@ -1,0 +1,3439 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Article Annotator</title>
+
+	<link rel="stylesheet" href="style.css">
+
+
+
+
+<div class="nav stickyToolbar">
+    <div id="palatte">
+        <ul>
+            <li class="">Title</li>
+            <li class="">Subtitle</li>
+            <li class="">SectionTitle</li>
+            <li class="">Author</li>
+            <li class="">Date</li>
+            <li class="">Location</li>
+            <li class="annotated_Image">Image</li>
+            <li class="">ImageCaption</li>
+            <li class="">Body</li>
+        </ul>
+    </div>
+    <input type="file" id="files" name="files[]" multiple="">
+    <output id="list"><ul><li><strong>BBC%20News%20-%20Iran%20nuclear%20deal%20%20Deadline%20day%20brings%20talk%20of%20extension.html</strong> (text/html) - 128881 bytes, last modified: 11/24/2014</li></ul></output>
+    <h3 id="selectedBrushText">Selected Brush: Image</h3>
+    <button onclick="removeStylesheets()">Remove Stylesheets</button>
+    <br>
+    <div id="download">
+        <button onclick="saveHTML()">Download Annotated HTML</button>
+    </div>
+    <br>
+    <button onclick="undo()">Undo</button>
+</div>
+
+<div id="htmlContent">TYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
+
+
+
+        
+    
+    
+    
+	
+    
+    
+    
+    
+    
+    
+    
+	
+    
+	
+    
+	
+	
+	
+	
+    
+	
+
+        
+    
+<!-- THIS FILE CONFIGURES SHARED HIGHWEB STATIC ASSETS -->
+
+
+
+
+
+<!-- mapping_news.inc -->
+<!-- THIS FILE CONFIGURES NEWS STATIC ASSETS  -->
+
+
+
+
+<!-- THIS FILE CONFIGURES VOTE 2012 STATIC ASSETS  -->
+
+
+
+
+
+    <!-- hi/shared/head_initial.inc -->
+
+
+	<!-- IGOR News -->
+		
+		
+		
+	
+
+
+
+
+
+<!-- set CPS_HTTP_HOST_DOMAIN for news and ww1 -->
+
+
+	
+	        
+	
+
+
+	        
+        <meta http-equiv="X-UA-Compatible" content="IE=8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>BBC News - Iran nuclear deal: Deadline day brings talk of extension</title>
+        <meta name="Description" content="Diplomats in Vienna are to make a final push for a deal on Iran's nuclear programme ahead of a 23:00 GMT deadline, amid talk of an extension.">
+        <meta property="rnews:description" content="Diplomats in Vienna are to make a final push for a deal on Iran's nuclear programme ahead of a 23:00 GMT deadline, amid talk of an extension.">
+                <meta name="OriginalPublicationDate" content="2014/11/24 08:21:58">
+        <meta property="rnews:datePublished" content="2014/11/24 08:21:58">
+        <meta name="UKFS_URL" content="/news/world-middle-east-30172923">
+                <meta name="THUMBNAIL_URL" content="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219225_kerr.jpg">
+        <meta property="rnews:thumbnailUrl" content="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219225_kerr.jpg">
+                <meta name="Headline" content="Deadline day for Iran nuclear deal">
+        <meta property="rnews:headline" content="Deadline day for Iran nuclear deal">
+        <meta name="IFS_URL" content="/news/world-middle-east-30172923">
+        <meta name="Section" content="Middle East">
+        <meta name="contentFlavor" content="STORY">
+		                        <meta name="CPS_ID" content="30172923">
+        <meta name="CPS_SITE_NAME" content="BBC News">
+        <meta name="CPS_SECTION_PATH" content="World/Middle East">
+        <meta name="CPS_ASSET_TYPE" content="STY">
+        <meta name="CPS_PLATFORM" content="HighWeb">
+        <meta name="CPS_AUDIENCE" content="US">
+        <meta property="rnews:creator" content="http://www.bbc.co.uk#org">
+
+            		<meta property="og:title" content="Deadline day for Iran nuclear deal">
+    		<meta property="og:type" content="article">
+    		<meta property="og:url" content="http://www.bbc.com/news/world-middle-east-30172923">
+    		<meta property="og:site_name" content="BBC News">
+            			<meta property="og:image" content="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219220_kerr.jpg">
+											
+				<meta name="bbcsearch_noindex" content="atom">
+		
+        
+            <link rel="canonical" href="http://www.bbc.com/news/world-middle-east-30172923">
+<link rel="alternate" hreflang="en" href="http://www.bbc.com/news/world-middle-east-30172923">
+<link rel="alternate" hreflang="en-gb" href="http://www.bbc.co.uk/news/world-middle-east-30172923">
+        
+
+        
+        
+
+        <!-- hi/news/head_first.inc -->
+
+<!-- Chartbeat Web Analytics code - start -->
+ <!-- var _sf_startpt=(new Date()).getTime() --> 
+<!-- Chartbeat Web Analytics code - end -->
+
+<meta name="application-name" content="BBC News">
+<meta name="msapplication-TileImage" content="/img/1_0_3/cream/hi/news/bbc-news-pin.png">
+<meta name="msapplication-TileColor" content="#CC0101">
+
+
+<meta name="twitter:card" value="summary">
+
+        <!-- Project IGOR - Barlesque redirection logic - START -->
+
+
+     <!-- 
+        /*<![CDATA[*/
+        window.bbcredirection = {
+            
+                device: true,
+                geo: true
+            
+        }
+        /*]]>*/
+     --> 
+
+<!-- Project IGOR - Barlesque redirection logic - END -->
+
+
+<!-- PULSE_ENABLED:yes -->
+
+<!-- vars inc blq_cachebust_journalism 1.21.19 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+	
+			
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+		
+
+
+
+
+
+
+	
+		
+
+    
+   <meta http-equiv="X-UA-Compatible" content="IE=8">  
+  <link rel="schema.dcterms" href="http://purl.org/dc/terms/">  <link rel="index" href="http://www.bbc.co.uk/a-z/" title="A to Z"> <link rel="copyright" href="http://www.bbc.co.uk/terms/" title="Terms of Use"> <link rel="icon" href="http://www.bbc.co.uk/favicon.ico" type="image/x-icon">  <meta name="viewport" content="width = 996"> 
+
+ <!-- window.orb = window.orb || {}; --> 
+ <!-- /*<![CDATA[*/
+(function(){window.fig=window.fig||{};window.fig.manager={include:function(a){a=a||window;var e=a.document,g=e.cookie,b=g.match(/(?:^|; ?)ckns_orb_fig=([^;]+)/);if(!b&&g.indexOf("ckns_orb_nofig=1")>-1){this.setFig(a,{no:1})}else{if(b){b=this.deserialise(decodeURIComponent(RegExp.$1));this.setFig(a,b)}e.write(' <!-- <'+"/script>")}},confirm:function(a){a=a||window;if(a.orb&&a.orb.fig&&a.orb.fig("no")){this.setNoFigCookie(a)}if(a.orb===undefined||a.orb.fig===undefined){this.setFig(a,{no:1});this.setNoFigCookie(a)}},setNoFigCookie:function(a){a.document.cookie="ckns_orb_nofig=1; expires="+new Date(new Date().getTime()+1000*60*10).toGMTString()+";"},setFig:function(a,b){(function(){var c=b;a.orb=a.orb||{};a.orb.fig=function(d){return(arguments.length)?c[d]:c}})()},deserialise:function(b){var a={};b.replace(/([a-z]{2}):([0-9]+)/g,function(){a[RegExp.$1]=+RegExp.$2});return a}}})();fig.manager.include();/*]]>*/ --> 
+ <!--  fig.manager.confirm();  --> 
+
+ <link rel="stylesheet" type="text/css" href="http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5/style/main.css">   <!-- /*<![CDATA[*/ (function(undefined){if(!window.bbc){window.bbc={}}var ROLLING_PERIOD_DAYS=30;window.bbc.Mandolin=function(id,segments,opts){var now=new Date().getTime(),storedItem,DEFAULT_START=now,DEFAULT_RATE=1,COOKIE_NAME="ckpf_mandolin";opts=opts||{};this._id=id;this._segmentSet=segments;this._store=new window.window.bbc.Mandolin.Storage(COOKIE_NAME);this._opts=opts;this._rate=(opts.rate!==undefined)?+opts.rate:DEFAULT_RATE;this._startTs=(opts.start!==undefined)?new Date(opts.start).getTime():new Date(DEFAULT_START).getTime();this._endTs=(opts.end!==undefined)?new Date(opts.end).getTime():daysFromNow(ROLLING_PERIOD_DAYS);this._signupEndTs=(opts.signupEnd!==undefined)?new Date(opts.signupEnd).getTime():this._endTs;this._segment=null;if(typeof id!=="string"){throw new Error("Invalid Argument: id must be defined and be a string")}if(Object.prototype.toString.call(segments)!=="[object Array]"){throw new Error("Invalid Argument: Segments are required.")}if(opts.rate!==undefined&&(opts.rate<0||opts.rate>1)){throw new Error("Invalid Argument: Rate must be between 0 and 1.")}if(this._startTs>this._endTs){throw new Error("Invalid Argument: end date must occur after start date.")}if(!(this._startTs<this._signupEndTs&&this._signupEndTs<=this._endTs)){throw new Error("Invalid Argument: SignupEnd must be between start and end date")}removeExpired.call(this,now);var overrides=window.bbccookies.get().match(/ckns_mandolin_setSegments=([^;]+)/);if(overrides!==null){eval("overrides = "+decodeURIComponent(RegExp.$1)+";");if(overrides[this._id]&&this._segmentSet.indexOf(overrides[this._id])==-1){throw new Error("Invalid Override: overridden segment should exist in segments array")}}if(overrides!==null&&overrides[this._id]){this._segment=overrides[this._id]}else{if((storedItem=this._store.getItem(this._id))){this._segment=storedItem.segment}else{if(this._startTs<=now&&now<this._signupEndTs&&now<=this._endTs&&this._store.isEnabled()===true){this._segment=pick(segments,this._rate);if(opts.end===undefined){this._store.setItem(this._id,{segment:this._segment})}else{this._store.setItem(this._id,{segment:this._segment,end:this._endTs})}log.call(this,"mandolin_segment")}}}log.call(this,"mandolin_view")};window.bbc.Mandolin.prototype.getSegment=function(){return this._segment};function log(actionType,params){var that=this;require(["istats-1"],function(istats){istats.log(actionType,that._id+":"+that._segment,params?params:{})})}function removeExpired(expires){var items=this._store.getItems(),expiresInt=+expires;for(var key in items){if(items[key].end!==undefined&&+items[key].end<expiresInt){this._store.removeItem(key)}}}function getLastExpirationDate(data){var winner=0,rollingExpire=daysFromNow(ROLLING_PERIOD_DAYS);for(var key in data){if(data[key].end===undefined&&rollingExpire>winner){winner=rollingExpire}else{if(+data[key].end>winner){winner=+data[key].end}}}return(winner)?new Date(winner):new Date(rollingExpire)}window.bbc.Mandolin.prototype.log=function(params){log.call(this,"mandolin_log",params)};window.bbc.Mandolin.prototype.convert=function(params){log.call(this,"mandolin_convert",params);this.convert=function(){}};function daysFromNow(n){var endDate;endDate=new Date().getTime()+(n*60*60*24)*1000;return endDate}function pick(segments,rate){var picked,min=0,max=segments.length-1;if(typeof rate==="number"&&Math.random()>rate){return null}do{picked=Math.floor(Math.random()*(max-min+1))+min}while(picked>max);return segments[picked]}window.bbc.Mandolin.Storage=function(name){validateCookieName(name);this._cookieName=name;this._isEnabled=(bbccookies.isAllowed(this._cookieName)===true&&bbccookies.cookiesEnabled()===true)};window.bbc.Mandolin.Storage.prototype.setItem=function(key,value){var storeData=this.getItems();storeData[key]=value;this.save(storeData);return value};window.bbc.Mandolin.Storage.prototype.isEnabled=function(){return this._isEnabled};window.bbc.Mandolin.Storage.prototype.getItem=function(key){var storeData=this.getItems();return storeData[key]};window.bbc.Mandolin.Storage.prototype.removeItem=function(key){var storeData=this.getItems();delete storeData[key];this.save(storeData)};window.bbc.Mandolin.Storage.prototype.getItems=function(){return deserialise(this.readCookie(this._cookieName)||"")};window.bbc.Mandolin.Storage.prototype.save=function(data){window.bbccookies.set(this._cookieName+"="+encodeURIComponent(serialise(data))+"; expires="+getLastExpirationDate(data).toUTCString()+";")};window.bbc.Mandolin.Storage.prototype.readCookie=function(name){var nameEq=name+"=",ca=window.bbccookies.get().split("; "),i,c;validateCookieName(name);for(i=0;i<ca.length;i++){c=ca[i];if(c.indexOf(nameEq)===0){return decodeURIComponent(c.substring(nameEq.length,c.length))}}return null};function serialise(o){var str="";for(var p in o){if(o.hasOwnProperty(p)){str+='"'+p+'"'+":"+(typeof o[p]==="object"?(o[p]===null?"null":"{"+serialise(o[p])+"}"):'"'+o[p].toString()+'"')+","}}return str.replace(/,\}/g,"}").replace(/,$/g,"")}function deserialise(str){var o;str="{"+str+"}";if(!validateSerialisation(str)){throw"Invalid input provided for deserialisation."}eval("o = "+str);return o}var validateSerialisation=(function(){var OBJECT_TOKEN="<Object>",ESCAPED_CHAR='"\\n\\r\\u2028\\u2029\\u000A\\u000D\\u005C',ALLOWED_CHAR="([^"+ESCAPED_CHAR+"]|\\\\["+ESCAPED_CHAR+"])",KEY='"'+ALLOWED_CHAR+'+"',VALUE='(null|"'+ALLOWED_CHAR+'*"|'+OBJECT_TOKEN+")",KEY_VALUE=KEY+":"+VALUE,KEY_VALUE_SEQUENCE="("+KEY_VALUE+",)*"+KEY_VALUE,OBJECT_LITERAL="({}|{"+KEY_VALUE_SEQUENCE+"})",objectPattern=new RegExp(OBJECT_LITERAL,"g");return function(str){if(str.indexOf(OBJECT_TOKEN)!==-1){return false}while(str.match(objectPattern)){str=str.replace(objectPattern,OBJECT_TOKEN)}return str===OBJECT_TOKEN}})();function validateCookieName(name){if(name.match(/ ,;/)){throw"Illegal name provided, must be valid in browser cookie."}}})(); /*]]>*/ -->    <!-- /*<![CDATA[*/ if (typeof bbccookies_flag === 'undefined') { bbccookies_flag = 'ON'; } showCTA_flag = false; cta_enabled = (showCTA_flag && (bbccookies_flag === 'ON') ); (function(){var e="ckns_policy",m="Thu, 01 Jan 1970 00:00:00 GMT",k={ads:true,personalisation:true,performance:true,necessary:true};function f(p){if(f.cache[p]){return f.cache[p]}var o=p.split("/"),q=[""];do{q.unshift((o.join("/")||"/"));o.pop()}while(q[0]!=="/");f.cache[p]=q;return q}f.cache={};function a(p){if(a.cache[p]){return a.cache[p]}var q=p.split("."),o=[];while(q.length&&"|co.uk|com|".indexOf("|"+q.join(".")+"|")===-1){if(q.length){o.push(q.join("."))}q.shift()}f.cache[p]=o;return o}a.cache={};function i(o,t,p){var z=[""].concat(a(window.location.hostname)),w=f(window.location.pathname),y="",r,x;for(var s=0,v=z.length;s<v;s++){r=z[s];for(var q=0,u=w.length;q<u;q++){x=w[q];y=o+"="+t+";"+(r?"domain="+r+";":"")+(x?"path="+x+";":"")+(p?"expires="+p+";":"");bbccookies.set(y,true)}}}window.bbccookies={_setEverywhere:i,cookiesEnabled:function(){var o="ckns_testcookie"+Math.floor(Math.random()*100000);this.set(o+"=1");if(this.get().indexOf(o)>-1){g(o);return true}return false},set:function(o){return document.cookie=o},get:function(){return document.cookie},_setPolicy:function(o){return h.apply(this,arguments)},readPolicy:function(o){return b.apply(this,arguments)},_deletePolicy:function(){i(e,"",m)},isAllowed:function(){return true},_isConfirmed:function(){return c()!==null},_acceptsAll:function(){var o=b();return o&&!(j(o).indexOf("0")>-1)},_getCookieName:function(){return d.apply(this,arguments)},_showPrompt:function(){var o=(!this._isConfirmed()&&window.cta_enabled&&this.cookiesEnabled()&&!window.bbccookies_disable);return(window.orb&&window.orb.fig)?o&&(window.orb.fig("no")||window.orb.fig("ck")):o}};bbccookies._getPolicy=bbccookies.readPolicy;function d(p){var o=(""+p).match(/^([^=]+)(?==)/);return(o&&o.length?o[0]:"")}function j(o){return""+(o.ads?1:0)+(o.personalisation?1:0)+(o.performance?1:0)}function h(r){if(typeof r==="undefined"){r=k}if(typeof arguments[0]==="string"){var o=arguments[0],q=arguments[1];if(o==="necessary"){q=true}r=b();r[o]=q}else{if(typeof arguments[0]==="object"){r.necessary=true}}var p=new Date();p.setYear(p.getFullYear()+1);p=p.toUTCString();bbccookies.set(e+"="+j(r)+";domain=bbc.co.uk;path=/;expires="+p+";");bbccookies.set(e+"="+j(r)+";domain=bbc.com;path=/;expires="+p+";");return r}function l(o){if(o===null){return null}var p=o.split("");return{ads:!!+p[0],personalisation:!!+p[1],performance:!!+p[2],necessary:true}}function c(){var o=new RegExp("(?:^|; ?)"+e+"=(\\d\\d\\d)($|;)"),p=document.cookie.match(o);if(!p){return null}return p[1]}function b(o){var p=l(c());if(!p){p=k}if(o){return p[o]}else{return p}}function g(o){return document.cookie=o+"=;expires="+m+";"}function n(){var o=' <!-- <\/script>';if(window.bbccookies_flag==="ON"&&!bbccookies._acceptsAll()&&!window.bbccookies_disable){document.write(o)}}n()})(); /*]]>*/ -->        <!--  if (! window.gloader) { window.gloader = [ "glow", {map: "http://node1.bbcimg.co.uk/glow/glow/map.1.7.7.js"}]; }  -->    <!--  -->     <!--  -->   <!--   bbcRequireMap = {"jquery-1":"http://static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.7.2", "jquery-1.4":"http://static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.4", "jquery-1.9":"http://static.bbci.co.uk/frameworks/jquery/0.3.0/sharedmodules/jquery-1.9.1", "swfobject-2":"http://static.bbci.co.uk/frameworks/swfobject/0.1.10/sharedmodules/swfobject-2", "demi-1":"http://static.bbci.co.uk/frameworks/demi/0.10.0/sharedmodules/demi-1", "gelui-1":"http://static.bbci.co.uk/frameworks/gelui/0.9.13/sharedmodules/gelui-1", "cssp!gelui-1/overlay":"http://static.bbci.co.uk/frameworks/gelui/0.9.13/sharedmodules/gelui-1/overlay.css", "istats-1":"http://static.bbci.co.uk/frameworks/istats/0.23.1/modules/istats-1", "relay-1":"http://static.bbci.co.uk/frameworks/relay/0.2.6/sharedmodules/relay-1", "clock-1":"http://static.bbci.co.uk/frameworks/clock/0.1.9/sharedmodules/clock-1", "canvas-clock-1":"http://static.bbci.co.uk/frameworks/clock/0.1.9/sharedmodules/canvas-clock-1", "cssp!clock-1":"http://static.bbci.co.uk/frameworks/clock/0.1.9/sharedmodules/clock-1.css", "jssignals-1":"http://static.bbci.co.uk/frameworks/jssignals/0.3.6/modules/jssignals-1", "jcarousel-1":"http://static.bbci.co.uk/frameworks/jcarousel/0.1.10/modules/jcarousel-1", "bump-3":"//emp.bbci.co.uk/emp/bump-3/bump-3"}; require({ baseUrl: 'http://static.bbci.co.uk/', paths: bbcRequireMap, waitSeconds: 30 });  -->        <!--  --> 
+  
+<!--[if IE 6]>
+         <!-- 
+        try {
+            document.execCommand("BackgroundImageCache",false,true);
+        } catch(e) {}
+     --> 
+        <style type="text/css">
+        /* Use filters for IE6 */
+        #blq-blocks a {
+            background-image: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5//img/blq-blocks_white_alpha.png', sizingMethod='image');
+        }
+        .blq-masthead-focus #blq-blocks a,
+        .blq-mast-text-dark #blq-blocks a {
+            background-image: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5//img/blq-blocks_grey_alpha.png', sizingMethod='image');
+        }
+        #blq-nav-search button span {
+            background-image: none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5//img/blq-search_grey_alpha.png', sizingMethod='image');
+        }
+        #blq-nav-search button img {
+            position: absolute;
+            left: -999em;    
+        }
+    </style>
+<!--[endif]---->
+
+<!--[if (IE 7])|(IE 8)>
+    <style type="text/css">
+        .blq-clearfix {
+            display: inline-block;
+        }
+    </style>
+<![endif]-->
+
+ <!-- 
+     blq.setEnvironment('live');  if (blq.setLabel) blq.setLabel('searchSuggestion', "Search");  if (! /bbc\.co\.uk$/i.test(window.location.hostname) ) { document.documentElement.className += ' blq-not-bbc-co-uk'; }  --> 
+
+   <!--  /*<![CDATA[*/ function oqsSurveyManager(w, flag) {  var defaultThreshold = 0, usePulseThreshold = (flag === 'OFF')? 1 : defaultThreshold, activeThreshold; w.oqs = w.oqs || {}; /* we support cookie override for testing */ if ( w.document.cookie.match(/(?:^|; *)ckns_oqs_usePulseThreshold=([\d.]+)/) ) { activeThreshold = RegExp.$1; } /* we support clientside override */ else if (typeof w.oqs_usePulseThreshold !== 'undefined') { activeThreshold = w.oqs_usePulseThreshold; } else { activeThreshold = usePulseThreshold; } w.oqs.usePulse = (w.Math.random() < activeThreshold); if (!w.oqs.usePulse) {  w.document.write(' <!-- <'+'/script>'); } } oqsSurveyManager(window, 'ON'); /*]]>*/  -->  
+  <!-- /*<![CDATA[*/ window.istats = (window.istats || {}); (istats.head = function(w,d) { w.istats._linkTracked = w.istats._trackingCookie = decodeURIComponent( (d.cookie.match(/\bsa_labels=([^;]+)/)||[]).pop() || '' ); var host = w.location.host, m = host.match(/(bbc(?:\.co\.uk|\.com))$/i); d.cookie = 'sa_labels=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=' + (m? m[1] : host) + '; path=/'; })(window,document); /*]]>*/ -->          <!-- BBCDOTCOM template: desktop journalismVariant: true ipIsAdvertiseCombined: true adsEnabled: false flagpole: ON -->
+                           
+	
+
+
+
+
+		<!-- shared/head -->
+<meta http-equiv="imagetoolbar" content="no">
+<!--[if !(lt IE 6)]>
+   	<link rel="stylesheet" type="text/css" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/type.css" />
+
+
+		<link rel="stylesheet" type="text/css" media="screen" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/global.css" />
+
+
+	<link rel="stylesheet" type="text/css" media="print" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/print.css" />
+
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 976px)" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/mobile.css" />
+	
+
+
+
+<link rel="stylesheet" type="text/css" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/components/components.css" />
+
+<![endif]-->
+<!--[if !IE]>-->
+   	<link rel="stylesheet" type="text/css" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/type.css">
+
+
+		<link rel="stylesheet" type="text/css" media="screen" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/global.css">
+
+
+	<link rel="stylesheet" type="text/css" media="print" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/print.css">
+
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 976px)" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/mobile.css">
+	
+
+
+
+<link rel="stylesheet" type="text/css" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/components/components.css">
+
+<!--<![endif]-->
+ <!-- 
+/*<![CDATA[*/
+gloader.load(["glow","1","glow.dom"],{onLoad:function(glow){glow.dom.get("html").addClass("blq-js")}});
+gloader.load(["glow","1","glow.dom"],{onLoad:function(glow){glow.ready(function(){if (glow.env.gecko){var gv = glow.env.version.split(".");for (var i=gv.length;i<4;i++){gv[i]=0;}if((gv[0]==1 && gv[1]==9 && gv[2]==0)||(gv[0]==1 && gv[1]<9)||(gv[0]<1)){glow.dom.get("body").addClass("firefox-older-than-3-5");}}});}});
+
+window.disableFacebookSDK=true;
+if (window.location.pathname.indexOf('+')>=0){window.disableFacebookSDK=true;}
+
+/*]]>*/
+ --> 
+ <!--  --> 
+
+ <!--  --> 
+
+ <!-- 
+<!--
+	bbc.fmtj.page = {
+		serverTime: 1416818621000,
+		editionToServe: 'us',
+		queryString: null,
+		section: 'middle-east',
+		sectionPath: '/World/Middle East',
+		siteName: 'BBC News',
+		siteToServe: 'news',
+		siteVersion: 'cream',
+		storyId: '30172923',
+		assetType: 'story',
+		uri: '/news/world-middle-east-30172923',
+		country: 'us',
+		masthead: false,
+		adKeyword: null,
+		templateVersion: 'v1_0',
+		counterName: 'news.world.middle_east.story.30172923.page'
+	}
+-->
+ --&gt; 
+ <!--  --> 
+
+
+ <!-- $useMap({map:"http://news.bbcimg.co.uk/js/map/map_0_0_35.js"}); --> 
+ <!-- $loadView("0.0",["bbc.fmtj.view"]); --> 
+ <!-- $render("livestats-heatmap"); --> 
+
+
+ <!--  --> 
+
+
+<!-- add Bump3 to the require map -->
+
+ <!-- 
+    if (typeof bbcRequireMap !== 'undefined' && bbcRequireMap["jquery-1.9"] === undefined && bbcRequireMap["jquery-1"]) {
+        var jquery19Path = bbcRequireMap["jquery-1"].replace(/0.(1|2).(1|4)/, '0.3.0').replace(/jquery-1.(5|7).(1|2)/, 'jquery-1.9.1');
+        require({
+            paths : {
+                "jquery-1.9": jquery19Path
+            }
+        });
+    }
+    if (typeof bbcRequireMap !== 'undefined' && bbcRequireMap["swfobject-2"]) {
+        require({
+            paths : {
+                "swfobject-2": bbcRequireMap["swfobject-2"].replace('0.1.3', '0.1.10')
+            }
+        });
+    }
+ --> 
+
+ <!-- 
+    require({
+        paths : {
+            "bump-3": "http://emp.bbci.co.uk/emp/bump-3/bump-3"
+        }
+    });
+ --> 
+
+
+
+<!-- load glow and required modules -->
+ <!-- 
+//<![CDATA[
+gloader.load(['glow', '1', 'glow.dom']);
+//]]>
+ --> 
+
+
+<!-- pull in our emp code -->
+ <!--  --> 
+<!-- pull in compatibility.js -->
+ <!--  --> 
+
+
+ <!-- 
+//<![CDATA[
+
+
+
+    
+
+
+
+    
+
+
+// set site specific config
+
+bbc.fmtj.av.emp.configs.push('news');
+
+
+require(['jquery-1'], function ($) {
+    $(document).ready(function () {
+        bbc.fmtj.av.emp.loadAll();
+    });
+});
+//]]>
+
+ --> 
+<!-- Check for advertising testing -->
+
+<meta name="viewport" content="width = 996">
+
+
+
+        <!-- shared/head_story -->
+<!-- THESE STYLESHEETS VARY ACCORDING TO PAGE CONTENT -->															  
+
+<link rel="stylesheet" type="text/css" media="screen" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/layout/story.css">
+<link rel="stylesheet" type="text/css" media="screen" href="http://news.bbcimg.co.uk/view/3_0_21/cream/hi/shared/story.css">
+
+
+<!-- js story view -->
+ <!-- $loadView("0.0",["bbc.fmtj.view.news.story"]); --> 
+
+<!-- EMP -->
+ <!--  --> 
+<!-- /EMP -->
+
+        
+        <!-- #CREAM hi news US head.inc -->
+
+
+                            <!-- is suitable for ads adding isadvertise ... -->
+			
+
+			 
+
+			
+	<!-- features_enabled.inc -->
+
+	
+	
+ <!-- /*<![CDATA[*/if(bbcdotcom===undefined){var bbcdotcom={init:function(a){},objects:function(a){return false},domLoaded:false,data:{ads:0,stats:0,statsProvider:null},adverts:{slot:function(b,a){},layout:{reset:function(){}}},config:{isActive:function(a){return false}},addLoadEvent:function(a){var b=window.onload;if(typeof window.onload!="function"){window.onload=a}else{window.onload=function(){if(b){b()}a()}}}}}bbcdotcom.objects=function(e,f,g){var d,a,c=arguments,b=e.split(".");if(f===undefined){f="valid"}if(g===undefined){g=window}for(d=0,a=b.length;d<a-disabled> */ --> 
+<meta name="application-name" content="BBC">
+<meta name="msapplication-tooltip" content="Explore the BBC, for latest news, sport and weather, TV &amp; radio schedules and highlights, with nature, food, comedy, children's programmes and much more">
+
+	<meta name="msapplication-starturl" content="http://www.bbc.com/news/?ocid=global-news-pinned-ie9">
+
+<meta name="msapplication-window" content="width=1024;height=768">
+<meta name="msapplication-task" content="name=BBC Home;action-uri=http://www.bbc.com/?ocid=global-homepage-pinned-ie9;icon-uri=http://news.bbcimg.co.uk/shared/img/bbccom/favicon_16.ico">
+<meta name="msapplication-task" content="name=BBC News;action-uri=http://www.bbc.com/news/?ocid=global-news-pinned-ie9;icon-uri=http://news.bbcimg.co.uk/shared/img/bbccom/favicon_16.ico">
+<meta name="msapplication-task" content="name=BBC Sport;action-uri=http://www.bbc.com/sport/0/?ocid=global-sport-pinned-ie9;icon-uri=http://news.bbcimg.co.uk/shared/img/bbccom/favicon_16.ico">
+<meta name="msapplication-task" content="name=BBC Future;action-uri=http://www.bbc.com/future?ocid=global-future-pinned-ie9;icon-uri=http://news.bbcimg.co.uk/shared/img/bbccom/favicon_16.ico">
+<meta name="msapplication-task" content="name=BBC Travel;action-uri=http://www.bbc.com/travel?ocid=global-travel-pinned-ie9;icon-uri=http://news.bbcimg.co.uk/shared/img/bbccom/favicon_16.ico">
+<meta name="msapplication-task" content="name=BBC Weather;action-uri=http://www.bbc.co.uk/weather/?ocid=global-weather-pinned-ie9;icon-uri=http://news.bbcimg.co.uk/shared/img/bbccom/favicon_16.ico">
+
+
+<!-- BBCCOM client-side -->
+
+
+<style type="text/css">.bbccom_display_none{display:none;}</style>
+
+
+ <!-- /*<![CDATA[*/
+    if (typeof orb !== 'undefined' && typeof orb.fig === 'function') {
+        bbcdotcom.data = {
+            a: orb.fig('ad')? 1 : 0,
+            b: (0 == orb.fig('uk')) ? 1 : 0,
+            c: orb.fig('ap')
+        };
+    } else {
+        document.write(unescape('%3Cscript type="text/javascript" src="http://tps.bbc.com/wwscripts/data"%3E%3C/script%3E'));
+    }
+/*]]>*/ --> 
+ <!-- /*<![CDATA[*/
+    if (typeof bbcdotcom.data == 'undefined' || typeof bbcdotcom.data.a == 'undefined' || typeof bbcdotcom.data.b == 'undefined' || typeof bbcdotcom.data.c == 'undefined') {
+        bbcdotcom.data = {a:0,b:0,c:0};
+    }
+    if (bbcdotcom.data.a == 1) {
+        document.write(unescape('%3Clink href="http://news.bbcimg.co.uk/css/screen/shared/0.3.290/3pt_ads.css" rel="stylesheet" type="text/css" /%3E'));
+        
+            document.write(unescape('%3Cscript type="text/javascript" src="http://www.bbc.co.uk/wwscripts/flag"%3E%3C/script%3E'));
+        
+    }
+/*]]>*/ --> 
+ <!-- /*<![CDATA[*/
+    if (typeof bbcdotcom.flag == 'undefined' || bbcdotcom.flag.a != 1) {
+        bbcdotcom.data.a = 0;
+    }
+/*]]>*/ --> 
+
+
+
+
+
+<!-- BEGIN Krux Control Tag for "BBC.com News" -->
+ <!-- 
+    /*<![CDATA[*/
+    if (bbcdotcom.data.a == 1 || bbcdotcom.data.b == 1) {
+        window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+        (function(){
+            var k=document.createElement('script');k.type='text/javascript';k.async=true;
+            var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
+            k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
+                (location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=JZTWpGsM"
+            ;
+            var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+        }());
+    }
+    /*]]>*/
+ --> 
+<!-- END Krux Controltag -->
+ <!-- 
+    /*<![CDATA[*/
+    if (bbcdotcom.data.a == 1 || bbcdotcom.data.b == 1) {
+        window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
+        (function(){
+            function  retrieve(n){
+                var  m,  k='kx'+n;
+                if  (window.localStorage)  {
+                    return  window.localStorage[k]  ||  "";
+                }  else  if  (navigator.cookieEnabled)  {
+                    m  =  document.cookie.match(k+'=([^;]*)');
+                    return  (m  &&  unescape(m[1]))  ||  "";
+                }  else  {
+                    return  '';
+                }
+            }
+            Krux.user  =  retrieve('user');
+            Krux.segments  =  retrieve('segs')  ?  retrieve('segs').split(',')  :  [];
+            //  DFP  Premium
+            var  dfpp  =  [];
+            if  (Krux.user)  {
+                dfpp.push('khost='  +  encodeURIComponent(location.hostname));
+                dfpp.push('kuid='  +  Krux.user);
+            }
+            for  (var  i  =  0;  i  <  Krux.segments.length;  i++  )  {
+                dfpp.push('ksg='  +  Krux.segments[i]);
+            }
+            Krux.dfppKeyValues  =  dfpp.length  ?  dfpp.join(';')  +  ';'  :  '';
+        })();
+    }
+    /*]]>*/
+ --> 
+
+ <!-- /*<![CDATA[*/
+    if (bbcdotcom.data.a == 1 || bbcdotcom.data.b == 1) {
+        document.write(unescape('%3Cscript type="text/javascript" src="http://news.bbcimg.co.uk/js/app/bbccom/0.3.290/bbccom.js"%3E%3C/script%3E'));
+    }
+/*]]>*/ --> 
+ <!-- /*<![CDATA[*/
+    if (bbcdotcom.data.a == 1 || bbcdotcom.data.b == 1) {
+        BBC.adverts.setData(bbcdotcom.data);
+        bbcdotcom.config.setAdsEnabled(bbcdotcom.data.a);
+        bbcdotcom.config.setAnalyticsEnabled(bbcdotcom.data.b);
+        if(typeof bbcdotcom !== 'undefined' && typeof bbcdotcom.survey !== 'undefined' && typeof bbcdotcom.survey.init === 'function') {
+            bbcdotcom.survey.init();
+        }
+    }
+    /*
+     * Native remove content for UK visitors
+     */
+    (function() {
+        if (bbcdotcom.data.b == 0) {
+            var adKeyword = bbcdotcom.objects('bbc.fmtj.page.adKeyword');
+            if(adKeyword && adKeyword !== null && typeof adKeyword === 'string' && adKeyword.indexOf('native-') !== -1) {
+                document.write('<style >' +
+                                    '#storypage-container .story-body {display:none;}' +
+                                    '#native-uk-disclaimer {border: 2px solid;margin: 8px;padding: 16px;}' +
+                                '</style>');
+                require(['jquery-1'], function($) {
+                    $(function(){
+                        /* Native advertising disclaimer */
+                        $( ".story-body" ).html('<div id="native-uk-disclaimer">' +
+                            '<h1>BBC Sport (International version)</h1>' +
+                            'We\'re sorry but this article is not accessible from the UK as it is part of our ' +
+                            'international service and is not funded by the license fee.' +
+                            '</div>');
+                        $( ".story-body" ).show();
+                    });
+                });
+            }
+        }
+    }());
+    bbcdotcom.objects('page', 'create', bbcdotcom);
+    bbcdotcom.page.edition = '(none)';
+    bbcdotcom.page.url = '/news/world-middle-east-30172923';
+    bbcdotcom.page.zoneFile = '3pt_zone_file';
+    bbcdotcom.page.http_host = 'www.bbc.com';
+    
+    
+/*]]>*/ --> 
+ <!-- /*<![CDATA[*/if(bbcdotcom.data.a == 1){(function(){switch(bbcdotcom.page.url){case"/":case"/default.stm":bbcdotcom.page.url=(bbcdotcom.page.edition==="domestic")?"/1/hi/default.stm":"/2/hi/default.stm";break;case"/sport":case"/sport/":case"/sport/default.stm":bbcdotcom.page.url=(bbcdotcom.page.edition==="domestic")?"/sport1/hi/default.stm":"/sport2/hi/default.stm";break}BBC.adverts.setScriptRoot("http://news.bbcimg.co.uk/js/app/bbccom/0.3.290/");bbcdotcom.config.setJsPrefix("http://news.bbcimg.co.uk/js/app/bbccom/0.3.290");bbcdotcom.config.setSwfPrefix("http://news.bbcimg.co.uk/shared/swf/bbccom/0.3.290");bbcdotcom.config.setCssPrefix("http://news.bbcimg.co.uk/css/screen/shared/0.3.290");BBC.adverts.setImgRoot("http://news.bbcimg.co.uk/shared/img/bbccom/");BBC.adverts.init({domain:bbcdotcom.page.http_host,location:bbcdotcom.page.url,zoneVersion:bbcdotcom.page.zoneFile,zoneReferrer:document.referrer})}());(function(){if(typeof require!=="undefined"){require({paths:{bbcdotcom:"http://news.bbcimg.co.uk/js/app/bbccom/0.3.290"}})}})();if(BBC.adverts.getV6Gvl3()&&"undefined"!==typeof bbcdotcom.page.bddUseLatestFromTest){document.write(unescape('%3Cscript type="text/javascript" src="http://wwwpreview.test.newsonline.tc.nca.bbc.co.uk/js/app/bbccom/'+bbcdotcom.latest_version+'/advert.js"'))}else{if(BBC.adverts.getV6Gvl3()){document.write(unescape('%3Cscript type="text/javascript" src="http://news.bbcimg.co.uk/js/app/bbccom/0.3.290/advert.js"%3E%3C/script%3E'))}}if(/[?|&]metadata=yes(&|$)/.test(window.location.search)){document.write("http://www.test.bbc.com/wwscripts/metadata?bbcdotcom_asset="+window.location.hostname+window.location.pathname)};}/*]]>*/ --> 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics')) {
+        document.write(unescape('%3Cscript id="gnlAnalyticsEnabled" class="bbccom_display_none"%3E%3C/script%3E'));
+    }
+    /*]]>*/
+ --> 
+ <!-- 
+    require({
+        paths:{
+            "bbcdotcom": "http://news.bbcimg.co.uk/js/app/bbccom/0.3.290"
+        }
+    });
+ --> 
+
+ <!-- 
+    /*<![CDATA[*/
+    document.write(unescape('%3Cscript id="continuous-play-enabled" class="bbccom_display_none"%3E%3C/script%3E'));
+    /*]]>*/
+ --> 
+
+
+
+    
+        
+
+ <!-- 
+	if(typeof BBC.adverts != 'undefined' && typeof BBC.adverts.setPageVersion != 'undefined'){
+		BBC.adverts.setPageVersion('(none)');
+	}
+ --> 
+
+
+    
+
+        		<!-- hi/news/head_last.inc -->
+
+ <!-- 
+
+function BetaSite() {
+  function setMobileCookie() {
+    var d = new Date ();
+    d.setDate(d.getDate() + 1);
+    d = d.toUTCString();
+
+    window.bbccookies.set('ckps_d=m;domain=.bbc.co.uk;path=/;expires=' + d );
+    window.bbccookies.set('ckps_d=m;domain=.bbc.com;path=/;expires=' + d );
+  }
+
+  function isValidQueryString() {
+    return (window.location.search.indexOf('view=beta') !== -1);
+  }
+
+  function isClientCapable() {
+    return ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+  }
+
+  if (isClientCapable() && isValidQueryString()) {
+    setMobileCookie();
+
+    window.location.host = 'm.bbc.co.uk';
+  }
+}
+
+BetaSite();
+
+ --> 
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="http://news.bbcimg.co.uk/view/1_4_38/cream/hi/news/skin.css">
+
+
+
+	
+		 <!-- 
+            if(bbcdotcom.objects('BBC.adverts.getAdvertTag')) {
+                gloader.load(["glow","1","glow.dom"],{onLoad: function(glow){
+                    glow.ready(function(){
+                        if(bbcdotcom.objects('BBC.adverts.getAdvertTag')) {
+                            var adImageUrl = BBC.adverts.getAdvertTag('printableversionsponsorship','','standardUri');
+                            if(adImageUrl) {
+                                if (glow.env.ie ) {
+                                    window.onbeforeprint = function(){
+                                        var printAdvert = glow.dom.get("#print-advert");
+                                        if (printAdvert.get("img").length == 0)
+                                        {
+                                            printAdvert.append('<img src="'+adImageUrl+'" alt="" />');
+                                        }
+                                    };
+                                }else{
+                                    glow.dom.get("head").append('<style type="text/css">#print-advert {display:none};</style><style type="text/css" media="print">#print-advert::after{content:url('+adImageUrl+');} #print-advert{display:block;overflow:hidden;}</style>');
+                                }
+                            }
+                        }
+                    });
+                }});
+            }
+		 --> 
+	
+
+
+<link rel="apple-touch-icon" href="http://news.bbcimg.co.uk/img/1_0_3/cream/hi/news/iphone.png">
+ <!-- 
+    bbcRequireMap['module/weather'] = '/inc/specials/cream/hi/news/personalisation/weather';
+    bbcRequireMap['module/local'] = '/inc/specials/cream/hi/news/personalisation';
+    bbcRequireMap['module/localnewsandweather'] = '/inc/specials/cream/hi/news/personalisation/localnewsandweather';
+    bbcRequireMap['translation'] = 'module/translations/en-GB';
+    require({ baseUrl: 'http://static.bbci.co.uk/', paths: bbcRequireMap, waitSeconds: 30 });
+ --> 
+ <!-- 
+
+
+
+require(['jquery-1'], function(jQuery) {
+    jQuery.ajaxSetup({cache: true})
+});
+
+require(["jquery-1", "istats-1"], function ($, istats) {
+    $(function() {
+        istats.track('external', {region: $('.story-body'), linkLocation : 'story-body'});
+        istats.track('external', {region: $('.story-related .related-links'), linkLocation : 'related-links'});
+        istats.track('external', {region: $('.story-related .newstracker-list'), linkLocation : 'newstracker'});
+    });
+});
+
+ --> 
+
+
+
+
+
+	
+    		
+      		
+    		
+		
+	
+    	
+   
+
+<!-- CPS COMMENT STATUS: false -->
+
+
+
+
+
+
+        <!--Rendered by NOLAPPS203-6001@2014-11-24T08:21:58+00:00 -->
+
+        <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+	   <meta name="DCTERMS.created" content="2014-11-24T05:14:41+00:00">
+	   <meta name="DCTERMS.modified" content="2014-11-24T08:21:58+00:00">
+    
+
+        	    <!--[if lte IE 6]><body class="news ie disable-wide-advert"><![endif]-->
+    <!--[if IE 7]><body class="news ie7 disable-wide-advert"><![endif]-->
+    <!--[if IE 8]><body class="news ie8 disable-wide-advert"><![endif]-->
+    <!--[if !IE]>--><!--<![endif]-->
+	
+
+
+<div class="livestats-web-bug" id="livestats-web-bug-tag"></div>
+
+ <!-- 
+	var referrer = document.referrer;
+
+	var livestatsBug = "<img alt='' id='livestats' src='http://stats.bbc.co.uk/o.gif?~RS~s~RS~News~RS~t~RS~HighWeb_Story~RS~i~RS~30172923~RS~p~RS~99125~RS~a~RS~US~RS~u~RS~/news/world-middle-east-30172923~RS~r~RS~"+referrer+"~RS~q~RS~~RS~z~RS~41~RS~'>";
+
+
+	document.getElementById('livestats-web-bug-tag').innerHTML = livestatsBug;
+ --> 
+
+
+<noscript>
+&amp;lt;div class="livestats-web-bug"&amp;gt;&amp;lt;img alt="" id="livestats" src="http://stats.bbc.co.uk/o.gif?~RS~s~RS~News~RS~t~RS~HighWeb_Story~RS~i~RS~30172923~RS~p~RS~99125~RS~a~RS~US~RS~u~RS~/news/world-middle-east-30172923~RS~q~RS~~RS~z~RS~41~RS~"/&amp;gt;&amp;lt;/div&amp;gt;
+</noscript>
+        
+	
+    <!-- BBCDOTCOM body first include -->
+    
+
+ <!-- BBC.adverts.write("wallpaper",false); --> 
+ <!-- /*<![CDATA[*/BBC.adverts.wallpaperBodyTag=document.getElementsByTagName("body");BBC.adverts.wallpaperATag=document.getElementsByTagName("a");if("undefined"!=typeof BBC.adverts.wallpaperATag&&"undefined"!=typeof BBC.adverts.wallpaperATag[0]&&"undefined"!=typeof BBC.adverts.wallpaperBodyTag&&"undefined"!=typeof BBC.adverts.wallpaperBodyTag[0]&&-1!==BBC.adverts.wallpaperATag[0].href.indexOf("http://ad.doubleclick.net")){BBC.adverts.wallpaperBodyTag[0].removeChild(BBC.adverts.wallpaperATag[0])};/*]]>*/ --> 
+
+
+	
+	
+
+       <!-- BBCDOTCOM body first -->
+            <!-- Start SiteCatalyst -->
+        <!-- End SiteCatalyst -->
+     <!-- ISTATS -->
+
+
+
+    
+
+
+
+
+
+
+  <!-- /*<![CDATA[*/ bbcFlagpoles_istats = 'ON'; istatsTrackingUrl = '//sa.bbc.co.uk/bbc/bbc/s?name=news.world.middle_east.story.30172923.page&cps_asset_id=30172923&page_type=story&section=middle-east&app_version=6.2.214-RC3&first_pub=2014-11-24T05:14:41+00:00&last_editorial_update=2014-11-24T08:21:58+00:00&title=Deadline+day+for+Iran+nuclear+deal&comments_box=false&cps_media_type=&cps_media_state=&by_nation=&app_type=web&ml_name=SSI&ml_version=0.23.1&language=en-GB'; if (window.istats_countername) { istatsTrackingUrl = istatsTrackingUrl.replace(/([?&]name=)[^&]+/ig, '$1' + istats_countername); } (function() { if ( /\bIDENTITY=/.test(document.cookie) ) { istatsTrackingUrl += '&bbc_identity=1'; } var c = (document.cookie.match(/\bckns_policy=(\d\d\d)/)||[]).pop() || ''; istatsTrackingUrl += '&bbc_mc=' + (c? 'ad'+c.charAt(0)+'ps'+c.charAt(1)+'pf'+c.charAt(2) : 'not_set'); if ( /\bckns_policy=\d\d0/.test(document.cookie) ) { istatsTrackingUrl += '&ns_nc=1'; } var screenWidthAndHeight = 'unavailable'; if (window.screen && screen.width && screen.height) { screenWidthAndHeight = screen.width + 'x' + screen.height; } istatsTrackingUrl += ('&screen_resolution=' + screenWidthAndHeight); istatsTrackingUrl += '&blq_s=3.5d&blq_r=3.5&blq_v=journalism-worldwide'; })(); /*]]>*/ -->   <!-- Begin iStats 20100118 (UX-CMC 1.1009.3) -->  <!-- /*<![CDATA[*/ (function() { window.istats || (istats = {}); var cookieDisabled = (document.cookie.indexOf('NO-SA=') != -1), hasCookieLabels = (document.cookie.indexOf('sa_labels=') != -1), hasClickThrough = /^#sa-(.*?)(?:-sa(.*))?$/.test(document.location.hash), runSitestat = !cookieDisabled && !hasCookieLabels && !hasClickThrough && !istats._linkTracked; if (runSitestat && bbcFlagpoles_istats === 'ON') { sitestat(istatsTrackingUrl); } else { window.ns_pixelUrl = istatsTrackingUrl; /* used by Flash library to track */ } function sitestat(n){var j=document,f=j.location,b="";if(j.cookie.indexOf("st_ux=")!=-1){var k=j.cookie.split(";");var e="st_ux",h=document.domain,a="/";if(typeof ns_!="undefined"&&typeof ns_.ux!="undefined"){e=ns_.ux.cName||e;h=ns_.ux.cDomain||h;a=ns_.ux.cPath||a}for(var g=0,f=k.length;g<f;g++){var m=k[g].indexOf("st_ux=");if(m!=-1){b="&"+unescape(k[g].substring(m+6))}}document.cookie=e+"=; expires="+new Date(new Date().getTime()-60).toGMTString()+"; path="+a+"; domain="+h}ns_pixelUrl=n;n=ns_pixelUrl+"&ns__t="+(new Date().getTime())+"&ns_c="+((j.characterSet)?j.characterSet:j.defaultCharset)+"&ns_ti="+escape(j.title)+b+"&ns_jspageurl="+escape(f&&f.href?f.href:j.URL)+"&ns_referrer="+escape(j.referrer);if(n.length>2000&&n.lastIndexOf("&")){n=n.substring(0,n.lastIndexOf("&")+1)+"ns_cut="+n.substring(n.lastIndexOf("&")+1,n.lastIndexOf("=")).substring(0,40)}(j.images)?new Image().src=n:j.write('<p><i'+'mg src="'+n+'" height="1" width="1" alt="" ></i></p>')}; })(); /*]]>*/ -->  <noscript>&amp;lt;p style="position: absolute; top: -999em;"&amp;gt;&amp;lt;img src="//sa.bbc.co.uk/bbc/bbc/s?name=news.world.middle_east.story.30172923.page&amp;amp;amp;cps_asset_id=30172923&amp;amp;amp;page_type=story&amp;amp;amp;section=middle-east&amp;amp;amp;app_version=6.2.214-RC3&amp;amp;amp;first_pub=2014-11-24T05:14:41+00:00&amp;amp;amp;last_editorial_update=2014-11-24T08:21:58+00:00&amp;amp;amp;title=Deadline+day+for+Iran+nuclear+deal&amp;amp;amp;comments_box=false&amp;amp;amp;cps_media_type=&amp;amp;amp;cps_media_state=&amp;amp;amp;by_nation=&amp;amp;amp;app_type=web&amp;amp;amp;ml_name=SSI&amp;amp;amp;ml_version=0.23.1&amp;amp;amp;language=en-GB&amp;amp;amp;blq_s=3.5d&amp;amp;amp;blq_r=3.5&amp;amp;amp;blq_v=journalism-worldwide" height="1" width="1" alt="" /&amp;gt;&amp;lt;/p&amp;gt;</noscript> <!-- End iStats (UX-CMC) -->   <div id="blq-global"> <noscript> &amp;lt;div id="blq-no-js-banner"&amp;gt; &amp;lt;p&amp;gt;For a better experience on your device, try our &amp;lt;a-disabled&amp;gt; mobile site&amp;lt;/a-disabled&amp;gt;.&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; </noscript> <div id="blq-pre-mast" xml:lang="en-GB"> <!-- Pre mast --> 
+<!-- BBCDOTCOM leaderboard template:client-side journalismVariant: true ipIsAdvertiseCombined: true adsEnabled: false flagpole: ON showAdAboveBlq: true blqLeaderboardAd: true -->
+ </div> </div>   <!-- <![CDATA[ <div id="bbccookies-prompt" class="bbccookies-w"> <h2> Cookies on the BBC website </h2> <p> We use cookies to ensure that we give you the best experience on our website.<span class="bbccookies-international-message"> We also use cookies to ensure we show you advertising that is relevant to you.</span> If you continue without changing your settings, we'll assume that you are happy to receive all cookies on the BBC website. However, if you would like to, you can <a-disabled> change your cookie settings</a-disabled> at any time. </p> <ul> <li id="bbccookies-continue"> <button type="button" id="bbccookies-continue-button">Continue</button> </li> <li id="bbccookies-more"><a-disabled> Find out more</a-disabled></li></ul> </div> ]]> -->   <!-- /*<![CDATA[*/ (function(){if(bbccookies._showPrompt()){var i=document,b=i.getElementById("blq-pre-mast"),f=i.getElementById("blq-global"),h=i.getElementById("blq-container"),c=i.getElementById("blq-bbccookies-tmpl"),a,g,e;if(b&&i.createElement){a=i.createElement("div");a.id="bbccookies";e=c.innerHTML;e=e.replace("<"+"![CDATA[","").replace("]]"+">","");a.innerHTML=e;if(f){f.insertBefore(a,b)}else{h.insertBefore(a,b)}g=i.getElementById("bbccookies-continue-button");g.onclick=function(){a.parentNode.removeChild(a);return false};bbccookies._setPolicy()}}})(); /*]]>*/ -->   <div id="blq-masthead" class="blq-clearfix blq-mast-bg-transparent-light blq-lang-en-GB blq-ltr"> <span id="blq-mast-background"><span></span></span>  <div id="blq-mast" class="blq-rst">  <div id="blq-mast-bar" class="blq-masthead-container blq-journalism-worldwide"> <div id="blq-blocks"> <a-disabled>  <a-disabled>  <img src="http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5/img/blq-blocks_grey_alpha.png" alt="BBC" width="84" height="24">  </a-disabled> </a-disabled></div> <div id="blq-acc-links"> <h2 id="page-top">Accessibility links</h2> <ul>  <li><a-disabled> Skip to content</a-disabled></li>  <li><a-disabled> Skip to local navigation</a-disabled></li>  <li><a-disabled> Accessibility Help</a-disabled></li> </ul> </div> <div id="blq-sign-in" class="blq-gel">  </div> <div id="blq-nav"> <h2>BBC navigation</h2>     <ul id="blq-nav-main">   <li id="blq-nav-news"> <a-disabled> News</a-disabled> </li>    <li id="blq-nav-sport"> <a-disabled> Sport</a-disabled> </li>    <li id="blq-nav-weather"> <a-disabled> Weather</a-disabled> </li>    <li id="blq-nav-earth"> <a-disabled> Earth</a-disabled> </li>    <li id="blq-nav-future"> <a-disabled> Future</a-disabled> </li>    <li id="blq-nav-shop"> <a-disabled> Shop</a-disabled> </li>    <li id="blq-nav-tv"> <a-disabled> TV</a-disabled> </li>    <li id="blq-nav-radio"> <a-disabled> Radio</a-disabled> </li>    <li id="blq-nav-more"> <a-disabled> More…</a-disabled> </li>   </ul>   <div id="blq-nav-search"> <form method="get" action="http://search.bbc.co.uk/search" accept-charset="utf-8" id="blq-search-form"> <div>  <input type="hidden" name="go" value="toolbar">  <input type="hidden" value="http://www.bbc.com/news/world-middle-east-30172923" name="uri">    <input type="hidden" name="scope" value="news">  <label for="blq-search-q" class="blq-hide">Search term:</label> <input id="blq-search-q" type="text" name="q" value="" maxlength="128" class=""> <button id="blq-search-btn" type="submit"><span><img src="http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5/img/blq-search_grey_alpha.png" width="13" height="13" alt="Search"></span></button> </div> </form> </div>  </div> </div> </div> </div> <div id="blq-container-outer" class="blq-journalism-worldwide blq-ltr">  <div id="blq-container" class="blq-lang-en-GB blq-dotcom mouseOn"> <div id="blq-container-inner" xml:lang="en-GB" class="">   <div id="blq-main" class="blq-clearfix">   
+	
+
+                        		    	
+		<div class="middle-east  has-no-ticker  main-content-container">
+			<div id="header-wrapper">
+
+			  
+    		      			      				  <h2 id="header" class="">
+    			      	            <a-disabled> <img alt="BBC News" src="http://news.bbcimg.co.uk/img/1_0_3/cream/hi/news/news-blocks.gif"></a-disabled>
+    	                	            	    	            		<span class="section-title">Middle East</span>
+    	            	    	            		   		      				  </h2>
+    			  			  
+			  
+			    <div class="bbccom_advert_placeholder">
+			       <!-- $render("advert","advert-sponsor-section"); --> 
+			    </div>
+			     <!-- $render("advert-post-script-load"); --> 
+			  
+		        
+
+			  	            <div id="blq-local-nav" class="">
+ 	            <ul id="nav" class="nav stickyToolbar">
+                	
+        	        		                	
+        	            	<li class="first-child "><a-disabled> Home</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> US &amp; Canada</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled class=""> Latin America</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> UK</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Africa</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Asia</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Australia</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Europe</a-disabled></li>
+                            	
+        	        	        	
+        	        		<li class="selected"><a-disabled> Mid-East</a-disabled></li>
+        		        		                            	
+        	        	        	
+        	            	<li><a-disabled> Business</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Health</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Sci/Environment</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Tech</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Entertainment</a-disabled></li>
+                            	
+        	        	        	
+        	            	<li><a-disabled> Video</a-disabled></li>
+                            </ul> 
+        
+	    	</div>
+
+			  
+	        </div>
+	        <!-- START CPS_SITE CLASS: us -->
+	        <div id="content-wrapper" class="us">
+
+					<div class="advert">
+													
+							<div class="bbccom_advert_placeholder">
+								 <!-- $render("advert","advert-leaderboard"); --> 
+							</div>
+							 <!-- $render("advert-post-script-load"); --> 
+							
+											</div>
+                                            <div id="bbccom_custom_branding">
+     <!-- 
+        /*<![CDATA[*/
+        if(typeof bbcdotcom.objects('bbcdotcom.branding.init') === 'function') {
+            bbcdotcom.branding.init(BBC.adverts.getZoneData().zone, BBC.adverts.getAdKeyword());
+            bbcdotcom.branding.write();
+        }
+        /*]]>*/
+     --> 
+	<div class="bbccom_advert_placeholder">
+     <!-- 
+        /*<![CDATA[*/
+        $render("advert","advert-sponsor-subsection");
+        /*]]>*/
+     --> 
+</div>
+</div>
+ <!-- 
+        /*<![CDATA[*/
+	$render("advert-post-script-load");
+        /*]]>*/
+ --> 
+                    
+	            <!-- START CPS_SITE CLASS: story -->
+	            <div id="main-content" class="annotated_" annotation="">
+			<!-- No EWA -->
+
+
+
+
+	
+
+<div id="print-advert">
+
+</div>
+
+
+
+
+
+<div class="layout-block-a">
+    <div class="story-body">
+    		  <span class="story-date">
+    <span class="date">24 November 2014</span>
+<span class="time-text">Last updated at </span><span class="time">03:21 ET</span>
+	  
+</span>
+
+	<div id="page-bookmark-links-head" class="share-help">
+  <h3 class="">Share this page</h3>
+  <ul class="">  	
+    <li class="delicious">
+      <a-disabled> Delicious</a-disabled>
+    </li>
+    <li class="digg">
+      <a-disabled class=""> Digg</a-disabled>
+    </li>
+    <li class="facebook">
+      <a-disabled class=""> Facebook</a-disabled>
+    </li>
+    <li class="reddit">
+      <a-disabled> reddit</a-disabled>
+    </li>
+    <li class="stumbleupon">
+      <a-disabled class=""> StumbleUpon</a-disabled>
+    </li>
+    <li class="twitter">
+      <a-disabled class=""> Twitter</a-disabled>
+    </li>
+    <li class="email">
+      <a-disabled> Email</a-disabled>
+    </li>
+    <li class="print">
+      <a-disabled> Print</a-disabled>
+    </li>
+  </ul>
+<!--  Social media icons by Paul Annet | http://nicepaul.com/icons  -->
+</div>
+ <!--  
+<!--
+$render("page-bookmark-links","page-bookmark-links-head",{
+    useForgeShareTools:"true",
+    position:"top",
+    site:'News', 
+    headline:'BBC News - Iran nuclear deal: Deadline day brings talk of extension', 
+    storyId:'30172923', 
+    sectionId:'99125', 
+    url:'http://www.bbc.com/news/world-middle-east-30172923', 
+    edition:'US'
+}); 
+-->
+ --&gt; 
+
+
+
+
+
+	<h1 class="annotated_Title" annotation="Title">Iran nuclear deal: Deadline day brings talk of extension</h1>
+
+     
+         
+ 
+    
+    
+		
+        <div class="caption full-width">
+  <img src="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219868_024849868-1.jpg" width="624" height="351" alt="John Kerry (left) and Mohammad Javad Zarif, 23 Nov" class="annotated_Image" annotation="Image">
+
+    <span style="width:624px;" class="annotated_ImageCaption" annotation="ImageCaption">US Secretary of State John Kerry (left) meeting Iran's Mohammad Javad Zarif on Sunday</span>
+  </div>
+<div class="embedded-hyper">
+	<a-disabled class=""> Continue reading the main story</a-disabled>	
+
+
+
+
+		     <div class="hyperpuff">
+	       	          
+
+		
+		
+						
+		<!-- Non specific version -->
+		
+	
+						<h2 class=""><a-disabled> Rouhani's Iran</a-disabled></h2>
+		
+		
+
+		  	  <ul>
+	  	  	
+	   
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> Clock ticking</a-disabled>
+
+		</li>
+
+		
+	  	  	
+	   
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> Hardline anxiety</a-disabled>
+
+		</li>
+
+		
+	  	  	
+	   
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> Nuclear talks pessimism</a-disabled>
+
+		</li>
+
+		
+	  	  	
+	   
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> Economy afloat</a-disabled>
+
+		</li>
+
+		
+	  	  </ul>
+  
+
+
+		
+	
+
+	       	     </div>
+	
+</div>                      <p class="annotated_Body" id="story_continues_1" annotation="Body">Negotiators in Vienna, Austria, are set to make a final push to try to reach a deal on Iran's nuclear programme ahead of a midnight (23:00 GMT) deadline.</p>
+        <p class="annotated_Body" annotation="Body">They said earlier that "serious gaps" remained, suggesting that an extension could be agreed instead.</p>
+        <p class="annotated_Body" annotation="Body">World powers - the US, UK, Russia, China, France and Germany - want Iran to curb its nuclear programme in return for the lifting of UN sanctions.</p>
+        <p class="annotated_Body" annotation="Body">Tehran says it is not seeking nuclear weapons, but wants atomic energy.</p>
+        <p class="annotated_Body" annotation="Body">"At the moment, we are focused on the last push... to try and get this across the line," British Foreign Secretary Philip Hammond said.</p>
+  <!--  Embedding the video player -->
+<!--  This is the embedded player component -->
+
+
+	
+ 
+
+
+
+<!-- wwrights check -->
+<!-- Empty country is used on test environment -->
+
+
+
+<div class="videoInStoryB">
+    <div id="emp-30169380-16710" class="emp">
+                    
+		
+        <noscript>
+            &amp;lt;div class="warning"&amp;gt;
+                                &amp;lt;img class="holding" src="http://news.bbcimg.co.uk/media/images/79217000/jpg/_79217262_79217261.jpg" alt="Philip Hammond MP" /&amp;gt;
+                                &amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Please turn on JavaScript.&amp;lt;/strong&amp;gt; Media requires JavaScript to play.&amp;lt;/p&amp;gt;
+            &amp;lt;/div&amp;gt;
+        </noscript>
+        <object width="0" height="0">
+            <param name="id" value="embeddedPlayer_30169380">
+                    <param name="width" value="448">
+            <param name="height" value="252">    
+                    <param name="size" value="Large">
+					<param name="holdingImage" value="http://news.bbcimg.co.uk/media/images/79217000/jpg/_79217262_79217261.jpg">
+							<param name="externalIdentifier" value="p02cnqq9">
+		            <param name="playlist" value="http://playlists.bbc.co.uk/news/world-middle-east-30169380A/playlist.sxml">
+            <param name="config_settings_autoPlay" value="false">
+            <param name="config_settings_showPopoutButton" value="false">
+            <param name="config_plugin_fmtjLiveStats_pageType" value="eav2">
+            <param name="config_plugin_fmtjLiveStats_edition" value="US">
+			
+		            <param name="fmtjDocURI" value="/news/world-middle-east-30172923">
+                
+            <param name="companionId" value="bbccom_companion_30169380">
+        
+                    <param name="config_settings_showShareButton" value="true">
+            <param name="config_settings_showUpdatedInFooter" value="true">
+        </object>
+        <!-- embedding script -->
+        
+         <!-- 
+//<![CDATA[
+var empId = 'emp-30169380-16710',
+    settings,
+settings = bbc.fmtj.av.emp.getPlayerSettings(empId);
+bbc.fmtj.av.emp.registerPlayer(empId, settings);
+//]]>
+ --> 
+            </div>
+            <!-- companion banner --> 
+          
+		
+			<div class="bbccom_advert_placeholder">
+				 <!-- $render("advert","advert-companion","30169380"); --> 
+			</div>
+			 <!-- $render("advert-post-script-load"); --> 
+		
+         
+        <!-- END - companion banner --> 
+    	
+        		<!-- caption -->
+		<p class="annotated_Body" annotation="Body">UK foreign secretary Philip Hammond: "We're still quite a long way apart"</p>
+		<!-- END - caption -->
+    
+		
+
+</div>
+<!-- end of the embedded player component -->
+
+<!-- Player embedded -->      <p class="annotated_Body" annotation="Body">"Of course, if we're not able to do that, we will then look at where we're going from there."</p>
+        <p class="annotated_Body" annotation="Body">A senior US state department official told reporters: "It is only natural that just over 24 hours from the deadline we are discussing a range of options... an extension is one of those options."</p>
+        <p class="annotated_Body" annotation="Body">The delegates could also set out a framework of a deal that would be finalised later.</p>
+        <p class="annotated_Body" annotation="Body">Iranian President Hassan Rouhani has said that "if the West does not make excessive demands, an agreement is within reach", according to Iran's Resalat newspaper.</p>
+        <p class="annotated_Body" annotation="Body">Chinese Foreign Minister Wang Yi has arrived in Vienna, meaning the foreign ministers of all of the so-called P5+1 group are now in attendance.</p>
+        <p class="annotated_Body" annotation="Body">He told reporters at the Palais Coburg hotel. where the talks are being held, that he had "come with a Chinese proposal for settling the various focal issues". </p>
+  <div class="caption body-width">
+  <img src="http://news.bbcimg.co.uk/media/images/75306000/jpg/_75306515_line976.jpg" width="464" height="2" alt="line" class="">
+
+  </div>
+      <p class=""><strong class="annotated_Author" annotation="Author">Analysis: Jeremy Bowen, BBC Middle East editor, Vienna</strong></p>
+        <p class="annotated_Body" annotation="Body">Success would do much to lift Iran's isolation - which would change the strategic balance in the Middle East. That intrigues some Western diplomats. It horrifies Saudi Arabia and Israel. </p>
+        <p class="annotated_Body" annotation="Body">A year ago in Geneva all sides in the talks saw an opportunity to deal with an issue that could potentially cause another catastrophic war. That will make them very reluctant to leave Vienna empty-handed - even if that means they will have to do more work on the details next year. </p>
+        <p class="annotated_Body" annotation="Body">Time is limited though. Hardliners in Tehran and Washington DC will try to sabotage any agreement. Both see no reason to dilute their mutual suspicion. </p>
+  <div class="caption body-width">
+  <img src="http://news.bbcimg.co.uk/media/images/75306000/jpg/_75306515_line976.jpg" width="464" height="2" alt="line">
+
+  </div>
+<span class="annotated_SectionTitle" annotation="SectionTitle">Intense negotiation</span>
+	      <p class="annotated_Body" annotation="Body">When US Secretary of State John Kerry met his Iranian counterpart Mohammad Javad Zarif on Sunday - their sixth encounter in four days of talks - an extension was discussed, according to an unnamed Iranian source who spoke to AFP news agency.</p>
+        <p class="annotated_Body" annotation="Body">The proposed agreement hinges on the rate at which the sanctions against Iran would be lifted if Tehran agreed to highly specific limits on the amount of uranium it could enrich.</p>
+  <div class="caption full-width">
+  <img src="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219870_024852179-1.jpg" width="624" height="411" alt="Foreign ministers at the Iran talks in Vienna, 23 November" class="annotated_Image" annotation="Image">
+
+    <span style="width:624px;" class="annotated_ImageCaption" annotation="ImageCaption">It has been a gruelling weekend of negotiation for the West's top diplomats</span>
+  </div>
+<div class="caption full-width">
+  <img src="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219872_024832708-1.jpg" width="624" height="232" alt="John Kerry, Catherine Ashton and Minister Mohammad Javad Zarif, 22 November" class="annotated_Image" annotation="Image">
+
+    <span style="width:624px;" class="annotated_ImageCaption" annotation="ImageCaption">At the heart of the process have been the six rounds of talks between John Kerry (left) and Iran's  Mohammad Javad Zarif, seen here with the EU's Catherine Ashton on Saturday</span>
+  </div>
+<div class="caption full-width">
+  <img src="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219874_024842013-1.jpg" width="624" height="411" alt="US Secretary of State John Kerry makes a phone call in a park in Vienna, 22 November" class="annotated_Image" annotation="Image">
+
+    <span style="width:624px;" class="annotated_ImageCaption" annotation="ImageCaption">The cameras are rarely far away for these much-anticipated talks: here Mr Kerry makes a phone call from a Vienna park to Canadian Foreign Minister John Baird on Saturday</span>
+  </div>
+      <p class="annotated_Body" annotation="Body">Highly enriched uranium can be used to make a nuclear bomb, but uranium enriched to lower levels can be used for energy purposes. </p>
+        <p class="annotated_Body" annotation="Body">Under the terms of international treaties, countries have the right to develop nuclear energy, which Iran insists is its only aim.</p>
+  <!--  Embedding the video player -->
+<!--  This is the embedded player component -->
+
+
+	
+ 
+
+
+
+<!-- wwrights check -->
+<!-- Empty country is used on test environment -->
+
+
+
+<div class="videoInStoryB">
+    <div id="emp-30169378-16711" class="emp">
+                    
+		
+        <noscript>
+            &amp;lt;div class="warning"&amp;gt;
+                                &amp;lt;img class="holding" src="http://news.bbcimg.co.uk/media/images/79216000/jpg/_79216488_79216487.jpg" alt="President Obama" /&amp;gt;
+                                &amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Please turn on JavaScript.&amp;lt;/strong&amp;gt; Media requires JavaScript to play.&amp;lt;/p&amp;gt;
+            &amp;lt;/div&amp;gt;
+        </noscript>
+        <object width="0" height="0">
+            <param name="id" value="embeddedPlayer_30169378">
+                    <param name="width" value="448">
+            <param name="height" value="252">    
+                    <param name="size" value="Large">
+					<param name="holdingImage" value="http://news.bbcimg.co.uk/media/images/79216000/jpg/_79216488_79216487.jpg">
+							<param name="externalIdentifier" value="p02cnm94">
+		            <param name="playlist" value="http://playlists.bbc.co.uk/news/world-middle-east-30169378A/playlist.sxml">
+            <param name="config_settings_autoPlay" value="false">
+            <param name="config_settings_showPopoutButton" value="false">
+            <param name="config_plugin_fmtjLiveStats_pageType" value="eav2">
+            <param name="config_plugin_fmtjLiveStats_edition" value="US">
+			
+		            <param name="fmtjDocURI" value="/news/world-middle-east-30172923">
+                
+            <param name="companionId" value="bbccom_companion_30169378">
+        
+                    <param name="config_settings_showShareButton" value="true">
+            <param name="config_settings_showUpdatedInFooter" value="true">
+        </object>
+        <!-- embedding script -->
+        
+         <!-- 
+//<![CDATA[
+var empId = 'emp-30169378-16711',
+    settings,
+settings = bbc.fmtj.av.emp.getPlayerSettings(empId);
+bbc.fmtj.av.emp.registerPlayer(empId, settings);
+//]]>
+ --> 
+            </div>
+            <!-- companion banner --> 
+          
+		
+			<div class="bbccom_advert_placeholder">
+				 <!-- $render("advert","advert-companion","30169378"); --> 
+			</div>
+			 <!-- $render("advert-post-script-load"); --> 
+		
+         
+        <!-- END - companion banner --> 
+    	
+        		<!-- caption -->
+		<p class="annotated_Body" annotation="Body">President Obama told ABC a deal could mark the start of a "long process"</p>
+		<!-- END - caption -->
+    
+		
+
+</div>
+<!-- end of the embedded player component -->
+
+<!-- Player embedded -->      <p class="annotated_Body" annotation="Body">Under an agreement reached in Geneva last year, Iran was to curb some of its uranium enrichment in return for sanctions relief.</p>
+        <p class="annotated_Body" annotation="Body">However, the two sides failed to reach a lasting deal by July, as initially agreed, and extended the deadline until 24 November.</p>
+        <p class="annotated_Body" annotation="Body">US President Barack Obama acknowledged on Sunday that "significant" gaps between the two sides remained, and that President Rouhani had "to deal with his politics at home".</p>
+        <p class="annotated_Body" annotation="Body">"He's not the ultimate decider inside of Iran, the Supreme Leader [Ayatollah Ali Khamenei] is," Mr Obama told US broadcaster ABC.</p>
+  <div class="caption full-width">
+  <img src="http://news.bbcimg.co.uk/media/images/79212000/jpg/_79212713_41d19880-6ba9-4f19-b573-54d8ffd062a3.jpg" width="624" height="351" alt="Iranian students hold placards to show their support for Iran's nuclear programme in a gathering in front of the headquarters of Iran's Atomic Energy Organization in Tehran, Iran, 23 November 2014" class="annotated_Image" annotation="Image">
+
+    <span style="width:624px;" class="annotated_ImageCaption" annotation="ImageCaption">Students in Tehran held a protest in support of Iran's nuclear programme on Sunday</span>
+  </div>
+      <p class="annotated_Body" annotation="Body">Earlier on Sunday Iranian sources told BBC Persian in Vienna that a "political agreement" might be reached before the deadline.</p>
+        <p class="annotated_Body" annotation="Body">However, an extension of six months to a year "would not fly" with the other parties, Arms Control Association analyst Kelsey Davenport told AFP.</p>
+        <p class="annotated_Body" annotation="Body">Any extension would "have to be very short because there are too many hardliners, particularly in Washington and Tehran, that want to sabotage this deal", she added.</p>
+  <div class="caption body-width">
+  <img src="http://news.bbcimg.co.uk/media/images/75306000/jpg/_75306515_line976.jpg" width="464" height="2" alt="line" class="">
+
+  </div>
+<span class="annotated_SectionTitle" annotation="SectionTitle">Potential obstacles</span>
+	<div class="caption full-width">
+  <img src="http://news.bbcimg.co.uk/media/images/79194000/jpg/_79194647_72392412.jpg" width="624" height="150" alt="Men making uranium hexafluoride gas at the Isfahan uranium conversion facility (March 2005)" class="annotated_Image" annotation="Image">
+
+  </div>
+      <p class="annotated_Body" annotation="Body"><strong>Uranium enrichment</strong>: Western states want to reduce Iran's capacity in order to prevent it acquiring weapons-grade material but Tehran is set on expanding it nearly 20-fold in the coming years</p>
+        <p class="annotated_Body" annotation="Body"><strong>Sanctions reduction</strong>: Iran wants sanctions lifted immediately but Western states want to stagger their removal to ensure Tehran abides by its commitments</p>
+        <p class="annotated_Body" annotation="Body"><strong>Bomb technology</strong>: Iran has failed to explain explosives tests and other activity that could be linked to a nuclear weapons programme and has denied international nuclear inspectors access to its Parchin military site</p>
+  <div class="caption body-width">
+  <img src="http://news.bbcimg.co.uk/media/images/75306000/jpg/_75306515_line976.jpg" width="464" height="2" alt="line" class="">
+
+  </div>
+      <p class="annotated_Body" annotation="Body">Both Saudi Arabia and Israel are also vehemently opposed to Iran acquiring nuclear weapons and Saudi Foreign Minister Prince Saud al-Faisal visited Vienna at the weekend, though his country is not formally involved in the talks.</p>
+        <p class="annotated_Body" annotation="Body">He and Mr Kerry talked in his plane parked on the Vienna Airport tarmac on Sunday, diplomats told AP news agency.</p>
+        <p class="annotated_Body" annotation="Body">Israeli Prime Minister Benjamin Netanyahu, whose country has not ruled out bombing Iran's nuclear facilities, told Mr Kerry by phone that a deal which left large parts of the facilities intact would be a "historic mistake".  </p>
+  <div class="caption body-width">
+  <img src="http://news.bbcimg.co.uk/media/images/77655000/jpg/_77655989_d04f514e-7195-47c4-ace7-911030944f09.jpg" width="464" height="290" alt="Map" class="annotated_Image" annotation="Image">
+
+  </div>
+
+
+	</div><!-- / story-body -->
+  
+  <div>
+ 	<!--Related hypers and stories -->
+	<div class="story-related">
+	<h2 class="">More on This Story</h2>
+	              
+
+
+
+
+		     <div class="hyperpuff">
+	       	                 
+<div class="hyper-container-title">
+          
+       	      <h3 class="hyper-depth-header"><a-disabled> Rouhani's Iran
+	      </a-disabled>
+	      </h3>
+          
+            
+
+
+			
+	<!-- Non specific version -->
+	
+	
+			<div id="group-title-1" class="hyper-related-assets">
+							<h4 class="hyper-depth-stories-header">Features &amp; analysis</h4>
+				
+					
+					
+												<ul>
+																																																								
+																
+																														
+									
+							<li class=" medium-image first-child">
+		
+								
+
+
+
+
+	
+
+
+		
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/74731000/jpg/_74731967_74731873.jpg" alt="A man points at the EU+3-Iran talks in Vienna (18 March 2014)">Clock ticking</a-disabled>
+
+		</h5>
+
+								
+																  <p class="">As nuclear talks move closer to the deadline, how near are we to a final deal with Iran?</p>
+																									<hr>
+															</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Hardline anxiety</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Nuclear talks pessimism</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Economy afloat</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Regional fears</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Q&amp;A: Nuclear issue</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Key points of deal</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Key deal but limited</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Nuclear deal and reaction</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> First 100 days</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Views on Rouhani</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Positive signs</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Ayatollah-approved diplomacy</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> What might nuclear deal look like?</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Q&amp;A: Sanctions</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> US-Iran relations: a brief guide</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Tweetfest signals thaw</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> New tone, old differences</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled class=""> Rouhani the student</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Would Israel launch an attack?</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Social media mix-ups</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																																				
+															
+																								
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Oil embargo impact</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																</ul>
+						
+										
+		</div>
+		 <!-- $render("hyper-related-assets","group-title-1"); --> 
+
+	 
+
+      
+
+
+			
+	<!-- Non specific version -->
+	
+	
+			<div id="group-title-2" class="hyper-related-assets">
+							<h4 class="hyper-depth-stories-header">Backgrounders</h4>
+				
+					
+					
+												<ul class="">
+																																																
+																
+																						
+															
+																
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Who will succeed Iran's Supreme Leader?</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Key nuclear sites</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Profile: Hassan Rouhani</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+		
+
+
+	
+
+
+
+
+<h5 class="has-icon-boxedwatch hyper-story-header">
+	<a-disabled class=""> Need to Know: Iran's leadership<span class="gvl3-icon gvl3-icon-boxedwatch"> Watch</span></a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																													
+															
+																
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Guide: How Iran is ruled</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																																																				
+															
+																
+																								
+																									
+							<li class="column-2 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Iran country profile </a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																</ul>
+						
+										
+		</div>
+		 <!-- $render("hyper-related-assets","group-title-2"); --> 
+
+	 
+
+      
+
+
+			
+	<!-- Non specific version -->
+	
+	
+			<div id="group-title-4" class="hyper-related-assets">
+							<h4 class="hyper-depth-stories-header">Clickable Guides</h4>
+				
+					
+					
+												<ul class="">
+																																																							
+																
+																						
+															
+																
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> Guide: Nuclear fuel cycle</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																</ul>
+						
+										
+		</div>
+		 <!-- $render("hyper-related-assets","group-title-4"); --> 
+
+	 
+
+      
+
+
+			
+	<!-- Non specific version -->
+	
+	
+			<div id="group-title-6" class="hyper-related-assets">
+							<h4 class="hyper-depth-stories-header">BBC World Service</h4>
+				
+					
+					
+												<ul>
+																																																							
+																
+																						
+															
+																
+																								
+																									
+							<li class="column-1 ">
+		
+								
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h5 class=" hyper-story-header">
+	<a-disabled> BBC Persian.com</a-disabled>
+
+		</h5>
+
+								
+																							</li>
+														
+																</ul>
+						
+										
+		</div>
+		 <!-- $render("hyper-related-assets","group-title-6"); --> 
+
+	 
+
+  </div>
+
+	       	     </div>
+	
+      
+	
+	<!-- Newstracker -->
+<div class="puffbox">
+	
+
+
+
+
+
+
+
+
+<!-- newstracker puffbox news 30172923 -->
+
+
+
+
+
+
+
+
+<div class="newstracker-list">
+<h3>From other news sites</h3>
+<ul>
+
+
+  
+  
+  
+  	<li>
+  
+  
+    <h4><strong>The Guardian Nigeria </strong><a-disabled>  Iran nuclear deal: Deadline day brings talk of extension </a-disabled><span>50 mins ago</span></h4>
+  
+  </li>
+
+  
+  
+  
+  	<li class="even">
+  
+  
+    <h4><strong>Mail Online UK </strong><a-disabled>  Time runs out for Iran nuclear talks </a-disabled><span class="">5 hrs ago</span></h4>
+  
+  </li>
+
+  
+  
+  
+  	<li>
+  
+  
+    <h4><strong>BusinessWeek </strong><a-disabled>  Iran Nuclear Talks May Be Extended If Final Push Falls Short </a-disabled><span>7 hrs ago</span></h4>
+  
+  </li>
+
+  
+  
+  
+  	<li class="even">
+  
+  
+    <h4><strong>Telegraph </strong><a-disabled>  Kerry battles to save Iran nuclear talks as deadline looms </a-disabled><span>11 hrs ago</span></h4>
+  
+  </li>
+
+  
+  
+  
+  	<li>
+  
+  
+    <h4><strong>Huffington Post UK </strong><a-disabled>  Nuclear Deal 'Impossible' To Clinch </a-disabled><span>12 hrs ago</span></h4>
+  
+  </li>
+
+<li class="about">
+<a-disabled> About these results</a-disabled>
+</li>
+</ul>
+
+</div>
+
+
+
+
+
+
+</div>
+<!-- Newstracker - End -->
+ <!-- $render("page-newstracker","ID"); -->  
+
+	</div>
+ <!-- $render("page-related-items","ID"); --> 
+
+  </div>
+
+<!-- first OUTBRAIN include -->
+
+    <!-- Start: BBCCOM-5234 Outbrain LHS -->
+    
+		<div class="outbrain_BBC_elsewhere">
+			<div class="OUTBRAIN" data-src="http://www.bbc.com/news/world-middle-east-30172923" data-widget-id="AR_1" data-ob-template="BBC.com/News"></div>
+			 <!-- 
+				/*<![CDATA[*/
+				if (BBC.adverts.isActive('ads')) {
+					document.write(unescape('%3Cscript src="http://widgets.outbrain.com/outbrain.js" type="text/javascript"%3E%3C/script%3E'));
+				}
+				/*]]>*/
+			 --> 
+            <div class="outbrain_BBC_articles">
+                <div class="OUTBRAIN" data-src="http://www.bbc.com/news/world-middle-east-30172923" data-widget-id="AR_2" data-ob-template="BBC.com/News"></div>
+                 <!-- 
+                    /*<![CDATA[*/
+                    if (BBC.adverts.isActive('ads')) {
+                        document.write(unescape('%3Cscript src="http://widgets.outbrain.com/outbrain.js" type="text/javascript"%3E%3C/script%3E'));
+                    }
+                    /*]]>*/
+                 --> 
+                <div class="OUTBRAIN" data-src="http://www.bbc.com/news/world-middle-east-30172923" data-widget-id="AR_3" data-ob-template="BBC.com/News"></div>
+                 <!-- 
+                    /*<![CDATA[*/
+                    if (BBC.adverts.isActive('ads')) {
+                        document.write(unescape('%3Cscript src="http://widgets.outbrain.com/outbrain.js" type="text/javascript"%3E%3C/script%3E'));
+                    }
+                    /*]]>*/
+                 --> 
+            </div>
+		</div>
+    
+    <!-- End: BBCCOM-5234 Outbrain LHS -->
+
+<!-- end of first OUTBRAIN include -->
+
+  
+  <div class="share-body-bottom">
+	<div id="page-bookmark-links-foot" class="share-help">
+  <h3>Share this page</h3>
+  <ul>  	
+    <li class="delicious">
+      <a-disabled> Delicious</a-disabled>
+    </li>
+    <li class="digg">
+      <a-disabled> Digg</a-disabled>
+    </li>
+    <li class="facebook">
+      <a-disabled class=""> Facebook</a-disabled>
+    </li>
+    <li class="reddit">
+      <a-disabled> reddit</a-disabled>
+    </li>
+    <li class="stumbleupon">
+      <a-disabled> StumbleUpon</a-disabled>
+    </li>
+    <li class="twitter">
+      <a-disabled> Twitter</a-disabled>
+    </li>
+    <li class="email">
+      <a-disabled> Email</a-disabled>
+    </li>
+    <li class="print">
+      <a-disabled> Print</a-disabled>
+    </li>
+  </ul>
+<!--  Social media icons by Paul Annet | http://nicepaul.com/icons  -->
+
+<div class="bbccom_advert_placeholder">
+	 <!-- $render("advert","advert-sponsor-module","page-bookmark-links"); --> 
+</div>
+ <!-- $render("advert-post-script-load"); --> 
+  
+</div>
+ <!--  
+<!--
+$render("page-bookmark-links","page-bookmark-links-foot",{
+    useForgeShareTools:"true",
+    position:"bottom",
+    site:'News', 
+    headline:'BBC News - Iran nuclear deal: Deadline day brings talk of extension', 
+    storyId:'30172923', 
+    sectionId:'99125', 
+    url:'http://www.bbc.com/news/world-middle-east-30172923', 
+    edition:'US'
+}); 
+-->
+ --&gt; 
+
+ </div>
+
+
+      	
+		<div class="bbccom_advert_placeholder">
+	      	 <!-- $render("advert","advert-google-adsense"); --> 
+		</div>
+		 <!-- $render("advert-post-script-load"); --> 
+    	
+
+        <!-- other stories from this section include -->
+        
+
+<div class="top-index-stories">
+	<h2 class="top-index-stories-header"><a-disabled> More Middle East stories</a-disabled></h2>
+        <a-disabled> RSS</a-disabled>	
+		
+
+	
+						
+				
+		<!-- Specific version for 30172923 -->
+		
+	<ul>
+		
+						
+												
+		<li class="first-child medium-image">
+			
+
+
+
+
+	
+
+
+		
+
+
+
+
+<h3>
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/79218000/jpg/_79218370_read_hughes_bbc.jpg" alt="Jamie Read (left), Jordan Matson (centre) and James Hughes (right)">UK fighters in Syria 'not mercenaries'</a-disabled>
+
+		</h3>
+
+															
+							<p class="">A British man fighting with Kurdish troops against Islamic State militants in Syria tells the BBC he is not a mercenary.</p>
+					</li>
+		
+		
+						
+						
+		<li class="column-1">
+			
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h3>
+	<a-disabled> Volleyball woman out of Iran prison</a-disabled>
+
+		</h3>
+
+															
+					</li>
+		
+		
+						
+						
+		<li class="column-2">
+			
+
+
+
+
+	
+
+
+	
+
+
+
+
+<h3>
+	<a-disabled> Tunisia in landmark presidency poll</a-disabled>
+
+		</h3>
+
+															
+					</li>
+		
+		</ul>
+
+						 
+
+</div>
+
+
+</div><!-- / layout-block-a -->
+
+<div class="layout-block-b">
+			
+
+
+
+
+		     <div class="hyperpuff">
+	       	         
+<div class="bbccom_advert_placeholder">
+	 <!-- $render("advert","advert-mpu-high"); --> 
+</div>
+ <!-- $render("advert-post-script-load"); --> 
+
+	       	         
+
+
+
+<div id="range-top-stories" class="top-stories-range-module">
+
+			<h2 class="top-stories-range-module-header">Top stories</h2>
+		
+		
+									
+						
+			<!-- Specific version for 30172923 -->
+			
+	<ul>
+					  				  								
+				
+
+
+
+
+	
+
+
+		
+
+
+
+
+<li class=" first-child medium-image">
+	<a-disabled class=""> <img src="http://news.bbcimg.co.uk/media/images/79220000/jpg/_79220254_79220125.jpg" alt="Rurik Jutting arrives at court in Hong Kong (24 Nov 2014)" class="">Banker ruled fit for HK murder trial</a-disabled>
+
+		</li>
+
+									 			
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> US police kill boy over replica gun</a-disabled>
+
+		</li>
+
+  									 			
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> New computer spying bug discovered</a-disabled>
+
+		</li>
+
+  									 			
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> Mother of baby left in drain charged</a-disabled>
+
+		</li>
+
+  									 			
+
+
+
+
+	
+
+
+	
+
+
+
+
+<li>
+	<a-disabled> Obama praise for 'President Clinton'</a-disabled>
+
+		</li>
+
+  						</ul>
+
+									 
+	
+</div>
+ <!-- $render("range-top-stories","range-top-stories"); --> 
+      	
+
+	       	         
+<div class="bbccom_advert_placeholder">
+	 <!-- $render("advert","advert-mpu-low"); --> 
+</div>
+ <!-- $render("advert-post-script-load"); --> 
+
+	       	         
+
+	<div id="features" class="feature-generic">
+
+			<h2 class="features-header">Features &amp; Analysis</h2>
+		
+	<ul class="feature-main">
+
+		
+	
+						
+			<!-- Non specific version -->
+			
+			
+							
+		<li class="medium-image">
+
+			
+
+
+
+
+		
+
+
+		
+
+
+
+
+<h3 class=" feature-header">
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/79166000/jpg/_79166627_aug19guncop.jpg" alt="Police officer holds a rifle during August protests in Ferguson, MO">The first sparks<span class="gvl3-icon-wrapper"><span class="gvl3-icon gvl3-icon-invert-watch"> Watch</span></span></a-disabled>
+
+		</h3>
+
+			
+							<p>A journey through a tense summer in Ferguson 	
+				  <span id="dna-comment-count___CPS__30139583" class="gvl3-icon gvl3-icon-comment comment-count"></span></p>
+			
+							<hr>
+					</li>
+			
+							
+		<li class="medium-image">
+
+			
+
+
+
+
+	
+
+
+		
+
+
+
+
+<h3 class=" feature-header">
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/79192000/jpg/_79192114_droop624.jpg" alt="Drooping cigarettes" class="">Battle of the boxes</a-disabled>
+
+		</h3>
+
+			
+							<p class="">How health warnings are changing cigarette packet design 	
+				  <span id="dna-comment-count___CPS__30061952" class="gvl3-icon gvl3-icon-comment comment-count"></span></p>
+			
+							<hr>
+					</li>
+			
+							
+		<li class="medium-image">
+
+			
+
+
+
+
+	
+
+
+		
+
+
+
+
+<h3 class=" feature-header">
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/79219000/jpg/_79219016_miss.jpg" alt="Ferguson, Missouri" class="">Anxiety and fear</a-disabled>
+
+		</h3>
+
+			
+							<p class="">Tension rises ahead of Ferguson shooting ruling 	
+				  <span id="dna-comment-count___CPS__30173144" class="gvl3-icon gvl3-icon-comment comment-count"></span></p>
+			
+							<hr>
+					</li>
+	
+	 
+	
+	
+	</ul>
+	</div>
+	 <!-- $render("feature-generic","features"); -->  
+
+
+	       	         
+<div id="most-popular" class="livestats livestats-tabbed tabbed range-most-popular">
+	
+			<h2 class="livestats-header">Most Popular</h2>
+	
+					
+					<h3 class="tab "><a-disabled> Shared</a-disabled></h3>
+		
+		<div class="panel ">
+      		<ol>
+	      		<li class="first-child ol1">
+  <a-disabled> 
+    <span class="livestats-icon livestats-1">1: </span>The writer who foresaw the rise of the totalitarian state</a-disabled>
+</li>
+<li class="ol2">
+  <a-disabled> 
+    <span class="livestats-icon livestats-2">2: </span>O'Keeffe work sets female art record</a-disabled>
+</li>
+<li class="ol3">
+  <a-disabled> 
+    <span class="livestats-icon livestats-3">3: </span>Bomber 'kills 40' at Afghan match</a-disabled>
+</li>
+<li class="ol4">
+  <a-disabled> 
+    <span class="livestats-icon livestats-4">4: </span>Jerusalem's 800-year-old Indian hospice</a-disabled>
+</li>
+<li class="ol5">
+  <a-disabled> 
+    <span class="livestats-icon livestats-5">5: </span>The meaning of Mongol</a-disabled>
+</li>
+      		</ol>
+      	</div>
+							
+					<h3 class="tab open"><a-disabled> Read</a-disabled></h3>
+		
+		<div class="panel open">
+      		<ol>
+	      		<li class="first-child ol1">
+  <a-disabled> 
+    <span class="livestats-icon livestats-1">1: </span>New computer spying bug discovered</a-disabled>
+</li>
+<li class="ol2">
+  <a-disabled> 
+    <span class="livestats-icon livestats-2">2: </span>US police kill boy carrying fake gun</a-disabled>
+</li>
+<li class="ol3">
+  <a-disabled> 
+    <span class="livestats-icon livestats-3">3: </span>Oregon farmer eaten by his pigs</a-disabled>
+</li>
+<li class="ol4">
+  <a-disabled> 
+    <span class="livestats-icon livestats-4">4: </span>'Un-magical' Christmas land closes</a-disabled>
+</li>
+<li class="ol5">
+  <a-disabled> 
+    <span class="livestats-icon livestats-5">5: </span>The writer who foresaw the rise of the totalitarian state</a-disabled>
+</li>
+<li class="ol6">
+  <a-disabled> 
+    <span class="livestats-icon livestats-6">6: </span>Banker ruled fit for HK murder trial</a-disabled>
+</li>
+<li class="ol7">
+  <a-disabled> 
+    <span class="livestats-icon livestats-7">7: </span>Inside India's model village Punsari</a-disabled>
+</li>
+<li class="ol8">
+  <a-disabled> 
+    <span class="livestats-icon livestats-8">8: </span>Obama praise for 'President Clinton'</a-disabled>
+</li>
+<li class="ol9">
+  <a-disabled> 
+    <span class="livestats-icon livestats-9">9: </span>Anxiety and fear ahead of Ferguson ruling</a-disabled>
+</li>
+<li class="ol10">
+  <a-disabled class=""> 
+    <span class="livestats-icon livestats-10">10: </span>Egypt: The forbidden love of interfaith romances</a-disabled>
+</li>
+      		</ol>
+      	</div>
+					
+					<h3 class="tab"><a-disabled> Video/Audio</a-disabled></h3>
+		
+		<div class="panel ">
+      		<ol>
+	      		<li class="first-child has-icon-watch ol1">
+  <a-disabled> 
+    <span class="livestats-icon livestats-1">1: </span>Parked car brings tram to standstill<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol2">
+  <a-disabled> 
+    <span class="livestats-icon livestats-2">2: </span>Kim Kardashian's bottom: Work of art?<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol3">
+  <a-disabled> 
+    <span class="livestats-icon livestats-3">3: </span>Jailed Twitter troll speaks of regret<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol4">
+  <a-disabled> 
+    <span class="livestats-icon livestats-4">4: </span>Exploring Manet at the Royal Academy<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol5">
+  <a-disabled> 
+    <span class="livestats-icon livestats-5">5: </span>Deal 'could herald' new Iran ties<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol6">
+  <a-disabled> 
+    <span class="livestats-icon livestats-6">6: </span>HK murder suspect due in court<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol7">
+  <a-disabled> 
+    <span class="livestats-icon livestats-7">7: </span>What makes the Chinese laugh?<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol8">
+  <a-disabled> 
+    <span class="livestats-icon livestats-8">8: </span>Meeting Scotland's new radicals<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+<li class="has-icon-watch ol9">
+  <a-disabled> 
+    <span class="livestats-icon livestats-9">9: </span>'Almost 36 million in modern slavery'<span class="gvl3-icon gvl3-icon-watch"> Watch</span></a-disabled>
+</li>
+      		</ol>
+      	</div>
+		 
+	<div class="bbccom_advert_placeholder">
+		 <!-- $render("advert","advert-sponsor-module","range-most-popular","most-popular"); --> 
+	</div>
+	 <!-- $render("advert-post-script-load"); --> 
+	
+</div>
+
+ <!-- $render("most-popular","most-popular"); --> 
+
+	       	     </div>
+	
+	
+
+			
+
+
+
+
+		     <div class="hyperpuff">
+	       	         <div id="promotional-content" class="hyper-promotional-content">
+	
+			<h2>Elsewhere on the BBC </h2>
+	
+	<ul class="">
+							
+						
+															
+										<li class="large-image first-child">
+				
+
+
+
+
+	
+
+
+		
+
+
+
+
+<h3>
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/75513000/jpg/_75513488_1c260b94-f60d-4773-9761-b316231efbf6.jpg" alt="Geoguessr" class="">Where in the world?</a-disabled>
+
+		</h3>
+
+									<p class="">Think you’re a geography expert? Test your knowledge with BBC Travel’s Geoguessr </p>
+							</li>
+			</ul>
+	
+	<div class="bbccom_advert_placeholder">
+	       <!-- $render("advert","advert-sponsor-module","hyper-promotional-content","where-in-the-world"); --> 
+	</div>
+	 <!-- $render("advert-post-script-load"); --> 
+ 
+</div>
+ <!-- $render("hyper-promotional-content","promotional-content"); --> 
+
+
+	       	     </div>
+	
+	
+			
+
+
+
+
+		     <div class="hyperpuff">
+	       	             		  		    	
+    		    		  
+
+<div id="container-programme-promotion" class="container-programme-promotion">
+			<h2 class="programmes-header">Programmes</h2>
+		
+	
+
+						
+<ul class="programme-breakout">
+	
+	
+			
+	<li class="first-child large-image">		
+		
+
+
+
+
+		
+
+
+		
+
+
+
+
+<h3 class=" programme-header">
+	<a-disabled> <img src="http://news.bbcimg.co.uk/media/images/79175000/jpg/_79175120_mountainbridge1024.jpg" alt="Suspension bridge connecting mountain peaks" class="">The Travel Show<span class="gvl3-icon-wrapper"><span class="gvl3-icon gvl3-icon-invert-watch"> Watch</span></span></a-disabled>
+
+		</h3>
+
+		<p>Must-see global events including walking the first suspension bridge to connect mountain peaks</p>
+		
+		
+		<div class="bbccom_advert_placeholder">
+	      	 <!-- $render("advert","advert-sponsor-module","programme-breakout","the-travel-show"); --> 
+		</div>
+		 <!-- $render("advert-post-script-load"); --> 
+	     
+	</li>
+</ul>		
+	</div>
+ <!-- $render("container-programmes-promotion","container-programme-promotion"); --> 
+	
+	       	     </div>
+	
+	
+	 	
+	<div class="bbccom_advert_placeholder">
+		 <!-- $render("advert","advert-native-side"); --> 
+	</div>
+	 <!-- $render("advert-post-script-load"); --> 
+	<div class="bbccom_advert_placeholder">
+		 <!-- $render("advert","advert-mpu-bottom"); --> 
+	</div>
+	 <!-- $render("advert-post-script-load"); --> 
+	
+	
+<!-- second OUTBRAIN include -->
+
+    <!-- Start: BBCCOM-5234 Outbrain RHS -->
+    
+        <div class="OUTBRAIN" data-src="http://www.bbc.com/news/world-middle-east-30172923" data-widget-id="AR_4" data-ob-template="BBC.com/News"></div>
+         <!-- 
+            /*<![CDATA[*/
+            if (BBC.adverts.isActive('ads')) {
+                document.write(unescape('%3Cscript src="http://widgets.outbrain.com/outbrain.js" type="text/javascript"%3E%3C/script%3E'));
+            }
+            /*]]>*/
+         --> 
+    
+    <!-- End: BBCCOM-5234 Outbrain RHS -->
+
+<!-- end of second OUTBRAIN include -->
+
+</div>
+
+	<!-- END #MAIN-CONTENT & CPS_ASSET_TYPE CLASS: story -->
+	</div>
+<!-- END CPS_AUDIENCE CLASS: us -->
+	
+</div> 
+<div id="related-services" class="footer">
+   <div id="news-services">
+      <h2>Services</h2>
+       <ul>
+         <li id="service-mobile" class="first-child"><a-disabled> <span class="gvl3-mobile-icon-large services-icon">&nbsp;</span>Mobile</a-disabled></li>
+         <li id="service-feeds"><a-disabled> <span class="gvl3-connected-tv-icon-large services-icon">&nbsp;</span>Connected TV</a-disabled></li>
+         <li id="service-podcast" class=""><a-disabled> <span class="gvl3-feeds-icon-large services-icon">&nbsp;</span>News feeds</a-disabled></li>
+         <li id="service-alerts" class=""><a-disabled> <span class="gvl3-alerts-icon-large services-icon">&nbsp;</span>Alerts</a-disabled></li>
+         <li id="service-email-news" class=""><a-disabled> <span class="gvl3-email-icon-large services-icon">&nbsp;</span>E-mail news</a-disabled></li>
+      </ul>	 
+   </div>
+   <div id="news-related-sites">
+      <h2><a-disabled> About BBC News</a-disabled></h2>
+      <ul>
+         <li class="column-1"><a-disabled> Editors' blog</a-disabled></li>
+         <li class="column-1"><a-disabled> BBC College of Journalism</a-disabled></li>
+         <li class="column-1"><a-disabled> News sources</a-disabled></li>
+         <li class="column-1"><a-disabled> Media Action</a-disabled></li>
+         <li class="column-1"><a-disabled> Editorial Guidelines</a-disabled></li>
+      </ul>
+   </div>
+</div>
+</div><!-- close middle-east -->
+
+
+
+	
+	
+
+   </div>   <!--[if IE 6]> <div id="blq-ie6-upgrade"> <p> <span>You're using the Internet Explorer 6 browser to view the BBC website. Our site will work much better if you change to a more modern browser. It's free, quick and easy.</span> <a-disabled> Find out more <span>about upgrading your browser</span> here&hellip;</a-disabled> </p> </div> <![endif]-->  <div id="blq-foot" xml:lang="en-GB" class="blq-rst blq-clearfix blq-foot-transparent blq-foot-text-dark"> <div id="blq-footlinks"> <h2 class="blq-hide">BBC links</h2>       <ul>                    <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a-disabled> Mobile site</a-disabled></li><li><a-disabled> Terms of Use</a-disabled></li><li><a-disabled> About the BBC</a-disabled></li> </ul> </li>                     <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a-disabled> Advertise With Us</a-disabled></li><li><a-disabled> Privacy</a-disabled></li><li><a-disabled> Accessibility Help</a-disabled></li> </ul> </li>                     <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a-disabled> Ad Choices</a-disabled></li><li><a-disabled> Cookies</a-disabled></li><li><a-disabled> Contact the BBC</a-disabled></li> </ul> </li>           <li class="blq-footlinks-row"> <ul class="blq-footlinks-row-list"> <li><a-disabled> Parental Guidance</a-disabled></li> </ul> </li>             </ul>  <!-- /*<![CDATA[*/ (function() { var mLink = document.getElementById('blq-footer-mobile'), stick = function() { var d = new Date (); d.setYear(d.getFullYear() + 1); d = d.toUTCString(); window.bbccookies.set('ckps_d=m;domain=.bbc.co.uk;path=/;expires=' + d ); window.bbccookies.set('ckps_d=m;domain=.bbc.com;path=/;expires=' + d ); }; if (mLink) {  if (mLink.addEventListener) { mLink.addEventListener('click', stick, false); } else if (mLink.attachEvent) { mLink.attachEvent('onclick', stick); } } })(); /*]]>*/ -->   </div>  <div id="blq-foot-blocks" class="blq-footer-image-dark"><img src="http://static.bbci.co.uk/frameworks/barlesque/2.75.0/desktop/3.5/img/blocks/dark.png" width="84" height="24" alt="BBC"></div>  <p id="blq-disclaim"><span id="blq-copy">BBC © 2014</span> <a-disabled> The BBC is not responsible for the content of external sites. Read more.</a-disabled></p> <div id="blq-obit"><p><strong>This page is best viewed in an up-to-date web browser with style sheets (CSS) enabled. While you will be able to view the content of this page in your current browser, you will not be able to get the full visual experience. Please consider upgrading your browser software or enabling style sheets (CSS) if you are able to do so.</strong></p></div> </div> </div> 
+<!-- BBCDOTCOM analytics template:client-side journalismVariant: true ipIsAdvertiseCombined: true adsEnabled: false flagpole: ON -->
+
+            <!-- BBCCOM analytics client-side -->
+<div id="bbccomWebBug" class="bbccomWebBug"></div>
+
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics')) {
+        if(typeof(bbcdotcom) != 'undefined' && typeof(bbcdotcom.stats) != 'undefined') {
+            bbcdotcom.stats.contentType = "HTML";
+        }
+        document.write(unescape('%3Cscript type="text/javascript" src="http://js.revsci.net/gateway/gw.js?csid=J08781"%3E%3C/script%3E'));
+    }
+    /*]]>*/
+ --> 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics')) {
+        DM_tag();
+    }
+    /*]]>*/
+ --> 
+
+<!-- Start SiteCatalyst -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics') && typeof scw === 'undefined') {
+            BBC.journalismVariant = true;
+        
+            var s_account = "bbcwglobalprod";
+        
+
+        
+            document.write(unescape('%3Cscript type="text/javascript" src="http://news.bbcimg.co.uk/js/app/bbccom/0.3.290/s_code.js"%3E%3C/script%3E'));
+        
+    }
+    /*]]>*/
+ --> 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics') && BBC.journalismVariant) {
+        var s_code=scw.t();if(s_code)document.write(s_code)
+    }
+    /*]]>*/
+ --> 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics') && BBC.journalismVariant) {
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+    }
+    /*]]>*/
+ --> 
+<!-- End SiteCatalyst -->
+
+
+<!-- Start comScore Tag -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics')) {
+        document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+    }
+    /*]]>*/
+ --> 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics')) {
+        COMSCORE.beacon({
+            c1:2,
+            c2:"6035051",
+            c3:"",
+            c4:"www.bbc.com/news/world-middle-east-30172923",
+            c5:"",
+            c6:"",
+            c15:""
+        });
+    }
+    /*]]>*/
+ --> 
+<!-- End comScore Tag -->
+
+<!-- Begin Sitestat4 code -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('sitestat')) {
+        function sitestat(ns_l){ns_l+='&amp;ns__t='+(new Date()).getTime();
+        ns_0=document.referrer;
+        ns_0=(ns_0.lastIndexOf('/')==ns_0.length-1)?ns_0.substring(ns_0.lastIndexOf('/'),0):ns_0;
+        if(ns_0.length>0)ns_l+='&amp;ns_referrer='+escape(ns_0);
+        if(document.images){ns_1=new Image();ns_1.src=ns_l;}else
+        document.write('<img src="'+ns_l+'" width="1" height="1" alt="">');}
+        sitestat("http://nl.sitestat.com/adfab/bbc/s?teller");
+    }
+    /*]]>*/
+ --> 
+<!-- End Sitestat4 code -->
+
+
+<!-- Start Nielsen Online SiteCensus V6.0 -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('nielsen-au')) {
+        <!-- COPYRIGHT 2009 Nielsen Online -->
+        document.write(unescape('%3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https:' : 'http:') + '//secure-au.imrworldwide.com/v60.js"%3E%3C/script%3E'));
+    }
+    /*]]&gt;*/
+ --&gt; 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('nielsen-au')) {
+        <!-- Start Nielsen Online SiteCensus V6.0 Part 2 -->
+        nol_t({cid:"au-bbc",content:"0",server:"secure-au"}).record().post();
+        <!-- End Nielsen Online SiteCensus V6.0 Part 2 -->
+    }
+    /*]]&gt;*/
+ --&gt; 
+<!-- End Nielsen Online SiteCensus V6.0 -->
+
+
+<!-- Start Nielsen Online SiteCensus V6.0 -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('nielsen-nz')) {
+        <!-- COPYRIGHT 2009 Nielsen Online -->
+        document.write(unescape('%3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https:' : 'http:') + '//secure-nz.imrworldwide.com/v60.js"%3E%3C/script%3E'));
+    }
+    /*]]&gt;*/
+ --&gt; 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('nielsen-nz')) {
+        nol_t({cid:"nz-bbc",content:"0",server:"secure-nz"}).record().post();
+    }
+    /*]]>*/
+ --> 
+<!-- End Nielsen Online SiteCensus V6.0 -->
+
+
+<!-- Start Nielsen Online SiteCensus V6.0 -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('nielsen-us')) {
+        <!-- COPYRIGHT 2010 Nielsen Online -->
+       (function () {
+           var d = new Image(1, 1);
+           d.onerror = d.onload = function () {
+               d.onerror = d.onload = null;
+           };
+           d.src = [('https:' == document.location.protocol ? 'https:' : 'http:') + "//secure-us.imrworldwide.com/cgi-bin/m?ci=us-804789h&amp;cg=0&amp;cc=1&amp;si=", escape(window.location.href), "&amp;rp=",
+           escape(document.referrer), "&amp;ts=compact&amp;rnd=", (new Date()).getTime()].join('');
+        })();
+    }
+    /*]]&gt;*/
+ --&gt; 
+<!-- End Nielsen Online SiteCensus V6.0 -->
+
+
+<!-- Effective Measure BBCCOM-1195 -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('analytics')) {
+        (function() {
+            var em = document.createElement('script'); em.type = 'text/javascript'; em.async = true;
+            em.src = ('https:' == document.location.protocol ? 'https://me-ssl' : 'http://me-cdn') + '.effectivemeasure.net/em.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(em, s);
+        })();
+    }
+    /*]]>*/
+ --> 
+<!-- End Effective Measure -->
+
+
+<!-- AGOF BBCCOM-1271 -->
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('agof')) {
+        var ivwcode="default";
+        if(typeof BBC != 'undefined' && typeof BBC.adverts != 'undefined'){
+            ivwcode = BBC.adverts.getSectionPath();
+        }
+        var IVW="http://bbc.ivwbox.de/cgi-bin/ivw/CP/"+ivwcode+";";
+        document.write("<img src=\""+IVW+"?r="+escape(document.referrer)+"&d="+(Math.random()*100000)+"\" width=\"1\" height=\"1\" alt=\"szmtag\" />");
+    }
+    /*]]>*/
+ --> 
+ <!-- 
+    /*<![CDATA[*/
+    if (BBC.adverts.isActive('agof')) {
+        var szmvars="bbc//CP/"+ivwcode;
+        document.write(unescape('%3Cscript src="http://bbc.ivwbox.de/2004/01/survey.js" type="text/javascript"%3E%3C/script%3E'));
+    }
+    /*]]>*/
+ --> 
+<!-- End AGOF -->
+
+
+	<!-- BBCCOM-5234 Outbrain Tracking -->
+	
+		<div class="OUTBRAIN" data-src="http://www.bbc.com/news/world-middle-east-30172923" data-widget-id="TR_1" data-ob-template="BBC.com/News"></div>
+         <!-- 
+            /*<![CDATA[*/
+            if (BBC.adverts.isActive('ads') && BBC.adverts.isActive('analytics')) {
+                document.write(unescape('%3Cscript src="http://widgets.outbrain.com/outbrain.js" type="text/javascript"%3E%3C/script%3E'));
+            }
+            /*]]>*/
+         --> 
+	
+
+    
+<!-- BBCDOTCOM Body Last -->
+ </div> </div>   <!--  if (typeof require !== 'undefined') { require(['istats-1'], function(istats){ istats.track('external', { region: document.getElementById('blq-main') }); istats.track('download', { region: document.getElementById('blq-main') }); }); }  -->    <!-- <![CDATA[ <div id="blq-panel-promo" class="blq-masthead-container"></div> ]]> -->   <!-- <![CDATA[ <div id="blq-panel-more" class="blq-masthead-container  blq-clearfix" xml:lang="en-GB" dir="ltr"> <div class="blq-panel-container panel-paneltype-more"> <div class="panel-header"> <h2> <a-disabled>   More&hellip;  </a-disabled> </h2>  <a-disabled> Full A-Z<span class="blq-hide"> of BBC sites</span></a-disabled>  </div> <div class="panel-component panel-links">       <ul>   <li> <a-disabled> CBBC</a-disabled> </li>    <li> <a-disabled> CBeebies</a-disabled> </li>    <li> <a-disabled> Capital</a-disabled> </li>   </ul>  <ul>   <li> <a-disabled> Food</a-disabled> </li>    <li> <a-disabled> History</a-disabled> </li>    <li> <a-disabled> Comedy</a-disabled> </li>   </ul>  <ul>   <li> <a-disabled> Music</a-disabled> </li>    <li> <a-disabled> Science</a-disabled> </li>    <li> <a-disabled> Learning</a-disabled> </li>   </ul>  <ul>   <li> <a-disabled> Local</a-disabled> </li>    <li> <a-disabled> Travel</a-disabled> </li>    <li> <a-disabled> Nature</a-disabled> </li>   </ul>   </div> </div> ]]> -->             
+	
+
+<!-- shared/foot -->
+ <!-- 
+	bbc.fmtj.common.removeNoScript({});
+	bbc.fmtj.common.tabs.createTabs({});
+ --> 
+<!-- hi/news/foot.inc -->
+
+<!-- Chartbeat Web Analytics code - start -->
+ <!-- 
+var _sf_async_config={};
+/** CONFIGURATION START **/
+_sf_async_config.uid = 50924; /** Chartbeat BBC id **/
+_sf_async_config.domain = "bbc.co.uk";/** BBC domain being tracked **/
+_sf_async_config.sections = "news, News - middle-east, News - story, News - middle-east - story";
+_sf_async_config.region = "us";
+
+  <!-- all multi-edition pages that are not indexes eg. story pages need the title -->
+  var storyTitle = "BBC+News+-+Iran+nuclear+deal%3A+Deadline+day+brings+talk+of+extension".replace(new RegExp('\\+', 'gi'),' ');//remove the plus signs
+  storyTitle = decodeURIComponent(storyTitle.replace("BBC News - ",""));//remove the sub-string 'BBC News' and convert utf-8 chars to html
+  _sf_async_config.title = storyTitle;
+
+/** CONFIGURATION END **/
+(function(){
+  var noCookies = true;
+  if ("object" === typeof bbccookies &amp;&amp; typeof bbccookies.readPolicy == 'function') {
+    noCookies = !bbccookies.readPolicy().performance;
+  }
+  _sf_async_config.noCookies = noCookies;
+
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement("script");
+    e.setAttribute("language", "javascript");
+    e.setAttribute("type", "text/javascript");
+    e.setAttribute('src', '/inc/specials/cream/hi/news/chartbeat/chartbeat.js');
+    document.body.appendChild(e);
+  }
+  var oldonload = window.onload;
+  window.onload = (typeof window.onload != "function") ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+ --&gt; 
+<!-- Chartbeat Web Analytics code - end -->
+
+<!-- shared/foot_story -->
+<!-- #CREAM hi news international foot.inc -->
+
+ 
+
+</div>
+
+
+
+
+
