@@ -23,7 +23,7 @@ class ElasticSearchWorker(object):
  		self.config_data = yaml.load(self.config_file)
 
 		#Should ideally read from config file	
-		self.es = Elasticsearch()
+		self.es = Elasticsearch(timeout=30)
 
 
 	def convert_to_datetime(self,timestamp):
