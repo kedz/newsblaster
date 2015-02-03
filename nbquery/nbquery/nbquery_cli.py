@@ -13,13 +13,11 @@ class NBQueryCLI(NBQuery):
     super(NBQueryCLI, self).__init__(hostname,port,user,pw)
 
   def _make_fs_safe_link(self, link):
-      link_split = link.split(".")
-      fs_safe_link = link.replace("/","_")
-      fs_safe_link = fs_safe_link.split("?")[0]
-      if link_split[-1] == "html":
-        return fs_safe_link
-      else:
-        return fs_safe_link + ".html"
+    fs_safe_link = link.replace("/","_")
+    fs_safe_link = fs_safe_link.split("?")[0]
+    if not fs_safe_link.endswith('html'):
+      fs_safe_link += ".html"
+    return fs_safe_link
 
   def _save_files(self,html_contents,path):
     
