@@ -136,7 +136,7 @@ function undo(){
   if(!(typeof previouslyAnnotatedElements[previouslyAnnotatedElements.length - 1] === 'undefined')){
     element = previouslyAnnotatedElements.pop();
     element.className="";
-    element("annotation", "")
+    element("annotation", "None")
   };
 }
 

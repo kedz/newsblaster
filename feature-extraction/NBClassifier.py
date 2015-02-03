@@ -55,7 +55,7 @@ class NBClassifier():
 		## TESTING ##
 		#############
 
-		kf = KFold(len(y), n_folds=2, shuffle=True)
+		kf = KFold(len(y), n_folds=4, shuffle=True)
 		print kf
 
 		for train_index, test_index in kf:
