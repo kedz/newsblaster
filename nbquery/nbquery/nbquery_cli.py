@@ -1,6 +1,7 @@
 from pprint import pprint
 from nbquery import NBQuery
-import os.path
+import os
+
 
 class NBQueryCLI(NBQuery):
 
@@ -11,22 +12,37 @@ class NBQueryCLI(NBQuery):
 
     super(NBQueryCLI, self).__init__(hostname,port,user,pw)
 
+  def _make_fs_safe_link(self, link):
+      link_split = link.split(".")
+      fs_safe_link = link.replace("/","_")
+      fs_safe_link = fs_safe_link.split("?")[0]
+      if link_split[-1] == "html":
+        return fs_safe_link
+      else:
+        return fs_safe_link + ".html"
+
   def _save_files(self,html_contents,path):
     
     for html_content in html_contents:
       print "Saving Articles..%s" % html_content["source_link"]
 
-      link_split = html_content["source_link"].split(".")
-      if link_split[-1] == "html":
-        save_path = os.path.join(path, html_content["source_link"].replace("/","_")) 
-      else:
-        save_path = os.path.join(path, html_content["source_link"].replace("/","_") + ".html") 
+      save_path = os.path.join(
+        path, self._make_fs_safe_link(html_content["source_link"]))
+      #link_split = html_content["source_link"].split(".")
+      #fs_safe_link = html_content["source_link"].replace("/","_")
+
+      #if link_split[-1] == "html":
+      #  save_path = os.path.join(path, html_content["source_link"].replace("/","_")) 
+      #else:
+      #  save_path = os.path.join(path, html_content["source_link"].replace("/","_") + ".html") 
 
       html_output = open(save_path, "w")
       html_output.write(html_content["html_content"].encode('utf-8').strip())
       html_output.close()
 
   def get_html_source(self,source,path,limit):
+    if not os.path.exists(path):
+        os.makedirs(path)
     results = self.search(source=source,projections=["title","html_content","source_link"],limit=limit)
     self._save_files(results,path)
 
