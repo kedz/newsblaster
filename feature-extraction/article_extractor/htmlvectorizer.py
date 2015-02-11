@@ -27,6 +27,7 @@ class HTMLVectorizer():
 
             # Find all text nodes
             text_nodes = soup.find_all(text=True)
+            x_temp = list()
 
             # Iterate through text nodes and find annotation labels or label "None"
             for text in text_nodes:
@@ -49,7 +50,13 @@ class HTMLVectorizer():
                     features['textn_id'] = textn_id
                     features['offset'] = offset
 
-                    X.append(features)
+                    x_temp.append(features)
+
+            for example in x_temp:
+                example['textn_id'] /= float(textn_id)
+                example['offset'] /= float(offset)
+
+        X.extend(x_temp)
 
         # Return list of character feature vectors + labels
         return [X, Y]
