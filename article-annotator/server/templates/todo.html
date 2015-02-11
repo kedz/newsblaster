@@ -1,0 +1,6 @@
+<title>{% block title %}{% endblock %}</title>
+<ul>
+{% for file in a %}
+  <li><a href="annotate/{{ file }}">{{ file }}</a></li>
+{% endfor %}
+</ul>
