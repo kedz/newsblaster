@@ -10,7 +10,8 @@ class NBQuery(object):
   def __init__(self,hostname='localhost.com',
                     port=9200,
                     user='user',
-                    pw='password'):
+                    pw='password',
+                    timeout=60):
 
     """Initializes and creates a connection to the ElasticSearch Cluster[ES]
 
@@ -21,7 +22,8 @@ class NBQuery(object):
       port(int): port of the ES cluster
     
     """
-    self.es = elasticsearch.Elasticsearch([hostname + ':' + str(port)], sniff_on_start=False,timeout=30)
+    self.es = elasticsearch.Elasticsearch(
+        [hostname + ':' + str(port)], sniff_on_start=False, timeout=timeout)
 
 
   def _generate_match_sub_query(self,
@@ -107,7 +109,8 @@ class NBQuery(object):
             pub_start_date=None,
             pub_end_date=None,
             source=None,
-            projections=None):
+            projections=None,
+            timeout=60):
 
     """Used to search articles stored on ES
 
@@ -126,7 +129,7 @@ class NBQuery(object):
     
     """
 
-    res_raw = self.es.search(index="news", timeout=30,body={
+    res_raw = self.es.search(index="news", timeout=timeout,body={
                                         "size": limit,
                                         "_source": self._generate_projections(projections),
                                             "query": {
