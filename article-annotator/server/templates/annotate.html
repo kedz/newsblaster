@@ -29,8 +29,7 @@
     <button onclick="undo()">Undo</button>
 </div>
 
-<div id="htmlContent">NO CONTENT LOADED</div>
-<div id="loaded_html" style="visibility:hidden;">{{contents}}</div>
+<div id="htmlContent">{{contents | safe}}</div>
 
 <script src="{{ url_for('static', filename='jquery-2.1.1.js')}}"></script>
 <script src="{{ url_for('static', filename='highlighter.js')}}"></script>

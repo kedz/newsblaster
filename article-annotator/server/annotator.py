@@ -22,6 +22,7 @@
 # To iterate through folder
 import sys
 import os
+import re
 
 source_dir = sys.argv[1]
 dest_dir = sys.argv[2]
@@ -31,24 +32,30 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def home():
+	pass
 
 # List unannotated articles
 @app.route('/todo')
-def todo(a=None):
-	a = list()
+def todo(files=None):
+	files = list()
 
-	for filename in os.listdir(sys.argv[1]):
+	for filename in os.listdir(source_dir):
 		print filename
-		a.append(filename)
+		files.append(filename)
 
-	return render_template('todo.html', a=a)
+	return render_template('todo.html', files=files)
 
 # List annotated articles
 @app.route('/done')
-def done(name=None):
-	return render_template('hello.html', name="Ramzi Abdoch")
+def done(files=None):
+	files = list()
+
+	for filename in os.listdir(dest_dir):
+		print filename
+		files.append(filename)
+
+	return render_template('done.html', files=files)
 
 # Annotate an article
 @app.route('/annotate/<article_path>')
@@ -59,17 +66,13 @@ def annotate(article_path):
 	fo = open(path)
 	contents = fo.read();
 
-	print contents
-
 	# Close opened file
 	fo.close()
 
-	return render_template('annotate.html', path=path)
+	m = re.search(r"<body[^>]*>(.*?)</body>", contents, re.DOTALL)
+	contents = m.group(1)
 
-# Retrieve an article's text
-@app.route('/text/<article_path>')
-def get_text(article_path):
-	pass
+	return render_template('annotate.html', contents=contents)
 
 # View an annotated article
 @app.route('/view/<article_path>')

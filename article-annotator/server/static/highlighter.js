@@ -70,16 +70,16 @@ $(document).ready(function() {
     });
 });
 
-// Reset Annotator
-$('#htmlContent').html("");
+// // Reset Annotator
+// $('#htmlContent').html("");
 
-// Render HTML
-var content = document.getElementById("loaded_html").innerHTML;
-var htmlToRender = sanitizeHTML(content);
-//htmlToRender = stripScripts(htmlToRender);
+// // Render HTML
+// var content = document.getElementById("loaded_html").innerHTML;
+// var htmlToRender = sanitizeHTML(content);
+// //htmlToRender = stripScripts(htmlToRender);
 
-console.log(htmlToRender)
-$('#htmlContent').html(htmlToRender);
+// console.log(htmlToRender)
+// $('#htmlContent').html(htmlToRender);
 
 // When mousing over elements in the toolbar, highlight them with their respective colors
 document.getElementById("palatte").addEventListener('mousemove',
@@ -128,6 +128,13 @@ document.getElementById("palatte").addEventListener('click',
 
 // Remove scripts + disable links
 function sanitizeHTML(data){
+
+    var strVal = data; //obviously, this line can be omitted - just assign your string to the name strVal or put your string var in the pattern.exec call below 
+    var pattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im
+    var array_matches = pattern.exec(strVal);
+
+    data = array_matches[1]
+
     data = data.replace(/<script[^>]*>/gi, ' <!-- ');
     data = data.replace(/<\/script>/gi, ' --> ');
 
