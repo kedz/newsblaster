@@ -79,5 +79,10 @@ def annotate(article_path):
 def view(article_path):
 	pass
 
+# Save annotated articles
+@app.route('/save/<article_path>', methods=['POST'])
+def save(article_path):
+	pass
+
 if __name__ == '__main__':
     app.run(debug=True)

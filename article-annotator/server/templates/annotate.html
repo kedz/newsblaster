@@ -16,17 +16,15 @@
             <li>Body</li>
         </ul>
     </div>
-    <input type="file" id="files" name="files[]" multiple />
-    <output id="list"></output>
-    <p id='path'>Current Article:</p>
     <h3 id="selectedBrushText">Selected brush: None</h3>
-    <button onclick="removeStylesheets()">Remove Stylesheets</button>
+    <button onclick="undo()">Undo</button>
+    <br>
+    <p id='path'>Current Article:</p>
     <br>
     <div id="download">
-        <button onclick="saveHTML()">Download Annotated HTML</button>
+        <button onclick="saveHTML()">Save Annotations</button>
     </div>
     <br>
-    <button onclick="undo()">Undo</button>
 </div>
 
 <div id="htmlContent">{{contents | safe}}</div>
