@@ -1,0 +1,14 @@
+<doc^docid="www.zdnet.com.24178.txt"^date="20130624">
+Telcos and ISPs that serve European customers will have to come clean on data breaches within 24 hours, under new EU regulations.
+Data security is a hot topic of late, with revelations over telcos and internet companies handing over internet data to security services and high profile data breaches like Facebook making available six million users' personal details .
+Under the regulations, telecoms operators and ISPs operating in Europe will have to notify national data protection authorities within 24 hours where personal data has been lost, stolen or "otherwise compromised".
+Usually companies will have to disclose the nature and size of the breach within 24 hours, but where this isn't possible they must submit "initial information" within this time before providing full details within three days.
+Affected firms will be required to spell out which pieces of information have been compromised and what measures have been, or will be, applied by the company to put this right.
+Businesses and consumers will be notified of the breach if it is felt it "is likely to adversely affect personal data or privacy", under the terms of a test provided by the European Commission.
+The regulation will require companies to pay particular attention to the type of data compromised, particularly where the breach includes financial information, location data, internet log files, web browsing histories, e-mail data, and itemised call lists.
+European ISPs and telcos have been obliged to inform national authorities and subscribers about breaches of personal data since 2011, but this regulation spells out how to fulfil this obligation - adding requirements such as the 24-hour window for notification.
+The regulations will not require companies to admit to passing data to security services as there is an exemption for "justified national security reasons".
+Internet companies like Facebook and Google will not be covered by this regulation, but fall under the Data Protection Directive, which relates to all organisations that act as data controllers. This directive is due to be replaced by the General Data Protection Regulation, which is currently in draft form. If the regulation is accepted as is then Facebook and Google will face the same obligations as telcos and ISPs to report data breaches.
+Telcos and ISPs will be exempt from data breach notification requirements if they take steps such as encrypting data. The commission and the European Network and Information Security Agency plan to publish a list of suitable encryption techniques and other technological measures that would exempt firms from the reporting requirement.
+They new rules are to be adopted in the form of a Commission Regulation, which has direct effect and requires no further transposition at national level, and will come into force two months after publication in the EU Official Journal.
+</doc>

@@ -1,0 +1,14 @@
+<doc^docid="www.washingtonpost.com.21688.txt"^date="20130624">
+The data center will be AiNet's third - the first two are in Beltsville and Laurel - and Jain said it will fill a geographic gap in the company's portfolio while also allowing it to accept companies whose needs previously outstripped AiNet's capacity.
+"We are building on a strategy where customers will be able to operate from each of our buildings interchangeably," said Jain. The new center "lets us do some deals that we couldn't do."
+AiNet's existing data center customers are split about evenly between commercial use and government use - though virtually all of its government clients are through subcontracts with prime government contractors, according to Jain.
+AiNet is inking its first deals with customers, both new and existing, said Jain, who noted that the three-story data center will be built out incrementally,
+He said he hopes the new data center will help the company begin working directly with the government. The location isn't far from Fort Meade, home to the National Security Agency, the Defense Information Systems Agency and the relatively new U.S. Cyber Command.
+Still, the company recognizes it's going up against Northern Virginia - and Loudoun County, specifically - which has become something of a data center stronghold. The county already has more than 4.5 million square feet in data centers and a county official said Loudoun expects to reach nearly 10 million square feet in the next decade.
+"We think that overconcentration is an inherent risk," Jain said. "Any single event could wipe out a significant portion of somebody's operations."
+Reston-based ByteGrid is making its own bet on the Maryland market. The new company partnered with New York private equity firm Altpoint Capital Partners last year to buy a data center campus in Silver Spring.
+Kenneth R. Parent, ByteGrid's chief executive, said the company was drawn to Maryland because it has many data center users but few data centers, particularly ones available for lease - as opposed to those owned by one user.
+"There's no reason that Maryland cannot develop more of a data center industry," Parent said. "There is a bit of a herd mentality in this business ... but I think we're doing a good job of getting the word out."
+And while the federal government has promised to consolidate and reduce its data center operations, Jain remains confident that the sheer amount of data will continue to require new centers.
+"The government is swimming in data, and the government is still learning new techniques from industry on how to manage it," he said.
+</doc>
