@@ -31,7 +31,6 @@ class Cluster(object):
         tfidfs = self.documents + p_documents
         if self.input_type == "file_path":
             tfidfs = self._data_prep(tfidfs)
-        print tfidfs
         cosine_distance = self._cosine_dis(tfidfs)
         docs_dist = self._compute_all_doc_dis(cosine_distance)
             
@@ -45,7 +44,6 @@ class Cluster(object):
             initialClust = Clust([original_len + i], i + len(existing_clust), [])
             list_of_clusts.append(initialClust)
         
-        print list_of_clusts
         # Fill in cluster distances
         clusts_dist = np.zeros([len(list_of_clusts) + len(existing_clust),
                                len(list_of_clusts) + len(existing_clust)])
@@ -74,36 +72,42 @@ class Cluster(object):
             existing_clust = result[0]
             clusts_dist = result[1]
         # Cluster superclusters into subclusters
-        for superclust in existing_clust:
+        for i in range(0, len(existing_clust)):
+            superclust = existing_clust[i]
             clusts_dist = np.zeros([len(superclust.docs),
                                     len(superclust.docs)])
             list_of_subclusts = []
             next_clust_id = 0
             for doc in superclust.docs:
-                subclust = Clust([doc], next_clust_id)
+                subclust = Clust([doc], next_clust_id, [])
                 list_of_subclusts.append(subclust)
                 next_clust_id += 1
             list_of_subclusts = list_of_subclusts
             subclusts = self._merge_cluster_set(list_of_subclusts, docs_dist,
                                                clusts_dist,
                                                self.minor_threshold)
-            superclust.subclusts = subclusts[0]
-
+            existing_clust[i] = Clust(superclust.docs, superclust.clust_id, subclusts[0])
+        
+        self.documents = self.documents + p_documents
         # Show result
         self._display_clusts(docs_dist, existing_clust)
 
         # Show labels
         self._create_labels(existing_clust)
-        return labels
+        print self.documents
+        print self.labels
+        return self.labels
                         
     def predict(self, p_documents):
         results = np.zeros((len(p_documents),2))
-        results = results.fill(-1)
+        print results
+        results[:, :] = -1
+        print results
         for i in range(0, len(p_documents)):
             to_find_doc = p_documents[i]
             doc_index = self.documents.index(to_find_doc)
             if doc_index >= 0:            
-                results[i,:] = labels[doc_index,:]
+                results[i,:] = self.labels[doc_index,:]
         return results
 
     def _data_prep(self, p_documents):
@@ -125,24 +129,31 @@ class Cluster(object):
         return tfidfs
 
     def _create_clust(self):
+        Clust = namedtuple('Clust', ['docs', 'clust_id', 'subclusts'])
         existing_clusts = []
         num_doc = 0
         for row in self.labels:
             superclust_id = row[0]
             subclust_id = row[1]
             added = False
-            for superclust in existing_clusts:
+            for i in range(0, len(existing_clusts)):
+                superclust = existing_clusts[i]
                 if superclust.id == superclust_id:
-                    for subclust in superclust.subclusts:
+                    for j in range(0, len(superclust.subclusts)):
+                        subclust = superclust.subclusts[j]
                         if subclust.id == subclust_id:
-                            subclusts.docs = subclust.docs + \
-                                            [num_doc]
+                            superclust.subclusts[j]  = Clust(subclust.docs + \
+                                                             [num_doc],
+                                                             subclust.clust_id,
+                                                              subclust.subclusts)
+                            existing_clusts[i] = superclust
                             added = True
                     if not added:
                         new_clust = Clust([numdoc],
                                           subclust_id, [])
-                        superclust.subclusts = superclust.subclusts + \
-                                                [new_clust]
+                        existing_clust[i] = Clust(superclust.docs + [num_doc],
+                                            superclust.clust_id,
+                                            superclust.subclusts + [new_clust])
                         added = True
             if not added:
                 new_subclust = Clust([numdoc], subclust_id, [])
@@ -155,13 +166,13 @@ class Cluster(object):
     def _create_labels(self, existing_clust):
         new_labels = np.zeros((len(self.documents), 2))
         for i in range(0, len(existing_clust)):
-            superclust = exsting_clust(i)
+            superclust = existing_clust[i]
             for super_doc in superclust.docs:
-                new_labels[super_doc, 0] = i
+                new_labels[super_doc, 0] = superclust.clust_id
             for j in range(0, len(superclust.subclusts)):
-                subclust = superclust.subclusts(j)
+                subclust = superclust.subclusts[j]
                 for sub_doc in subclust.docs:
-                    new_labels[sub_doc, 1] = j
+                    new_labels[sub_doc, 1] = subclust.clust_id
         self.labels = new_labels
             
     def _cosine_dis(self, sparse_matrix):
@@ -280,7 +291,7 @@ class Cluster(object):
                     heappush(merge_pairs, (1-curr_dist,
                                            clusts_to_merge[i],
                                            second_clusts_to_merge[j]))
-        clusts_to_merge = np.append(clusts_to_merge, second_clusts_to_merge)
+        clusts_to_merge = clusts_to_merge + second_clusts_to_merge
         # Merge the pairs while there are still pairs on the heap
         while merge_pairs:
             pair = heappop(merge_pairs)
@@ -351,9 +362,10 @@ class Cluster(object):
         Clust = namedtuple('Clust', ['docs', 'clust_id', 'subclusts'])
         clust1 = Clust(clust1.docs + clust2.docs, clust1.clust_id, clust1.subclusts + clust2.subclusts)
         # Update the new clust in list of clusts
-        for clust in list_of_clusts:
-            if clust.clust_id == clust1.clust_id:
-                clust = clust1
+        for i in range(0, len(list_of_clusts)):
+            current_clust = list_of_clusts[i]
+            if current_clust.clust_id == clust1.clust_id:
+                list_of_clusts[i] = clust1
                 break
         # Remove the second clust
         list_of_clusts = self._delete_clust(list_of_clusts, clust2)

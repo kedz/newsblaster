@@ -7,10 +7,12 @@ def main():
     maj_threshold = 0.2
     min_threshold = 0.5
     c = Cluster(input_type, seg_size, maj_threshold, min_threshold)
-    documents = os.listdir('../pres_root_dir_1/documents')
+    documents = sorted(os.listdir('../pres_root_dir_1/documents'))
     for i in range(0, len(documents)):
         documents[i] = os.path.join('../pres_root_dir_1/documents', documents[i])
-    c.fit(documents)
+    labels = c.fit(documents)
+    results = c.predict([documents[0], documents[3], documents[19]])
+    print results
 
 if __name__ == u'__main__':
     main()
