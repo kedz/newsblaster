@@ -15,8 +15,10 @@ import random
 import codecs
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+class Cluster(namedtuple('Cluster', ['docs', 'clust_id', 'subclusts'])):
+    pass
 
-class Cluster(object):
+class NewsblasterClusterizer(object):
     def __init__(self, p_input_type, p_seg_size, p_maj_threshold,
                  p_min_threshold, p_labels=[], p_documents=[]):
         self.input_type = p_input_type
@@ -34,14 +36,13 @@ class Cluster(object):
         cosine_distance = self._cosine_dis(tfidfs)
         docs_dist = self._compute_all_doc_dis(cosine_distance)
             
-        Clust = namedtuple('Clust', ['docs', 'clust_id', 'subclusts'])
         existing_clust = [] 
         if self.labels:
             existing_clust = self._create_clust_from_labels()
         
         list_of_clusts = []
         for i in range(0, len(p_documents)):
-            initialClust = Clust([original_len + i], i + len(existing_clust), [])
+            initialClust = Cluster([original_len + i], i + len(existing_clust), [])
             list_of_clusts.append(initialClust)
         
         # Fill in cluster distances
@@ -79,14 +80,14 @@ class Cluster(object):
             list_of_subclusts = []
             next_clust_id = 0
             for doc in superclust.docs:
-                subclust = Clust([doc], next_clust_id, [])
+                subclust = Cluster([doc], next_clust_id, [])
                 list_of_subclusts.append(subclust)
                 next_clust_id += 1
             list_of_subclusts = list_of_subclusts
             subclusts = self._merge_cluster_set(list_of_subclusts, docs_dist,
                                                clusts_dist,
                                                self.minor_threshold)
-            existing_clust[i] = Clust(superclust.docs, superclust.clust_id, subclusts[0])
+            existing_clust[i] = Cluster(superclust.docs, superclust.clust_id, subclusts[0])
         
         self.documents = self.documents + p_documents
         # Show result
@@ -129,7 +130,6 @@ class Cluster(object):
         return tfidfs
 
     def _create_clust(self):
-        Clust = namedtuple('Clust', ['docs', 'clust_id', 'subclusts'])
         existing_clusts = []
         num_doc = 0
         for row in self.labels:
@@ -142,22 +142,22 @@ class Cluster(object):
                     for j in range(0, len(superclust.subclusts)):
                         subclust = superclust.subclusts[j]
                         if subclust.id == subclust_id:
-                            superclust.subclusts[j]  = Clust(subclust.docs + \
+                            superclust.subclusts[j]  = Cluster(subclust.docs + \
                                                              [num_doc],
                                                              subclust.clust_id,
                                                               subclust.subclusts)
                             existing_clusts[i] = superclust
                             added = True
                     if not added:
-                        new_clust = Clust([numdoc],
+                        new_clust = Cluster([numdoc],
                                           subclust_id, [])
-                        existing_clust[i] = Clust(superclust.docs + [num_doc],
+                        existing_clust[i] = Cluster(superclust.docs + [num_doc],
                                             superclust.clust_id,
                                             superclust.subclusts + [new_clust])
                         added = True
             if not added:
-                new_subclust = Clust([numdoc], subclust_id, [])
-                new_superclust = Clust([numdoc], superclust_id,
+                new_subclust = Cluster([numdoc], subclust_id, [])
+                new_superclust = Cluster([numdoc], superclust_id,
                                        [new_subclust])
                 existing_clusts = existing_clusts + [new_superclust]
             num_doc = num_doc + 1
@@ -359,8 +359,7 @@ class Cluster(object):
                                               len(clust1.docs), dist_to_clust2,
                                               len(clust2.docs))
         # Combine the documents and subclusters of the two clusts
-        Clust = namedtuple('Clust', ['docs', 'clust_id', 'subclusts'])
-        clust1 = Clust(clust1.docs + clust2.docs, clust1.clust_id, clust1.subclusts + clust2.subclusts)
+        clust1 = Cluster(clust1.docs + clust2.docs, clust1.clust_id, clust1.subclusts + clust2.subclusts)
         # Update the new clust in list of clusts
         for i in range(0, len(list_of_clusts)):
             current_clust = list_of_clusts[i]
