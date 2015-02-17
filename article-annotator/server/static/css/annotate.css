@@ -1,0 +1,126 @@
+#htmlContent{
+	position: absolute;
+	display: block;
+	top: 0%;
+	left: 0%;
+	overflow: scroll;
+	width: 75%;
+	height: 80%;
+	border-style: solid;
+    border-width: 5px;
+}
+
+#sidebar{
+	position: fixed;
+	display: block;
+	top: 0%;
+	right: 0%;
+	width: 25%;
+	height: 80%;
+	padding: 5px;
+}
+
+#footer{
+	position: fixed;
+	padding-left: 20px;
+	display: block;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	height: 20%;
+}
+
+#nav{
+	margin: 0 auto;
+	width: 50%;
+}
+
+.mouseOn{
+	background-color: #bcd5eb !important;
+	outline: 2px solid #5166bb !important;
+}
+
+.title-brush{
+	background-color: #accbe8 !important;
+}
+
+.subtitle-brush{
+	background-color: #9295ca !important;
+}
+
+.section-title-brush{
+	background-color: #9eceb4 !important;
+}
+
+.author-brush{
+	background-color: #a9b2b1 !important;
+}
+
+.date-brush{
+	background-color: #cdb48c !important;
+}
+
+.location-brush{
+	background-color: #ffd602 !important;
+}
+
+.image-brush{
+	background-color: #e66665 !important;
+}
+
+.image-caption-brush{
+	background-color: #f47d43 !important;
+}
+
+.body-brush{
+	background-color: #ae70af !important;
+}
+
+.annotated_Title{
+	background-color: rgba(172, 203, 232, 0.5) !important;
+	outline: 2px solid #44515c !important;
+}
+
+.annotated_Subtitle{
+	background-color: rgba(146, 149, 202, 0.5) !important;
+	outline: 2px solid #3a3b50 !important;
+}
+
+.annotated_SectionTitle{
+	background-color: rgba(156, 206, 180, 0.5) !important;
+	outline: 2px solid #3f5248 !important;
+}
+
+.annotated_Author{
+	background-color: rgba(169, 178, 177, 0.5) !important;
+	outline: 2px solid #434746 !important;
+}
+
+.annotated_Date{
+	background-color: rgba(205, 180, 140, 0.5) !important;
+	outline: 2px solid #524838 !important;
+}
+
+.annotated_Location{
+	background-color: rgba(255, 214, 2, 0.5) !important;
+	outline: 2px solid #665500 !important;
+}
+
+.annotated_Image{
+	background-color: rgba(230, 102, 101, 0.5) !important;
+	outline: 2px solid #5c2828 !important;
+}
+
+.annotated_ImageCaption{
+	background-color: rgba(244, 125, 67, 0.5) !important;
+	outline: 2px solid #61321a !important;
+}
+
+.annotated_Body{
+	background-color: rgba(174, 112, 175, 0.5) !important;
+	outline: 2px solid #452c46 !important;
+}
+
+#save{
+	display: inline-block;
+}

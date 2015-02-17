@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>Article Annotator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/view.css')}}">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<div>
+    <div id='htmlContent'>
+        <p>{{contents | safe}}</p>
+    </div>
+
+    <div id="footer">
+        <h2> Current Article </h2>
+        <h4 id='path'>{{ filename }}</h4>
+    </div>
+</div>

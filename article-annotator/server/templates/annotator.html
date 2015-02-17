@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<title>Article Annotator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/annotate.css')}}">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<div>
+    <div id='htmlContent'>
+        <p>{{contents | safe}}</p>
+    </div>
+
+    <div id="sidebar">
+
+        <div id="palatte" class="list-group">
+          <a href="#" class="title-brush list-group-item">Title</a>
+          <a href="#" class="subtitle-brush list-group-item">Subtitle</a>
+          <a href="#" class="section-title-brush list-group-item">SectionTitle</a>
+          <a href="#" class="author-brush list-group-item">Author</a>
+          <a href="#" class="date-brush list-group-item">Date</a>
+          <a href="#" class="location-brush list-group-item">Location</a>
+          <a href="#" class="image-brush list-group-item">Image</a>
+          <a href="#" class="image-caption-brush list-group-item">ImageCaption</a>
+          <a href="#" class="body-brush list-group-item">Body</a>
+        </div>
+
+        <h3 id="selectedBrushText">Selected Brush: None</h3>
+        <button class="btn btn-primary btn-med"onclick="undo()">Undo</button>
+        <br>
+        <br>
+        <div id="nav">
+          <a href="http://localhost:5000/todo"><button class="btn btn-danger btn-med">Todo</button></a>
+          <a href="http://localhost:5000/done"><button class="btn btn-success btn-med">Done</button></a>
+        </div>
+    </div>
+
+    <div id="footer">
+        <h2> Current Article </h2>
+        <h4 id='path'>{{ filename }}</h4>
+        <button id="save" class="btn btn-primary btn-med" onclick="saveHTML()">Save Annotations</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-2.1.1.js')}}"></script>
+<script src="{{ url_for('static', filename='js/highlighter.js')}}"></script>

@@ -1,21 +1,34 @@
-.mouseOn{
-	background-color: #bcd5eb !important;
-	outline: 2px solid #5166bb !important;
-}
-
 #htmlContent{
-	z-index: -100;
+	position: absolute;
+	display: block;
+	top: 0%;
+	left: 0%;
+	overflow: scroll;
+	width: 100%;
+	height: 80%;
+	border-style: solid;
+    border-width: 5px;
 }
 
-.stickyToolbar {  
-    position: fixed;  
-    width: 100%;  
-    left: 80%;  
-    top: 0;  
-    z-index: 100;  
-    border-top: 0;  
-    background: #FFFFF;
-} 
+#sidebar{
+	position: fixed;
+	display: block;
+	top: 0%;
+	right: 0%;
+	width: 25%;
+	height: 80%;
+	padding: 5px;
+}
+
+#footer{
+	position: fixed;
+	padding-left: 20px;
+	display: block;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	height: 20%;
+}
 
 .annotated_Title{
 	background-color: #accbe8 !important;
@@ -53,11 +66,11 @@
 }
 
 .annotated_ImageCaption{
-	background-color: #f47d43 !important;
+	background-color: rgba(244, 125, 67) !important;
 	outline: 2px solid #61321a !important;
 }
 
 .annotated_Body{
-	background-color: #ae70af !important;
+	background-color: rgba(174, 112, 175, 0.5) !important;
 	outline: 2px solid #452c46 !important;
 }

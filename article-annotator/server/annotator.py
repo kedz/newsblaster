@@ -29,11 +29,17 @@ dest_dir = sys.argv[2]
 
 from flask import Flask
 from flask import render_template
+from flask import request
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-	pass
+	files = list()
+
+	for filename in os.listdir(source_dir):
+		files.append(filename)
+
+	return render_template('todo.html', files=files)
 
 # List unannotated articles
 @app.route('/todo')
@@ -41,7 +47,6 @@ def todo(files=None):
 	files = list()
 
 	for filename in os.listdir(source_dir):
-		print filename
 		files.append(filename)
 
 	return render_template('todo.html', files=files)
@@ -52,7 +57,6 @@ def done(files=None):
 	files = list()
 
 	for filename in os.listdir(dest_dir):
-		print filename
 		files.append(filename)
 
 	return render_template('done.html', files=files)
@@ -61,28 +65,80 @@ def done(files=None):
 @app.route('/annotate/<article_path>')
 def annotate(article_path):
 
+	# Correct path
 	path = os.path.join(source_dir, article_path)
 
+	# Open file
 	fo = open(path)
 	contents = fo.read();
 
 	# Close opened file
 	fo.close()
 
+	# Pick <body> out of HTML
 	m = re.search(r"<body[^>]*>(.*?)</body>", contents, re.DOTALL)
 	contents = m.group(1)
 
-	return render_template('annotate.html', contents=contents)
+	cts = contents.decode('utf-8')
+
+	# Render Annotator + Article
+	return render_template('annotator.html', filename=article_path, contents=cts)
 
 # View an annotated article
 @app.route('/view/<article_path>')
 def view(article_path):
-	pass
+	# Correct path
+	path = os.path.join(dest_dir, article_path)
+
+	# Open file
+	fo = open(path)
+	contents = fo.read();
+	cts = contents.decode('utf-8')
+
+	# Close opened file
+	fo.close()
+
+	# Render Annotator + Article
+	return render_template('view.html', filename=article_path, contents=cts)
 
 # Save annotated articles
-@app.route('/save/<article_path>', methods=['POST'])
-def save(article_path):
-	pass
+@app.route('/save/', methods=['POST'])
+def save():
+	# Correct path
+	article_path = request.form['filename']
+	path = os.path.join(dest_dir, article_path + ".annotation")
+
+	# Create file
+	fo = open(path, "wb+")
+
+	# Write files to disk
+	contents = request.form['content']
+	cts = contents.encode('utf-8')
+	fo.write(cts)
+
+	# Close file
+	fo.close()
+
+	# Find out where we are in the list of articles to complete
+	files = os.listdir(source_dir)
+	file_idx = files.index(article_path + ".html")
+
+	# Delete source file
+	done_file = os.path.join(source_dir, article_path + ".html")
+	os.remove(done_file)
+
+	# If not the last article
+	if(file_idx != len(files)):
+		# Iterate to next article
+		next_file = files[file_idx + 1]
+
+		# Return url of next article for redirect
+		return "http://localhost:5000/annotate/" + next_file
+	else:
+		# Return list of finished articles
+		return "http://localhost:5000/done"
+
+	return "NULL"
 
 if __name__ == '__main__':
     app.run(debug=True)

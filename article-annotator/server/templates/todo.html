@@ -1,6 +1,15 @@
-<title>{% block title %}{% endblock %}</title>
-<ul>
+<!DOCTYPE html>
+<title>Article Annotator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='todo_done.css')}}">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<ul class="list-group">
 {% for file in files %}
-  <li><a href="annotate/{{ file }}">{{ file }}</a></li>
+  <li class="list-group-item"><a href="annotate/{{ file }}">{{ file }}</a></li>
 {% endfor %}
 </ul>
