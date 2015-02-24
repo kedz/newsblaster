@@ -71,3 +71,23 @@ class NBClassifier():
 		y_pred = clf.predict(X_test)
 
 		print classification_report(y_test, y_pred)
+
+def usage():
+    print """
+    python NBClassifier.py [folder_of_annotated_articles]
+        Read in article files in the training set and
+        train Naive Bayes Classifier. Then, predict tags for 
+        each example and compare against training set.
+    """
+
+# Run the classifier
+if __name__ == "__main__":
+
+    if len(sys.argv)!=2: # Expect exactly one argument: the folder of annotated articles
+        usage()
+        sys.exit(2)
+
+    # Initialize NBClassifier()
+    n = NBClassifier()
+    # Run classify on the annotation_folder
+    n.classify(sys.argv[1])

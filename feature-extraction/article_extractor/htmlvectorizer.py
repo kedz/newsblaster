@@ -45,6 +45,8 @@ class HTMLVectorizer():
 
                     features = charm.compute_features(text)
 
+                    # Add Parent, Gparent, GGparent
+
                     # Add tag_name to features
                     features['tag_name'] = node.name
                     features['textn_id'] = textn_id
@@ -56,7 +58,7 @@ class HTMLVectorizer():
                 example['textn_id'] /= float(textn_id)
                 example['offset'] /= float(offset)
 
-        X.extend(x_temp)
+            X.extend(x_temp)
 
         # Return list of character feature vectors + labels
         return [X, Y]
@@ -81,3 +83,5 @@ class HTMLVectorizer():
         X = self.v.transform(result[0])
         Y = result[1]
         return [X, Y]
+
+# Run the annotator

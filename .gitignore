@@ -1,5 +1,8 @@
 *.pyc
 env
+article_annotator/server/annotated_articles
+article_annotator/server/test_articles
+feature-extraction/annotated_articles
 
 # Created by https://www.gitignore.io
 
