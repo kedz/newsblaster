@@ -2,7 +2,7 @@
 # Author: Ramzi Abdoch
 #
 # Usage:
-#	- NBClassifier.classify(folder_path) 
+#	- NBClassifier.classify(folder_path)
 #
 # Output:
 #   - Results of classifier on training data in folder
@@ -55,7 +55,8 @@ class NBClassifier():
 		## TESTING ##
 		#############
 
-		kf = KFold(len(y), n_folds=4, shuffle=True)
+		# n - 1 fold cross validation (leave-one-out)
+		kf = KFold(len(y), n_folds=len(y) - 1, shuffle=True)
 		print kf
 
 		for train_index, test_index in kf:

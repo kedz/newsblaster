@@ -1,18 +1,15 @@
-# Naive Bayes Classifier for Newsblaster
+# Logistic Regression Classifier for Newsblaster
 # Author: Ramzi Abdoch
-#
-# Usage:
-#	- NBClassifier.classify(folder_path)
-#
-# Output:
-#   - Results of classifier on training data in folder
 #
 # * Files in folder are of file_type .annotation
 
-# SciKit Learn: Naive Bayes + Classification Reporting
-from sklearn.linear_model import LogisticRegression
+# SciKit Learn: Logistic Regression
+from sklearn import linear_model
 from sklearn.cross_validation import KFold
-from sklearn.metrics import classification_report
+from sklearn.svm import l1_min_c
+
+# Import MathPlotLib
+import matplotlib.pyplot as plt
 
 # Numpy
 import numpy as np
@@ -24,9 +21,9 @@ import os
 # HTMLVectorizer
 from article_extractor import htmlvectorizer
 
-class NBClassifier():
+class LogRClassifier():
 
-	def classify(self, folder):
+	def get_weights(self, folder):
 
 		# Initialize HTMLVectorizer
 		hv = htmlvectorizer.HTMLVectorizer()
@@ -51,23 +48,56 @@ class NBClassifier():
 		# Turn y into numpy array
 		y = np.array(y)
 
-		#############
-		## TESTING ##
-		#############
+		cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
 
-		kf = KFold(len(y), n_folds=4, shuffle=True)
-		print kf
+		#start = datetime.now()
 
-		for train_index, test_index in kf:
-			print("TRAIN:", train_index, "TEST:", test_index)
-			X_train, X_test = X[train_index], X[test_index]
-			y_train, y_test = y[train_index], y[test_index]
+		clf = linear_model.LogisticRegression(C=1.0, penalty='l1', tol=1e-6)
+		coefs_ = []
+		for c in cs:
+			print "ANOTHER ONE BITES THE DUST"
+			clf.set_params(C=c)
+			clf.fit(X, y)
+			coefs_.append(clf.coef_.ravel().copy())
 
-		# Run SciKit Naive Bayes Classifier
-		clf = MultinomialNB()
-		clf.fit(X_train, y_train)
+		#print("This took ", datetime.now() - start)
 
-		# Run the classifier over the training data and report success
-		y_pred = clf.predict(X_test)
+		coefs_ = np.array(coefs_)
+		plt.plot(np.log10(cs), coefs_)
+		ymin, ymax = plt.ylim()
+		plt.xlabel('log(C)')
+		plt.ylabel('Coefficients')
+		plt.title('Logistic Regression Path')
+		plt.axis('tight')
+		plt.savefig("lr_lasso.png")
 
-		print classification_report(y_test, y_pred)
+		# # Run SciKit Logistic Regression Classifier
+		# clf = LogisticRegression(C=0.01, penalty="l1")
+		# res = clf.fit_transform(X, y)
+
+		# print res
+
+def usage():
+    print """
+    python log_reg.py [folder_of_annotated_articles]
+        Read in article files in the training set and
+        train Logistic Regression Classifier. Then,
+        determine weights of features for each class
+        and sort.
+
+    output:
+		sorted set of class-conditional weights for each feature in the training set
+    """
+
+# Run the classifier
+if __name__ == "__main__":
+
+    if len(sys.argv)!=2: # Expect exactly one argument: the folder of annotated articles
+        usage()
+        sys.exit(2)
+
+    # Initialize NBClassifier()
+    lr = LogRClassifier()
+    # Run classify on the annotation_folder
+    lr.get_weights(sys.argv[1])
+
