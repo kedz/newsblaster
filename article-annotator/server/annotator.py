@@ -76,13 +76,16 @@ def annotate(article_path):
 	fo.close()
 
 	# Pick <body> out of HTML
-	m = re.search(r"<body[^>]*>(.*?)</body>", contents, re.DOTALL)
-	contents = m.group(1)
+	b = re.search(r"<body[^>]*>(.*?)</body>", contents, re.DOTALL)
+	body = b.group(1)
+	body = body.decode('utf-8')
 
-	cts = contents.decode('utf-8')
+	# Replace links (<a>) with <a-disabled>
+	# body = body.replace("<a>", "<a-disabled>")
+	# body = body.replace("</a>", "</a-disabled>")
 
 	# Render Annotator + Article
-	return render_template('annotator.html', filename=article_path, contents=cts)
+	return render_template('annotator.html', filename=article_path, contents=body)
 
 # View an annotated article
 @app.route('/view/<article_path>')
@@ -92,39 +95,59 @@ def view(article_path):
 
 	# Open file
 	fo = open(path)
-	contents = fo.read();
-	cts = contents.decode('utf-8')
+	contents = fo.read()
 
 	# Close opened file
 	fo.close()
 
+	# Pick <body> out of HTML
+	b = re.search(r"<body[^>]*>(.*?)</body>", contents, re.DOTALL)
+	body = b.group(1)
+	body = body.decode('utf-8')
+
 	# Render Annotator + Article
-	return render_template('view.html', filename=article_path, contents=cts)
+	return render_template('view.html', filename=article_path, contents=body)
 
 # Save annotated articles
 @app.route('/save/', methods=['POST'])
 def save():
 	# Correct path
 	article_path = request.form['filename']
-	path = os.path.join(dest_dir, article_path + ".annotation")
+	path = os.path.join(dest_dir, article_path + u".annotation")
+
+	# Pick <head> out of HTML
+	original_file_path = os.path.join(source_dir, article_path + u".html")
+	of = open(original_file_path)
+
+	# Read original_file
+	of_contents = of.read()
+
+	h = re.search(r"<head[^>]*>(.*?)</head>", of_contents, re.DOTALL)
+	head = h.group(1)
+	head = "<head>\n" + head + "\n</head>"
 
 	# Create file
 	fo = open(path, "wb+")
 
 	# Write files to disk
 	contents = request.form['content']
-	cts = contents.encode('utf-8')
-	fo.write(cts)
+	body = contents.encode('utf-8')
+
+	body = "<body>\n" + body + "\n</body>"
+
+	# Write head + annotation in .annotation
+	fo.write(head)
+	fo.write(body)
 
 	# Close file
 	fo.close()
 
 	# Find out where we are in the list of articles to complete
 	files = os.listdir(source_dir)
-	file_idx = files.index(article_path + ".html")
+	file_idx = files.index(article_path + u".html")
 
 	# Delete source file
-	done_file = os.path.join(source_dir, article_path + ".html")
+	done_file = os.path.join(source_dir, article_path + u".html")
 	os.remove(done_file)
 
 	# If not the last article
@@ -138,7 +161,7 @@ def save():
 		# Return list of finished articles
 		return "http://localhost:5000/done"
 
-	return "NULL"
+	return u"NULL"
 
 if __name__ == '__main__':
     app.run(debug=True)
