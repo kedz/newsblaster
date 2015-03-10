@@ -7,6 +7,7 @@
 from sklearn import linear_model
 from sklearn.cross_validation import KFold
 from sklearn.svm import l1_min_c
+from sklearn.metrics import classification_report
 
 # Import MathPlotLib
 import matplotlib.pyplot as plt
@@ -18,35 +19,47 @@ import numpy as np
 import sys
 import os
 
+# Pickle
+import pickle
+
 # HTMLVectorizer
 from article_extractor import htmlvectorizer
 
+import random
+
+
 class LogRClassifier():
 
-	def get_weights(self, folder):
+	def sample(self, path):
+		with open(path, "r") as f:
+			X, y = pickle.load(f)
+			print X.shape
 
-		# Initialize HTMLVectorizer
-		hv = htmlvectorizer.HTMLVectorizer()
+		X_none = X[np.where(y=="None")]
+		y_none = y[np.where(y=="None")]
+		X_something = X[np.where(y!="None")]
+		y_something = y[np.where(y!="None")]
 
-		# Files to open
-		an_files = list()
+		indexes = range(X_none.shape[0])
+		random.shuffle(indexes)
 
-		# Build list of dicts from .annotation files in folder (argv)
-		for filename in os.listdir(folder):
-			path = os.path.join(folder, filename)
-			an_files.append(path)
+		new_idxs = indexes[:X_something.shape[0]]
+		X_none_sampled = X_none[new_idxs,:]
+		y_none_sampled = y_none[new_idxs]
 
-		# Build X & Y
-		X = list()
-		y = list()
+		X_new = np.vstack([X_none_sampled, X_something])
+		y_new = np.vstack([y_none_sampled[:,np.newaxis], y_something[:,np.newaxis]])
 
-		# Get Matrix of Vectors for all files
-		hv_result = hv.fit_transform(an_files)
-		X = hv_result[0]
-		y = hv_result[1]
+		final_idxs = range(X_new.shape[0])
+		random.shuffle(final_idxs)
 
-		# Turn y into numpy array
-		y = np.array(y)
+		self.X = X_new[final_idxs, :]
+		self.y = y_new[final_idxs]
+
+	def get_weights(self):
+
+		X = self.X
+		y = self.y.reshape(self.y.shape[0])
 
 		cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
 
@@ -54,6 +67,11 @@ class LogRClassifier():
 
 		clf = linear_model.LogisticRegression(C=1.0, penalty='l1', tol=1e-6)
 		coefs_ = []
+
+		# clf.set_params(C=cs[0])
+		# clf.fit(X, y)
+		# coefs_.append(clf.coef_.ravel().copy())
+
 		for c in cs:
 			print "ANOTHER ONE BITES THE DUST"
 			clf.set_params(C=c)
@@ -69,13 +87,10 @@ class LogRClassifier():
 		plt.ylabel('Coefficients')
 		plt.title('Logistic Regression Path')
 		plt.axis('tight')
+		#plt.show()
 		plt.savefig("lr_lasso.png")
 
-		# # Run SciKit Logistic Regression Classifier
-		# clf = LogisticRegression(C=0.01, penalty="l1")
-		# res = clf.fit_transform(X, y)
-
-		# print res
+		print "Done!"
 
 def usage():
     print """
@@ -98,6 +113,8 @@ if __name__ == "__main__":
 
     # Initialize NBClassifier()
     lr = LogRClassifier()
+    # Sample data
+    lr.sample(sys.argv[1])
     # Run classify on the annotation_folder
-    lr.get_weights(sys.argv[1])
+    lr.get_weights()
 
