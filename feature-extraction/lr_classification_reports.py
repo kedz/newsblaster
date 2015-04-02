@@ -33,11 +33,18 @@ class LogRClassifier():
 			X, y, hv, le = pickle.load(f)
 			print X.shape
 
-		X_none = X[np.where(y=="None")]
-		y_none = y[np.where(y=="None")]
-		X_something = X[np.where(y!="None")]
-		y_something = y[np.where(y!="None")]
+		# Find which class corresponds to None
+		none_idx = le.classes_.index('None')
 
+		# Find all None labeled examples and their corresponding labels
+		X_none = X[np.where(y==none_idx)]
+		y_none = y[np.where(y==none_idx)]
+
+		# Find other labeled examples
+		X_something = X[np.where(y!=none_idx)]
+		y_something = y[np.where(y!=none_idx)]
+
+		# Randomly sample # of other labels from examples labeled None
 		indexes = range(X_none.shape[0])
 		random.shuffle(indexes)
 
@@ -88,6 +95,9 @@ class LogRClassifier():
 
 				# Run Logistic Regression
 				clf.fit(X_train, y_train)
+
+				print clf.raw_coef_
+				print clf.raw_coef_.shape
 
 				coefs_sum += clf.coef_
 

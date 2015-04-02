@@ -6,7 +6,8 @@ from charmeleon import Charmeleon
 
 class HTMLVectorizer():
 
-    v = DictVectorizer(sparse=False)
+    def __init__(self):
+        self.v = DictVectorizer(sparse=False)
 
     def html_iter(self, files):
         # Build Y = [labels], X = feature matrix
@@ -83,5 +84,3 @@ class HTMLVectorizer():
         X = self.v.transform(result[0])
         Y = result[1]
         return [X, Y]
-
-# Run the annotator

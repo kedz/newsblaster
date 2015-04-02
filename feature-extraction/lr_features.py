@@ -27,16 +27,23 @@ class LogRClassifier():
 
 	def sample(self, path):
 		with open(path, "r") as f:
-			X, y = pickle.load(f)
+			X, y, hv, le = pickle.load(f)
 			print X.shape
 
 		# Sklearn preprocessing label encoder
 
-		X_none = X[np.where(y=="None")]
-		y_none = y[np.where(y=="None")]
-		X_something = X[np.where(y!="None")]
-		y_something = y[np.where(y!="None")]
+		# Find which class corresponds to None
+		none_idx = le.transform(['None'])[0]
 
+		# Find all None labeled examples and their corresponding labels
+		X_none = X[np.where(y==none_idx)]
+		y_none = y[np.where(y==none_idx)]
+
+		# Find other labeled examples
+		X_something = X[np.where(y!=none_idx)]
+		y_something = y[np.where(y!=none_idx)]
+
+		# Randomly sample # of other labels from examples labeled None
 		indexes = range(X_none.shape[0])
 		random.shuffle(indexes)
 
@@ -52,8 +59,10 @@ class LogRClassifier():
 
 		self.X = X_new[final_idxs, :]
 		self.y = y_new[final_idxs]
+		self.hv = hv
+		self.le = le
 
-	def get_non_0_weights(self, weight_matrix):
+	def get_non_0_weights(self, weight_matrix, example, hv, le):
 		results = list()
 
 		# iterate through classes
@@ -63,7 +72,10 @@ class LogRClassifier():
 				# check if weight is non-zero
 				if(weight_matrix[i][j] != 0):
 					# Triple of [class][feature][weight]
-					triple = tuple([i,j,weight_matrix[i][j]])
+					cls = le.classes_[i]
+					feat = hv.v.inverse_transform(example).keys()[j]
+
+					triple = tuple([cls,feat,weight_matrix[i][j]])
 					results.append(triple)
 
 		return results
@@ -72,6 +84,8 @@ class LogRClassifier():
 
 		X = self.X
 		y = self.y.reshape(self.y.shape[0])
+		hv = self.hv
+		le = self.le
 
 		cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
 
@@ -95,7 +109,8 @@ class LogRClassifier():
 		print("This took ", datetime.now() - start)
 
 		# Find non-zero coefficients
-		print self.get_non_0_weights(normal_coef)
+		example = X[0]
+		print self.get_non_0_weights(normal_coef, example, hv, le)
 
 		coefs_ = np.array(coefs_)
 
