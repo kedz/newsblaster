@@ -106,7 +106,7 @@ class LogRClassifier():
 			coefs_.append(normal_coef.ravel())
 
 		# Print duration
-		print("This took ", datetime.now() - start)
+		print("This took %s" % str(datetime.now() - start))
 
 		# Find non-zero coefficients
 		print self.get_non_0_weights(normal_coef, hv, le)
