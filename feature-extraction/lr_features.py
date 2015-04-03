@@ -87,7 +87,8 @@ class LogRClassifier():
 		hv = self.hv
 		le = self.le
 
-		cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
+		#cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
+		cs = [1]
 
 		# Start the clock
 		start = datetime.now()

@@ -28,6 +28,8 @@ class HTMLVectorizer():
             depth = 0       # Depth: depth of the node in the DOM tree
 
             # Find all text nodes
+
+            # What if instead, I used soup.strings?
             text_nodes = soup.find_all(text=True)
             x_temp = list()
 
@@ -50,9 +52,11 @@ class HTMLVectorizer():
                     features = charm.compute_features(text)
 
                     # Add Parent, Gparent, GGparent
-                    features['parent'] = node.parent.name
-                    features['gparent'] = node.parent.parent.name
-                    features['ggparent'] = node.parent.parent.parent.name
+                    if node.parent != None :
+                        features['parent'] = node.parent.name
+                        #print "Has parent", node.parent
+                        if node.parent.parent != None:
+                            features['gparent'] = node.parent.parent.name
 
                     # Add tag_name to features
                     features['tag_name'] = node.name
