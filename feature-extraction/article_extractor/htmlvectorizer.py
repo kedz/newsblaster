@@ -42,12 +42,17 @@ class HTMLVectorizer():
 
                     if node.has_attr('annotation'):
                         Y.append(node['annotation'])
+                    elif node.has_attr(''):
+                        Y.append("None")
                     else:
                         Y.append("None")
 
                     features = charm.compute_features(text)
 
                     # Add Parent, Gparent, GGparent
+                    features['parent'] = node.parent.name
+                    features['gparent'] = node.parent.parent.name
+                    features['ggparent'] = node.parent.parent.parent.name
 
                     # Add tag_name to features
                     features['tag_name'] = node.name
