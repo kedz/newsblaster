@@ -62,7 +62,7 @@ class LogRClassifier():
 		self.hv = hv
 		self.le = le
 
-	def get_non_0_weights(self, weight_matrix, example, hv, le):
+	def get_non_0_weights(self, weight_matrix, hv, le):
 		results = list()
 
 		# iterate through classes
@@ -73,7 +73,7 @@ class LogRClassifier():
 				if(weight_matrix[i][j] != 0):
 					# Triple of [class][feature][weight]
 					cls = le.classes_[i]
-					feat = hv.v.inverse_transform(example).keys()[j]
+					feat = hv.v.get_feature_names()[j]
 
 					triple = tuple([cls,feat,weight_matrix[i][j]])
 					results.append(triple)
@@ -109,19 +109,7 @@ class LogRClassifier():
 		print("This took ", datetime.now() - start)
 
 		# Find non-zero coefficients
-		example = X[0]
-		print self.get_non_0_weights(normal_coef, example, hv, le)
-
-		coefs_ = np.array(coefs_)
-
-		plt.plot(np.log10(cs), coefs_)
-		ymin, ymax = plt.ylim()
-		plt.xlabel('log(C)')
-		plt.ylabel('Coefficients')
-		plt.title('Logistic Regression Path')
-		plt.axis('tight')
-		plt.show()
-		#plt.savefig("lr_lasso.png")
+		print self.get_non_0_weights(normal_coef, hv, le)
 
 		print "Done!"
 

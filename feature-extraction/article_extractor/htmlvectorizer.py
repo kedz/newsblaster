@@ -7,6 +7,7 @@ from charmeleon import Charmeleon
 class HTMLVectorizer():
 
     def __init__(self):
+        # Change to sparse = True?
         self.v = DictVectorizer(sparse=False)
 
     def html_iter(self, files):
