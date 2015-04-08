@@ -109,7 +109,7 @@ function stripCSS(s) {
 // Save Resulting HTML
 function saveHTML(){
 	var html = $('#htmlContent').clone();
-	var htmlString = html.html();
+    var htmlString = html.html();
 
   var cleanHTML = stripScripts(htmlString);
 
@@ -132,6 +132,31 @@ function saveHTML(){
   $.ajax({
     type: "POST",
     url: "http://localhost:5000/save/",
+    data: data,
+    success: success,
+    dataType: "html"
+  });
+}
+
+// Save Resulting HTML
+function skip(){
+
+  var filename = $('#path').html();
+  var end_idx = filename.indexOf(".html");
+  filename = filename.substring(0,end_idx)
+
+  data = {
+    filename: filename
+  }
+
+  var success = function(data){
+    console.log("Success!")
+    window.location=data
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:5000/skip/",
     data: data,
     success: success,
     dataType: "html"

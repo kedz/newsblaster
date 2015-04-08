@@ -14,7 +14,7 @@
 #	2. users can request /todo or /done to see a list
 #		of articles that need annotation and have been
 #		annotated already
-#	3. from the /todo page, users can select an article and route to 
+#	3. from the /todo page, users can select an article and route to
 #		/annotate/<article_path>
 #		- <article_path> is the path of the article in the <source_dir>
 #
@@ -81,8 +81,8 @@ def annotate(article_path):
 	body = body.decode('utf-8')
 
 	# Replace links (<a>) with <a-disabled>
-	# body = body.replace("<a>", "<a-disabled>")
-	# body = body.replace("</a>", "</a-disabled>")
+	body = re.sub(r"<a([^>]*)>(.*?)</a>", r"<a-disabled \1>\2</a-disabled>", body, flags=re.DOTALL|re.MULTILINE)
+	#body = body.replace("</a>", "</a-disabled>")
 
 	# Render Annotator + Article
 	return render_template('annotator.html', filename=article_path, contents=body)
@@ -141,6 +141,33 @@ def save():
 
 	# Close file
 	fo.close()
+
+	# Find out where we are in the list of articles to complete
+	files = os.listdir(source_dir)
+	file_idx = files.index(article_path + u".html")
+
+	# Delete source file
+	done_file = os.path.join(source_dir, article_path + u".html")
+	os.remove(done_file)
+
+	# If not the last article
+	if(file_idx != len(files)):
+		# Iterate to next article
+		next_file = files[file_idx + 1]
+
+		# Return url of next article for redirect
+		return "http://localhost:5000/annotate/" + next_file
+	else:
+		# Return list of finished articles
+		return "http://localhost:5000/done"
+
+	return u"NULL"
+
+# Skip Article (and delete file)
+@app.route('/skip/', methods=['POST'])
+def skip():
+	# Correct path
+	article_path = request.form['filename']
 
 	# Find out where we are in the list of articles to complete
 	files = os.listdir(source_dir)
