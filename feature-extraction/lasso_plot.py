@@ -30,8 +30,8 @@ class LassoPlotter():
 	def __init__(self, data_path):
 		self.lr_w = LRWeights()
 		self.lr_w.sample(data_path)
-		self.X = lr_w.X
-		self.y = lr_w.y
+		self.X = self.lr_w.X
+		self.y = self.lr_w.y
 
 	def plot(self):
 

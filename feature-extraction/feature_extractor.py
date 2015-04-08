@@ -71,5 +71,6 @@ if __name__ == "__main__":
     fe = FeatureExtractor(hv, le)
 
     # Get non-zero weights
-    print fe.get_non_0_weights(weights)
+    for item in fe.get_non_0_weights(weights):
+        print item
 
