@@ -57,6 +57,8 @@ class HTMLVectorizer():
                         #print "Has parent", node.parent
                         if node.parent.parent != None:
                             features['gparent'] = node.parent.parent.name
+                            if node.parent.parent.parent != None:
+                                features['ggparent'] = node.parent.parent.parent.name
 
                     # Add tag_name to features
                     features['tag_name'] = node.name

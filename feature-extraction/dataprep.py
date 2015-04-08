@@ -11,6 +11,7 @@ import os
 # HTMLVectorizer
 from article_extractor import htmlvectorizer
 
+# Sklearn Label Encoder (to keep labels consistent)
 from sklearn.preprocessing import LabelEncoder
 
 # Numpy
@@ -18,57 +19,57 @@ import numpy as np
 
 class DataPrep():
 
-	def prep(self, folder):
-		# Initialize HTMLVectorizer
-		hv = htmlvectorizer.HTMLVectorizer()
+    def prep(self, folder):
+        # Initialize HTMLVectorizer
+        hv = htmlvectorizer.HTMLVectorizer()
 
-		# Files to open
-		an_files = list()
+        # Files to open
+        an_files = list()
 
-		# Build list of dicts from .annotation files in folder (argv)
-		for filename in os.listdir(folder):
-			path = os.path.join(folder, filename)
-			an_files.append(path)
+        # Build list of dicts from .annotation files in folder (argv)
+        for filename in os.listdir(folder):
+            path = os.path.join(folder, filename)
+            an_files.append(path)
 
-		# Build X & Y
-		X = list()
-		y = list()
+        # Build X & Y
+        X = list()
+        y = list()
 
-		# Get Matrix of Vectors for all files
-		hv_result = hv.fit_transform(an_files)
-		X = hv_result[0]
-		y = hv_result[1]
+        # Get Matrix of Vectors for all files
+        hv_result = hv.fit_transform(an_files)
+        X = hv_result[0]
+        y = hv_result[1]
 
-		le = LabelEncoder()
-		y = le.fit_transform(y)
+        le = LabelEncoder()
+        y = le.fit_transform(y)
 
-		# Turn y into numpy array
-		y = np.array(y)
+        # Turn y into numpy array
+        y = np.array(y)
 
-		return X, y, hv, le
+        return X, y, hv, le
 
 def usage():
     print """
 
     output:
-		sorted set of class-conditional weights for each feature in the training set
+        sorted set of class-conditional weights for each feature in the training set
     """
 
-# Run the classifier
+# Run the data preparation
 if __name__ == "__main__":
 
-    if len(sys.argv)!=3: # Expect exactly one argument: the folder of annotated articles
-        usage()
+    if len(sys.argv)!=3:        # Expect exactly two arguments: the folder
+        usage()                 # of annotated articles and output file name
         sys.exit(2)
 
-    # Initialize NBClassifier()
+    # Initialize DataPrep
     dp = DataPrep()
 
-    # Run classify on the annotation_folder
+    # Run prep on the annotation_folder
     [X, y, hv, le] = dp.prep(sys.argv[1])
 
     filename = sys.argv[2]
 
     # Write to file
     with open(filename, "w") as f:
-		pickle.dump([X, y, hv, le], f)
+        pickle.dump([X, y, hv, le], f)
