@@ -38,7 +38,8 @@ class LassoPlotter():
 		X = self.X
 		y = self.y.reshape(self.y.shape[0])
 
-		cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
+		#cs = l1_min_c(X, y, loss="log") * np.logspace(0,3)
+		cs = np.linspace(np.exp(-6), np.exp(1))
 
 		coefs_ = []
 

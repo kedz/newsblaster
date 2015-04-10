@@ -50,10 +50,16 @@ if __name__ == "__main__":
     body_class_idx = le.transform(['Body'])[0]
     body_idxs = np.where(y==body_class_idx)
 
-    print 'Size of X :', X.shape
-    print 'Length of y :', len(y)
-
     y_body = np.zeros(len(y))
+
+    print 'Size of X :', X.shape
+    print 'Length of y :', len(y), len(y_body)
+
+    print 'Lenght of body_idxs', len(body_idxs)
+
+    for item in body_idxs:
+        print item
+
     y_body[body_idxs] = body_class_idx
 
     # Get weights of trained LR classifier for Body
