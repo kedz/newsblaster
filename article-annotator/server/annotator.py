@@ -136,6 +136,9 @@ def save():
 	body = "<body>\n" + body + "\n</body>"
 
 	# Write head + annotation in .annotation
+	print head
+	print body
+
 	fo.write(head)
 	fo.write(body)
 
