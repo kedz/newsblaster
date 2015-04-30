@@ -31,14 +31,8 @@ class DataPrep():
             path = os.path.join(folder, filename)
             an_files.append(path)
 
-        # Build X & Y
-        X = list()
-        y = list()
-
         # Get Matrix of Vectors for all files
-        hv_result = hv.fit_transform(an_files)
-        X = hv_result[0]
-        y = hv_result[1]
+        [X, y, doc_idxs] = hv.fit_transform(an_files)
 
         le = LabelEncoder()
         y = le.fit_transform(y)
@@ -46,7 +40,7 @@ class DataPrep():
         # Turn y into numpy array
         y = np.array(y)
 
-        return X, y, hv, le
+        return X, y, hv, le, doc_idxs
 
 def usage():
     print """
@@ -66,10 +60,10 @@ if __name__ == "__main__":
     dp = DataPrep()
 
     # Run prep on the annotation_folder
-    [X, y, hv, le] = dp.prep(sys.argv[1])
+    [X, y, hv, le, doc_idxs] = dp.prep(sys.argv[1])
 
     filename = sys.argv[2]
 
     # Write to file
     with open(filename, "w") as f:
-        pickle.dump([X, y, hv, le], f)
+        pickle.dump([X, y, hv, le, doc_idxs], f)

@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 from sklearn.feature_extraction import DictVectorizer
 
 from collections import defaultdict
-from charmeleon import Charmeleon
+from BoWser import BoWser
+#from charmeleon import Charmeleon
 
 class HTMLVectorizer():
 
@@ -14,12 +15,18 @@ class HTMLVectorizer():
         # Build Y = [labels], X = feature matrix
         Y = list()
         X = list()
+        curr_id = 0
+        doc_idxs = list()
 
         # Calculate character features for each text node
-        charm = Charmeleon()
+        #charm = Charmeleon()
 
         for f in files:
-            soup = BeautifulSoup(open(f))
+            # Open doc for reading, save doc (line-delimited?), and put doc into BS
+            doc = open(f)
+            doc_idxs.append(curr_id + 1)
+
+            soup = BeautifulSoup(doc)
 
             # Initialize Document features
             n_id = 0        # Node ID: ith Node traversed in the DOM tree
@@ -27,8 +34,10 @@ class HTMLVectorizer():
             offset = 0      # Offset: Position relative to the document
             depth = 0       # Depth: depth of the node in the DOM tree
 
-            # Find all text nodes
+            # Prep BoWser
+            bowser = BoWser(soup)
 
+            # Find all text nodes
             # What if instead, I used soup.strings?
             text_nodes = soup.find_all(text=True)
             x_temp = list()
@@ -37,6 +46,7 @@ class HTMLVectorizer():
             for text in text_nodes:
 
                 textn_id += 1
+                curr_id += 1
                 offset += len(text)
 
                 if text.parent is not None:
@@ -49,7 +59,8 @@ class HTMLVectorizer():
                     else:
                         Y.append("None")
 
-                    features = charm.compute_features(text)
+                    #features = charm.compute_features(text)
+                    features = defaultdict(int)
 
                     # Add Parent, Gparent, GGparent
                     if node.parent != None :
@@ -62,6 +73,8 @@ class HTMLVectorizer():
 
                     # Add tag_name to features
                     features['tag_name'] = node.name
+
+                    # Add textn_id, offset to features
                     features['textn_id'] = textn_id
                     features['offset'] = offset
 
@@ -73,20 +86,22 @@ class HTMLVectorizer():
 
             X.extend(x_temp)
 
-        # Return list of character feature vectors + labels
-        return [X, Y]
+        # Return list of character feature vectors + labels + doc_idxs (beginning index of a document in X)
+        return [X, Y, doc_idxs]
 
     def fit(self, files):
         result = self.html_iter(files)
         X = self.v.fit(result[0])
         Y = result[1]
-        return [X,Y]
+        doc_idxs = result[2]
+        return [X,Y, doc_idxs]
 
     def fit_transform(self, files):
         result = self.html_iter(files)
         X = self.v.fit_transform(result[0])
         Y = result[1]
-        return [X, Y]
+        doc_idxs = result[2]
+        return [X,Y, doc_idxs]
 
     def inverse_transform(self, X):
         return self.v.inverse_transform(X)
@@ -95,4 +110,4 @@ class HTMLVectorizer():
         result = html_iter(files)
         X = self.v.transform(result[0])
         Y = result[1]
-        return [X, Y]
+        return [X, Y, doc_idxs]

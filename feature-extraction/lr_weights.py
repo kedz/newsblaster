@@ -21,7 +21,7 @@ class LRWeights():
 
 	def sample(self, path):
 		with open(path, "r") as f:
-			X, y, hv, le = pickle.load(f)
+			X, y, hv, le, doc_idxs = pickle.load(f)
 			print X.shape
 
 		# Sklearn preprocessing label encoder
@@ -55,6 +55,7 @@ class LRWeights():
 		self.y = y_new[final_idxs]
 		self.hv = hv
 		self.le = le
+		self.doc_idxs = doc_idxs
 
 	def get_weights(self, y, c=1):
 
@@ -66,7 +67,7 @@ class LRWeights():
 
 		clf.fit(X, y)
 
-		return clf.coef_.copy()
+		return clf.coef_.copy(), clf.intercept_.copy()
 
 def usage():
     print """
@@ -91,5 +92,5 @@ if __name__ == "__main__":
     # Sample data
     lr_weights.sample(sys.argv[1])
     # Return weights of LR classifier trained on data in folder
-    print lr_weights.get_weights(1)
+    print lr_weights.get_weights(lr_weights.y)
 
