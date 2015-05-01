@@ -21,42 +21,53 @@ import numpy as np
 
 class BoWser():
 
-    def __init__(self, all_metas):
+    def __init__(self, all_metas, all_text):
         self.all_metas = all_metas
+        self.all_text = all_text
 
     # Get BoW counts for each <meta> tag, grouped by document
     def get_counts(self):
+        all_metas = self.all_metas
+        all_text = self.all_text
+
         all_bows = list()
 
-        # Iterate through each doc
-        for doc in self.all_metas:
+        # Num docs
+        num_docs = len(all_metas)
+
+        # Iterate through all docs
+        for i in np.arange(0, num_docs):
 
             # Create BoW for each document
 
             # Check if there are any meta tags
-            if not doc:
+            if all_metas[i] == []:
                 # If not, add none_tuple to preserve order of docs
-                none_tuple = (None, None)
+                none_tuple = (None, None, None)
                 all_bows.append(none_tuple)
             else:
                 cv = CountVectorizer(dtype=float)
 
-                doc_bow = cv.fit_transform(doc)
+                # Combine meta + text to get full doc
+                full_doc = list(all_metas[i])
+                full_doc.extend(all_text[i])
+
+                # Train CountVectorizer on full_doc (so when we call .transform(text)
+                # later, we can calculate cosine similarities and the vocabularies will be correct.)
+                cv.fit(full_doc)
+
+                # Get bows for meta tags (for cosine sim calculations)
+                doc_meta_bows = cv.transform(all_metas[i])
 
                 # Normalize counts (tf)
-                normalize(doc_bow, norm="l1", axis=1, copy=False)
+                normalize(doc_meta_bows, norm="l1", axis=1, copy=False)
 
-                # Save tuple (BoWs for each <meta> in doc, CountVectorizer)
-                # Saving CV to transform candidate titles during Phase II of
-                # Chained CLFs
-                bow_and_cv = (doc_bow, cv)
-                all_bows.append(bow_and_cv)
+                # Save tuple (BoWs for each <meta> in doc, CountVectorizer, text nodes for document)
+                # Saving CV to transform candidate titles during Phase II of Chained CLFs
+                bow = (doc_meta_bows, cv)
+                all_bows.append(bow)
 
-        self.all_bows = all_bows
-
-    # Calculate Cosine Diff between two BoWs
-    def cos_dist():
-        pass
+        return all_bows
 
 if __name__ == "__main__":
     soups = list()
@@ -69,8 +80,9 @@ if __name__ == "__main__":
         soup = BeautifulSoup(doc)
         soups.append(soup)
 
-    # Get all meta tags, grouped by document
+    # Get all <meta> tags and text, grouped by document
     all_metas = list()
+    all_text = list()
 
     for soup in soups:
         # Extract document <meta> tags for use in BoWser
@@ -91,5 +103,8 @@ if __name__ == "__main__":
         # Append doc_mettas to all_metas
         all_metas.append(doc_metas)
 
-    jr = BoWser(all_metas)
+        text_nodes = soup.find_all(text=True)
+        all_text.append(text_nodes)
+
+    jr = BoWser(all_metas, all_text)
     jr.get_counts()

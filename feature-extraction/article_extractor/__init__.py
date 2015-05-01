@@ -1,3 +1,3 @@
 # Author: Ramzi Abdoch
 
-__all__ = ["htmlvectorizer", "charmeleon"]
+__all__ = ["htmlvectorizer", "charmeleon", "BoWser"]

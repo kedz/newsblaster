@@ -4,11 +4,14 @@
 # * Files in folder are of file_type .annotation
 
 # Utiltities
-import pickle
+#import pickle
 import sys
 import os
+import shelve
 
-# HTMLVectorizer
+# Add above directory to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+
 from article_extractor import htmlvectorizer
 
 # Sklearn Label Encoder (to keep labels consistent)
@@ -32,7 +35,7 @@ class DataPrep():
             an_files.append(path)
 
         # Get Matrix of Vectors for all files
-        [X, y, doc_idxs, bowser] = hv.fit_transform(an_files)
+        [X, y, doc_idxs, all_bows, all_text] = hv.fit_transform(an_files)
 
         le = LabelEncoder()
         y = le.fit_transform(y)
@@ -40,7 +43,7 @@ class DataPrep():
         # Turn y into numpy array
         y = np.array(y)
 
-        return X, y, hv, le, doc_idxs, bowser
+        return X, y, hv, le, doc_idxs, all_bows
 
 def usage():
     print """
@@ -51,7 +54,9 @@ def usage():
 
     output:
         Training data set created from annotated HTML documents
-        Format: Pickle'd [X (examples), y (labels), hv (HTMLVectorizer), le (LabelEncoder), doc_idxs (Beginning index of eaach document) , bowser (Bag of Words model for each document)]
+        Format: Pickle'd - [X (examples), y (labels), hv (HTMLVectorizer),
+        le (LabelEncoder), doc_idxs (Beginning index of eaach document),
+        bowser (Bag of Words model for each document)]
     """
 
 # Run the data preparation
@@ -66,10 +71,22 @@ if __name__ == "__main__":
     dp = DataPrep()
 
     # Run prep on the annotation_folder
-    [X, y, hv, le, doc_idxs, bowser] = dp.prep(sys.argv[1])
+    [X, y, hv, le, doc_idxs, all_bows] = dp.prep(sys.argv[1])
 
     filename = sys.argv[2]
 
+    print "***\n\nGOT HERE\n\n***"
+
     # Write to file
-    with open(filename, "w") as f:
-        pickle.dump([X, y, hv, le, doc_idxs, bowser], f)
+    shelf = shelve.open(filename)
+
+    shelf["X"] = X
+    shelf["y"] = y
+    shelf["hv"] = hv
+    shelf["le"] = doc_idxs
+    shelf["all_bows"] = all_bows
+
+    shelf.close()
+
+    # with open(filename, "w") as f:
+    #     pickle.dump([X, y, hv, le, doc_idxs, bowser], f)

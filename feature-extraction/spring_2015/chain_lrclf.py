@@ -9,6 +9,9 @@ import sys
 # Numpy
 import numpy as np
 
+# Data Prep for Phase I
+from dataprep import DataPrep()
+
 # Data Prep for Phase II
 from dp_phaseII import DP2
 
@@ -36,29 +39,40 @@ if __name__ == "__main__":
         usage()
         sys.exit(2)
 
+    dp = DataPrep()
+
+    # Run prep on the annotation_folder
+    [X, y, hv, le, doc_idxs, all_bows] = dp.prep(sys.argv[1])
+
     # Initialize Feature Extractor
     lr_w = LRWeights()
 
     # Sample Training Data
-    lr_w.sample(sys.argv[1])
+    lr_w.no_pickle_sample(X, y, hv, le, doc_idxs, all_bows)
 
-    # Extract examples, gold labels, label encoder, and document indexes
-    X = lr_w.X
-    y = lr_w.y.copy()
-    le = lr_w.le
-    hv = lr_w.hv
-    doc_idxs = lr_w.doc_idxs
+    # Extract sampled examples, gold labels
+    sample_X = lr_w.X
+    sample_y = lr_w.y
+    sample_original_docs = lr_w.original_docs
 
     '''
     PHASE I - Body Classification
     '''
 
-    # Sample y for y = "Body"
+    # Find all examples where y == "Body"
     body_class_idx = le.transform(['Body'])[0]
-    body_idxs = np.where(y==body_class_idx)
+    body_idxs = np.where(sample_y==body_class_idx)
 
-    y_body = np.zeros_like(y)
+    # Find all examples where y !== "Body"
+    non_body_idxs = np.where(sample_y!=body_class_idx)
 
+    # Tranform none_class_idx for use in upcoming classification and create empty_y
+    none_class_idx = le.transform(['None'])[0]
+    empty_y = np.zeros_like(sample_y)
+    empty_y[np.arange(0, len(empty_y) + 1)] = none_class_idx
+
+    # Create empty array and fill w/ gold body tags
+    y_body = empty_y.copy()
     y_body[body_idxs] = body_class_idx
 
     # Get weights and bias of trained LR classifier for Body
@@ -79,13 +93,36 @@ if __name__ == "__main__":
 
     # Prepare data for Phase II
     dp2 = DP2()
+    new_X, new_y, non_b_idxs = dp2.gen_new_feats(sample_X, sample_y, original_docs, body_class_idx, title_class_idx, hv, bowser)
 
-    # Sample y for y = "Title"
+    # Find all examples where y == "Title"
     title_class_idx = le.transform(['Title'])[0]
     title_idxs = np.where(y==title_class_idx)
 
-    y_title = np.zeros_like(y)
+    # Create empty array and fill w/ gold title tags
+    y_title = empty_y.copy()
     y_title[title_idxs] = title_class_idx
+
+    # Create new_Y with all gold T's
+    new_y = list()
+
+    # Iterate through non_body_idxs, and add label if y == Title
+    for idx in non_body_idxs:
+        if y[idx] == title_class_idx:
+            new_y.append(y[idx])
+        else:
+            new_y.append(none_class_idx)
+
+    # Predict Title (Binary Prediction) w/ lrclf trained on
+    # new_X and new_Y. new_x has new features from dp_phaseII
+    # and new_Y has all non_body_idxs where y=="Title"
+    W_title, b_title = lr_w.get_weights(new_y)
+
+    '''
+    --------------------------------------------
+          vvvvvvvvvvvv OUT OF DATE vvvvvvvvv
+    --------------------------------------------
+    '''
 
     # Merge y_body and y_title
     y_tb_gold = y_title.copy()
@@ -95,10 +132,6 @@ if __name__ == "__main__":
     y_tb_preds = y_hat_body.copy()
     y_tb_preds[title_idxs] = title_class_idx
 
-    # Predict Title on new_X_y_title w/ lrclf trained on gold T's
-    new_X, non_b_idxs_by_doc = dp2.get_new_feats(X, y_body, doc_idxs, body_class_idx, hv)
-    non_b_idxs = np.where(y_tb_gold != body_class_idx)
-    y_t_non_b_gold = y_tb_gold[non_b_idxs]
 
     # Verify that new_X.shape[0] == y_t_non_b_gold.shape[0]
     assert new_X.shape[0] == y_t_non_b_gold.shape[0]

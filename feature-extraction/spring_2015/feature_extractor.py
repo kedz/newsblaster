@@ -25,6 +25,9 @@ class FeatureExtractor():
             # iterate through features
             for j in range(len(weight_matrix[i])):
                 # check if weight is non-zero
+
+                print weight_matrix[i][j]
+
                 if(weight_matrix[i][j] != 0):
                     # Triple of [class][feature][weight]
                     cls = self.le.classes_[i]
@@ -63,7 +66,14 @@ if __name__ == "__main__":
     X = lr_w.X
     y = lr_w.y
 
-    weights = lr_w.get_weights(y)
+    ## TODO ##
+    ## Have yet to empirically discover best C ##
+
+    ## Need to setup pipeline   ##
+    ## to determine value for c ##
+    ## using cross-validation   ##
+
+    weights, intercept = lr_w.get_weights(y)
     hv = lr_w.hv
     le = lr_w.le
 

@@ -19,6 +19,9 @@ import os
 import random
 import pickle
 
+# Add above directory to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+
 # HTMLVectorizer
 from article_extractor import htmlvectorizer
 
@@ -45,7 +48,7 @@ class LassoPlotter():
 
 		for c in cs:
 			print "Evaluating: C = ", c
-			weights = self.lr_w.get_weights(y, c)
+			weights, intercept = self.lr_w.get_weights(y, c)
 			coefs_.append(weights.ravel().copy())
 
 		coefs_ = np.array(coefs_)
@@ -62,10 +65,9 @@ class LassoPlotter():
 
 def usage():
     print """
-    python lasso_plot.py [folder_of_annotated_articles]
-        Read in article files in the training set and
-        train Logistic Regression Classifier. Then,
-        determine weights of features for each class
+    python lasso_plot.py <filename_of_training_dataset>
+        Read in the training set and train Logistic Regression 
+        Classifier. Then, determine weights of features for each class
         and plot v. c
 
     output:

@@ -21,6 +21,9 @@ import numpy as np
 import sys
 import os
 
+# Add above directory to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+
 # HTMLVectorizer
 from article_extractor import htmlvectorizer
 

@@ -15,17 +15,19 @@ class HTMLVectorizer():
         # Build Y = [labels], X = feature matrix
         Y = list()
         X = list()
-        all_metas = list()
+        all_text = list()
+        text_by_doc = list()
+        metas_by_doc = list()
         curr_id = 0
         doc_idxs = list()
 
         # Calculate character features for each text node
-        #charm = Charmeleon()
+        # charm = Charmeleon()
 
         for f in files:
             # Open doc for reading, save doc (line-delimited?), and put doc into BS
             doc = open(f)
-            doc_idxs.append(curr_id + 1)
+            doc_idxs.append(curr_id)
 
             soup = BeautifulSoup(doc)
 
@@ -51,7 +53,7 @@ class HTMLVectorizer():
                     doc_metas.append(meta_string)
 
             # Append doc_mettas to all_metas
-            all_metas.append(doc_metas)
+            metas_by_doc.append(doc_metas)
 
             # Find all text nodes
             # What if instead, I used soup.strings?
@@ -63,6 +65,7 @@ class HTMLVectorizer():
                 textn_id += 1
                 curr_id += 1
                 offset += len(text)
+                all_text.append(text)
 
                 if text.parent is not None:
                     node = text.parent
@@ -99,30 +102,37 @@ class HTMLVectorizer():
                 example['textn_id'] /= float(textn_id)
                 example['offset'] /= float(offset)
 
+            # Add example to X
             X.extend(x_temp)
 
-            # Get BoWs for each doc
-            bowser = BoWser(all_metas)
-            bowser.get_counts()
+            # Add text_nodes to text_by_doc
+            text_by_doc.append(text_nodes)
 
-        # Return list of character feature vectors + labels + doc_idxs (beginning index of a document in X)
-        return [X, Y, doc_idxs, bowser]
+        # Get BoWs for each doc
+        bowser = BoWser(metas_by_doc, text_by_doc)
+        all_bows = bowser.get_counts()
+
+        # Return list of character feature vectors + labels + doc_idxs (beginning
+        # index of a document in X) + doc_bow (bow_metas, countvectorizer, text)
+        return [X, Y, doc_idxs, all_text, all_bows]
 
     def fit(self, files):
         result = self.html_iter(files)
         X = self.v.fit(result[0])
         Y = result[1]
         doc_idxs = result[2]
-        soups = result[3]
-        return [X,Y, doc_idxs, soups]
+        all_text = result[3]
+        all_bows = result[4]
+        return [X,Y, doc_idxs, all_text, all_bows]
 
     def fit_transform(self, files):
         result = self.html_iter(files)
         X = self.v.fit_transform(result[0])
         Y = result[1]
         doc_idxs = result[2]
-        soups = result[3]
-        return [X,Y, doc_idxs, soups]
+        all_text = result[3]
+        all_bows = result[4]
+        return [X,Y, doc_idxs, all_text, all_bows]
 
     def inverse_transform(self, X):
         return self.v.inverse_transform(X)
@@ -132,6 +142,6 @@ class HTMLVectorizer():
         X = self.v.transform(result[0])
         Y = result[1]
         doc_idxs = result[2]
-        soups = result[3]
-        return [X,Y, doc_idxs, soups]
-
+        all_text = result[3]
+        all_bows = result[4]
+        return [X,Y, doc_idxs, all_text, all_bows]
