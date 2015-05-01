@@ -15,6 +15,7 @@ class HTMLVectorizer():
         # Build Y = [labels], X = feature matrix
         Y = list()
         X = list()
+        all_metas = list()
         curr_id = 0
         doc_idxs = list()
 
@@ -34,8 +35,23 @@ class HTMLVectorizer():
             offset = 0      # Offset: Position relative to the document
             depth = 0       # Depth: depth of the node in the DOM tree
 
-            # Prep BoWser
-            bowser = BoWser(soup)
+            # Extract document <meta> tags for use in BoWser
+            doc_metas = list()
+            metas = soup.find_all("meta")
+
+            if metas is not None:
+                for tag in metas:
+                    meta_string = tag.get("content")
+
+                    if meta_string is None:
+                        meta_string = ""
+
+                    # Append to doc_metas to keep track of which
+                    # metas appear in which document
+                    doc_metas.append(meta_string)
+
+            # Append doc_mettas to all_metas
+            all_metas.append(doc_metas)
 
             # Find all text nodes
             # What if instead, I used soup.strings?
@@ -44,7 +60,6 @@ class HTMLVectorizer():
 
             # Iterate through text nodes and find annotation labels or label "None"
             for text in text_nodes:
-
                 textn_id += 1
                 curr_id += 1
                 offset += len(text)
@@ -86,22 +101,28 @@ class HTMLVectorizer():
 
             X.extend(x_temp)
 
+            # Get BoWs for each doc
+            bowser = BoWser(all_metas)
+            bowser.get_counts()
+
         # Return list of character feature vectors + labels + doc_idxs (beginning index of a document in X)
-        return [X, Y, doc_idxs]
+        return [X, Y, doc_idxs, bowser]
 
     def fit(self, files):
         result = self.html_iter(files)
         X = self.v.fit(result[0])
         Y = result[1]
         doc_idxs = result[2]
-        return [X,Y, doc_idxs]
+        soups = result[3]
+        return [X,Y, doc_idxs, soups]
 
     def fit_transform(self, files):
         result = self.html_iter(files)
         X = self.v.fit_transform(result[0])
         Y = result[1]
         doc_idxs = result[2]
-        return [X,Y, doc_idxs]
+        soups = result[3]
+        return [X,Y, doc_idxs, soups]
 
     def inverse_transform(self, X):
         return self.v.inverse_transform(X)
@@ -110,4 +131,7 @@ class HTMLVectorizer():
         result = html_iter(files)
         X = self.v.transform(result[0])
         Y = result[1]
-        return [X, Y, doc_idxs]
+        doc_idxs = result[2]
+        soups = result[3]
+        return [X,Y, doc_idxs, soups]
+

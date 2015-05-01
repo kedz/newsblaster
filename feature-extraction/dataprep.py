@@ -32,7 +32,7 @@ class DataPrep():
             an_files.append(path)
 
         # Get Matrix of Vectors for all files
-        [X, y, doc_idxs] = hv.fit_transform(an_files)
+        [X, y, doc_idxs, bowser] = hv.fit_transform(an_files)
 
         le = LabelEncoder()
         y = le.fit_transform(y)
@@ -40,18 +40,24 @@ class DataPrep():
         # Turn y into numpy array
         y = np.array(y)
 
-        return X, y, hv, le, doc_idxs
+        return X, y, hv, le, doc_idxs, bowser
 
 def usage():
     print """
+    python dataprep.py [folder_of_annotated_articles] <filename_of_output>
+        Read in the folder of annotated articles, then run the
+        HTMLVectorizer, LabelEncoder, and Bowser to prepare training set.
+        Pickle data and save as <filename_of_output>
 
     output:
-        sorted set of class-conditional weights for each feature in the training set
+        Training data set created from annotated HTML documents
+        Format: Pickle'd [X (examples), y (labels), hv (HTMLVectorizer), le (LabelEncoder), doc_idxs (Beginning index of eaach document) , bowser (Bag of Words model for each document)]
     """
 
 # Run the data preparation
 if __name__ == "__main__":
 
+    # Check correct usage
     if len(sys.argv)!=3:        # Expect exactly two arguments: the folder
         usage()                 # of annotated articles and output file name
         sys.exit(2)
@@ -60,10 +66,10 @@ if __name__ == "__main__":
     dp = DataPrep()
 
     # Run prep on the annotation_folder
-    [X, y, hv, le, doc_idxs] = dp.prep(sys.argv[1])
+    [X, y, hv, le, doc_idxs, bowser] = dp.prep(sys.argv[1])
 
     filename = sys.argv[2]
 
     # Write to file
     with open(filename, "w") as f:
-        pickle.dump([X, y, hv, le, doc_idxs], f)
+        pickle.dump([X, y, hv, le, doc_idxs, bowser], f)

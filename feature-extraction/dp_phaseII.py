@@ -109,14 +109,12 @@ class DP2():
                     feat_dict['dist_to_closest_b'] = max_below[resolved_idx] / num_nodes
 
             # feat5 : cosine similarity btw BoW model for Title + all meta tags
-            
 
             # Extend / Append results
             new_X.extend(feat_dict)
             non_b_idxs_by_doc.append(non_body_idxs)
 
         return new_x, non_b_idxs_by_doc
-
 
 def usage():
     print """
