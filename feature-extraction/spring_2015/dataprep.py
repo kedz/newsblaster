@@ -35,13 +35,22 @@ class DataPrep():
             an_files.append(path)
 
         # Get Matrix of Vectors for all files
-        [X, y, doc_idxs, all_bows, all_text] = hv.fit_transform(an_files)
+        [X, y, doc_idxs, all_text, all_bows] = hv.fit_transform(an_files)
 
         le = LabelEncoder()
         y = le.fit_transform(y)
 
         # Turn y into numpy array
-        y = np.array(y)
+        y = np.array(y, copy=False)
+
+        print "Y Built"
+
+        #all_text = np.array(all_text, copy=False)
+
+        self.all_text = all_text
+
+        ## DEBUG ##
+        print "DATA PREP COMPLETE"
 
         return X, y, hv, le, doc_idxs, all_bows
 

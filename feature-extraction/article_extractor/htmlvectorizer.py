@@ -38,8 +38,9 @@ class HTMLVectorizer():
             depth = 0       # Depth: depth of the node in the DOM tree
 
             # Extract document <meta> tags for use in BoWser
-            doc_metas = list()
             metas = soup.find_all("meta")
+
+            doc_metas = list()
 
             if metas is not None:
                 for tag in metas:
@@ -58,15 +59,19 @@ class HTMLVectorizer():
             # Find all text nodes
             # What if instead, I used soup.strings?
             text_nodes = soup.find_all(text=True)
+
             x_temp = list()
+            doc_text = list()
 
             # Iterate through text nodes and find annotation labels or label "None"
             for text in text_nodes:
                 textn_id += 1
                 curr_id += 1
                 offset += len(text)
+                doc_text.append(text)
                 all_text.append(text)
 
+                # Find golden label
                 if text.parent is not None:
                     node = text.parent
 
@@ -96,8 +101,13 @@ class HTMLVectorizer():
                     features['textn_id'] = textn_id
                     features['offset'] = offset
 
+                    # Add example to x_temp (all examples in this doc)
                     x_temp.append(features)
 
+                    # Add text to all_text
+                    all_text.extend(text_nodes)
+
+            # Normalize real-valued features
             for example in x_temp:
                 example['textn_id'] /= float(textn_id)
                 example['offset'] /= float(offset)
@@ -106,11 +116,15 @@ class HTMLVectorizer():
             X.extend(x_temp)
 
             # Add text_nodes to text_by_doc
-            text_by_doc.append(text_nodes)
+            text_by_doc.append(doc_text)
 
         # Get BoWs for each doc
         bowser = BoWser(metas_by_doc, text_by_doc)
         all_bows = bowser.get_counts()
+
+        print'''
+        \n HTMLVectorizer Finished. \n
+        '''
 
         # Return list of character feature vectors + labels + doc_idxs (beginning
         # index of a document in X) + doc_bow (bow_metas, countvectorizer, text)

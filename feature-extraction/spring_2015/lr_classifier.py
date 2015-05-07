@@ -11,12 +11,13 @@ class LRClassifier():
 	# b = bias
 
 	def classify(self, X, W, b):
+		A = 1 / (1 + np.exp(-(X.dot(W.T) + b)))
 
-		A = np.dot(X, W.T) + b
-		y_hat = np.argmax(A, axis=1)
+		print "LRCLF RUN COMPLETE"
 
-		Z = np.sum(A, axis=1)
-		self.P = A / Z
+		return np.where(A > .5, 0, 1)
 
-		return y_hat
+		# Make more robust #
+
+
 

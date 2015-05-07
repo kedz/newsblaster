@@ -17,6 +17,8 @@ from datetime import datetime
 # Add above directory to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
+from sklearn.metrics import classification_report
+
 # Pickle
 import pickle
 
@@ -61,42 +63,33 @@ class LRWeights():
 		self.doc_idxs = doc_idxs
 		self.all_bows = all_bows
 
-	def no_pickle_sample(self, X, y, hv, le, doc_idxs, all_bows):
+	def no_pickle_sample(self, X, y, le):		# Note: all_text is changed to simply text
 		# Sklearn preprocessing label encoder
 
 		# Find which class corresponds to None
 		none_idx = le.transform(['None'])[0]
 		none_idxs = np.where(y==none_idx)
-		not_none_idxs = np.where(y!=none_idx)
+		something_idxs = np.where(y!=none_idx)
 
 		# Find all None labeled examples and their corresponding labels
 		X_none = X[none_idxs]
 		y_none = y[none_idxs]
+		#text_none = all_text[none_idxs]
 
-		original_docs_none = list()
-
-		for idx in not_none_idxs:
-			closest_idx = (np.abs(doc_idxs-idx)).argmin()
-
-			if doc_idxs[closest_idx] > idx:
-				original_docs_none.append(idx - 1)
-			else:
-				original_docs_none.append(idx)
+		## DEBUG ##
+		print  '''
+			LRWeights #1 - X_none, y_none, text_none
+		'''
 
 		# Find other labeled examples
-		X_something = X[not_none_idxs]
-		y_something = y[not_none_idxs]
+		X_something = X[something_idxs]
+		y_something = y[something_idxs]
+		#text_something = all_text[something_idxs]
 
-		# Keep track of which document each example comes from to use proper count vectorizer
-		original_docs_something = list()
-
-		for idx in not_none_idxs:
-			closest_idx = (np.abs(doc_idxs-idx)).argmin()
-
-			if doc_idxs[closest_idx] > idx:
-				original_docs_something.append(idx - 1)
-			else:
-				original_docs_something.append(idx)
+		## DEBUG ##
+		print  '''
+			LRWeights #2 - X_something, y_something, text_something
+		'''
 
 		# Randomly sample # of other labels from examples labeled None
 		indexes = range(X_none.shape[0])
@@ -104,40 +97,43 @@ class LRWeights():
 
 		# Choose (# of other labels) examples from X_none
 		new_idxs = indexes[:X_something.shape[0]]
+		new_idxs = np.array(new_idxs)
+		something_idxs = np.array(something_idxs[0])
+
 		X_none_sampled = X_none[new_idxs,:]
 		y_none_sampled = y_none[new_idxs]
 
-		original_docs_none_sampled = list()
-
-		# Recover original docs
-		for idx in new_idxs:
-			original_docs_none_sampled.append(original_docs_none[idx])
+		## DEBUG ##
+		print  '''
+			LRWeights #3 - Sampling done
+		'''
 
 		X_new = np.vstack([X_none_sampled, X_something])
-		y_new = np.vstack([y_none_sampled[:,np.newaxis], y_something[:,np.newaxis]])
-		original_docs_new = np.vstack([original_docs_none_sampled, original_docs_something])
+		y_new = np.append(y_none_sampled, y_something)
+
+		sampled_original_idxs = np.append(new_idxs, something_idxs)
 
 		# Finally, shuffle the sampled result
 		final_idxs = range(X_new.shape[0])
 		random.shuffle(final_idxs)
 
+		## OUTPUT ##
 		self.X = X_new[final_idxs, :]
 		self.y = y_new[final_idxs]
-		self.original_docs = original_docs_new[final_idxs]
-		self.hv = hv
-		self.le = le
-		self.doc_idxs = doc_idxs
-		self.all_bows = all_bows
+		self.original_idxs = sampled_original_idxs[final_idxs]
 
-	def get_weights(self, y, c=1):
+		## DEBUG ##
+		print "LR_W NO PICKLE SAMPLE COMPLETE"
 
-		X = self.X
+	def get_weights(self, X, y, c=1):
 		y = y.reshape(y.shape[0])
 
 		# Set LR params
-		clf = linear_model.LogisticRegression(C=c, penalty='l1', tol=1e-6)
+		clf = linear_model.LogisticRegression(C=c, penalty='l2', tol=1e-6, class_weight='auto')
 
 		clf.fit(X, y)
+
+		print classification_report(y, clf.predict(X))
 
 		return clf.coef_.copy(), clf.intercept_.copy()
 

@@ -43,7 +43,7 @@ class BoWser():
             # Check if there are any meta tags
             if all_metas[i] == []:
                 # If not, add none_tuple to preserve order of docs
-                none_tuple = (None, None, None)
+                none_tuple = (None, None)
                 all_bows.append(none_tuple)
             else:
                 cv = CountVectorizer(dtype=float)
@@ -60,13 +60,18 @@ class BoWser():
                 doc_meta_bows = cv.transform(all_metas[i])
 
                 # Normalize counts (tf)
-                normalize(doc_meta_bows, norm="l1", axis=1, copy=False)
+                #normalize(doc_meta_bows, norm="l1", axis=1, copy=False)
 
-                # Save tuple (BoWs for each <meta> in doc, CountVectorizer, text nodes for document)
+                # Save tuple (BoWs for each <meta> in doc, CountVectorizer)
                 # Saving CV to transform candidate titles during Phase II of Chained CLFs
                 bow = (doc_meta_bows, cv)
                 all_bows.append(bow)
 
+            ## DEBUG ##
+            print "FINISHED BOWSER DOC #", i
+
+        ## DEBUG ##
+        print "FINISHED ALL BOWSERS"
         return all_bows
 
 if __name__ == "__main__":
