@@ -91,25 +91,6 @@ if [ ! -f $NB_HOME/lib/libxslt.a ]; then
     make install
 fi
 
-if [ ! -f $BIN_DIR/elasticsearch ]; then
-        cd "$SRC_DIR"
-    curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.tar.gz
-    tar -zxvf elasticsearch-1.4.2.tar.gz
-
-        cd elasticsearch-1.4.2
-        es_temp=`pwd`
-
-        ln -s "$es_temp/bin/elasticsearch" "$BIN_DIR/elasticsearch"
-        ln -s "$es_temp/bin/elasticsearch.in.sh" "$BIN_DIR/elasticsearch.in.sh"
-        
-        #Set Indices
-        $NB_HOME/bin/elasticsearch > /dev/null &
-        sleep 15
-        bash $DIR/setup/es_setup.sh 
-        sleep 5
-        curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
-fi
-
 if [ ! -f $BIN_DIR/java ]; then
         OS_TYPE=`uname`
     cd "$SRC_DIR"
@@ -130,6 +111,33 @@ if [ ! -f $BIN_DIR/java ]; then
             ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
     fi
 fi
+
+if [ ! -f $BIN_DIR/elasticsearch ]; then
+        cd "$SRC_DIR"
+    #curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.tar.gz
+    curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz
+    #tar -zxvf elasticsearch-1.4.2.tar.gz
+    tar -zxvf elasticsearch-1.5.2.tar.gz
+
+        #cd elasticsearch-1.4.2
+        cd elasticsearch-1.5.2
+        es_temp=`pwd`
+
+        ln -s "$es_temp/bin/elasticsearch" "$BIN_DIR/elasticsearch"
+        ln -s "$es_temp/bin/elasticsearch.in.sh" "$BIN_DIR/elasticsearch.in.sh"a
+
+        #Copy config
+        #cp $DIR/setup/elasticsearch.yml $NB_HOME/src/elasticsearch-1.4.2/config/elasticsearch.yml 
+        cp $DIR/setup/elasticsearch.yml $NB_HOME/src/elasticsearch-1.5.2/config/elasticsearch.yml 
+        
+        #Set Indices
+        $NB_HOME/bin/elasticsearch  > /dev/null &
+        sleep 15
+        bash $DIR/setup/es_setup.sh 
+        sleep 5
+        curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
+fi
+
 
 #exit 1
 #Exports

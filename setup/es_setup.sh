@@ -1,5 +1,5 @@
 #Create custom mapping to use source_link as id
-curl -XPOST http://island2.cs.columbia.edu:9200/news/?pretty -d '{
+curl -XPOST http://localhost:9200/news/?pretty -d '{
 "mappings" : {
 "article": {
 "_id" : { "path" : "source_link" },
