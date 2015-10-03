@@ -14,13 +14,8 @@ class ArticleItem(Item):
 	time_of_crawl = Field()
 	html_content = Field()
 	text_content = Field()
-	meta_information = Field() # ArticleMetaInformation Item
-
-
-class ArticleMetaInformation(Item):
-	location = Field()
-	topics = Field() #Array of topics
 	date_published = Field()
-	author = Field()
-	language = Field()
+	authors = Field() #Array of authors
+	topics = Field() #Array of topics
 	images_url = Field() #Links to images in article. Optional for now
+	
