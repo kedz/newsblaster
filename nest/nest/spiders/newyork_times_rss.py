@@ -2,8 +2,7 @@ import scrapy
 import urllib2
 import re
 from datetime import datetime
-from scrapy import log
-from scrapy.contrib.spiders import XMLFeedSpider
+from scrapy.spiders import XMLFeedSpider
 from scrapy.selector import Selector
 import sys
 from nest.news_parser import ArticleExtractor

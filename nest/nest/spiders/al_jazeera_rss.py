@@ -1,8 +1,7 @@
 import scrapy
 import re
 from datetime import datetime
-from scrapy import log
-from scrapy.contrib.spiders import XMLFeedSpider
+from scrapy.spiders import XMLFeedSpider
 from nest.items import ArticleItem
 from scrapy.selector import Selector
 from nest.news_parser import ArticleExtractor

@@ -62,12 +62,30 @@ fi
 
 if [ ! -f "$BIN_DIR/mongo" ]; then
     cd "$SRC_DIR"
-    curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz
-    tar zxvf mongodb-linux-x86_64-3.0.6.tgz
+    rmq_temp=""
+
+    if [ "$(uname)" == "Darwin" ]
+    then
+        echo "Downloading MongoDB For OSX"
+        curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.0.6.tgz
+        tar zxvf mongodb-osx-x86_64-3.0.6.tgz 
+        cd mongodb-osx-x86_64-3.0.6
+        rmq_temp=`pwd`
+
+    elif [ "$(expr substr $(uname -s ) 1 5 )" == "Linux" ]
+    then
+        # Linux
+        echo "Downloading MongoDB For Linux"
+        curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz
+        tar zxvf mongodb-linux-x86_64-3.0.6.tgz
     
-    cd mongodb-linux-x86_64-3.0.6
-    rmq_temp=`pwd`
-    
+        cd mongodb-linux-x86_64-3.0.6
+        rmq_temp=`pwd`
+    fi
+
+    # OSX
+
+
     DATA_DIR="$NB_HOME/data/db"
     mkdir -p "$DATA_DIR"
     

@@ -14,8 +14,8 @@ SPIDER_MODULES = ['nest.spiders']
 NEWSPIDER_MODULE = 'nest.spiders'
 #CONCURRENT_REQUESTS=1
 LOG_LEVEL = 'DEBUG'
-COOKIES_DEBUG = True
-COOKIES_ENABLED = True
+#COOKIES_DEBUG = True
+#COOKIES_ENABLED = True
 
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,

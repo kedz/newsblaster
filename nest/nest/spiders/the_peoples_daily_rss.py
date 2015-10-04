@@ -1,16 +1,17 @@
 import scrapy
+import urllib2
 import re
 from datetime import datetime
-from scrapy import log
-from scrapy.contrib.spiders import XMLFeedSpider
-from nest.items import ArticleItem
+from scrapy.spiders import XMLFeedSpider
 from scrapy.selector import Selector
+import sys
 from nest.news_parser import ArticleExtractor
 
 class PeopleDailySpiderRSS(XMLFeedSpider):
+
     name = "the_peoples_daily_rss"
     download_delay = 2
-    # allowed_domains = ["english.people.com.cn",
+    #allowed_domains = ["english.people.com.cn",
     # "english.peopledaily.com.cn"]
 
     start_urls = ('http://english.peopledaily.com.cn/rss/World.xml',)
