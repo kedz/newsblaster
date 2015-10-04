@@ -9,6 +9,7 @@ from scrapy.item import Item, Field
 
 class ArticleItem(Item):
     title = Field()
+    summarized = Field()
     source = Field()
     source_type = Field()
     source_link = Field()

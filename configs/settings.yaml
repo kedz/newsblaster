@@ -1,5 +1,5 @@
-rabbitmq:
- host: 'localhost'
- username: 'nlp'
- password: 'columbia'
- port: 5672
+mongodb:
+ hostname: "localhost"
+ port: 27017
+ database: "newsblaster"
+ article_collection: "articles"
