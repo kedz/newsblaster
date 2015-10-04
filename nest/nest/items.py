@@ -8,19 +8,15 @@
 from scrapy.item import Item, Field
 
 class ArticleItem(Item):
-	title = Field()
-	source_type = Field()
-	source_link = Field()
-	time_of_crawl = Field()
-	html_content = Field()
-	text_content = Field()
-	meta_information = Field() # ArticleMetaInformation Item
-
-
-class ArticleMetaInformation(Item):
-	location = Field()
-	topics = Field() #Array of topics
-	date_published = Field()
-	author = Field()
-	language = Field()
-	images_url = Field() #Links to images in article. Optional for now
+    title = Field()
+    summarized = Field()
+    source = Field()
+    source_type = Field()
+    source_link = Field()
+    time_of_crawl = Field()
+    html_content = Field()
+    text_content = Field()
+    date_published = Field()
+    authors = Field() #Array of authors
+    topics = Field() #Array of topics
+    images_url = Field() #Links to images in article. Optional for now

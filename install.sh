@@ -1,3 +1,4 @@
+NB_HOME=""
 if [ -z "$NB_HOME" ]; then
     NB_HOME="$HOME/newsblaster_home"
     mkdir -p "$NB_HOME"
@@ -9,6 +10,7 @@ else
     NB_HOME=$NB_HOME
 fi 
 
+
 BIN_DIR="$NB_HOME/bin"
 SRC_DIR="$NB_HOME/src"
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
@@ -19,6 +21,7 @@ if [ ! -d $BIN_DIR ]; then
     mkdir -p "$BIN_DIR"
 fi
 
+
 export PATH=$BIN_DIR:$PATH
 
 # Creates install  dependencies directory
@@ -28,48 +31,9 @@ if [ ! -d $SRC_DIR ]; then
 fi
 
 #-------------------------------------------------------#
-# Start installing and compiling required sources here  #
+# Start installing and compiling required sources here.  #
 #-------------------------------------------------------#
-
-ERL_PATH="$BIN_DIR/erl"
-if [ ! -f $ERL_PATH ]; then
-        echo "Downloading & installing erlang "
-        cd "$SRC_DIR"
-    curl -O http://www.erlang.org/download/otp_src_17.1.tar.gz
-    tar zxvf otp_src_17.1.tar.gz
-    cd otp_src_17.1
-    ./configure --prefix=$NB_HOME
-    make 
-    make install
-fi
-
-if [ ! -f "$BIN_DIR/rabbitmq-server" ]; then
-        cd "$SRC_DIR"
-    curl -O http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.5/rabbitmq-server-generic-unix-3.3.5.tar.gz
-    tar zxvf rabbitmq-server-generic-unix-3.3.5.tar.gz
-    
-        cd rabbitmq_server-3.3.5
-        rmq_temp=`pwd`
-    
-        ln -s "$rmq_temp/sbin/rabbitmq-server" "$BIN_DIR/rabbitmq-server"
-        ln -s "$rmq_temp/sbin/rabbitmq-env" "$BIN_DIR/rabbitmq-env"
-        ln -s "$rmq_temp/sbin/rabbitmq-plugins" "$BIN_DIR/rabbitmq-plugins"
-        ln -s "$rmq_temp/sbin/rabbitmqctl" "$BIN_DIR/rabbitmqctl"
-        
-        # Create default broker username and pass
-    echo "Add nlp user to RabbitMQ"
-        $BIN_DIR/rabbitmq-server > /dev/null & 
-        sleep 30
-        $BIN_DIR/rabbitmqctl add_user nlp columbia
-        $BIN_DIR/rabbitmqctl set_user_tags nlp administrator
-        $BIN_DIR/rabbitmqctl set_permissions -p / nlp ".*" ".*" ".*"
-        $BIN_DIR/rabbitmq-plugins enable rabbitmq_management    
-
-        #Stop RabbitMQ
-        $BIN_DIR/rabbitmqctl stop
-
-fi
-
+# This was done because of installation on Columbia servers
 
 if [ ! -f $NB_HOME/lib/libxml2.a ]; then
         cd "$SRC_DIR"
@@ -91,55 +55,56 @@ if [ ! -f $NB_HOME/lib/libxslt.a ]; then
     make install
 fi
 
-if [ ! -f $BIN_DIR/java ]; then
-        OS_TYPE=`uname`
+
+#-------------------------------------------------------#
+# Install MongoDB  #
+#-------------------------------------------------------#
+
+if [ ! -f "$BIN_DIR/mongo" ]; then
     cd "$SRC_DIR"
+    rmq_temp=""
 
-    if [ "$OS_TYPE" != "Darwin" ]; then
-        echo "Installing Java for Linux"
-            curl -O -v -j -k -L -H  "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
-        tar -zxvf jdk-7u67-linux-x64.tar.gz
-            cd jdk1.7.0_67
-            jdk_temp=`pwd`
-            ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
-    else
-        echo "Installing Java for OSX"
-            curl -O -v -j -k -L -H  "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u72-b14/jre-7u72-macosx-x64.tar.gz
-        tar -zxvf jre-7u72-macosx-x64.tar.gz
-        cd jre1.7.0_72.jre/Contents/Home        
-        jdk_temp=`pwd`
-            ln -s "$jdk_temp/bin/java" "$BIN_DIR/java"
+    if [ "$(uname)" == "Darwin" ]
+    then
+        echo "Downloading MongoDB For OSX"
+        curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.0.6.tgz
+        tar zxvf mongodb-osx-x86_64-3.0.6.tgz 
+        cd mongodb-osx-x86_64-3.0.6
+        rmq_temp=`pwd`
+
+    elif [ "$(expr substr $(uname -s ) 1 5 )" == "Linux" ]
+    then
+        # Linux
+        echo "Downloading MongoDB For Linux"
+        curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz
+        tar zxvf mongodb-linux-x86_64-3.0.6.tgz
+    
+        cd mongodb-linux-x86_64-3.0.6
+        rmq_temp=`pwd`
     fi
-fi
 
-if [ ! -f $BIN_DIR/elasticsearch ]; then
-        cd "$SRC_DIR"
-    #curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.tar.gz
-    curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz
-    #tar -zxvf elasticsearch-1.4.2.tar.gz
-    tar -zxvf elasticsearch-1.5.2.tar.gz
+    # OSX
 
-        #cd elasticsearch-1.4.2
-        cd elasticsearch-1.5.2
-        es_temp=`pwd`
 
-        ln -s "$es_temp/bin/elasticsearch" "$BIN_DIR/elasticsearch"
-        ln -s "$es_temp/bin/elasticsearch.in.sh" "$BIN_DIR/elasticsearch.in.sh"a
+    DATA_DIR="$NB_HOME/data/db"
+    mkdir -p "$DATA_DIR"
+    
+    ln -s "$rmq_temp/bin/mongo" "$BIN_DIR/mongo"
+    ln -s "$rmq_temp/bin/mongod" "$BIN_DIR/mongod"
+    
+    #Start mongodb
+    $BIN_DIR/mongod --dbpath $DATA_DIR --fork --logpath "$DATA_DIR/mongodb.log"
+    # Wait on start
+    $BIN_DIR/mongo --nodb $DIR/setup/mongo_wait.js
+    #Setup Indices
+    $BIN_DIR/mongo newsblaster --eval "db.articles.ensureIndex({'title':1})"
+    
+    #Stop mongodb
+    $BIN_DIR/mongod --dbpath $DATA_DIR --shutdown
 
-        #Copy config
-        #cp $DIR/setup/elasticsearch.yml $NB_HOME/src/elasticsearch-1.4.2/config/elasticsearch.yml 
-        cp $DIR/setup/elasticsearch.yml $NB_HOME/src/elasticsearch-1.5.2/config/elasticsearch.yml 
-        
-        #Set Indices
-        $NB_HOME/bin/elasticsearch  > /dev/null &
-        sleep 15
-        bash $DIR/setup/es_setup.sh 
-        sleep 5
-        curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
 fi
 
 
-#exit 1
 #Exports
 export LD_LIBRARY_PATH=$NB_HOME/lib
 set LD_LIBRARY_PATH
@@ -160,11 +125,16 @@ pip install -U cython
 pip install service_identity
 pip install scrapy
 pip install pyyaml
-pip install pika 
 pip install scrapyd
-pip install Celery
+#pip install Celery
 pip install requests
-pip install elasticsearch
 pip install -U numpy scipy scikit-learn
 pip install BeautifulSoup
-pip install elasticsearch
+pip install pymongo
+pip install goose-extractor
+
+# Fix required for Celery. Remove after package created from master
+git clone https://github.com/celery/celery.git
+cd celery
+pip install -r requirements/dev.txt
+python setup.py install

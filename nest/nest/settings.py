@@ -12,14 +12,20 @@ BOT_NAME = 'nest'
 
 SPIDER_MODULES = ['nest.spiders']
 NEWSPIDER_MODULE = 'nest.spiders'
+#CONCURRENT_REQUESTS=1
+LOG_LEVEL = 'DEBUG'
+#COOKIES_DEBUG = True
+#COOKIES_ENABLED = True
 
-LOG_LEVEL = 'INFO'
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
+}
 
 ITEM_PIPELINES = {
 	'nest.pipelines.ArticleEnrichmentPipeLine': 1,
-	'nest.pipelines.ArticleTextExtractionPipeline': 2,
-	'nest.pipelines.SendToBrokerPipeline': 3,
+	'nest.pipelines.ArticleSummarizationPipeline': 2,
+	'nest.pipelines.SendToDataStorePipeline': 3,
 								 }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'nest (+http://www.yourdomain.com)'
+#USER_AGENT = 'nest (+cs.columbia.com)'

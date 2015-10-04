@@ -1,5 +1,6 @@
 newsblaster
 ===========
+NOTE: No longer used in NewsBlaster
 
 Group workspace for improvements to the Columbia Newsblaster system.
 

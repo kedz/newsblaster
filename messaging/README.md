@@ -1,3 +1,5 @@
+NOTE: No longer used in the newsblaster project
+
 This module is used  to abstract the internals of messaging  from other components that require it in NewsBlaster. 
 
 ----------
