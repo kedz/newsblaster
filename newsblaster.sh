@@ -16,7 +16,7 @@ else
 fi
 
 # Ensure that NB_HOME was set correctly 
-if [ ! -f $NB_HOME/bin/java -o ! -d $NB_HOME ]
+if [ ! -f $NB_HOME/bin/mongo -o ! -d $NB_HOME ]
 then
         echo "NewsBlaster: cannot start. Please check your NB_HOME path"
 				exit 1	
@@ -26,6 +26,7 @@ source $NB_HOME/venv/bin/activate
 export PATH=$NB_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$NB_HOME/lib
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DATA_DIR="$NB_HOME/data/db"
 
 cd $DIR/nest
 
@@ -34,46 +35,40 @@ cd $DIR/nest
 case "$1" in
     start)
         echo -n "Starting NewsBlaster: "
-        $NB_HOME/bin/elasticsearch > /dev/null &
-        $NB_HOME/bin/rabbitmq-server > /dev/null &
-				sleep  10	
 
-				python $DIR/setup/broker_setup.py
-        sleep 5	
-				#Scrapyd	
-				scrapyd > /dev/null &
-				
-				#Celery
-				cd $DIR
-				celery worker --app scheduler -l info -E -B -q > /dev/null &
-				sleep 5			
-	
-				#Workers
-				python $DIR/workers/es_worker.py > /dev/null &
-				echo -ne '\n' 
+        #Mongodb
+        $NB_HOME/bin/mongod --dbpath $DATA_DIR --fork --logpath "$DATA_DIR/mongodb.log"
+
+        #Scrapyd	
+        scrapyd > /dev/null &
+
+        #Celery
+        cd $DIR
+        celery worker --app scheduler -l info -E -B -q > /dev/null &
+        sleep 5			
+
+        ##Workers
+        #python $DIR/workers/es_worker.py > /dev/null &
+        echo -ne '\n' 
         echo   "OK"
         ;;
     stop)
         echo -n "Shutdown NewsBlaster: "
-				curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
 
-				scrapy_pid=`ps aux | grep scrapyd | awk '{print $2}' `
-				kill $scrapy_pid
+        scrapy_pid=`ps aux | grep scrapyd | awk '{print $2}' `
+        echo "Stop scrapyd manually by running: sudo kill -9 $scrapy_pid. Process requires root "
 
-				celery_pid=`ps aux | grep 'celery worker' | awk '{print $2}'`
-				kill -9 $celery_pid	
-       
-				es_pid=`ps aux | grep 'es_worker' | awk '{print $2}'`
-				kill -9 $es_pid	
-				
-				$NB_HOME/bin/rabbitmqctl stop
+        celery_pid=`ps aux | grep 'celery worker' | awk '{print $2}'`
+        kill -9 $celery_pid	
+      
+        $NB_HOME/bin/mongod --dbpath $DATA_DIR --shutdown 
         sleep 5
 
         echo "OK"
         ;;
     reload|restart)
         bash $DIR/newsblaster.sh stop
-				sleep 10
+        sleep 10
         bash $DIR/newsblaster.sh start
         ;;
     *)

@@ -1,3 +1,5 @@
+NOTE: No longer used in NewsBlaster
+
 WIP Readme
 
 1. python setup.py install
