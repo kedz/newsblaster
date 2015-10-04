@@ -2,15 +2,12 @@ import scrapy
 import urllib2
 import re
 from datetime import datetime
-from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
-from scrapy.contrib.linkextractors.lxmlhtml import LxmlLinkExtractor
 from scrapy.contrib.spiders import XMLFeedSpider
-from nest.items import ArticleItem
 from scrapy.selector import Selector
 import sys
-from goose import Goose
-import cookielib
+from nest.news_parser import ArticleExtractor
+
 
 class NewyorkTimesRssSpider(XMLFeedSpider):
 
@@ -55,15 +52,11 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         links = node.xpath('//link[@rel="standout"]/@href').extract()
         pub_date = node.xpath('//pubDate/text()').extract()[0]
         small_img = node.xpath('//*[name()="media:content"]/@url').extract()
-        #Convert date
-    
+        
+        #TODO Convert date
 
         # Fetch actual article
         if len(links) > 0:
-            #request = scrapy.http.Request(links[0],meta={'dont_merge_cookies': True},callback=self.parse_article)
-            #request.meta['pub_date'] = pub_date
-            #request.meta['small_img'] = small_img
-            #yield request
 
             url = links[0]
 
@@ -77,44 +70,12 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
             article_selectors = selector.xpath('//*[contains(@class, "story-body-text")]/text()')
             cleaned_text = '\n'.join(article_selectors.extract())
 
-            extractor = Goose({'enable_image_fetching' : True,})
-            extractor_contents = extractor.extract(raw_html=raw_html)
-            description = extractor_contents.meta_description
-            keywords = extractor_contents.meta_keywords
-            authors = extractor_contents.authors
-            images = None
-            article_image =  extractor_contents.top_image
-            if article_image is not None:
-                images = article_image.src
+            article_ex = ArticleExtractor(url,response,raw_html)
+            article_item = article_ex.get_article_item()
 
-
-            # Initialize Items
-            article_item = ArticleItem()
-        
-            # Fill in Article Information
-            article_item['source_link'] = response.url
-            article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
-            #article_item['html_content'] = html
+            # Override since Goose was not able to extract correctly
             article_item['text_content'] = cleaned_text
-            article_item['source_type'] = 'news'
-            article_item['title'] = extractor_contents.title
             article_item['date_published'] = pub_date
-            article_item['authors'] = authors
-            article_item['topics'] = keywords
-            article_item['images_url'] = images
-
-
-            # Check if article was parsed, if not write to error file
-            #TODO replace this code with logging
-            if "title" not in article_item.keys():
-                errorFile = open("MissedArticles.txt", 'a')
-                if len(response.request.meta['redirect_urls']) > 0:
-                    errorFile.write(response.request.meta['redirect_urls'][0] +
-                                "\r\n")
-                else:
-                    errorFile.write(response.url + "\r\n")
-                errorFile.close()
-            # print "Writing to file"
-            print article_item
+            article_item['source'] = 'nytimes'
             return article_item
 
