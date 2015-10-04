@@ -38,7 +38,6 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         'http://rss.nytimes.com/services/xml/rss/nyt/YourMoney.xml')
 
     itertag = 'item'
-    iterator = 'xml'
 
     def parse_node(self, response, node):
         # Clean up namespace to allow for tags to be accessed

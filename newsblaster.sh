@@ -56,7 +56,8 @@ case "$1" in
         echo -n "Shutdown NewsBlaster: "
 
         scrapy_pid=`ps aux | grep scrapyd | awk '{print $2}' `
-        echo "Stop scrapyd manually by running: sudo kill -9 $scrapy_pid. Process requires root "
+        #echo "Stop scrapyd manually by running: sudo kill -9 $scrapy_pid. Process requires root "
+        kill -9 $scrapy_pid	
 
         celery_pid=`ps aux | grep 'celery worker' | awk '{print $2}'`
         kill -9 $celery_pid	
