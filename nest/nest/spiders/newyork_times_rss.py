@@ -1,22 +1,23 @@
 import scrapy
+import urllib2
 import re
 from datetime import datetime
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy import log
-from scrapy.selector import XmlXPathSelector
-from scrapy.selector import HtmlXPathSelector
 from scrapy.contrib.linkextractors.lxmlhtml import LxmlLinkExtractor
 from scrapy.contrib.spiders import XMLFeedSpider
-from nest.items import ArticleItem, ArticleMetaInformation
+from nest.items import ArticleItem
 from scrapy.selector import Selector
-
+import sys
+from goose import Goose
+import cookielib
 
 class NewyorkTimesRssSpider(XMLFeedSpider):
+
     name = "newyork_times_rss"
     allowed_domains = ["nytimes.com"]
     download_delay = 2
 
-    # TODO put list of all RSS feeds here
     start_urls = (
         'http://rss.nytimes.com/services/xml/rss/nyt/Arts.xml',
         'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
@@ -39,85 +40,81 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
         'http://rss.nytimes.com/services/xml/rss/nyt/Economy.xml',
         'http://rss.nytimes.com/services/xml/rss/nyt/MediaandAdvertising.xml',
         'http://rss.nytimes.com/services/xml/rss/nyt/YourMoney.xml')
+
     itertag = 'item'
+    iterator = 'xml'
 
     def parse_node(self, response, node):
         # Clean up namespace to allow for tags to be accessed
+ 
         node.remove_namespaces()
-        mylist = node.xpath('//link[@rel="standout"]/@href').extract()
-        # Extract all relevant meta information
+        #titles = node.xpath('//title/text()').extract()
+        #title= titles[2]
+        #description = node.xpath('//*[name()="media:description"]/text()').extract()
+        #description = node.xpath('//description/text()').extract()
+        links = node.xpath('//link[@rel="standout"]/@href').extract()
+        pub_date = node.xpath('//pubDate/text()').extract()[0]
+        small_img = node.xpath('//*[name()="media:content"]/@url').extract()
+        #Convert date
+    
+
         # Fetch actual article
-        if len(mylist) > 0:
-            yield scrapy.Request(mylist[0], callback=self.parse_article)
+        if len(links) > 0:
+            #request = scrapy.http.Request(links[0],meta={'dont_merge_cookies': True},callback=self.parse_article)
+            #request.meta['pub_date'] = pub_date
+            #request.meta['small_img'] = small_img
+            #yield request
 
-    def parse_article(self, response):
-        # print '*************Parsing article'
-        # Initialize Items
-        article_item = ArticleItem()
-        article_meta_information = ArticleMetaInformation()
-        # Fill in Article Information
-        article_item['source_link'] = response.url
-        print article_item['source_link']
-        article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
-        article_item['html_content'] = response.body
-        article_item['text_content'] = response.xpath('//p[re:test(@class, \
-        "story-body-text")]/text()').extract()
-        # print article_item['text_content']
-        article_item['source_type'] = 'news_article'
-        article_title = response.xpath('//meta[@property=\"og:title\"]\
-        /@content').extract()
-        if len(article_title) > 0:
-            article_item['title'] = article_title[0]
-        date_published = response.xpath('//meta\
-        [@property=\"article:published\"]/@content').extract()
-        if len(date_published) > 0:
-            article_meta_information['date_published'] = date_published[0]
-        else:
-            date_published = response.xpath('//meta[@property=\"article\
-            :published_time\"]/@content').extract()
-            if len(date_published) > 0:
-                article_meta_information['date_published'] = date_published[0]
+            url = links[0]
+
+            # Cookie workaround for NY Times. NY times a ...
+            opener = urllib2.build_opener(urllib2.HTTPCookieProcessor())
+            response = opener.open(url)
+            raw_html = response.read()
+
+            # Goose cannot extract clean text from html of NY Times
+            selector = Selector(text=raw_html)
+            article_selectors = selector.xpath('//*[contains(@class, "story-body-text")]/text()')
+            cleaned_text = '\n'.join(article_selectors.extract())
+
+            extractor = Goose({'enable_image_fetching' : True,})
+            extractor_contents = extractor.extract(raw_html=raw_html)
+            description = extractor_contents.meta_description
+            keywords = extractor_contents.meta_keywords
+            authors = extractor_contents.authors
+            images = None
+            article_image =  extractor_contents.top_image
+            if article_image is not None:
+                images = article_image.src
+
+
+            # Initialize Items
+            article_item = ArticleItem()
         
-	if 'date_published' in article_meta_information:
-		article_meta_information['date_published'] = \
-		 int(datetime.strptime(article_meta_information['date_published'],"%Y-%m-%d").strftime("%s"))*1000 
-        location = response.xpath('//meta[@name=\"geo\"]/@content').extract()
-        if len(location) > 0:
-            article_meta_information['location'] = location[0]
-        else:
-            article_meta_information['location'] = 'USA'
-        author = response.xpath('//meta[@name=\"author\"]/@content').extract()
-        if len(author) > 0:
-            article_meta_information['author'] = author[0]
-        keywords = response.xpath('//meta[@name=\"keywords\"]/@content')\
-            .extract()
-        article_meta_information['topics'] = self.get_topics(keywords)
-        language = response.xpath('//meta[@itemprop=\"inLanguage\"]/@content')\
-            .extract()
-        if len(language) > 0:
-            article_meta_information['language'] = language[0][:2]
-        else:
-            article_meta_information['language'] = "en"
-        main_image = response.xpath('//meta[@property=\"og:image\"]/@content')\
-            .extract()
-        if len(main_image) > 0:
-            article_meta_information['images_url'] = main_image[0]
-        article_item['meta_information'] = article_meta_information
-        # prints meta information
-        print article_item['meta_information']
-        # Check if article was parsed, if not write to error file
-        if "title" not in article_item.keys():
-            errorFile = open("MissedArticles.txt", 'a')
-            if len(response.request.meta['redirect_urls']) > 0:
-                errorFile.write(response.request.meta['redirect_urls'][0] +
-                                "\r\n")
-            else:
-                errorFile.write(response.url + "\r\n")
-            errorFile.close()
-            # print "Writing to file"
-	return article_item
+            # Fill in Article Information
+            article_item['source_link'] = response.url
+            article_item['time_of_crawl'] = int(datetime.strptime(response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
+            #article_item['html_content'] = html
+            article_item['text_content'] = cleaned_text
+            article_item['source_type'] = 'news'
+            article_item['title'] = extractor_contents.title
+            article_item['date_published'] = pub_date
+            article_item['authors'] = authors
+            article_item['topics'] = keywords
+            article_item['images_url'] = images
 
-    def get_topics(self, keywords):
-        # data always present in 0 of array
-        for keyword_list in keywords:
-            return keyword_list.split(',')
+
+            # Check if article was parsed, if not write to error file
+            #TODO replace this code with logging
+            if "title" not in article_item.keys():
+                errorFile = open("MissedArticles.txt", 'a')
+                if len(response.request.meta['redirect_urls']) > 0:
+                    errorFile.write(response.request.meta['redirect_urls'][0] +
+                                "\r\n")
+                else:
+                    errorFile.write(response.url + "\r\n")
+                errorFile.close()
+            # print "Writing to file"
+            print article_item
+            return article_item
+
