@@ -6,6 +6,7 @@ from scrapy.spiders import XMLFeedSpider
 from scrapy.selector import Selector
 import sys
 from nest.news_parser import ArticleExtractor
+from bs4 import BeautifulSoup
 
 
 class NewyorkTimesRssSpider(XMLFeedSpider):
@@ -64,9 +65,13 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
             raw_html = response.read()
 
             # Goose cannot extract clean text from html of NY Times
-            selector = Selector(text=raw_html)
-            article_selectors = selector.xpath('//*[contains(@class, "story-body-text")]/text()')
-            cleaned_text = '\n'.join(article_selectors.extract())
+            soup = BeautifulSoup(raw_html)
+            story_body =  soup.findAll("p", class_="story-body-text")
+            story_texts = []
+            for story_text in story_body:
+                story_texts.append(story_text.get_text())
+
+            cleaned_text = ' '.join(story_texts)
 
             article_ex = ArticleExtractor(url,response,raw_html)
             article_item = article_ex.get_article_item()
