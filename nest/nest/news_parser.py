@@ -38,7 +38,7 @@ class ArticleExtractor(object):
         article_item = ArticleItem()
 
         # Fill in Article Information
-        article_item['summarized'] = False
+        article_item['clustered'] = False
         article_item['source_link'] = self.url
         article_item['time_of_crawl'] = int(datetime.strptime(self.response.headers['Date'],"%a, %d %b %Y %H:%M:%S %Z").strftime("%s"))*1000
         article_item['html_content'] = html_content
