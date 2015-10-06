@@ -65,7 +65,7 @@ class NewyorkTimesRssSpider(XMLFeedSpider):
             raw_html = response.read()
 
             # Goose cannot extract clean text from html of NY Times
-            soup = BeautifulSoup(raw_html)
+            soup = BeautifulSoup(raw_html,"lxml")
             story_body =  soup.findAll("p", class_="story-body-text")
             story_texts = []
             for story_text in story_body:

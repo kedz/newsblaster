@@ -132,6 +132,7 @@ pip install -U numpy scipy scikit-learn
 pip install BeautifulSoup
 pip install pymongo
 pip install goose-extractor
+pip install beautifulsoup4
 
 # Fix required for Celery. Remove after package created from master
 git clone https://github.com/celery/celery.git
