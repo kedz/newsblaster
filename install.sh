@@ -138,3 +138,8 @@ git clone https://github.com/celery/celery.git
 cd celery
 pip install -r requirements/dev.txt
 python setup.py install
+
+# Install sumpy
+https://github.com/kedz/sumpy.git
+cd sumpy 
+python setup.py install
