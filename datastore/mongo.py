@@ -25,9 +25,43 @@ class MongoStore(object):
         self.collection.update({'title':article['title']},
                                     article,
                                     True )
-        
-    def get_pending_summarization(self):
-        pass
+
+    def insert_summary(self, summary):
+        #self.db
+            
+        #            {"_id": article["_id"]}, {"$set": {"clustered": True}},)
+        return self.db.summaries.insert(summary)
+
+    def insert_clusters(self, clusters):
+        return self.db.clusters.insert_many(clusters)
+
+    def get_pending_clusters(self):
+        clusters = self.db.clusters.find(
+                {"summarized": False}, {"_id": 1, "articles":1, "date": 1})
+        return clusters
+
+    def get_pending_articles(self):
+        articles = self.collection.find(
+                {"clustered": False}, {"_id": 1, "text_content":1, "title": 1})
+        return articles
+
+    def set_clustered_flag(self, articles):
+        for article in articles:
+            self.collection.update_one(
+                    {"_id": article["_id"]}, {"$set": {"clustered": True}},)
+
+    def set_summarized_flag(self, cluster):
+            self.db.clusters.update_one(
+                {"_id": cluster["_id"]}, {"$set": {"summarized": True}},)
+
+
+
+
+    def get_articles_from_ids(self, article_ids):
+        articles = self.collection.find(
+                {"_id": {"$in": article_ids}}, 
+                {"_id": 1, "text_content":1, "title": 1})
+        return [a for a in articles]
 
 
     def done(self):
