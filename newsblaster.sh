@@ -47,8 +47,6 @@ case "$1" in
         celery worker --app scheduler -l info -E -B -q > /dev/null &
         sleep 5			
 
-        ##Workers
-        #python $DIR/workers/es_worker.py > /dev/null &
         echo -ne '\n' 
         echo   "OK"
         ;;
