@@ -1,4 +1,3 @@
-NB_HOME=""
 if [ -z "$NB_HOME" ]; then
     NB_HOME="$HOME/newsblaster_home"
     mkdir -p "$NB_HOME"
@@ -36,14 +35,14 @@ fi
 #-------------------------------------------------------#
 # This was done because of installation on Columbia servers
 
-if [ lsb_release -r ]; then
-    release = lsb_release -r | awk '{print $2}'
+if [ "$(lsb_release -r)" ]; then
+    release=`lsb_release -r | awk '{print $2}'`
 
     if [ "$release" == "12.04" ]
     then
 
         if [ ! -f $NB_HOME/lib/libxml2.a ]; then
-                cd "$SRC_DIR"
+            cd "$SRC_DIR"
             curl -O http://xmlsoft.org/sources/libxml2-2.9.1.tar.gz
             tar zxvf libxml2-2.9.1.tar.gz
             cd libxml2-2.9.1
