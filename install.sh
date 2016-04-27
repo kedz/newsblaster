@@ -30,32 +30,47 @@ if [ ! -d $SRC_DIR ]; then
     mkdir -p "$SRC_DIR"
 fi
 
+
 #-------------------------------------------------------#
 # Start installing and compiling required sources here.  #
 #-------------------------------------------------------#
 # This was done because of installation on Columbia servers
 
-if [ ! -f $NB_HOME/lib/libxml2.a ]; then
-        cd "$SRC_DIR"
-    curl -O http://xmlsoft.org/sources/libxml2-2.9.1.tar.gz
-    tar zxvf libxml2-2.9.1.tar.gz
-    cd libxml2-2.9.1
-    ./configure --prefix=$NB_HOME
-    make
-    make install
+if [ lsb_release -r ]; then
+    release = lsb_release -r | awk '{print $2}'
+
+    if [ "$release" == "12.04" ]
+    then
+
+        if [ ! -f $NB_HOME/lib/libxml2.a ]; then
+                cd "$SRC_DIR"
+            curl -O http://xmlsoft.org/sources/libxml2-2.9.1.tar.gz
+            tar zxvf libxml2-2.9.1.tar.gz
+            cd libxml2-2.9.1
+            ./configure --prefix=$NB_HOME
+            make
+            make install
+        fi
+
+        if [ ! -f $NB_HOME/lib/libxslt.a ]; then
+                cd "$SRC_DIR"
+            curl -O http://xmlsoft.org/sources/libxslt-1.1.28.tar.gz
+            tar zxvf libxslt-1.1.28.tar.gz
+            cd libxslt-1.1.28
+            ./configure --prefix=$NB_HOME
+            make
+            make install
+        fi
+
+        #Exports for Columbia Servers
+        export LD_LIBRARY_PATH=$NB_HOME/lib
+        set LD_LIBRARY_PATH
+        export LIBRARY_PATH=$NB_HOME/lib
+        export C_INCLUDE_PATH=$NB_HOME/include:$NB_HOME/include/libxml2
+        export CPLUS_INCLUDE_PATH=$NB_HOME/include/libxslt/:$NB_HOME/include/libexslt
+
+    fi
 fi
-
-if [ ! -f $NB_HOME/lib/libxslt.a ]; then
-        cd "$SRC_DIR"
-    curl -O http://xmlsoft.org/sources/libxslt-1.1.28.tar.gz
-    tar zxvf libxslt-1.1.28.tar.gz
-    cd libxslt-1.1.28
-    ./configure --prefix=$NB_HOME
-    make
-    make install
-fi
-
-
 #-------------------------------------------------------#
 # Install MongoDB  #
 #-------------------------------------------------------#
@@ -67,19 +82,19 @@ if [ ! -f "$BIN_DIR/mongo" ]; then
     if [ "$(uname)" == "Darwin" ]
     then
         echo "Downloading MongoDB For OSX"
-        curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.0.6.tgz
-        tar zxvf mongodb-osx-x86_64-3.0.6.tgz 
-        cd mongodb-osx-x86_64-3.0.6
+        curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.2.5.tgz
+        tar zxvf mongodb-osx-x86_64-3.2.5.tgz 
+        cd mongodb-osx-x86_64-3.2.5
         rmq_temp=`pwd`
 
     elif [ "$(expr substr $(uname -s ) 1 5 )" == "Linux" ]
     then
         # Linux
         echo "Downloading MongoDB For Linux"
-        curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz
-        tar zxvf mongodb-linux-x86_64-3.0.6.tgz
+        curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.5.tgz
+        tar zxvf mongodb-linux-x86_64-3.2.5.tgz
     
-        cd mongodb-linux-x86_64-3.0.6
+        cd mongodb-linux-x86_64-3.2.5
         rmq_temp=`pwd`
     fi
 
@@ -104,13 +119,6 @@ if [ ! -f "$BIN_DIR/mongo" ]; then
 
 fi
 
-
-#Exports
-export LD_LIBRARY_PATH=$NB_HOME/lib
-set LD_LIBRARY_PATH
-export LIBRARY_PATH=$NB_HOME/lib
-export C_INCLUDE_PATH=$NB_HOME/include:$NB_HOME/include/libxml2
-export CPLUS_INCLUDE_PATH=$NB_HOME/include/libxslt/:$NB_HOME/include/libexslt
 
 cd $NB_HOME
 if [ ! -d $NB_HOME/venv ]; then
