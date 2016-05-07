@@ -35,6 +35,10 @@ app.conf.update(CELERYBEAT_SCHEDULE = {
 			                  'schedule': timedelta(hours=3),
                         'args': (job_dir,)
                                         },
+                        'every-30-minutes-do_clustering': {
+                        'task': 'scheduler.tasks.do_clustering',
+			                  'schedule': timedelta(minutes=30)
+                                        },
                     },
                     CELERY_TIMEZONE = 'US/Eastern',
                     CELERY_ACCEPT_CONTENT = ['pickle', 'json']

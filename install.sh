@@ -148,6 +148,6 @@ pip install -r requirements/dev.txt
 python setup.py install
 
 # Install sumpy
-https://github.com/kedz/sumpy.git
+git https://github.com/kedz/sumpy.git
 cd sumpy 
 python setup.py install

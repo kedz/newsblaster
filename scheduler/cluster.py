@@ -16,21 +16,22 @@ datastore_module = os.path.join(module_path,os.path.join(
 sys.path.append(datastore_module)
 from mongo import MongoStore
 
-ms = MongoStore()
-articles = [a for a in ms.get_pending_articles()]
 
-if len(articles) > 0:
+def preprocess(text):
+  stemmer = PorterStemmer()
+  stop = stopwords.words('english')
+  tokens = [tok for tok in word_tokenize(text.lower())
+    if tok not in stop]
+  tokens_stemmed = [stemmer.stem(tok) for tok in tokens]
+  return tokens_stemmed    
 
-    stemmer = PorterStemmer()
-    stop = stopwords.words('english')
-    def preprocess(text):
-        tokens = [tok for tok in word_tokenize(text.lower())
-                  if tok not in stop]
-        tokens_stemmed = [stemmer.stem(tok) for tok in tokens]
-        return tokens_stemmed    
+def cluster_articles():
+  ms = MongoStore()
+  articles = [a for a in ms.get_pending_articles()]
+
+  if len(articles) > 0:
 
     tfidf = TfidfVectorizer(tokenizer=preprocess)
-
 
 
     good_articles = [article for article in articles 

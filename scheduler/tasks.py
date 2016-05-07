@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from celery import Task
 from celery import group
 from scheduler.celery import app
+from scheduler.cluster import cluster_articles
+#from scheduler.summarize import 
 import sys
 from sets import Set
 import requests
@@ -25,3 +27,11 @@ def _schedule_spider(spider_name,job_dir):
 	payload = { 'project':'default' ,'spider':spider_name ,'setting':'JOBDIR='+ job_dir + '/' + spider_name }
 	requests.post('http://localhost:6800/schedule.json',params=payload)
 
+
+@app.task(ignore_result=True)
+def do_clustering():
+	cluster_articles()
+
+@app.task(ignore_result=True)
+def do_summarization():
+	pass
