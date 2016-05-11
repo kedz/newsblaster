@@ -1,0 +1,102 @@
+/* Flex Slider */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+	outline: none;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.flexslider {
+	margin: 0;
+	padding: 0;
+}
+
+.flexslider .slides > li {
+	display: none;
+	-webkit-backface-visibility: hidden;
+}
+
+.flexslider .slides img {
+	max-width: 100%;
+	display: block;
+}
+
+.flex-pauseplay span{
+	text-transform: capitalize;
+}
+
+.slides:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+html[xmlns] .slides {
+	display: block;
+}
+
+* html .slides {
+	height: 1%;
+}
+
+.no-js .slides > li:first-child {
+	display: block;
+}
+
+.flexslider {
+	position: relative;
+	zoom: 1;
+}
+
+.flexslider .slides {
+	zoom: 1;
+}
+
+.flexslider .slides > li {
+	position: relative;
+}
+
+.flex-container {
+	zoom: 1;
+	position: relative;
+}
+
+/* control nav */
+.flex-control-nav {
+	width: 100%;
+	text-align: left;
+	padding-top: 20px;
+    padding-bottom: 12px;
+}
+
+.flex-control-nav li {
+	margin: 0 0 0 10px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+.flex-control-nav li:first-child {
+	margin: 0;
+}
+
+.flex-control-nav li a {
+	width: 9px;
+	height: 9px;
+	display: block;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: #e1e1e1;
+	text-indent: 9999px;
+}
