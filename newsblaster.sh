@@ -44,7 +44,7 @@ case "$1" in
 
         #Celery
         cd $DIR
-        celery worker --app scheduler -l info -E -B -q  --concurrency 1 > /dev/null &
+        celery worker --app scheduler -l info -E -B -q  --concurrency 1 &> "$DATA_DIR/celery.log" &
         sleep 5			
 
         echo -ne '\n' 
