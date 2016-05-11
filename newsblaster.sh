@@ -44,7 +44,7 @@ case "$1" in
 
         #Celery
         cd $DIR
-        celery worker --app scheduler -l info -E -B -q > /dev/null &
+        celery worker --app scheduler -l info -E -B -q  --concurrency 1 > /dev/null &
         sleep 5			
 
         echo -ne '\n' 
@@ -60,7 +60,7 @@ case "$1" in
         celery_pid=`ps aux | grep 'celery worker' | awk '{print $2}'`
         kill -9 $celery_pid	
       
-        $NB_HOME/bin/mongod --dbpath $DATA_DIR --shutdown 
+        $NB_HOME/bin/mongo --eval "db.getSiblingDB('admin').shutdownServer()"
         sleep 5
 
         echo "OK"

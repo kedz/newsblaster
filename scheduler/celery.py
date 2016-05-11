@@ -27,7 +27,7 @@ app = Celery('scheduler.celery',
 app.conf.update(CELERYBEAT_SCHEDULE = {
                         'every-30-minutes-nyc_times': {
                         'task': 'scheduler.tasks.schedule_newyork_times_spider',
-			                  'schedule': timedelta(minutes=30),
+			                  'schedule': timedelta(minutes=10),
                         'args': (job_dir,)
                                         },
                         'every-hour-all-spiders': {
@@ -35,9 +35,13 @@ app.conf.update(CELERYBEAT_SCHEDULE = {
 			                  'schedule': timedelta(hours=3),
                         'args': (job_dir,)
                                         },
-                        'every-30-minutes-do_clustering': {
+                        'every-1-hour-do-clustering': {
                         'task': 'scheduler.tasks.do_clustering',
-			                  'schedule': timedelta(minutes=30)
+			                  'schedule': timedelta(hours=1)
+                                        },
+                        'every-2-hour-do-summarization': {
+                        'task': 'scheduler.tasks.do_summarization',
+                              'schedule': timedelta(hours=2)
                                         },
                     },
                     CELERY_TIMEZONE = 'US/Eastern',

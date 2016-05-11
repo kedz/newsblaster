@@ -3,7 +3,7 @@ from celery import Task
 from celery import group
 from scheduler.celery import app
 from scheduler.cluster import cluster_articles
-#from scheduler.summarize import 
+from scheduler.summarize import summarize_clusters_lexrank
 import sys
 from sets import Set
 import requests
@@ -34,4 +34,4 @@ def do_clustering():
 
 @app.task(ignore_result=True)
 def do_summarization():
-	pass
+	summarize_clusters_lexrank()

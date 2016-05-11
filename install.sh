@@ -143,6 +143,10 @@ pip install beautifulsoup4
 pip install celery
 
 # Install sumpy
-git https://github.com/kedz/sumpy.git
+git clone https://github.com/kedz/sumpy.git
 cd sumpy 
 python setup.py install
+
+#Download stopwords and punkt
+cd $DIR
+python setup/nltk_packages.py
