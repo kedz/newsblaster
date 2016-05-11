@@ -40,11 +40,50 @@ This is the group space being used to improve and further develop Columbia's New
 
 >Documentation will be updated and changed as we continue to improve and build out NewsBlaster 
 
-You are currently able to query and retrieve articles based on a variety of  meta information. Please see our [iPython Notebook](http://nbviewer.ipython.org/github/kedz/newsblaster/blob/master/notebooks/query_articles.ipynb) 
+All summaries are currently stored in the MongoDB database automatically installed and configured when you deployed NewsBlaster.
 
- All article have the following attributes associated with them.
+Example a multi document summary can be seen below. 
 
-![JSON structure of each article ](https://github.com/kedz/newsblaster/blob/master/documentation/article_json.png)
+```
+> db.summaries.findOne()
+{
+	"_id" : ObjectId("573353f03168e60986fa1ac0"),
+	"date" : ISODate("2016-05-11T11:46:56.488Z"),
+	"summary_type" : "lexrank",
+	"cluster_id" : ObjectId("573351a33168e60606eec00a"),
+	"sentences" : [
+		{
+			"text" : "Brian Sandoval said Thursday he was \"incredibly grateful\" to be mentioned in the conversation over who President Obama would possibly select to replace Justice Antonin Scalia, but that he does \"not wish to be considered at this time\" for a spot on the U.S. Supreme Court.",
+			"sentence_id" : 2,
+			"article_id" : ObjectId("573347feb44be453490c5dde")
+		},
+		{
+			"text" : "An intense political fight has erupted since the Feb. 13 death of long-serving conservative Justice Antonin Scalia, as Republicans maneuver to foil Obama's ability to choose a replacement who could tilt the court to the left for the first time in decades.",
+			"sentence_id" : 2,
+			"article_id" : ObjectId("57334808b44be453490c5e01")
+		},
+		{
+			"text" : "The U.S. presidential election is set for Nov. 8 and Republicans want the next president to fill Scalia's vacancy, hoping a Republican will be elected.",
+			"sentence_id" : 12,
+			"article_id" : ObjectId("57334808b44be453490c5e01")
+		},
+		{
+			"text" : "It's a duty that I take seriously, and one that I will fulfill in the weeks ahead,\" Obama, sounding undeterred by the Republican-led Senate's opposition, wrote in a blog post on the independent SCOTUSblog.com website.",
+			"sentence_id" : 5,
+			"article_id" : ObjectId("57334808b44be453490c5e01")
+		},
+		{
+			"text" : "\"In the meantime, the American people are going to have the ability to gauge whether the person I've nominated is well within the mainstream, is a good jurist, is somebody who's worthy to sit on the Supreme Court,\" Obama told reporters in the Oval Office.",
+			"sentence_id" : 30,
+			"article_id" : ObjectId("573347feb44be453490c5dde")
+		}
+	]
+}
+```
+
+
+API access to query summaries and related meta data will be exposed at a later date.
+
 
 
 #### Papers ####
