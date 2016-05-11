@@ -140,12 +140,7 @@ pip install BeautifulSoup
 pip install pymongo
 pip install goose-extractor
 pip install beautifulsoup4
-
-# Fix required for Celery. Remove after package created from master
-git clone https://github.com/celery/celery.git
-cd celery
-pip install -r requirements/dev.txt
-python setup.py install
+pip install celery
 
 # Install sumpy
 git https://github.com/kedz/sumpy.git
