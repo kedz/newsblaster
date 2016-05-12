@@ -1,0 +1,172 @@
+        <!DOCTYPE html>
+        <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+        <!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+        <head>
+            <!-- Basic Page Needs -->
+            <meta charset="utf-8">
+            <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+            <title>{% block title %}{% endblock title %}</title>
+            <meta name="description" content="">
+            <meta name="keywords" content="">
+            <meta name="author" content="">
+
+            <!-- Mobile Specific Metas -->
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+            <!-- Bootstrap  -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/bootstrap.css') }}">
+
+
+            <!-- Theme Style -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+
+            <!-- Colors -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/colors/color2.css') }}" id="colors">
+
+            <!-- Animation Style -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/animate.css') }}" >
+
+            <!-- Google Fonts -->
+            <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+
+            <!-- Favicon and touch icons  -->
+            <link href="icon/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+            <link href="icon/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+            <link href="icon/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+            <link href="icon/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
+            <link href="icon/favicon.png" rel="shortcut icon">
+
+            <!--[if lt IE 9]>
+                <script src="javascript/html5shiv.js"></script>
+                <script src="javascript/respond.min.js"></script>
+                <![endif]-->
+
+            {% block extra_head %}{% endblock extra_head %}
+            </head>
+
+            <body>
+                <!-- Header -->
+                <header id="header" class="header">
+                    <div class="top-wrap">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="logo" class="logo">
+                                        <a href="./" rel="home" title="home">
+                                            <img src="{{ url_for('static', filename = 'images/logo.svg') }}"  alt="Columbia NewsBlaster"/>
+                                        </a>
+                                    </div>
+                                    <div class="follow-us">
+                                        <div class="follow-title">
+                                            Follow Us
+                                        </div>
+                                        <ul class="social-links">
+                                            <li class="facebook"><a href="#">Follow us on Facebook</a></li>
+                                            <li class="twitter"><a href="#">Follow us on Twitter</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.col-md-6 -->
+
+                                <div class="col-md-6">
+                                    <div class="btn-menu"></div><!-- //mobile menu button -->
+                                </div>
+
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div><!-- /.top-wrap -->
+                    <div class="header-wrap">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <nav id="mainnav" class="mainnav">
+                                        <ul class="menu">
+                                            <li><a class="active" href="#">Home </a></li>
+                                            <li class="has-children"><a href="#">Categories</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="#">Finance</a></li>
+                                                    <li><a href="#">Entertainment</a></li>
+                                                    <li><a href="#">Politics</a></li>
+                                                    <li><a href="#">Riots</a></li>
+                                                    <li><a href="#">Natural Disasters</a></li>
+                                                    <li><a href="#">Sports</a></li>
+                                                    <li><a href="#">Science & Technology</a></li>
+                                                    <li><a href="#">Terrorist Incidents</a></li>
+                                                </ul><!-- /.submenu -->
+                                            </li>
+                                            <li class="has-children"><a href="about.html">About</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="#">What is NewsBlaster?</a></li>
+                                                    <li><a href="#">Academic Papers</a></li>
+                                                    <li><a href="#">NewsBlaster in Press</a></li>
+                                                    <li><a href="#">About Today's Run</a></li>
+                                                </ul><!-- /.submenu -->
+
+                                            </li>
+
+                                            <li><a href="#">Contact Us</a></li>
+                                        </ul><!-- /.menu -->
+                                    </nav><!-- /nav -->
+                                </div><!-- /.col-md-9 -->
+                                <div class="col-md-3">
+                                    <div class="search-wrap">
+                                        <div class="search-icon"></div><!-- //mobile search button -->
+                                        <form action="#" id="searchform" class="search-form" method="get" role="search">
+                                            <input type="text" id="s" placeholder="Search" class="search-field">
+                                            <input type="submit" value="&#xf002;" id="searchsubmit" class="search-submit">
+                                            <a class="search-close" href="#"><i class="fa fa-times-circle"></i></a>
+                                        </form>
+                                    </div><!-- /.search-wrap -->
+                                </div><!-- /.col-md-3 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div><!-- /.header-wrap -->
+                </header>
+
+
+                <!-- Main -->
+                <section id="main">
+                    <div class="container">
+                        <div class="row">
+
+                        {% block main %}
+                        {% endblock main %}
+
+                           
+                        </section>
+
+                        <!-- Footer -->
+                        <footer id="footer">
+                            <div class="footer-copyright">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            &copy; 2016 Columbia NewsBlaster.
+                                        </div><!-- /.col-md-12 -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.container -->
+                            </div>
+                        </footer>
+
+
+                        <!-- Go Top -->
+                        <a class="go-top">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+
+                        <!-- Javascript -->
+                        <script src="{{url_for('static', filename='javascript/jquery.min.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/bootstrap.min.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery.easing.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/matchMedia.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery-waypoints.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery.flexslider.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery.transit.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery.leanModal.min.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery.tweet.min.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/jquery.doubletaptogo.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/smoothscroll.js')}}"></script>
+                        <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+                    </body>
+
+                    </html>
