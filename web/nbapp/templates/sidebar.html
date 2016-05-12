@@ -1,0 +1,88 @@
+{% macro sidebar() %}
+<div class="col-md-4">
+    <div class="sidebar-widget-1">
+        <div class="widget widget-categories gn-animation" data-animation="fadeInUp" data-animation-delay="0" data-animation-offset="75%">
+            <h5 class="widget-title">Article Sources</h5>
+            <ul class="cat-list">
+                <li><a href="#">New York Times<span>(232)</span></a></li>
+                <li><a href="#">Aall street journal <span>(22)</span></a></li>
+            </ul>
+        </div><!-- /.widget-categories -->
+
+        <div class="widget widget-categories gn-animation" data-animation="fadeInUp" data-animation-delay="0" data-animation-offset="75%">
+            <h5 class="widget-title">Categoires</h5>
+            <ul class="cat-list">
+                <li><a href="#">Finance</li>
+                <li><a href="#">Entertainment</li>
+                <li><a href="#">Science & Technology</li>
+            </ul>
+        </div><!-- /.widget-categories -->
+
+
+        <div class="widget widget-recent gn-animation" data-animation="fadeInUp" data-animation-delay="0" data-animation-offset="75%">
+            <h5 class="widget-title">Recent Summaries</h5>
+            <ul>
+                <li>
+                    <div class="thumb">
+
+                            <a href="#"> <img src="{{ url_for('static', filename = 'images/thumbs/2.jpg') }}" > </a>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">Lots of people get rich knowing nothing more than that.</a></h3>
+                        <div class="date">7:00 am on Feb 28</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="thumb">
+                       <a href="#"> <img src="{{ url_for('static', filename = 'images/thumbs/2.jpg') }}" > </a>
+                 
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">Lots of people get rich knowing nothing more than that.</a></h3>
+                        <div class="date">7:00 am on Feb 28</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="thumb">
+                       <a href="#"> <img src="{{ url_for('static', filename = 'images/thumbs/2.jpg') }}" > </a>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">Lots of people get rich knowing nothing more than that.</a></h3>
+                        <div class="date">7:00 am on Feb 28</div>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- /.widget-recent -->
+        <div class="widget widget-ads gn-animation" data-animation="fadeInUp" data-animation-delay="0" data-animation-offset="75%">
+               <a href="#"> <img src="{{ url_for('static', filename = 'images/ad.jpg') }}" > </a>
+            <p class="text-ad">Advertisement</p>
+        </div><!-- /.widget-ads -->
+
+
+
+        <div class="widget widget-follow-us gn-animation" data-animation="fadeInUp" data-animation-delay="0" data-animation-offset="75%">
+            <h5 class="widget-title text-dark">Follow Us</h5>
+            <div class="socials">
+                <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div><!-- /.widget-follow-us -->
+
+        <div class="widget widget-subscribe gn-animation" data-animation="fadeInUp" data-animation-delay="0" data-animation-offset="75%">
+            <h5 class="widget-title">Good News Newsetter</h5>
+            <p>Subscribe to our email newsletter for good news, sent out every Monday.</p>
+            <form method="post" action="#" id="subscribe-form" data-mailchimp="true">
+                <div id="subscribe-content">
+                    <div class="input">
+                        <input type="text" id="subscribe-email" name="subscribe-email" placeholder="Email">
+                    </div>
+                    <div class="button">
+                        <button type="button" id="subscribe-button" class="" title="Subscribe now">Subscribe</button>
+                    </div>
+                </div>
+                <div id="subscribe-msg"></div>
+            </form>
+        </div><!-- /.widget-subscribe -->
+    </div><!-- /.sidebar -->    
+</div><!-- /.col-md-4 -->
+{% endmacro %}

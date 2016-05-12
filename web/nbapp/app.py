@@ -13,3 +13,9 @@ app.config.from_object(config)
 @app.route('/')
 def index():
   return render_template('index.html')
+
+
+@app.route('/all')
+def all_summaries():
+  return render_template('all.html')
+
