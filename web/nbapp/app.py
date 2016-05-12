@@ -3,8 +3,6 @@ import os
 import sys
 from flask import Flask, flash
 from flask import abort, jsonify, redirect, render_template, request, url_for
-from sqlalchemy import exc
-from sqlalchemy import func
 from nbapp import config
 from pprint import pprint
 
