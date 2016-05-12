@@ -78,9 +78,12 @@ class MongoStore(object):
             #Generating a new title would be nice
             article = self.db.articles.find({'_id':sentence['article_id']},{'title':1})
 
+            #Num of articles used to generate summary
+            cluster = self.db.clusters.find({'_id':summary['cluster_id']})
+
             summary_meta = {'title':article[0]['title'],
                             'text': ' '.join(disp_sentences),
-                            'num_articles': len(summary['sentences']),}
+                            'num_articles': len(cluster[0]['articles']),}
             disp_summaries.append(summary_meta)
 
         return disp_summaries

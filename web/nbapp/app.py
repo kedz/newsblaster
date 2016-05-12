@@ -31,7 +31,6 @@ def all_summaries():
     #Complete with pagination after integrating categorization model and other code
     #Being restored from hard drive that crashed.
     sums  = ms.get_summaries()
-    ms.done()
     
-    return render_template('all.html')
+    return render_template('all.html',summaries=sums)
 

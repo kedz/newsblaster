@@ -20,23 +20,21 @@
                 <div class="col-md-8">
                     <div class="post-wrap">
 
+                    {% for summary in summaries %}
                         <article class="post">
                             <div class="thumb">
                                 <a href="#"> <img src="{{ url_for('static', filename = 'images/thumbs/6.jpg') }}" > </a>
                             </div>
                             <div class="content">
                                 <div class="cat">
-                                    <a href="#">Mustreads</a>
+                                    <a href="#">Category</a>
                                 </div>
-                                <h3><a href="#">If you wanted to get rich.</a></h3>
-                                <p class="excerpt-entry">I think your best bet would be to start or join a startup. That's been a reliable way to get rich for hundreds of years.</p>
-                                <div class="activity">
-                                    <span class="views">345</span><span class="comment"><a href="#">15</a></span>
-                                </div>
+                                <h3><a href="#">{{ summary['title'] }} | {{ summary['num_articles'] }} articles</a></h3>
+                                <p class="excerpt-entry">{{ summary['text'] }}</p>
+
                             </div>
                         </article><!--  /.post -->
-
-
+                    {% endfor %}
 
                     </div><!-- /.social-media-posts -->
                 </div><!-- /.col-md-8 -->

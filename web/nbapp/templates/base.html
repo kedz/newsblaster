@@ -81,9 +81,10 @@
                                 <div class="col-md-9">
                                     <nav id="mainnav" class="mainnav">
                                         <ul class="menu">
-                                            <li><a class="active" href="#">Home </a></li>
+                                            <li><a class="active" href="{{ url_for('index') }}">Home </a></li>
                                             <li class="has-children"><a href="#">Categories</a>
                                                 <ul class="sub-menu">
+                                                    <li><a href="{{ url_for('all_summaries') }}">All</a></li>
                                                     <li><a href="#">Finance</a></li>
                                                     <li><a href="#">Entertainment</a></li>
                                                     <li><a href="#">Politics</a></li>

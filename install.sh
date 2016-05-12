@@ -98,8 +98,6 @@ if [ ! -f "$BIN_DIR/mongo" ]; then
     fi
 
     # OSX
-
-
     DATA_DIR="$NB_HOME/data/db"
     mkdir -p "$DATA_DIR"
     
@@ -107,11 +105,11 @@ if [ ! -f "$BIN_DIR/mongo" ]; then
     ln -s "$rmq_temp/bin/mongod" "$BIN_DIR/mongod"
     
     #Start mongodb
-    $BIN_DIR/mongod --dbpath $DATA_DIR --fork --logpath "$DATA_DIR/mongodb.log"
+    #$BIN_DIR/mongod --dbpath $DATA_DIR --fork --logpath "$DATA_DIR/mongodb.log"
     # Wait on start
-    $BIN_DIR/mongo --nodb $DIR/setup/mongo_wait.js
+    #$BIN_DIR/mongo --nodb $DIR/setup/mongo_wait.js
     #Setup Indices
-    $BIN_DIR/mongo newsblaster --eval "db.articles.ensureIndex({'title':1})"
+    #$BIN_DIR/mongo newsblaster --eval "db.articles.ensureIndex({'title':1})"
     
     #Stop mongodb
     $BIN_DIR/mongod --dbpath $DATA_DIR --shutdown
@@ -133,14 +131,15 @@ pip install service_identity
 pip install scrapy
 pip install pyyaml
 pip install scrapyd
-#pip install Celery
+pip install Celery
 pip install requests
 pip install -U numpy scipy scikit-learn
 pip install BeautifulSoup
 pip install pymongo
 pip install goose-extractor
 pip install beautifulsoup4
-pip install celery
+pip install Flask
+pip install Flask-Script
 
 # Install sumpy
 git clone https://github.com/kedz/sumpy.git

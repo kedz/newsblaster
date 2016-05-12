@@ -6,5 +6,5 @@ PWD = os.path.abspath(os.curdir)
 
 DEBUG = True
 
-SECRET_KEY = 'secret222'  # Create your own.
+SECRET_KEY = '4840736754news5424579639blaster'  # Create new key. Should not be in repo.
 SESSION_PROTECTION = 'strong'

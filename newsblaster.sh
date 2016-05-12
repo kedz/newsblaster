@@ -2,7 +2,6 @@
 # Run-level Startup script for the NewsBlaster
 #
 # description: Startup/Shutdown Oracle listener and instance
-
 # if NB_HOME not set -- display error
 if [ -z "$NB_HOME" ]; then
     NB_HOME="$HOME/newsblaster_home"
@@ -37,7 +36,7 @@ case "$1" in
         echo -n "Starting NewsBlaster: "
 
         #Mongodb
-        $NB_HOME/bin/mongod --dbpath $DATA_DIR --fork --logpath "$DATA_DIR/mongodb.log"
+        $NB_HOME/bin/mongod --dbpath $DATA_DIR --fork --logpath "$DATA_DIR/mongodb.log" --bind_ip '127.0.0.1'
 
         #Scrapyd	
         scrapyd > /dev/null &
